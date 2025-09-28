@@ -1,0 +1,1979 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\app\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\app\\app_state_machine.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+.stabs "USBA_IN_DIS:G10;",0x20,0,0,_USBA_IN_DIS
+.stabs "WR_IN_DIS:G10;",0x20,0,0,_WR_IN_DIS
+
+.stabs "cscc_@anonymity_0:T20=s1b_a1d:21=10;;,0,1;b_b1c:22=10;;,1,2;b_cac:23=10;;,2,3;b_cad:24=10;;,3,4;b_cbc:25=10;;,4,5;b_cbd:26=10;;,5,6;b_bcxc:27=10;;,6,7;b_acxd:28=10;;,7,8;;", 0x80, 0, 0, 0
+.stabs "plug_state_bits_t:T19=u1bit:20,0,8;byte:29=10;;,0,8;;", 0x80, 0, 0, 0
+.stabs "plug_event_flag_t:T31=s8b_caout_break_cb:32=10;;,0,8;b_cain_break_cb:33=10;;,8,16;b_cbout_break_ca:34=10;;,16,24;b_cbin_break_ca:35=10;;,24,32;b_a1d_break_cx:36=10;;,32,40;b_cax_break:37=10;;,40,48;b_cbx_break:38=10;;,48,56;b_qc_break:39=10;;,56,64;;", 0x80, 0, 0, 0
+.stabs "control_action_t:T41=s3b_dcdc_en:42=10;;,0,8;b_dcdc_dir:43=10;;,8,16;b_vbus_dischar:44=10;;,16,24;;", 0x80, 0, 0, 0
+.stabs "protocol_state_t:T46=s3b_pd_en:47=10;;,0,8;pd_chl:48=10;;,8,16;b_multi_chl:49=10;;,16,24;;", 0x80, 0, 0, 0
+.stabs "plug_state_context_t:T17=s16state:18=19;;,0,8;event_flag:30=31;;,8,72;control_flag:40=41;;,72,96;protocol_flag:45=46;;,96,120;pd_work:50=10;;,120,128;;", 0x80, 0, 0, 0
+.stabs "plug_state_context:G17;",0x20,0,0,_plug_state_context
+.stabs "requesrt_9V_F:G10;",0x20,0,0,_requesrt_9V_F
+.stabs "CA_rutren:G10;",0x20,0,0,_CA_rutren
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_plug_state_init_sec .section rom
+	.global	_plug_state_init
+_plug_state_init:
+Lfunc_begin0:
+.stabs "plug_state_init:f:16", 0x24,0,0,_plug_state_init
+.stabn 0xc0, 0, 0, _plug_state_init
+.stabn 0xe0, 0, 0, _plug_state_init
+LM0:
+.stabn	0x44, 0, 37, LM0-_plug_state_init
+Lfunc_begin1:
+LM1:
+.stabn	0x44, 0, 39, LM1-_plug_state_init
+	banksel 0
+	call _mod_queue_create
+LM2:
+.stabn	0x44, 0, 41, LM2-_plug_state_init
+	bsf BSR,1
+	clrf _plug_state_context+1
+LM3:
+.stabn	0x44, 0, 42, LM3-_plug_state_init
+	clrf _plug_state_context+2
+LM4:
+.stabn	0x44, 0, 43, LM4-_plug_state_init
+	clrf _plug_state_context+3
+LM5:
+.stabn	0x44, 0, 44, LM5-_plug_state_init
+	clrf _plug_state_context+4
+LM6:
+.stabn	0x44, 0, 45, LM6-_plug_state_init
+	clrf _plug_state_context+5
+LM7:
+.stabn	0x44, 0, 46, LM7-_plug_state_init
+	clrf _plug_state_context+6
+LM8:
+.stabn	0x44, 0, 47, LM8-_plug_state_init
+	clrf _plug_state_context+7
+LM9:
+.stabn	0x44, 0, 48, LM9-_plug_state_init
+	banksel 0
+	return
+Ltmp0:
+Lfunc_end0:
+Lfunc_end1:
+LM10:
+.stabf LM10-_plug_state_init
+
+	_plug_state_machine_proc_sec .section rom
+	.global	_plug_state_machine_proc
+_plug_state_machine_proc:
+Lfunc_begin2:
+.stabs "plug_state_machine_proc:f:16", 0x24,0,0,_plug_state_machine_proc
+.stabn 0xc0, 0, 0, _plug_state_machine_proc
+.stabn 0xe0, 0, 0, _plug_state_machine_proc
+LM11:
+.stabn	0x44, 0, 52, LM11-_plug_state_machine_proc
+Lfunc_begin3:
+LM12:
+.stabn	0x44, 0, 57, LM12-_plug_state_machine_proc
+	banksel 0
+	call _mod_queue_receive
+	movfw _mod_queue_receive.frame.+0
+	movwf _plug_state_machine_proc.temp.+0
+LM13:
+.stabn	0x44, 0, 58, LM13-_plug_state_machine_proc
+	sublw 0
+	bne LBB1_2
+LBB1_1:
+LM14:
+.stabn	0x44, 0, 60, LM14-_plug_state_machine_proc
+Ltmp1:
+	goto LBB1_62
+Ltmp2:
+LBB1_2:
+LM15:
+.stabn	0x44, 0, 73, LM15-_plug_state_machine_proc
+	movfw _plug_state_machine_proc.temp.+0
+	movwf _plug_state_machine_proc.temp.+1
+	xorlw 1
+	sublw 0
+	beq LBB1_3
+LBB1_63:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 2
+	sublw 0
+	beq LBB1_4
+LBB1_64:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 3
+	sublw 0
+	beq LBB1_5
+LBB1_65:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 4
+	sublw 0
+	beq LBB1_6
+LBB1_66:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 5
+	sublw 0
+	beq LBB1_7
+LBB1_67:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 6
+	sublw 0
+	beq LBB1_10
+LBB1_68:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 7
+	sublw 0
+	beq LBB1_18
+LBB1_69:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 8
+	sublw 0
+	beq LBB1_27
+LBB1_70:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 9
+	sublw 0
+	beq LBB1_28
+LBB1_71:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 10
+	sublw 0
+	beq LBB1_29
+LBB1_72:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 11
+	sublw 0
+	beq LBB1_30
+LBB1_73:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 12
+	sublw 0
+	beq LBB1_33
+LBB1_74:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 13
+	sublw 0
+	beq LBB1_36
+LBB1_75:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 14
+	sublw 0
+	beq LBB1_39
+LBB1_76:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 15
+	sublw 0
+	beq LBB1_42
+LBB1_77:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 16
+	sublw 0
+	beq LBB1_43
+LBB1_78:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 17
+	sublw 0
+	beq LBB1_44
+LBB1_79:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 18
+	sublw 0
+	beq LBB1_45
+LBB1_80:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 19
+	sublw 0
+	beq LBB1_46
+LBB1_81:
+	movfw _plug_state_machine_proc.temp.+1
+	xorlw 20
+	sublw 0
+	beq LBB1_47
+	goto LBB1_48
+LBB1_3:
+LM16:
+.stabn	0x44, 0, 97, LM16-_plug_state_machine_proc
+Ltmp3:
+	goto LBB1_49
+LBB1_4:
+LM17:
+.stabn	0x44, 0, 103, LM17-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_5:
+LM18:
+.stabn	0x44, 0, 129, LM18-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_6:
+LM19:
+.stabn	0x44, 0, 151, LM19-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_7:
+LM20:
+.stabn	0x44, 0, 158, LM20-_plug_state_machine_proc
+	bsf BSR,0
+	clrf _CA_IN_Frist_No_Soure+0
+LM21:
+.stabn	0x44, 0, 162, LM21-_plug_state_machine_proc
+	clrf _SOS_lighting_stop+0
+LM22:
+.stabn	0x44, 0, 163, LM22-_plug_state_machine_proc
+	banksel _plug_state_context
+	bsf _plug_state_context+0, 2
+LM23:
+.stabn	0x44, 0, 164, LM23-_plug_state_machine_proc
+	bcf BSR,1
+	clrf _plug_vbus_switch_process.args.+0
+	clrf _plug_vbus_switch_process.args.+1
+	movlw 0xfa
+	movwf _plug_vbus_switch_process.args.+2
+	clrf _plug_vbus_switch_process.args.+3
+	call _plug_vbus_switch_process
+LM24:
+.stabn	0x44, 0, 165, LM24-_plug_state_machine_proc
+	movlw 20
+	bsf BSR,1
+	movwf _inoutput_data+14
+LM25:
+.stabn	0x44, 0, 168, LM25-_plug_state_machine_proc
+	clrf _inoutput_data+6
+LM26:
+.stabn	0x44, 0, 169, LM26-_plug_state_machine_proc
+Ltmp4:
+	bcf BSR,1
+	bsf _PT1EN5, _PT1EN5
+	bsf _PT15, _PT15
+Ltmp5:
+LM27:
+.stabn	0x44, 0, 170, LM27-_plug_state_machine_proc
+	bsf BSR,1
+	clrf _F_A1_ON+0
+LM28:
+.stabn	0x44, 0, 171, LM28-_plug_state_machine_proc
+	banksel _Charge_OCP_cnt
+	clrf _Charge_OCP_cnt+0
+LM29:
+.stabn	0x44, 0, 172, LM29-_plug_state_machine_proc
+	clrf _Charge_OCP_Flage+0
+LM30:
+.stabn	0x44, 0, 173, LM30-_plug_state_machine_proc
+	clrf _Charge_Close_En_cnt+0
+LM31:
+.stabn	0x44, 0, 175, LM31-_plug_state_machine_proc
+Ltmp6:
+	movfwl _MiroB_charge_in+0
+Ltmp7:
+	sublw 0
+	beq LBB1_9
+LBB1_8:
+LM32:
+.stabn	0x44, 0, 187, LM32-_plug_state_machine_proc
+Ltmp8:
+	bcf BSR,0
+	clrf _Type_cb_charge_in+0
+LM33:
+.stabn	0x44, 0, 188, LM33-_plug_state_machine_proc
+	clrf _MiroB_charge_in+0
+LM34:
+.stabn	0x44, 0, 189, LM34-_plug_state_machine_proc
+	bsf BSR,1
+	bcf _plug_state_context+0, 1
+LM35:
+.stabn	0x44, 0, 190, LM35-_plug_state_machine_proc
+	clrf _inoutput_data+7
+LM36:
+.stabn	0x44, 0, 191, LM36-_plug_state_machine_proc
+	clrf _inoutput_data+13
+Ltmp9:
+LBB1_9:
+LM37:
+.stabn	0x44, 0, 194, LM37-_plug_state_machine_proc
+	banksel _plug_state_context
+	clrf _plug_state_context+4
+LM38:
+.stabn	0x44, 0, 195, LM38-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_10:
+LM39:
+.stabn	0x44, 0, 199, LM39-_plug_state_machine_proc
+Ltmp10:
+	bsf _PT1EN5, _PT1EN5
+	bsf _PT15, _PT15
+Ltmp11:
+LM40:
+.stabn	0x44, 0, 201, LM40-_plug_state_machine_proc
+	movlw 1
+	movwf _plug_state_machine_proc.temp.+1
+	movfwl _adc_convert+30
+	sublw 98
+	bgt LBB1_83
+LBB1_82:
+	movlw 0
+	movwf _plug_state_machine_proc.temp.+1
+LBB1_83:
+	movfwl _adc_convert+31
+	sublw 0
+	beq LBB1_85
+LBB1_84:
+	movlw 0
+	movwf _plug_state_machine_proc.temp.+1
+LBB1_85:
+	movfw _plug_state_machine_proc.temp.+1
+	andlw 1
+	sublw 0
+	bne LBB1_12
+Ltmp12:
+LBB1_11:
+	movlw 1
+	movwf _plug_state_machine_proc.temp.+1
+Ltmp13:
+	movfwl _adc_convert+30
+Ltmp14:
+	sublw 0x9e
+	bgt LBB1_87
+LBB1_86:
+	movlw 0
+	movwf _plug_state_machine_proc.temp.+1
+LBB1_87:
+	movlw 1
+	movwf _plug_state_machine_proc.temp.+2
+Ltmp15:
+	movfwl _adc_convert+31
+Ltmp16:
+	movwf _plug_state_machine_proc.temp.+3
+	sublw 7
+	bgt LBB1_89
+LBB1_88:
+	movlw 0
+	movwf _plug_state_machine_proc.temp.+2
+LBB1_89:
+	movfw _plug_state_machine_proc.temp.+1
+	movwf _plug_state_machine_proc.temp.+1
+	movfw _plug_state_machine_proc.temp.+3
+	sublw 7
+	beq LBB1_91
+LBB1_90:
+	movfw _plug_state_machine_proc.temp.+2
+	movwf _plug_state_machine_proc.temp.+1
+LBB1_91:
+	movfw _plug_state_machine_proc.temp.+1
+	andlw 1
+	sublw 0
+	bne LBB1_15
+LBB1_12:
+LM41:
+.stabn	0x44, 0, 203, LM41-_plug_state_machine_proc
+Ltmp17:
+	movfw _Temp+1
+Ltmp18:
+	sublw 0
+	beq LBB1_14
+LBB1_13:
+LM42:
+.stabn	0x44, 0, 205, LM42-_plug_state_machine_proc
+Ltmp19:
+	clrf _Temp+1
+Ltmp20:
+LBB1_14:
+LM43:
+.stabn	0x44, 0, 208, LM43-_plug_state_machine_proc
+	movlw 1
+	banksel _LCD_display_3S_Cnt
+	movwf _LCD_display_3S_Cnt+0
+	clrf _LCD_display_3S_Cnt+1
+Ltmp21:
+LBB1_15:
+LM44:
+.stabn	0x44, 0, 223, LM44-_plug_state_machine_proc
+	movlw 1
+	banksel _F_A1_ON
+	movwf _F_A1_ON+0
+LM45:
+.stabn	0x44, 0, 225, LM45-_plug_state_machine_proc
+	bsf _plug_state_context+0, 3
+LM46:
+.stabn	0x44, 0, 226, LM46-_plug_state_machine_proc
+	bcf BSR,1
+	clrf _plug_vbus_switch_process.args.+0
+	clrf _plug_vbus_switch_process.args.+1
+	movlw 100
+	movwf _plug_vbus_switch_process.args.+2
+	clrf _plug_vbus_switch_process.args.+3
+	call _plug_vbus_switch_process
+LM47:
+.stabn	0x44, 0, 231, LM47-_plug_state_machine_proc
+Ltmp22:
+	movfw _MiroB_charge_in+0
+Ltmp23:
+	sublw 0
+	beq LBB1_17
+LBB1_16:
+LM48:
+.stabn	0x44, 0, 234, LM48-_plug_state_machine_proc
+Ltmp24:
+	bsf BSR,1
+	clrf _inoutput_data+8
+Ltmp25:
+LBB1_17:
+LM49:
+.stabn	0x44, 0, 244, LM49-_plug_state_machine_proc
+	banksel _plug_state_context
+	clrf _plug_state_context+4
+LM50:
+.stabn	0x44, 0, 245, LM50-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_18:
+LM51:
+.stabn	0x44, 0, 248, LM51-_plug_state_machine_proc
+	bsf BSR,0
+	clrf _Charge_OCP_cnt+0
+LM52:
+.stabn	0x44, 0, 249, LM52-_plug_state_machine_proc
+	clrf _Charge_OCP_Flage+0
+LM53:
+.stabn	0x44, 0, 250, LM53-_plug_state_machine_proc
+	clrf _Charge_Close_En_cnt+0
+LM54:
+.stabn	0x44, 0, 252, LM54-_plug_state_machine_proc
+	clrf _Charge_HIG_Vbat_F+0
+LM55:
+.stabn	0x44, 0, 253, LM55-_plug_state_machine_proc
+	clrf _Bat_Protest_cnt+0
+LM56:
+.stabn	0x44, 0, 254, LM56-_plug_state_machine_proc
+	movlw 15
+	andwf _now_power_number+0, F
+LM57:
+.stabn	0x44, 0, 255, LM57-_plug_state_machine_proc
+Ltmp26:
+	movfwl _Type_ca_charge_in+0
+Ltmp27:
+	sublw 0
+	beq LBB1_24
+LBB1_19:
+LM58:
+.stabn	0x44, 0, 257, LM58-_plug_state_machine_proc
+Ltmp28:
+	clrf _V_NO_Cha_flage+0
+LM59:
+.stabn	0x44, 0, 258, LM59-_plug_state_machine_proc
+	bcf _user_flag+0, 2
+LM60:
+.stabn	0x44, 0, 259, LM60-_plug_state_machine_proc
+	bcf BSR,0
+	clrf _Type_ca_charge_in+0
+LM61:
+.stabn	0x44, 0, 262, LM61-_plug_state_machine_proc
+	bsf BSR,0
+	clrf _V_NO_BAT_Charge+0
+LM62:
+.stabn	0x44, 0, 263, LM62-_plug_state_machine_proc
+	movlw 31
+	bcf BSR,0
+	movwf _discharge_displed+0
+LM63:
+.stabn	0x44, 0, 264, LM63-_plug_state_machine_proc
+	movlw 1
+	movwf _Discharge_MinCur+0
+LM64:
+.stabn	0x44, 0, 265, LM64-_plug_state_machine_proc
+Ltmp29:
+	movfwl _MirB_IN_Flage+0
+Ltmp30:
+	sublw 0
+	bne LBB1_21
+LBB1_20:
+LM65:
+.stabn	0x44, 0, 267, LM65-_plug_state_machine_proc
+Ltmp31:
+	movlw 30
+	movwf _sleepcnt+0
+Ltmp32:
+LBB1_21:
+LM66:
+.stabn	0x44, 0, 270, LM66-_plug_state_machine_proc
+	movfwl _CA_Test_do_no_Slepp+0
+Ltmp33:
+	sublw 0
+	beq LBB1_23
+LBB1_22:
+LM67:
+.stabn	0x44, 0, 272, LM67-_plug_state_machine_proc
+Ltmp34:
+	clrf _sleepcnt+0
+LM68:
+.stabn	0x44, 0, 273, LM68-_plug_state_machine_proc
+	bsf BSR,0
+	clrf _CA_Test_do_no_Slepp+0
+Ltmp35:
+LBB1_23:
+LM69:
+.stabn	0x44, 0, 275, LM69-_plug_state_machine_proc
+	movlw 1
+	banksel _Sleep_up_close_Car_ignition
+	movwf _Sleep_up_close_Car_ignition+0
+LM70:
+.stabn	0x44, 0, 279, LM70-_plug_state_machine_proc
+	movlw 4
+LM71:
+.stabn	0x44, 0, 277, LM71-_plug_state_machine_proc
+	bcf BSR,0
+	movwf _R_ChargeCur_DataBuff+0
+LM72:
+.stabn	0x44, 0, 278, LM72-_plug_state_machine_proc
+	movwf _R_ChargeCur_Data+0
+LM73:
+.stabn	0x44, 0, 279, LM73-_plug_state_machine_proc
+	movwf _mod_charge_cur_deal.args.+0
+	call _mod_charge_cur_deal
+Ltmp36:
+LBB1_24:
+LM74:
+.stabn	0x44, 0, 282, LM74-_plug_state_machine_proc
+	movlw 12
+	banksel _plug_state_context
+	andwf _plug_state_context+0, W
+Ltmp37:
+	sublw 0
+	beq LBB1_26
+LBB1_25:
+LM75:
+.stabn	0x44, 0, 284, LM75-_plug_state_machine_proc
+Ltmp38:
+	movfw _plug_state_context+0
+LM76:
+.stabn	0x44, 0, 285, LM76-_plug_state_machine_proc
+	andlw 0xf3
+LM77:
+.stabn	0x44, 0, 284, LM77-_plug_state_machine_proc
+	movwfl _plug_state_machine_proc.temp.+1
+	movfw _plug_state_context+0
+	andlw 0xfb
+	movwf _plug_state_context+0
+LM78:
+.stabn	0x44, 0, 285, LM78-_plug_state_machine_proc
+	movfwl _plug_state_machine_proc.temp.+1
+	movwf _plug_state_context+0
+LM79:
+.stabn	0x44, 0, 286, LM79-_plug_state_machine_proc
+	bcf BSR,1
+	clrf _plug_vbus_switch_process.args.+0
+	clrf _plug_vbus_switch_process.args.+1
+	clrf _plug_vbus_switch_process.args.+2
+	clrf _plug_vbus_switch_process.args.+3
+	call _plug_vbus_switch_process
+LM80:
+.stabn	0x44, 0, 288, LM80-_plug_state_machine_proc
+	bsf BSR,1
+	clrf _plug_state_context+15
+Ltmp39:
+LBB1_26:
+LM81:
+.stabn	0x44, 0, 292, LM81-_plug_state_machine_proc
+	banksel _request_num_copy
+	clrf _request_num_copy+0
+LM82:
+.stabn	0x44, 0, 293, LM82-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_27:
+LM83:
+.stabn	0x44, 0, 296, LM83-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_28:
+LM84:
+.stabn	0x44, 0, 299, LM84-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_29:
+LM85:
+.stabn	0x44, 0, 302, LM85-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_30:
+LM86:
+.stabn	0x44, 0, 304, LM86-_plug_state_machine_proc
+Ltmp40:
+	movlw 12
+	bsf BSR,1
+	andwf _plug_state_context+0, W
+Ltmp41:
+	sublw 0
+	beq LBB1_32
+LBB1_31:
+LM87:
+.stabn	0x44, 0, 307, LM87-_plug_state_machine_proc
+Ltmp42:
+	clrf _inoutput_data+8
+LM88:
+.stabn	0x44, 0, 312, LM88-_plug_state_machine_proc
+	movlw 1
+LM89:
+.stabn	0x44, 0, 310, LM89-_plug_state_machine_proc
+	movwf _plug_state_context+10
+LM90:
+.stabn	0x44, 0, 312, LM90-_plug_state_machine_proc
+	movwf _plug_state_context+11
+Ltmp43:
+LBB1_32:
+LM91:
+.stabn	0x44, 0, 314, LM91-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_33:
+LM92:
+.stabn	0x44, 0, 317, LM92-_plug_state_machine_proc
+Ltmp44:
+	movlw 12
+	bsf BSR,1
+	andwf _plug_state_context+0, W
+Ltmp45:
+	sublw 0
+	beq LBB1_35
+LBB1_34:
+LM93:
+.stabn	0x44, 0, 319, LM93-_plug_state_machine_proc
+Ltmp46:
+	movlw 1
+	movwf _inoutput_data+8
+Ltmp47:
+LBB1_35:
+LM94:
+.stabn	0x44, 0, 321, LM94-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_36:
+LM95:
+.stabn	0x44, 0, 323, LM95-_plug_state_machine_proc
+Ltmp48:
+	movlw 48
+	bsf BSR,1
+	andwf _plug_state_context+0, W
+Ltmp49:
+	sublw 0
+	beq LBB1_38
+LBB1_37:
+LM96:
+.stabn	0x44, 0, 326, LM96-_plug_state_machine_proc
+Ltmp50:
+	clrf _inoutput_data+9
+LM97:
+.stabn	0x44, 0, 332, LM97-_plug_state_machine_proc
+	movlw 1
+LM98:
+.stabn	0x44, 0, 330, LM98-_plug_state_machine_proc
+	movwf _plug_state_context+10
+LM99:
+.stabn	0x44, 0, 332, LM99-_plug_state_machine_proc
+	movwf _plug_state_context+11
+Ltmp51:
+LBB1_38:
+LM100:
+.stabn	0x44, 0, 334, LM100-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_39:
+LM101:
+.stabn	0x44, 0, 336, LM101-_plug_state_machine_proc
+Ltmp52:
+	movlw 48
+	bsf BSR,1
+	andwf _plug_state_context+0, W
+Ltmp53:
+	sublw 0
+	beq LBB1_41
+LBB1_40:
+LM102:
+.stabn	0x44, 0, 339, LM102-_plug_state_machine_proc
+Ltmp54:
+	movlw 1
+	movwf _inoutput_data+9
+Ltmp55:
+LBB1_41:
+LM103:
+.stabn	0x44, 0, 341, LM103-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_42:
+LM104:
+.stabn	0x44, 0, 343, LM104-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_43:
+LM105:
+.stabn	0x44, 0, 345, LM105-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_44:
+LM106:
+.stabn	0x44, 0, 347, LM106-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_45:
+LM107:
+.stabn	0x44, 0, 349, LM107-_plug_state_machine_proc
+	goto LBB1_49
+LBB1_46:
+LM108:
+.stabn	0x44, 0, 351, LM108-_plug_state_machine_proc
+	goto LBB1_49
+Ltmp56:
+LBB1_47:
+LBB1_48:
+LBB1_49:
+LM109:
+.stabn	0x44, 0, 358, LM109-_plug_state_machine_proc
+	movlw 22
+	banksel _plug_state_context
+	andwf _plug_state_context+0, W
+Ltmp57:
+	sublw 0
+	beq LBB1_51
+LBB1_50:
+LM110:
+.stabn	0x44, 0, 360, LM110-_plug_state_machine_proc
+Ltmp58:
+	bsf _plug_state_context+0, 6
+LM111:
+.stabn	0x44, 0, 361, LM111-_plug_state_machine_proc
+	goto LBB1_52
+Ltmp59:
+LBB1_51:
+LM112:
+.stabn	0x44, 0, 364, LM112-_plug_state_machine_proc
+	bcf _plug_state_context+0, 6
+Ltmp60:
+LBB1_52:
+LM113:
+.stabn	0x44, 0, 367, LM113-_plug_state_machine_proc
+	movlw 41
+	andwf _plug_state_context+0, W
+Ltmp61:
+	sublw 0
+	beq LBB1_54
+LBB1_53:
+LM114:
+.stabn	0x44, 0, 369, LM114-_plug_state_machine_proc
+Ltmp62:
+	bsf _plug_state_context+0, 7
+LM115:
+.stabn	0x44, 0, 370, LM115-_plug_state_machine_proc
+	goto LBB1_55
+Ltmp63:
+LBB1_54:
+LM116:
+.stabn	0x44, 0, 373, LM116-_plug_state_machine_proc
+	bcf _plug_state_context+0, 7
+Ltmp64:
+LBB1_55:
+LM117:
+.stabn	0x44, 0, 377, LM117-_plug_state_machine_proc
+	movfw _CA_rutren+0
+Ltmp65:
+	sublw 0
+	beq LBB1_61
+LBB1_56:
+LM118:
+.stabn	0x44, 0, 379, LM118-_plug_state_machine_proc
+Ltmp66:
+	clrf _CA_rutren+0
+LM119:
+.stabn	0x44, 0, 381, LM119-_plug_state_machine_proc
+	clrf _inoutput_data+8
+LM120:
+.stabn	0x44, 0, 383, LM120-_plug_state_machine_proc
+Ltmp67:
+	movfwl _Temp+1
+Ltmp68:
+	sublw 0
+	beq LBB1_58
+LBB1_57:
+LM121:
+.stabn	0x44, 0, 384, LM121-_plug_state_machine_proc
+Ltmp69:
+	movlw 29
+	movwfl _discharge_displed+0
+Ltmp70:
+LBB1_58:
+LM122:
+.stabn	0x44, 0, 385, LM122-_plug_state_machine_proc
+	movfwl _CA_IN_Frist_No_Soure+0
+Ltmp71:
+	sublw 0
+	beq LBB1_60
+LBB1_59:
+LM123:
+.stabn	0x44, 0, 387, LM123-_plug_state_machine_proc
+Ltmp72:
+	banksel _CA_IN_Frist_No_Soure
+	clrf _CA_IN_Frist_No_Soure+0
+LM124:
+.stabn	0x44, 0, 388, LM124-_plug_state_machine_proc
+	movlw 31
+	movwfl _discharge_displed+0
+Ltmp73:
+LBB1_60:
+LM125:
+.stabn	0x44, 0, 393, LM125-_plug_state_machine_proc
+	banksel _Mod_Dis_USBA_EN.args.
+	clrf _Mod_Dis_USBA_EN.args.+0
+	call _Mod_Dis_USBA_EN
+LM126:
+.stabn	0x44, 0, 394, LM126-_plug_state_machine_proc
+	bsf BSR,1
+	clrf _inoutput_data+6
+LM127:
+.stabn	0x44, 0, 395, LM127-_plug_state_machine_proc
+	clrf _F_A1_ON+0
+LM128:
+.stabn	0x44, 0, 396, LM128-_plug_state_machine_proc
+	movlw 1
+	movwfl _Bat_low_sleep_flage+0
+LM129:
+.stabn	0x44, 0, 397, LM129-_plug_state_machine_proc
+	movlw 3
+	movwfl _sleepcnt+0
+LM130:
+.stabn	0x44, 0, 403, LM130-_plug_state_machine_proc
+	goto LBB1_62
+Ltmp74:
+LBB1_61:
+LM131:
+.stabn	0x44, 0, 406, LM131-_plug_state_machine_proc
+	bcf BSR,1
+	bsf _PT1EN5, _PT1EN5
+	bsf _PT15, _PT15
+Ltmp75:
+LM132:
+.stabn	0x44, 0, 423, LM132-_plug_state_machine_proc
+	call _plug_multi_protocol_break_process
+LM133:
+.stabn	0x44, 0, 424, LM133-_plug_state_machine_proc
+	call _plug_typec_break_process
+LM134:
+.stabn	0x44, 0, 425, LM134-_plug_state_machine_proc
+	call _plug_pd_getsrccap_process
+LM135:
+.stabn	0x44, 0, 426, LM135-_plug_state_machine_proc
+	call _plug_dcdc_control_process
+LM136:
+.stabn	0x44, 0, 427, LM136-_plug_state_machine_proc
+	call _multi_pd_switch
+LBB1_62:
+LM137:
+.stabn	0x44, 0, 428, LM137-_plug_state_machine_proc
+	banksel 0
+	return
+Ltmp76:
+Lfunc_end2:
+Lfunc_end3:
+LM138:
+.stabn 0xc0,0,0, LM12-_plug_state_machine_proc
+.stabs "message:10;",0x80,0,0,_plug_state_machine_proc.temp.+0
+.stabn 0xe0,0,0, LM137-_plug_state_machine_proc
+.stabf LM138-_plug_state_machine_proc
+
+	_plug_vbus_switch_process_sec .section rom
+_plug_vbus_switch_process:
+Lfunc_begin4:
+.stabs "plug_vbus_switch_process:f:16", 0x24,0,0,_plug_vbus_switch_process
+.stabn 0xc0, 0, 0, _plug_vbus_switch_process
+.stabn 0xe0, 0, 0, _plug_vbus_switch_process
+LM139:
+.stabn	0x44, 0, 435, LM139-_plug_vbus_switch_process
+Lfunc_begin5:
+	banksel 0
+	movfw _plug_vbus_switch_process.args.+0
+	movwf _plug_vbus_switch_process.temp.+3
+	movfw _plug_vbus_switch_process.args.+3
+LM140:
+.stabn	0x44, 0, 437, LM140-_plug_vbus_switch_process
+Ltmp77:
+	movwf _plug_vbus_switch_process.temp.+0
+	movfw _plug_vbus_switch_process.args.+1
+	movwf _plug_vbus_switch_process.temp.+2
+	movwfl _inoutput_data+13
+	movfw _plug_vbus_switch_process.args.+2
+	movwf _plug_vbus_switch_process.temp.+1
+LM141:
+.stabn	0x44, 0, 438, LM141-_plug_vbus_switch_process
+	movwfl _inoutput_data+14
+LM142:
+.stabn	0x44, 0, 446, LM142-_plug_vbus_switch_process
+	movlw 0
+	movwf _plug_vbus_switch_process.temp.+4
+	movfwl _plug_state_context+0
+	SrlOne
+	andlw 1
+	sublw 0
+	beq LBB2_4
+LBB2_1:
+LM143:
+.stabn	0x44, 0, 447, LM143-_plug_vbus_switch_process
+	movlw 0
+	movwf _plug_vbus_switch_process.temp.+5
+	movfwl _plug_state_context+0
+	SrlTwo
+	andlw 1
+	sublw 0
+	bne LBB2_3
+LBB2_2:
+LM144:
+.stabn	0x44, 0, 448, LM144-_plug_vbus_switch_process
+	movlw 1
+	movwf _plug_vbus_switch_process.temp.+6
+	movfwl _plug_state_context+0
+	SrlFour
+	andlw 1
+	sublw 0
+	beq LBB2_9
+LBB2_8:
+	movlw 0
+	movwf _plug_vbus_switch_process.temp.+6
+LBB2_9:
+	movfw _plug_vbus_switch_process.temp.+6
+	movwf _plug_vbus_switch_process.temp.+5
+LBB2_3:
+	movfw _plug_vbus_switch_process.temp.+5
+	movwf _plug_vbus_switch_process.temp.+4
+LBB2_4:
+LM145:
+.stabn	0x44, 0, 446, LM145-_plug_vbus_switch_process
+	movfw _plug_vbus_switch_process.temp.+4
+	andlw 1
+	bsf BSR,1
+	movwf _inoutput_data+7
+LM146:
+.stabn	0x44, 0, 451, LM146-_plug_vbus_switch_process
+	movfw _plug_state_context+0
+	SrlTwo
+	andlw 1
+	sublw 0
+	beq LBB2_6
+LBB2_5:
+LM147:
+.stabn	0x44, 0, 452, LM147-_plug_vbus_switch_process
+	movlw 1
+	movwfl _plug_vbus_switch_process.temp.+4
+	movfw _plug_state_context+0
+	SrlFour
+	andlw 1
+	sublw 0
+	beq LBB2_7
+LBB2_6:
+LM148:
+.stabn	0x44, 0, 453, LM148-_plug_vbus_switch_process
+	movfw _plug_state_context+0
+	SrlThree
+	andlw 1
+LM149:
+.stabn	0x44, 0, 452, LM149-_plug_vbus_switch_process
+	movwfl _plug_vbus_switch_process.temp.+4
+LBB2_7:
+LM150:
+.stabn	0x44, 0, 451, LM150-_plug_vbus_switch_process
+	movfwl _plug_vbus_switch_process.temp.+4
+	movwf _inoutput_data+8
+LM151:
+.stabn	0x44, 0, 459, LM151-_plug_vbus_switch_process
+	banksel 0
+	return
+Ltmp78:
+Lfunc_end4:
+Lfunc_end5:
+LM152:
+.stabn 0xc0,0,0, LM139-_plug_vbus_switch_process
+.stabs "dly_a1:10;",0x80,0,0,_plug_vbus_switch_process.args.+0
+.stabn 0xe0,0,0, LM151-_plug_vbus_switch_process
+.stabn 0xc0,0,0, LM139-_plug_vbus_switch_process
+.stabs "dly_b1:10;",0x80,0,0,_plug_vbus_switch_process.args.+1
+.stabn 0xe0,0,0, LM151-_plug_vbus_switch_process
+.stabn 0xc0,0,0, LM139-_plug_vbus_switch_process
+.stabs "dly_ca:10;",0x80,0,0,_plug_vbus_switch_process.args.+2
+.stabn 0xe0,0,0, LM151-_plug_vbus_switch_process
+.stabn 0xc0,0,0, LM139-_plug_vbus_switch_process
+.stabs "dly_cb:10;",0x80,0,0,_plug_vbus_switch_process.args.+3
+.stabn 0xe0,0,0, LM151-_plug_vbus_switch_process
+.stabf LM152-_plug_vbus_switch_process
+
+	_plug_multi_protocol_break_process_sec .section rom
+_plug_multi_protocol_break_process:
+Lfunc_begin6:
+.stabs "plug_multi_protocol_break_process:f:16", 0x24,0,0,_plug_multi_protocol_break_process
+.stabn 0xc0, 0, 0, _plug_multi_protocol_break_process
+.stabn 0xe0, 0, 0, _plug_multi_protocol_break_process
+LM153:
+.stabn	0x44, 0, 463, LM153-_plug_multi_protocol_break_process
+Lfunc_begin7:
+LM154:
+.stabn	0x44, 0, 474, LM154-_plug_multi_protocol_break_process
+	banksel 0
+	movfwl _plug_state_context+8
+Ltmp79:
+	sublw 0
+	beq LBB3_2
+LBB3_1:
+LM155:
+.stabn	0x44, 0, 476, LM155-_plug_multi_protocol_break_process
+Ltmp80:
+	bsf BSR,1
+	clrf _plug_state_context+8
+LM156:
+.stabn	0x44, 0, 477, LM156-_plug_multi_protocol_break_process
+	banksel _multi_protocol
+	clrf _multi_protocol+2
+LM157:
+.stabn	0x44, 0, 478, LM157-_plug_multi_protocol_break_process
+	goto LBB3_6
+Ltmp81:
+LBB3_2:
+LM158:
+.stabn	0x44, 0, 480, LM158-_plug_multi_protocol_break_process
+	movfwl _plug_state_context+15
+Ltmp82:
+	sublw 0
+	beq LBB3_4
+LBB3_3:
+LM159:
+.stabn	0x44, 0, 482, LM159-_plug_multi_protocol_break_process
+Ltmp83:
+	bsf BSR,2
+	clrf _multi_protocol+2
+LM160:
+.stabn	0x44, 0, 483, LM160-_plug_multi_protocol_break_process
+	goto LBB3_5
+Ltmp84:
+LBB3_4:
+LM161:
+.stabn	0x44, 0, 485, LM161-_plug_multi_protocol_break_process
+	movlw 1
+	movwfl _multi_protocol+2
+Ltmp85:
+LBB3_5:
+LBB3_6:
+LM162:
+.stabn	0x44, 0, 488, LM162-_plug_multi_protocol_break_process
+	banksel 0
+	return
+Ltmp86:
+Lfunc_end6:
+Lfunc_end7:
+LM163:
+.stabf LM163-_plug_multi_protocol_break_process
+
+	_plug_typec_break_process_sec .section rom
+_plug_typec_break_process:
+Lfunc_begin8:
+.stabs "plug_typec_break_process:f:16", 0x24,0,0,_plug_typec_break_process
+.stabn 0xc0, 0, 0, _plug_typec_break_process
+.stabn 0xe0, 0, 0, _plug_typec_break_process
+LM164:
+.stabn	0x44, 0, 511, LM164-_plug_typec_break_process
+Lfunc_begin9:
+LM165:
+.stabn	0x44, 0, 520, LM165-_plug_typec_break_process
+	banksel 0
+	movfwl _plug_state_context+6
+Ltmp87:
+	sublw 0
+	beq LBB4_2
+LBB4_1:
+LM166:
+.stabn	0x44, 0, 522, LM166-_plug_typec_break_process
+Ltmp88:
+	bsf BSR,1
+	clrf _plug_state_context+6
+LM167:
+.stabn	0x44, 0, 523, LM167-_plug_typec_break_process
+	movlw LOW(_h_typeca+0)
+	bcf BSR,1
+	movwf _typec_break.args.+0
+	movlw HIGH8(_h_typeca+0)
+	movwf _typec_break.args.+1
+	call _typec_break
+Ltmp89:
+LBB4_2:
+LM168:
+.stabn	0x44, 0, 543, LM168-_plug_typec_break_process
+	movlw 63
+	bsf BSR,1
+	andwf _plug_state_context+0, W
+	movwfl _plug_typec_break_process.temp.+0
+	sublw 0
+	beq LBB4_12
+LBB4_15:
+	movfwl _plug_typec_break_process.temp.+0
+	xorlw 1
+	sublw 0
+	beq LBB4_11
+LBB4_16:
+	movfwl _plug_typec_break_process.temp.+0
+	xorlw 4
+	sublw 0
+	beq LBB4_3
+LBB4_17:
+	movfwl _plug_typec_break_process.temp.+0
+	xorlw 8
+	sublw 0
+	beq LBB4_3
+LBB4_18:
+	movfwl _plug_typec_break_process.temp.+0
+	xorlw 16
+	sublw 0
+	beq LBB4_10
+LBB4_19:
+	movfwl _plug_typec_break_process.temp.+0
+	xorlw 32
+	sublw 0
+	beq LBB4_10
+	goto LBB4_13
+LBB4_3:
+LM169:
+.stabn	0x44, 0, 551, LM169-_plug_typec_break_process
+Ltmp90:
+	movfwl _TYPE_CA_18W_Flage+0
+Ltmp91:
+	sublw 0
+	beq LBB4_5
+LBB4_4:
+LM170:
+.stabn	0x44, 0, 552, LM170-_plug_typec_break_process
+Ltmp92:
+	movlw 5
+	movwf _h_pd+6
+	goto LBB4_6
+LBB4_5:
+LM171:
+.stabn	0x44, 0, 554, LM171-_plug_typec_break_process
+	movlw 5
+	movwf _h_pd+6
+Ltmp93:
+LBB4_6:
+LM172:
+.stabn	0x44, 0, 556, LM172-_plug_typec_break_process
+	movlw 6
+	movwf _h_pd+7
+LM173:
+.stabn	0x44, 0, 557, LM173-_plug_typec_break_process
+	movlw 2
+	movwf _h_pd+36
+LM174:
+.stabn	0x44, 0, 560, LM174-_plug_typec_break_process
+	movlw 1
+LM175:
+.stabn	0x44, 0, 559, LM175-_plug_typec_break_process
+	movwf _plug_state_context+12
+LM176:
+.stabn	0x44, 0, 560, LM176-_plug_typec_break_process
+	movwfl _pd_enable.args.+0
+	call _pd_enable
+	movlw 1
+LM177:
+.stabn	0x44, 0, 570, LM177-_plug_typec_break_process
+	movwfl _plug_state_context+14
+LM178:
+.stabn	0x44, 0, 571, LM178-_plug_typec_break_process
+	bsf BSR,2
+	clrf _multi_protocol+0
+LM179:
+.stabn	0x44, 0, 573, LM179-_plug_typec_break_process
+Ltmp94:
+	movfwl _plug_state_context+0
+	SrlTwo
+	andlw 1
+Ltmp95:
+	sublw 0
+	beq LBB4_8
+LBB4_7:
+LM180:
+.stabn	0x44, 0, 575, LM180-_plug_typec_break_process
+Ltmp96:
+	clrf _multi_protocol+1
+LM181:
+.stabn	0x44, 0, 576, LM181-_plug_typec_break_process
+	goto LBB4_9
+Ltmp97:
+LBB4_8:
+LM182:
+.stabn	0x44, 0, 579, LM182-_plug_typec_break_process
+	movlw 1
+	movwf _multi_protocol+1
+Ltmp98:
+LBB4_9:
+LM183:
+.stabn	0x44, 0, 583, LM183-_plug_typec_break_process
+	goto LBB4_14
+LBB4_10:
+LM184:
+.stabn	0x44, 0, 586, LM184-_plug_typec_break_process
+	goto LBB4_14
+LBB4_11:
+LM185:
+.stabn	0x44, 0, 590, LM185-_plug_typec_break_process
+	goto LBB4_14
+LBB4_12:
+LM186:
+.stabn	0x44, 0, 592, LM186-_plug_typec_break_process
+	clrf _plug_state_context+12
+LM187:
+.stabn	0x44, 0, 593, LM187-_plug_typec_break_process
+	bcf BSR,1
+	clrf _pd_enable.args.+0
+	call _pd_enable
+LM188:
+.stabn	0x44, 0, 594, LM188-_plug_typec_break_process
+	bsf BSR,1
+	clrf _plug_state_context+14
+LM189:
+.stabn	0x44, 0, 595, LM189-_plug_typec_break_process
+	movlw 1
+	movwfl _multi_protocol+1
+LM190:
+.stabn	0x44, 0, 596, LM190-_plug_typec_break_process
+	goto LBB4_14
+LBB4_13:
+LM191:
+.stabn	0x44, 0, 598, LM191-_plug_typec_break_process
+	clrf _plug_state_context+12
+LM192:
+.stabn	0x44, 0, 599, LM192-_plug_typec_break_process
+	bcf BSR,1
+	clrf _pd_enable.args.+0
+	call _pd_enable
+LM193:
+.stabn	0x44, 0, 600, LM193-_plug_typec_break_process
+	bsf BSR,1
+	clrf _plug_state_context+14
+LM194:
+.stabn	0x44, 0, 601, LM194-_plug_typec_break_process
+	movlw 1
+	banksel _multi_protocol
+	movwf _multi_protocol+1
+LM195:
+.stabn	0x44, 0, 602, LM195-_plug_typec_break_process
+	clrf _multi_protocol+2
+Ltmp99:
+LBB4_14:
+LM196:
+.stabn	0x44, 0, 605, LM196-_plug_typec_break_process
+	banksel 0
+	return
+Ltmp100:
+Lfunc_end8:
+Lfunc_end9:
+LM197:
+.stabf LM197-_plug_typec_break_process
+
+	_plug_pd_getsrccap_process_sec .section rom
+_plug_pd_getsrccap_process:
+Lfunc_begin10:
+.stabs "plug_pd_getsrccap_process:f:16", 0x24,0,0,_plug_pd_getsrccap_process
+.stabn 0xc0, 0, 0, _plug_pd_getsrccap_process
+.stabn 0xe0, 0, 0, _plug_pd_getsrccap_process
+LM198:
+.stabn	0x44, 0, 611, LM198-_plug_pd_getsrccap_process
+Lfunc_begin11:
+LM199:
+.stabn	0x44, 0, 630, LM199-_plug_pd_getsrccap_process
+	banksel 0
+	movfwl _Charge_low_power_F+0
+Ltmp101:
+	sublw 0
+	bne LBB5_2
+LBB5_1:
+LM200:
+.stabn	0x44, 0, 633, LM200-_plug_pd_getsrccap_process
+Ltmp102:
+	movlw 2
+	movwfl _h_pd+36
+LM201:
+.stabn	0x44, 0, 634, LM201-_plug_pd_getsrccap_process
+	goto LBB5_3
+Ltmp103:
+LBB5_2:
+LM202:
+.stabn	0x44, 0, 637, LM202-_plug_pd_getsrccap_process
+	movlw 1
+	movwfl _h_pd+36
+Ltmp104:
+LBB5_3:
+LM203:
+.stabn	0x44, 0, 639, LM203-_plug_pd_getsrccap_process
+	return
+Ltmp105:
+Lfunc_end10:
+Lfunc_end11:
+LM204:
+.stabf LM204-_plug_pd_getsrccap_process
+
+	_plug_dcdc_control_process_sec .section rom
+_plug_dcdc_control_process:
+Lfunc_begin12:
+.stabs "plug_dcdc_control_process:f:16", 0x24,0,0,_plug_dcdc_control_process
+.stabn 0xc0, 0, 0, _plug_dcdc_control_process
+.stabn 0xe0, 0, 0, _plug_dcdc_control_process
+LM205:
+.stabn	0x44, 0, 643, LM205-_plug_dcdc_control_process
+Lfunc_begin13:
+LM206:
+.stabn	0x44, 0, 645, LM206-_plug_dcdc_control_process
+	banksel 0
+	bsf BSR,1
+	clrf _requesrt_9V_F+0
+LM207:
+.stabn	0x44, 0, 646, LM207-_plug_dcdc_control_process
+Ltmp106:
+	movfw _plug_state_context+0
+	SrlSix
+	andlw 1
+	sublw 0
+	beq LBB6_3
+LBB6_1:
+LM208:
+.stabn	0x44, 0, 647, LM208-_plug_dcdc_control_process
+	movfw _plug_state_context+0
+	SrlSeven
+Ltmp107:
+LM209:
+.stabn	0x44, 0, 646, LM209-_plug_dcdc_control_process
+	sublw 0
+	bne LBB6_3
+LBB6_2:
+LM210:
+.stabn	0x44, 0, 652, LM210-_plug_dcdc_control_process
+Ltmp108:
+	movlw 1
+	movwf _inoutput_data+11
+LM211:
+.stabn	0x44, 0, 653, LM211-_plug_dcdc_control_process
+	movlw 0xfa
+	movwf _inoutput_data+17
+LM212:
+.stabn	0x44, 0, 655, LM212-_plug_dcdc_control_process
+	clrf _plug_state_context+10
+LM213:
+.stabn	0x44, 0, 657, LM213-_plug_dcdc_control_process
+	movlw 1
+	movwf _plug_state_context+11
+LM214:
+.stabn	0x44, 0, 659, LM214-_plug_dcdc_control_process
+	movwf _requesrt_9V_F+0
+LM215:
+.stabn	0x44, 0, 660, LM215-_plug_dcdc_control_process
+	goto LBB6_14
+Ltmp109:
+LBB6_3:
+LM216:
+.stabn	0x44, 0, 661, LM216-_plug_dcdc_control_process
+	movfw _plug_state_context+0
+	SrlSix
+	andlw 1
+	sublw 0
+	bne LBB6_10
+LBB6_4:
+LM217:
+.stabn	0x44, 0, 662, LM217-_plug_dcdc_control_process
+	movfw _plug_state_context+0
+	SrlSeven
+Ltmp110:
+LM218:
+.stabn	0x44, 0, 661, LM218-_plug_dcdc_control_process
+	sublw 0
+	beq LBB6_10
+LBB6_5:
+LM219:
+.stabn	0x44, 0, 665, LM219-_plug_dcdc_control_process
+Ltmp111:
+	movfw _coulomb_data+14
+Ltmp112:
+	sublw 0
+	beq LBB6_7
+LBB6_6:
+LM220:
+.stabn	0x44, 0, 666, LM220-_plug_dcdc_control_process
+Ltmp113:
+	goto LBB6_27
+Ltmp114:
+LBB6_7:
+LM221:
+.stabn	0x44, 0, 667, LM221-_plug_dcdc_control_process
+	movfwl _Bat_low_Cnt+0
+Ltmp115:
+	sublw 30
+	bgt LBB6_9
+LBB6_8:
+LM222:
+.stabn	0x44, 0, 668, LM222-_plug_dcdc_control_process
+Ltmp116:
+	goto LBB6_27
+Ltmp117:
+LBB6_9:
+LM223:
+.stabn	0x44, 0, 671, LM223-_plug_dcdc_control_process
+	movlw 1
+	movwf _inoutput_data+11
+LM224:
+.stabn	0x44, 0, 672, LM224-_plug_dcdc_control_process
+	movlw 0xfa
+	movwf _inoutput_data+17
+LM225:
+.stabn	0x44, 0, 675, LM225-_plug_dcdc_control_process
+	movlw 1
+	movwf _plug_state_context+10
+LM226:
+.stabn	0x44, 0, 677, LM226-_plug_dcdc_control_process
+	movwf _plug_state_context+11
+LM227:
+.stabn	0x44, 0, 679, LM227-_plug_dcdc_control_process
+	movlw 2
+	movwf _requesrt_9V_F+0
+LM228:
+.stabn	0x44, 0, 680, LM228-_plug_dcdc_control_process
+	goto LBB6_13
+Ltmp118:
+LBB6_10:
+LM229:
+.stabn	0x44, 0, 681, LM229-_plug_dcdc_control_process
+	movlw 1
+	movwfl _plug_dcdc_control_process.temp.+0
+	movfw _plug_state_context+0
+	movwfl _plug_dcdc_control_process.temp.+1
+	SrlSix
+	andlw 1
+	sublw 0
+	beq LBB6_29
+LBB6_28:
+	movlw 0
+	movwfl _plug_dcdc_control_process.temp.+0
+LBB6_29:
+	bcf BSR,1
+	movfw _plug_dcdc_control_process.temp.+0
+	andlw 1
+LM230:
+.stabn	0x44, 0, 682, LM230-_plug_dcdc_control_process
+	movwf _plug_dcdc_control_process.temp.+0
+	movfw _plug_dcdc_control_process.temp.+1
+	SrlSeven
+LM231:
+.stabn	0x44, 0, 681, LM231-_plug_dcdc_control_process
+	xorwf _plug_dcdc_control_process.temp.+0, W
+Ltmp119:
+	sublw 0
+	beq LBB6_12
+LBB6_11:
+LM232:
+.stabn	0x44, 0, 686, LM232-_plug_dcdc_control_process
+Ltmp120:
+	call _mod_SC8886_DisCharge_init
+LM233:
+.stabn	0x44, 0, 689, LM233-_plug_dcdc_control_process
+	bsf BSR,1
+	clrf _inoutput_data+11
+LM234:
+.stabn	0x44, 0, 691, LM234-_plug_dcdc_control_process
+	movlw 1
+	movwf _plug_state_context+11
+LM235:
+.stabn	0x44, 0, 693, LM235-_plug_dcdc_control_process
+	movlw 3
+	movwf _requesrt_9V_F+0
+Ltmp121:
+LBB6_12:
+LBB6_13:
+LBB6_14:
+LM236:
+.stabn	0x44, 0, 696, LM236-_plug_dcdc_control_process
+	banksel _plug_state_context
+	movfw _plug_state_context+10
+Ltmp122:
+	sublw 0
+	beq LBB6_16
+LBB6_15:
+LM237:
+.stabn	0x44, 0, 700, LM237-_plug_dcdc_control_process
+Ltmp123:
+	call _mod_SC8886_DisCharge_init
+LM238:
+.stabn	0x44, 0, 701, LM238-_plug_dcdc_control_process
+	bsf BSR,0
+	clrf _Sleep_up_close_Car_ignition+0
+LM239:
+.stabn	0x44, 0, 702, LM239-_plug_dcdc_control_process
+	banksel _coulomb_data
+	clrf _coulomb_data+13
+LM240:
+.stabn	0x44, 0, 703, LM240-_plug_dcdc_control_process
+	banksel _bat_full_do_to_charge
+	clrf _bat_full_do_to_charge+0
+LM241:
+.stabn	0x44, 0, 705, LM241-_plug_dcdc_control_process
+	movlw 4
+	movwfl _requesrt_9V_F+0
+LM242:
+.stabn	0x44, 0, 706, LM242-_plug_dcdc_control_process
+	goto LBB6_23
+Ltmp124:
+LBB6_16:
+LM243:
+.stabn	0x44, 0, 710, LM243-_plug_dcdc_control_process
+	call _mod_SC8886_Charge_init
+LM244:
+.stabn	0x44, 0, 711, LM244-_plug_dcdc_control_process
+	movlw 1
+	movwf _Charge_Start+0
+LM245:
+.stabn	0x44, 0, 712, LM245-_plug_dcdc_control_process
+Ltmp125:
+	movfwl _Vbat_8_date+0
+Ltmp126:
+	sublw 0xb8
+	bgt LBB6_18
+LBB6_17:
+LM246:
+.stabn	0x44, 0, 713, LM246-_plug_dcdc_control_process
+Ltmp127:
+	movlw 5
+	movwfl _bat_full_8hour_Cnt+0
+	goto LBB6_22
+LBB6_18:
+LM247:
+.stabn	0x44, 0, 714, LM247-_plug_dcdc_control_process
+Ltmp128:
+	movfwl _Vbat_8_date+0
+Ltmp129:
+	sublw 0x97
+	bgt LBB6_20
+LBB6_19:
+LM248:
+.stabn	0x44, 0, 715, LM248-_plug_dcdc_control_process
+Ltmp130:
+	movlw 3
+	movwfl _bat_full_8hour_Cnt+0
+	goto LBB6_21
+LBB6_20:
+LM249:
+.stabn	0x44, 0, 717, LM249-_plug_dcdc_control_process
+	movlw 1
+	movwfl _bat_full_8hour_Cnt+0
+Ltmp131:
+LBB6_21:
+LBB6_22:
+LM250:
+.stabn	0x44, 0, 719, LM250-_plug_dcdc_control_process
+	bsf BSR,0
+	clrf _bat_full_1hour_Cnt+0
+	clrf _bat_full_1hour_Cnt+1
+LM251:
+.stabn	0x44, 0, 721, LM251-_plug_dcdc_control_process
+	clrf _bat_full_do_to_charge+0
+LM252:
+.stabn	0x44, 0, 723, LM252-_plug_dcdc_control_process
+	movlw 5
+	movwfl _requesrt_9V_F+0
+Ltmp132:
+LBB6_23:
+LM253:
+.stabn	0x44, 0, 725, LM253-_plug_dcdc_control_process
+	movfwl _plug_state_context+11
+Ltmp133:
+	sublw 0
+	beq LBB6_27
+LBB6_24:
+LM254:
+.stabn	0x44, 0, 727, LM254-_plug_dcdc_control_process
+Ltmp134:
+	banksel _plug_state_context
+	clrf _plug_state_context+11
+LM255:
+.stabn	0x44, 0, 729, LM255-_plug_dcdc_control_process
+Ltmp135:
+	movfwl _BAT_Pro_Charge+0
+Ltmp136:
+	sublw 0
+	bne LBB6_26
+LBB6_25:
+LM256:
+.stabn	0x44, 0, 731, LM256-_plug_dcdc_control_process
+Ltmp137:
+	movlw 1
+	movwf _inoutput_data+10
+LM257:
+.stabn	0x44, 0, 732, LM257-_plug_dcdc_control_process
+	movlw 50
+	movwf _inoutput_data+16
+Ltmp138:
+LBB6_26:
+LM258:
+.stabn	0x44, 0, 735, LM258-_plug_dcdc_control_process
+	movlw 10
+	addwf _requesrt_9V_F+0, F
+Ltmp139:
+LBB6_27:
+LM259:
+.stabn	0x44, 0, 745, LM259-_plug_dcdc_control_process
+	banksel 0
+	return
+Ltmp140:
+Lfunc_end12:
+Lfunc_end13:
+LM260:
+.stabn 0xc0,0,0, LM206-_plug_dcdc_control_process
+.stabs "RE_data_temp8:10;",0x80,0,0,_plug_dcdc_control_process.temp.+0
+.stabn 0xe0,0,0, LM259-_plug_dcdc_control_process
+.stabf LM260-_plug_dcdc_control_process
+
+	_multi_pd_switch_sec .section rom
+_multi_pd_switch:
+Lfunc_begin14:
+.stabs "multi_pd_switch:f:16", 0x24,0,0,_multi_pd_switch
+.stabn 0xc0, 0, 0, _multi_pd_switch
+.stabn 0xe0, 0, 0, _multi_pd_switch
+LM261:
+.stabn	0x44, 0, 816, LM261-_multi_pd_switch
+Lfunc_begin15:
+LM262:
+.stabn	0x44, 0, 823, LM262-_multi_pd_switch
+	banksel 0
+	movlw 63
+	bsf BSR,1
+	andwf _plug_state_context+0, W
+	movwfl _multi_pd_switch.temp.+0
+	xorlw 1
+	sublw 0
+	beq LBB7_6
+LBB7_9:
+	movfwl _multi_pd_switch.temp.+0
+	xorlw 4
+	sublw 0
+	beq LBB7_1
+LBB7_10:
+	movfwl _multi_pd_switch.temp.+0
+	xorlw 8
+	sublw 0
+	beq LBB7_1
+LBB7_11:
+	movfwl _multi_pd_switch.temp.+0
+	xorlw 16
+	sublw 0
+	beq LBB7_5
+LBB7_12:
+	movfwl _multi_pd_switch.temp.+0
+	xorlw 32
+	sublw 0
+	beq LBB7_5
+	goto LBB7_7
+LBB7_1:
+LM263:
+.stabn	0x44, 0, 827, LM263-_multi_pd_switch
+Ltmp141:
+	movlw 1
+	movwf _plug_state_context+12
+LM264:
+.stabn	0x44, 0, 828, LM264-_multi_pd_switch
+	movwfl _pd_enable.args.+0
+	call _pd_enable
+LM265:
+.stabn	0x44, 0, 831, LM265-_multi_pd_switch
+	movlw 1
+	movwfl _plug_state_context+14
+LM266:
+.stabn	0x44, 0, 832, LM266-_multi_pd_switch
+	bsf BSR,2
+	clrf _multi_protocol+0
+LM267:
+.stabn	0x44, 0, 833, LM267-_multi_pd_switch
+Ltmp142:
+	movlw 63
+	banksel _plug_state_context
+	andwf _plug_state_context+0, W
+Ltmp143:
+	xorlw 4
+	sublw 0
+	bne LBB7_3
+LBB7_2:
+LM268:
+.stabn	0x44, 0, 835, LM268-_multi_pd_switch
+Ltmp144:
+	banksel _multi_protocol
+	clrf _multi_protocol+1
+LM269:
+.stabn	0x44, 0, 836, LM269-_multi_pd_switch
+	goto LBB7_4
+Ltmp145:
+LBB7_3:
+LM270:
+.stabn	0x44, 0, 838, LM270-_multi_pd_switch
+	movlw 1
+	movwfl _multi_protocol+1
+Ltmp146:
+LBB7_4:
+LM271:
+.stabn	0x44, 0, 840, LM271-_multi_pd_switch
+	call _out_mul_switch_open
+LM272:
+.stabn	0x44, 0, 842, LM272-_multi_pd_switch
+	goto LBB7_8
+LBB7_5:
+LM273:
+.stabn	0x44, 0, 845, LM273-_multi_pd_switch
+	movlw 1
+	movwf _plug_state_context+12
+LM274:
+.stabn	0x44, 0, 846, LM274-_multi_pd_switch
+	movwfl _pd_enable.args.+0
+	call _pd_enable
+LM275:
+.stabn	0x44, 0, 860, LM275-_multi_pd_switch
+	goto LBB7_8
+LBB7_6:
+LM276:
+.stabn	0x44, 0, 862, LM276-_multi_pd_switch
+	clrf _plug_state_context+12
+LM277:
+.stabn	0x44, 0, 863, LM277-_multi_pd_switch
+	bcf BSR,1
+	clrf _pd_enable.args.+0
+	call _pd_enable
+LM278:
+.stabn	0x44, 0, 871, LM278-_multi_pd_switch
+	goto LBB7_8
+LBB7_7:
+LM279:
+.stabn	0x44, 0, 873, LM279-_multi_pd_switch
+	clrf _plug_state_context+12
+LM280:
+.stabn	0x44, 0, 874, LM280-_multi_pd_switch
+	bcf BSR,1
+	clrf _pd_enable.args.+0
+	call _pd_enable
+LM281:
+.stabn	0x44, 0, 876, LM281-_multi_pd_switch
+	bsf BSR,1
+	clrf _plug_state_context+14
+LM282:
+.stabn	0x44, 0, 877, LM282-_multi_pd_switch
+	movlw 4
+	banksel _multi_protocol
+	movwf _multi_protocol+0
+LM283:
+.stabn	0x44, 0, 878, LM283-_multi_pd_switch
+	movlw 1
+	movwf _multi_protocol+1
+LM284:
+.stabn	0x44, 0, 880, LM284-_multi_pd_switch
+	clrf _multi_protocol+7
+LM285:
+.stabn	0x44, 0, 881, LM285-_multi_pd_switch
+	clrf _multi_protocol+11
+LM286:
+.stabn	0x44, 0, 882, LM286-_multi_pd_switch
+	clrf _multi_protocol+16
+LM287:
+.stabn	0x44, 0, 878, LM287-_multi_pd_switch
+	movlw 1
+LM288:
+.stabn	0x44, 0, 883, LM288-_multi_pd_switch
+	movwf _multi_protocol+20
+LM289:
+.stabn	0x44, 0, 884, LM289-_multi_pd_switch
+	clrf _multi_protocol+22
+LM290:
+.stabn	0x44, 0, 885, LM290-_multi_pd_switch
+	clrf _multi_protocol+26
+LM291:
+.stabn	0x44, 0, 886, LM291-_multi_pd_switch
+	clrf _multi_protocol+28
+LM292:
+.stabn	0x44, 0, 887, LM292-_multi_pd_switch
+	clrf _multi_protocol+30
+Ltmp147:
+LBB7_8:
+LM293:
+.stabn	0x44, 0, 890, LM293-_multi_pd_switch
+	banksel 0
+	return
+Ltmp148:
+Lfunc_end14:
+Lfunc_end15:
+LM294:
+.stabf LM294-_multi_pd_switch
+
+	_plug_state_charge_lag_open_vbus_proc_sec .section rom
+	.global	_plug_state_charge_lag_open_vbus_proc
+_plug_state_charge_lag_open_vbus_proc:
+Lfunc_begin16:
+.stabs "plug_state_charge_lag_open_vbus_proc:f:16", 0x24,0,0,_plug_state_charge_lag_open_vbus_proc
+.stabn 0xc0, 0, 0, _plug_state_charge_lag_open_vbus_proc
+.stabn 0xe0, 0, 0, _plug_state_charge_lag_open_vbus_proc
+LM295:
+.stabn	0x44, 0, 785, LM295-_plug_state_charge_lag_open_vbus_proc
+Lfunc_begin17:
+LM296:
+.stabn	0x44, 0, 789, LM296-_plug_state_charge_lag_open_vbus_proc
+	banksel 0
+	movfwl _h_pd+120
+Ltmp149:
+	sublw 0
+	beq LBB8_6
+LBB8_1:
+LM297:
+.stabn	0x44, 0, 791, LM297-_plug_state_charge_lag_open_vbus_proc
+Ltmp150:
+	movfw _plug_state_charge_lag_open_vbus_proc.b_sink_psrdy_lock+0
+Ltmp151:
+	sublw 0
+	bne LBB8_5
+LBB8_2:
+LM298:
+.stabn	0x44, 0, 793, LM298-_plug_state_charge_lag_open_vbus_proc
+Ltmp152:
+	movlw 1
+	movwf _plug_state_charge_lag_open_vbus_proc.b_sink_psrdy_lock+0
+LM299:
+.stabn	0x44, 0, 794, LM299-_plug_state_charge_lag_open_vbus_proc
+Ltmp153:
+	movfwl _h_typeca+13
+Ltmp154:
+	sublw 7
+	bne LBB8_4
+LBB8_3:
+LM300:
+.stabn	0x44, 0, 797, LM300-_plug_state_charge_lag_open_vbus_proc
+Ltmp155:
+	movlw 1
+	movwfl _inoutput_data+8
+Ltmp156:
+LBB8_4:
+LBB8_5:
+LM301:
+.stabn	0x44, 0, 807, LM301-_plug_state_charge_lag_open_vbus_proc
+	goto LBB8_7
+Ltmp157:
+LBB8_6:
+LM302:
+.stabn	0x44, 0, 810, LM302-_plug_state_charge_lag_open_vbus_proc
+	clrf _plug_state_charge_lag_open_vbus_proc.b_sink_psrdy_lock+0
+Ltmp158:
+LBB8_7:
+LM303:
+.stabn	0x44, 0, 813, LM303-_plug_state_charge_lag_open_vbus_proc
+	return
+Ltmp159:
+Lfunc_end16:
+Lfunc_end17:
+.stabn 0xc0,0,0, LM296-_plug_state_charge_lag_open_vbus_proc
+.stabs "b_sink_psrdy_lock:10;",0x80,0,0,_plug_state_charge_lag_open_vbus_proc.b_sink_psrdy_lock
+.stabn 0xe0,0,0, LM303-_plug_state_charge_lag_open_vbus_proc
+LM304:
+.stabf LM304-_plug_state_charge_lag_open_vbus_proc
+
+	_out_mul_switch_open_sec .section rom
+	.global	_out_mul_switch_open
+_out_mul_switch_open:
+Lfunc_begin18:
+.stabs "out_mul_switch_open:f:16", 0x24,0,0,_out_mul_switch_open
+.stabn 0xc0, 0, 0, _out_mul_switch_open
+.stabn 0xe0, 0, 0, _out_mul_switch_open
+LM305:
+.stabn	0x44, 0, 893, LM305-_out_mul_switch_open
+Lfunc_begin19:
+	banksel 0
+	movlw 1
+LM306:
+.stabn	0x44, 0, 894, LM306-_out_mul_switch_open
+Ltmp160:
+	bsf BSR,2
+	movwf _multi_protocol+7
+LM307:
+.stabn	0x44, 0, 895, LM307-_out_mul_switch_open
+	movwf _multi_protocol+11
+LM308:
+.stabn	0x44, 0, 896, LM308-_out_mul_switch_open
+	movwf _multi_protocol+16
+LM309:
+.stabn	0x44, 0, 897, LM309-_out_mul_switch_open
+	movwf _multi_protocol+20
+LM310:
+.stabn	0x44, 0, 898, LM310-_out_mul_switch_open
+	movwf _multi_protocol+22
+LM311:
+.stabn	0x44, 0, 899, LM311-_out_mul_switch_open
+	movwf _multi_protocol+26
+LM312:
+.stabn	0x44, 0, 900, LM312-_out_mul_switch_open
+	movwf _multi_protocol+28
+LM313:
+.stabn	0x44, 0, 901, LM313-_out_mul_switch_open
+	movwf _multi_protocol+30
+LM314:
+.stabn	0x44, 0, 902, LM314-_out_mul_switch_open
+	banksel 0
+	return
+Ltmp161:
+Lfunc_end18:
+Lfunc_end19:
+LM315:
+.stabf LM315-_out_mul_switch_open
+
+
+	_USBA_IN_DIS_app_state_machine.c .section bank0,uninit
+	_USBA_IN_DIS .ds 1
+	.ends
+
+	_WR_IN_DIS_app_state_machine.c .section bank0,uninit
+	_WR_IN_DIS .ds 1
+	.ends
+
+	_plug_state_context_app_state_machine.c .section bank4,uninit
+	_plug_state_context .ds 16
+	.ends
+
+	_CA_rutren_app_state_machine.c .section bank4,uninit
+	_CA_rutren .ds 1
+	.ends
+
+	_plug_state_charge_lag_open_vbus_proc.b_sink_psrdy_lock_app_state_machine.c .section bank0,uninit
+	_plug_state_charge_lag_open_vbus_proc.b_sink_psrdy_lock .ds 1
+	.ends
+
+	_requesrt_9V_F_app_state_machine.c .section bank4,uninit
+	_requesrt_9V_F .ds 1
+	.ends
+
+	.@_plug_state_machine_proc_sec@_plug_state_machine_proc.temp. .section bank1,uninit
+	_plug_state_machine_proc.temp. .ds 4
+	.ends
+
+	.@_plug_vbus_switch_process_sec@_plug_vbus_switch_process.args. .section bank1,uninit
+	_plug_vbus_switch_process.args. .ds 4
+	.ends
+
+	.@_plug_vbus_switch_process_sec@_plug_vbus_switch_process.temp. .section bank1,uninit
+	_plug_vbus_switch_process.temp. .ds 7
+	.ends
+
+	.@_plug_typec_break_process_sec@_plug_typec_break_process.temp. .section bank1,uninit
+	_plug_typec_break_process.temp. .ds 1
+	.ends
+
+	.@_plug_dcdc_control_process_sec@_plug_dcdc_control_process.temp. .section bank1,uninit
+	_plug_dcdc_control_process.temp. .ds 2
+	.ends
+
+	.@_multi_pd_switch_sec@_multi_pd_switch.temp. .section bank1,uninit
+	_multi_pd_switch.temp. .ds 1
+	.ends
+
+
+
+	.global	_USBA_IN_DIS
+	.global	_WR_IN_DIS
+	.global	_plug_state_context
+	.global	_CA_rutren
+	.global	_requesrt_9V_F
+

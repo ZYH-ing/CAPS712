@@ -1,0 +1,195 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\app\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\app\\app_debug.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+
+
+
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_test_display_sec .section rom
+	.global	_test_display
+_test_display:
+Lfunc_begin0:
+.stabs "test_display:f:16", 0x24,0,0,_test_display
+.stabn 0xc0, 0, 0, _test_display
+.stabn 0xe0, 0, 0, _test_display
+LM0:
+.stabn	0x44, 0, 58, LM0-_test_display
+Lfunc_begin1:
+LM1:
+.stabn	0x44, 0, 60, LM1-_test_display
+	banksel 0
+	return
+Ltmp0:
+Lfunc_end0:
+Lfunc_end1:
+LM2:
+.stabf LM2-_test_display
+
+	_test_key_sec .section rom
+	.global	_test_key
+_test_key:
+Lfunc_begin2:
+.stabs "test_key:f:16", 0x24,0,0,_test_key
+.stabn 0xc0, 0, 0, _test_key
+.stabn 0xe0, 0, 0, _test_key
+LM3:
+.stabn	0x44, 0, 63, LM3-_test_key
+Lfunc_begin3:
+LM4:
+.stabn	0x44, 0, 64, LM4-_test_key
+	banksel 0
+	call _mod_key_get_data
+	movfw _mod_key_get_data.frame.+0
+Ltmp1:
+	sublw 0
+LBB1_1:
+LBB1_2:
+LM5:
+.stabn	0x44, 0, 68, LM5-_test_key
+	return
+Ltmp2:
+Lfunc_end2:
+Lfunc_end3:
+LM6:
+.stabf LM6-_test_key
+
+	_test_dcdc_print_sec .section rom
+	.global	_test_dcdc_print
+_test_dcdc_print:
+Lfunc_begin4:
+.stabs "test_dcdc_print:f:16", 0x24,0,0,_test_dcdc_print
+.stabn 0xc0, 0, 0, _test_dcdc_print
+.stabn 0xe0, 0, 0, _test_dcdc_print
+LM7:
+.stabn	0x44, 0, 71, LM7-_test_dcdc_print
+Lfunc_begin5:
+LM8:
+.stabn	0x44, 0, 78, LM8-_test_dcdc_print
+	banksel 0
+	incf _test_dcdc_print.switch_branch+0, F
+LM9:
+.stabn	0x44, 0, 82, LM9-_test_dcdc_print
+Ltmp3:
+	movfw _test_dcdc_print.switch_branch+0
+Ltmp4:
+	sublw 5
+	bgt LBB2_2
+LBB2_1:
+LM10:
+.stabn	0x44, 0, 85, LM10-_test_dcdc_print
+Ltmp5:
+	clrf _test_dcdc_print.switch_branch+0
+LM11:
+.stabn	0x44, 0, 105, LM11-_test_dcdc_print
+	movlw 0xaa
+	movwf _Sub_sim_tx.args.+0
+	call _Sub_sim_tx
+LM12:
+.stabn	0x44, 0, 106, LM12-_test_dcdc_print
+	movlw 63
+	bsf BSR,1
+	andwf _plug_state_context+0, W
+	movwfl _Sub_sim_tx.args.+0
+	call _Sub_sim_tx
+LM13:
+.stabn	0x44, 0, 107, LM13-_test_dcdc_print
+	movfw _discharge_displed+0
+	movwf _Sub_sim_tx.args.+0
+	call _Sub_sim_tx
+Ltmp6:
+LBB2_2:
+LM14:
+.stabn	0x44, 0, 182, LM14-_test_dcdc_print
+	return
+Ltmp7:
+Lfunc_end4:
+Lfunc_end5:
+.stabn 0xc0,0,0, LM8-_test_dcdc_print
+.stabs "switch_branch:10;",0x80,0,0,_test_dcdc_print.switch_branch
+.stabn 0xe0,0,0, LM14-_test_dcdc_print
+.stabn 0xc0,0,0, LM8-_test_dcdc_print
+.stabs "Flage_adr:10;",0x80,0,0,_test_dcdc_print.Flage_adr
+.stabn 0xe0,0,0, LM14-_test_dcdc_print
+LM15:
+.stabn 0xc0,0,0, LM8-_test_dcdc_print
+.stabs "RE_data_temp8:10;",0x80,0,0,_test_dcdc_print.temp.+0
+.stabn 0xe0,0,0, LM14-_test_dcdc_print
+.stabn 0xc0,0,0, LM8-_test_dcdc_print
+.stabs "RE_data_temp16:2;",0x80,0,0,_test_dcdc_print.temp.+1
+.stabn 0xe0,0,0, LM14-_test_dcdc_print
+.stabn 0xc0,0,0, LM8-_test_dcdc_print
+.stabs "Readdata:2;",0x80,0,0,_test_dcdc_print.temp.+3
+.stabn 0xe0,0,0, LM14-_test_dcdc_print
+.stabf LM15-_test_dcdc_print
+
+	_test_adcconvert_print_sec .section rom
+	.global	_test_adcconvert_print
+_test_adcconvert_print:
+Lfunc_begin6:
+.stabs "test_adcconvert_print:f:16", 0x24,0,0,_test_adcconvert_print
+.stabn 0xc0, 0, 0, _test_adcconvert_print
+.stabn 0xe0, 0, 0, _test_adcconvert_print
+LM16:
+.stabn	0x44, 0, 185, LM16-_test_adcconvert_print
+Lfunc_begin7:
+LM17:
+.stabn	0x44, 0, 187, LM17-_test_adcconvert_print
+	banksel 0
+	incf _test_adcconvert_print.switch_branch+0, F
+LM18:
+.stabn	0x44, 0, 188, LM18-_test_adcconvert_print
+Ltmp8:
+	movfw _test_adcconvert_print.switch_branch+0
+Ltmp9:
+	sublw 2
+	bgt LBB3_2
+LBB3_1:
+LM19:
+.stabn	0x44, 0, 190, LM19-_test_adcconvert_print
+Ltmp10:
+	clrf _test_adcconvert_print.switch_branch+0
+Ltmp11:
+LBB3_2:
+LM20:
+.stabn	0x44, 0, 194, LM20-_test_adcconvert_print
+	return
+Ltmp12:
+Lfunc_end6:
+Lfunc_end7:
+.stabn 0xc0,0,0, LM17-_test_adcconvert_print
+.stabs "switch_branch:10;",0x80,0,0,_test_adcconvert_print.switch_branch
+.stabn 0xe0,0,0, LM20-_test_adcconvert_print
+LM21:
+.stabf LM21-_test_adcconvert_print
+
+
+	_test_dcdc_print.switch_branch_app_debug.c .section bank0,uninit
+	_test_dcdc_print.switch_branch .ds 1
+	.ends
+
+	_test_dcdc_print.Flage_adr_app_debug.c .section bank0,uninit
+	_test_dcdc_print.Flage_adr .ds 1
+	.ends
+
+	_test_adcconvert_print.switch_branch_app_debug.c .section bank0,uninit
+	_test_adcconvert_print.switch_branch .ds 1
+	.ends
+
+
+

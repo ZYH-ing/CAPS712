@@ -1,0 +1,390 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\chip\\driver\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\chip\\driver\\drv_adc.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_adc_init_sec .section rom
+	.global	_adc_init
+_adc_init:
+Lfunc_begin0:
+.stabs "adc_init:f:16", 0x24,0,0,_adc_init
+.stabn 0xc0, 0, 0, _adc_init
+.stabn 0xe0, 0, 0, _adc_init
+LM0:
+.stabn	0x44, 0, 24, LM0-_adc_init
+Lfunc_begin1:
+LM1:
+.stabn	0x44, 0, 25, LM1-_adc_init
+	banksel 0
+	movlw 52
+	movwf _SRADCON0+0
+LM2:
+.stabn	0x44, 0, 26, LM2-_adc_init
+	movlw 0x80
+	movwf _SRADCON1+0
+LM3:
+.stabn	0x44, 0, 27, LM3-_adc_init
+	movlw 60
+	movwf _SRADCON2+0
+LM4:
+.stabn	0x44, 0, 28, LM4-_adc_init
+	;APP
+	nop
+	;NO_APP
+LM5:
+.stabn	0x44, 0, 29, LM5-_adc_init
+	return
+Ltmp0:
+Lfunc_end0:
+Lfunc_end1:
+LM6:
+.stabf LM6-_adc_init
+
+	_adc_disable_sec .section rom
+	.global	_adc_disable
+_adc_disable:
+Lfunc_begin2:
+.stabs "adc_disable:f:16", 0x24,0,0,_adc_disable
+.stabn 0xc0, 0, 0, _adc_disable
+.stabn 0xe0, 0, 0, _adc_disable
+LM7:
+.stabn	0x44, 0, 41, LM7-_adc_disable
+Lfunc_begin3:
+LM8:
+.stabn	0x44, 0, 42, LM8-_adc_disable
+	banksel 0
+	bcf _SRADCON1+0, 7
+	movfw _SRADCON1+0
+LM9:
+.stabn	0x44, 0, 43, LM9-_adc_disable
+	return
+Ltmp1:
+Lfunc_end2:
+Lfunc_end3:
+LM10:
+.stabf LM10-_adc_disable
+
+	_adc_enable_sec .section rom
+	.global	_adc_enable
+_adc_enable:
+Lfunc_begin4:
+.stabs "adc_enable:f:16", 0x24,0,0,_adc_enable
+.stabn 0xc0, 0, 0, _adc_enable
+.stabn 0xe0, 0, 0, _adc_enable
+LM11:
+.stabn	0x44, 0, 55, LM11-_adc_enable
+Lfunc_begin5:
+LM12:
+.stabn	0x44, 0, 56, LM12-_adc_enable
+	banksel 0
+	bcf _SRADCON1+0, 7
+	bsf _SRADCON1+0, 7
+LM13:
+.stabn	0x44, 0, 57, LM13-_adc_enable
+	return
+Ltmp2:
+Lfunc_end4:
+Lfunc_end5:
+LM14:
+.stabf LM14-_adc_enable
+
+	_adc_stop_sec .section rom
+	.global	_adc_stop
+_adc_stop:
+Lfunc_begin6:
+.stabs "adc_stop:f:16", 0x24,0,0,_adc_stop
+.stabn 0xc0, 0, 0, _adc_stop
+.stabn 0xe0, 0, 0, _adc_stop
+LM15:
+.stabn	0x44, 0, 69, LM15-_adc_stop
+Lfunc_begin7:
+LM16:
+.stabn	0x44, 0, 70, LM16-_adc_stop
+	banksel 0
+	bcf _SRADCON1+0, 6
+	movfw _SRADCON1+0
+LM17:
+.stabn	0x44, 0, 71, LM17-_adc_stop
+	return
+Ltmp3:
+Lfunc_end6:
+Lfunc_end7:
+LM18:
+.stabf LM18-_adc_stop
+
+	_adc_start_sec .section rom
+	.global	_adc_start
+_adc_start:
+Lfunc_begin8:
+.stabs "adc_start:f:16", 0x24,0,0,_adc_start
+.stabn 0xc0, 0, 0, _adc_start
+.stabn 0xe0, 0, 0, _adc_start
+LM19:
+.stabn	0x44, 0, 83, LM19-_adc_start
+Lfunc_begin9:
+LM20:
+.stabn	0x44, 0, 84, LM20-_adc_start
+	banksel 0
+	bcf _SRADCON1+0, 6
+	bsf _SRADCON1+0, 6
+LM21:
+.stabn	0x44, 0, 85, LM21-_adc_start
+	return
+Ltmp4:
+Lfunc_end8:
+Lfunc_end9:
+LM22:
+.stabf LM22-_adc_start
+
+	_adc_interrupt_disable_sec .section rom
+	.global	_adc_interrupt_disable
+_adc_interrupt_disable:
+Lfunc_begin10:
+.stabs "adc_interrupt_disable:f:16", 0x24,0,0,_adc_interrupt_disable
+.stabn 0xc0, 0, 0, _adc_interrupt_disable
+.stabn 0xe0, 0, 0, _adc_interrupt_disable
+LM23:
+.stabn	0x44, 0, 97, LM23-_adc_interrupt_disable
+Lfunc_begin11:
+LM24:
+.stabn	0x44, 0, 98, LM24-_adc_interrupt_disable
+	banksel 0
+	bcf _SRADCON0+0, 2
+	movfw _SRADCON0+0
+LM25:
+.stabn	0x44, 0, 99, LM25-_adc_interrupt_disable
+	return
+Ltmp5:
+Lfunc_end10:
+Lfunc_end11:
+LM26:
+.stabf LM26-_adc_interrupt_disable
+
+	_adc_interrupt_enable_sec .section rom
+	.global	_adc_interrupt_enable
+_adc_interrupt_enable:
+Lfunc_begin12:
+.stabs "adc_interrupt_enable:f:16", 0x24,0,0,_adc_interrupt_enable
+.stabn 0xc0, 0, 0, _adc_interrupt_enable
+.stabn 0xe0, 0, 0, _adc_interrupt_enable
+LM27:
+.stabn	0x44, 0, 111, LM27-_adc_interrupt_enable
+Lfunc_begin13:
+LM28:
+.stabn	0x44, 0, 112, LM28-_adc_interrupt_enable
+	banksel 0
+	bcf _SRADCON0+0, 2
+	bsf _SRADCON0+0, 2
+LM29:
+.stabn	0x44, 0, 113, LM29-_adc_interrupt_enable
+	return
+Ltmp6:
+Lfunc_end12:
+Lfunc_end13:
+LM30:
+.stabf LM30-_adc_interrupt_enable
+
+	_adc_set_sing_channel_sec .section rom
+	.global	_adc_set_sing_channel
+_adc_set_sing_channel:
+Lfunc_begin14:
+.stabs "adc_set_sing_channel:f:16", 0x24,0,0,_adc_set_sing_channel
+.stabn 0xc0, 0, 0, _adc_set_sing_channel
+.stabn 0xe0, 0, 0, _adc_set_sing_channel
+LM31:
+.stabn	0x44, 0, 124, LM31-_adc_set_sing_channel
+Lfunc_begin15:
+	banksel 0
+	movfw _adc_set_sing_channel.args.+0
+LM32:
+.stabn	0x44, 0, 125, LM32-_adc_set_sing_channel
+Ltmp7:
+	movwf _adc_set_sing_channel.temp.+0
+	movlw 7
+	andwf _SRADCON2+0, F
+	movfw _adc_set_sing_channel.temp.+0
+	ShlThree
+	movwf _adc_set_sing_channel.temp.+1
+	movfw _adc_set_sing_channel.temp.+0
+	SrlFive
+	movfw _adc_set_sing_channel.temp.+1
+	iorwf _SRADCON2+0, F
+LM33:
+.stabn	0x44, 0, 126, LM33-_adc_set_sing_channel
+	return
+Ltmp8:
+Lfunc_end14:
+Lfunc_end15:
+LM34:
+.stabn 0xc0,0,0, LM31-_adc_set_sing_channel
+.stabs "_chl:10;",0x80,0,0,_adc_set_sing_channel.args.+0
+.stabn 0xe0,0,0, LM33-_adc_set_sing_channel
+.stabf LM34-_adc_set_sing_channel
+
+	_adc_set_diff_channel_sec .section rom
+	.global	_adc_set_diff_channel
+_adc_set_diff_channel:
+Lfunc_begin16:
+.stabs "adc_set_diff_channel:f:16", 0x24,0,0,_adc_set_diff_channel
+.stabn 0xc0, 0, 0, _adc_set_diff_channel
+.stabn 0xe0, 0, 0, _adc_set_diff_channel
+LM35:
+.stabn	0x44, 0, 136, LM35-_adc_set_diff_channel
+Lfunc_begin17:
+	banksel 0
+	movfw _adc_set_diff_channel.args.+0
+LM36:
+.stabn	0x44, 0, 137, LM36-_adc_set_diff_channel
+Ltmp9:
+	movwf _adc_set_diff_channel.temp.+0
+	movlw 7
+	andwf _SRADCON2+0, F
+	movfw _adc_set_diff_channel.temp.+0
+	ShlThree
+	movwf _adc_set_diff_channel.temp.+1
+	movfw _adc_set_diff_channel.temp.+0
+	SrlFive
+	movfw _adc_set_diff_channel.temp.+1
+	iorwf _SRADCON2+0, F
+LM37:
+.stabn	0x44, 0, 138, LM37-_adc_set_diff_channel
+	return
+Ltmp10:
+Lfunc_end16:
+Lfunc_end17:
+LM38:
+.stabn 0xc0,0,0, LM35-_adc_set_diff_channel
+.stabs "_chl:10;",0x80,0,0,_adc_set_diff_channel.args.+0
+.stabn 0xe0,0,0, LM37-_adc_set_diff_channel
+.stabf LM38-_adc_set_diff_channel
+
+	_adc_set_vref_sec .section rom
+	.global	_adc_set_vref
+_adc_set_vref:
+Lfunc_begin18:
+.stabs "adc_set_vref:f:16", 0x24,0,0,_adc_set_vref
+.stabn 0xc0, 0, 0, _adc_set_vref
+.stabn 0xe0, 0, 0, _adc_set_vref
+LM39:
+.stabn	0x44, 0, 149, LM39-_adc_set_vref
+Lfunc_begin19:
+	banksel 0
+	movfw _adc_set_vref.args.+0
+LM40:
+.stabn	0x44, 0, 150, LM40-_adc_set_vref
+Ltmp11:
+	movwf _adc_set_vref.temp.+0
+	movlw 0xf8
+	andwf _SRADCON2+0, F
+	movfw _adc_set_vref.temp.+0
+	iorwf _SRADCON2+0, F
+LM41:
+.stabn	0x44, 0, 151, LM41-_adc_set_vref
+	return
+Ltmp12:
+Lfunc_end18:
+Lfunc_end19:
+LM42:
+.stabn 0xc0,0,0, LM39-_adc_set_vref
+.stabs "_vrefs:10;",0x80,0,0,_adc_set_vref.args.+0
+.stabn 0xe0,0,0, LM41-_adc_set_vref
+.stabf LM42-_adc_set_vref
+
+	_adc_get_srad_sec .section rom
+	.global	_adc_get_srad
+_adc_get_srad:
+Lfunc_begin20:
+.stabs "adc_get_srad:f17=2;;", 0x24,0,0,_adc_get_srad
+.stabn 0xc0, 0, 0, _adc_get_srad
+.stabn 0xe0, 0, 0, _adc_get_srad
+LM43:
+.stabn	0x44, 0, 163, LM43-_adc_get_srad
+Lfunc_begin21:
+LM44:
+.stabn	0x44, 0, 164, LM44-_adc_get_srad
+	banksel 0
+	movfw _SRADL+0
+	movwf _adc_get_srad.frame.+0
+	movfw _SRADH+0
+	movwf _adc_get_srad.frame.+1
+	return
+Ltmp13:
+Lfunc_end20:
+Lfunc_end21:
+LM45:
+.stabf LM45-_adc_get_srad
+
+	_adc_get_sroft_sec .section rom
+	.global	_adc_get_sroft
+_adc_get_sroft:
+Lfunc_begin22:
+.stabs "adc_get_sroft:f18=2;;", 0x24,0,0,_adc_get_sroft
+.stabn 0xc0, 0, 0, _adc_get_sroft
+.stabn 0xe0, 0, 0, _adc_get_sroft
+LM46:
+.stabn	0x44, 0, 177, LM46-_adc_get_sroft
+Lfunc_begin23:
+LM47:
+.stabn	0x44, 0, 178, LM47-_adc_get_sroft
+	banksel 0
+	movfw _SROFTL+0
+	movwf _adc_get_sroft.frame.+0
+	movfw _SROFTH+0
+	movwf _adc_get_sroft.frame.+1
+	return
+Ltmp14:
+Lfunc_end22:
+Lfunc_end23:
+LM48:
+.stabf LM48-_adc_get_sroft
+
+
+	.@_adc_set_sing_channel_sec@_adc_set_sing_channel.args. .section bank1,uninit
+	_adc_set_sing_channel.args. .ds 1
+	.ends
+
+	.@_adc_set_sing_channel_sec@_adc_set_sing_channel.temp. .section bank1,uninit
+	_adc_set_sing_channel.temp. .ds 2
+	.ends
+
+	.@_adc_set_diff_channel_sec@_adc_set_diff_channel.args. .section bank1,uninit
+	_adc_set_diff_channel.args. .ds 1
+	.ends
+
+	.@_adc_set_diff_channel_sec@_adc_set_diff_channel.temp. .section bank1,uninit
+	_adc_set_diff_channel.temp. .ds 2
+	.ends
+
+	.@_adc_set_vref_sec@_adc_set_vref.args. .section bank1,uninit
+	_adc_set_vref.args. .ds 1
+	.ends
+
+	.@_adc_set_vref_sec@_adc_set_vref.temp. .section bank1,uninit
+	_adc_set_vref.temp. .ds 1
+	.ends
+
+	.@_adc_get_srad_sec@_adc_get_srad.frame. .section bank1,uninit
+	_adc_get_srad.frame. .ds 2
+	.ends
+
+	.@_adc_get_sroft_sec@_adc_get_sroft.frame. .section bank1,uninit
+	_adc_get_sroft.frame. .ds 2
+	.ends
+
+
+

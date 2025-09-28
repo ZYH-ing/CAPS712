@@ -1,0 +1,925 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\app\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\app\\app_interrupt.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+.stabs "APP_FIFOCTL1:G10;",0x20,0,0,_APP_FIFOCTL1
+.stabs "APP_PDSOP:G10;",0x20,0,0,_APP_PDSOP
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_INT_FUNCTION_sec .section rom,interrupt
+	.global	_INT_FUNCTION
+_INT_FUNCTION:
+Lfunc_begin0:
+.stabs "INT_FUNCTION:f:16", 0x24,0,0,_INT_FUNCTION
+.stabn 0xc0, 0, 0, _INT_FUNCTION
+.stabn 0xe0, 0, 0, _INT_FUNCTION
+LM0:
+.stabn	0x44, 0, 54, LM0-_INT_FUNCTION
+Lfunc_begin1:
+	push
+	movfw FSR1H
+	push
+	movfw FSR1
+	push
+	movfw FSR0H
+	push
+	movfw FSR0
+	push
+	
+	banksel 0
+LM1:
+.stabn	0x44, 0, 55, LM1-_INT_FUNCTION
+Ltmp0:
+	movfw EADRL
+	movwf CSCC_EADR16_IBackup+0
+	movfw EADRH
+	movwf CSCC_EADR16_IBackup+1
+	
+	movlw 1
+	andwf _EXIIF+0, W
+Ltmp1:
+	sublw 0
+	beq LBB0_2
+LBB0_1:
+LM2:
+.stabn	0x44, 0, 57, LM2-_INT_FUNCTION
+Ltmp2:
+	bcf _EXIIF+0, 0
+	movfw _EXIIF+0
+LM3:
+.stabn	0x44, 0, 58, LM3-_INT_FUNCTION
+	call _exi_int0_irq
+LM4:
+.stabn	0x44, 0, 59, LM4-_INT_FUNCTION
+	bsf BSR,0
+	clrf _Bat_low_sleep_flage+0
+Ltmp3:
+LBB0_2:
+LM5:
+.stabn	0x44, 0, 61, LM5-_INT_FUNCTION
+	movlw 2
+	banksel _EXIIF
+	andwf _EXIIF+0, W
+Ltmp4:
+	sublw 0
+	beq LBB0_4
+LBB0_3:
+LM6:
+.stabn	0x44, 0, 63, LM6-_INT_FUNCTION
+Ltmp5:
+	bcf _EXIIF+0, 1
+	movfw _EXIIF+0
+LM7:
+.stabn	0x44, 0, 64, LM7-_INT_FUNCTION
+	call _exi_int1_irq
+Ltmp6:
+LBB0_4:
+LM8:
+.stabn	0x44, 0, 66, LM8-_INT_FUNCTION
+	movlw 4
+	andwf _EXIIF+0, W
+Ltmp7:
+	sublw 0
+	beq LBB0_6
+LBB0_5:
+LM9:
+.stabn	0x44, 0, 68, LM9-_INT_FUNCTION
+Ltmp8:
+	bcf _EXIIF+0, 2
+	movfw _EXIIF+0
+LM10:
+.stabn	0x44, 0, 69, LM10-_INT_FUNCTION
+	call _exi_int2_irq
+Ltmp9:
+LBB0_6:
+LM11:
+.stabn	0x44, 0, 73, LM11-_INT_FUNCTION
+	movlw 64
+	andwf _TM2CON+0, W
+Ltmp10:
+	sublw 0
+	beq LBB0_8
+LBB0_7:
+LM12:
+.stabn	0x44, 0, 75, LM12-_INT_FUNCTION
+Ltmp11:
+	bcf _TM2CON+0, 6
+	movfw _TM2CON+0
+LM13:
+.stabn	0x44, 0, 76, LM13-_INT_FUNCTION
+	call _timer2_irq
+LM14:
+.stabn	0x44, 0, 79, LM14-_INT_FUNCTION
+	movlw 1
+	movwfl _Time_2_Flage_do+0
+Ltmp12:
+LBB0_8:
+LM15:
+.stabn	0x44, 0, 96, LM15-_INT_FUNCTION
+	movlw 64
+	andwf _TM0CON+0, W
+Ltmp13:
+	sublw 0
+	beq LBB0_12
+LBB0_9:
+LM16:
+.stabn	0x44, 0, 98, LM16-_INT_FUNCTION
+Ltmp14:
+	bcf _TM0CON+0, 6
+	movfw _TM0CON+0
+LM17:
+.stabn	0x44, 0, 100, LM17-_INT_FUNCTION
+	incf _Time_1ms_cnt+0, F
+LM18:
+.stabn	0x44, 0, 101, LM18-_INT_FUNCTION
+	bsf BSR,0
+	decf _lastRxTime+0, F
+LM19:
+.stabn	0x44, 0, 102, LM19-_INT_FUNCTION
+Ltmp15:
+	movfwl _Time_1ms_cnt+0
+Ltmp16:
+	sublw 10
+	bgt LBB0_11
+LBB0_10:
+LM20:
+.stabn	0x44, 0, 105, LM20-_INT_FUNCTION
+Ltmp17:
+	bcf BSR,0
+	clrf _Time_1ms_cnt+0
+LM21:
+.stabn	0x44, 0, 106, LM21-_INT_FUNCTION
+	call _timer0_irq
+Ltmp18:
+LBB0_11:
+LBB0_12:
+LM22:
+.stabn	0x44, 0, 125, LM22-_INT_FUNCTION
+	call _typec_irq
+LM23:
+.stabn	0x44, 0, 126, LM23-_INT_FUNCTION
+	call _pd_irq
+LM24:
+.stabn	0x44, 0, 129, LM24-_INT_FUNCTION
+	call _multi_protocol_isr_process
+LM25:
+.stabn	0x44, 0, 147, LM25-_INT_FUNCTION
+Ltmp19:
+	movlw 8
+	andwf _SRADCON0+0, W
+Ltmp20:
+	sublw 0
+	beq LBB0_14
+LBB0_13:
+LM26:
+.stabn	0x44, 0, 149, LM26-_INT_FUNCTION
+Ltmp21:
+	bcf _SRADCON0+0, 3
+	movfw _SRADCON0+0
+LM27:
+.stabn	0x44, 0, 150, LM27-_INT_FUNCTION
+	call _adc_irq
+Ltmp22:
+LBB0_14:
+LM28:
+.stabn	0x44, 0, 153, LM28-_INT_FUNCTION
+	movlw 4
+	bsf BSR,0
+	andwf _UR0_INTF+0, W
+Ltmp23:
+	sublw 0
+	beq LBB0_22
+LBB0_15:
+LM29:
+.stabn	0x44, 0, 155, LM29-_INT_FUNCTION
+Ltmp24:
+	movlw 1
+	movwfl _Flag+0
+LM30:
+.stabn	0x44, 0, 156, LM30-_INT_FUNCTION
+	movfw _activeBuffer+0
+	bcf BSR,0
+	movwf .args.__swmul_atmp+0
+	clrf .args.__swmul_atmp+1
+	movlw 18
+	movwf .args.__swmul_btmp+0
+	clrf .args.__swmul_btmp+1
+	call .lib.__swmul
+	movlw LOW(_rxBuffers+0)
+	addwf .ret.__swmul_ret+0, W
+	movwf _buf+0
+	movlw HIGH8(_rxBuffers+0)
+	addwfc .ret.__swmul_ret+1, W
+	movwf _buf+1
+LBB0_16:
+LM31:
+.stabn	0x44, 0, 159, LM31-_INT_FUNCTION
+Ltmp25:
+	banksel _buf
+	movfw _buf+0
+	movwf FSR0
+	movfw _buf+1
+	movwf FSR0H
+	addlfsr 0, 16
+	moviw 0
+Ltmp26:
+	sublw 15
+	blt LBB0_18
+LBB0_17:
+LM32:
+.stabn	0x44, 0, 161, LM32-_INT_FUNCTION
+Ltmp27:
+	movfw _buf+0
+	movwf FSR0
+	movfw _buf+1
+	movwf FSR0H
+	addlfsr 0, 16
+	moviw 0
+	addwf _buf+0, W
+	movwf _INT_FUNCTION.temp.+0
+	movlw 0
+	addwfc _buf+1, W
+	movwf _INT_FUNCTION.temp.+1
+	movfw _INT_FUNCTION.temp.+0
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _INT_FUNCTION.temp.+1
+	movwf FSR0H
+	movfwl _UR0_RX_REG+0
+	movwf IND0
+LM33:
+.stabn	0x44, 0, 162, LM33-_INT_FUNCTION
+	movlw 16
+	addwf _buf+0, W
+LM34:
+.stabn	0x44, 0, 161, LM34-_INT_FUNCTION
+	movwf _INT_FUNCTION.temp.+0
+	movlw 0
+LM35:
+.stabn	0x44, 0, 162, LM35-_INT_FUNCTION
+	addwfc _buf+1, W
+	movwf _INT_FUNCTION.temp.+1
+	movfw _INT_FUNCTION.temp.+0
+	movwf FSR0
+	movfw _INT_FUNCTION.temp.+1
+	movwf FSR0H
+	moviw 0
+	addlw 1
+	movwf _INT_FUNCTION.temp.+2
+	movfw _INT_FUNCTION.temp.+0
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _INT_FUNCTION.temp.+1
+	movwf FSR0H
+	movfw _INT_FUNCTION.temp.+2
+	movwf IND0
+LM36:
+.stabn	0x44, 0, 163, LM36-_INT_FUNCTION
+	goto LBB0_19
+Ltmp28:
+LBB0_18:
+LM37:
+.stabn	0x44, 0, 166, LM37-_INT_FUNCTION
+	movlw 16
+	addwf _buf+0, W
+	movwf _INT_FUNCTION.temp.+0
+	movlw 0
+	addwfc _buf+1, W
+	movwf _INT_FUNCTION.temp.+1
+	movfw _INT_FUNCTION.temp.+0
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _INT_FUNCTION.temp.+1
+	movwf FSR0H
+	movlw 0
+	movwf IND0
+Ltmp29:
+LBB0_19:
+LM38:
+.stabn	0x44, 0, 168, LM38-_INT_FUNCTION
+	bsf BSR,0
+	movlw 0 
+	btfsc _UR0_RNIF, _UR0_RNIF 
+	movlw 1
+Ltmp30:
+	andlw 1
+	sublw 0
+	bne LBB0_16
+Ltmp31:
+LBB0_21:
+LM39:
+.stabn	0x44, 0, 170, LM39-_INT_FUNCTION
+	setf _lastRxTime+0
+LBB0_22:
+LM40:
+.stabn	0x44, 0, 171, LM40-_INT_FUNCTION
+	clrf BSR
+	movfw CSCC_EADR16_IBackup+0
+	movwf EADRL
+	movfw CSCC_EADR16_IBackup+1
+	movwf EADRH
+	
+	pop
+	movwf FSR0
+	pop
+	movwf FSR0H
+	pop
+	movwf FSR1
+	pop
+	movwf FSR1H
+	
+	pop
+Ltmp32:
+LM41:
+.stabn	0x44, 0, 176, LM41-_INT_FUNCTION
+	retfie
+Ltmp33:
+Lfunc_end0:
+Lfunc_end1:
+LM42:
+.stabf LM42-_INT_FUNCTION
+
+	_exi_int0_irq_sec .section rom
+	.global	_exi_int0_irq
+_exi_int0_irq:
+Lfunc_begin2:
+.stabs "exi_int0_irq:f:16", 0x24,0,0,_exi_int0_irq
+.stabn 0xc0, 0, 0, _exi_int0_irq
+.stabn 0xe0, 0, 0, _exi_int0_irq
+LM43:
+.stabn	0x44, 0, 179, LM43-_exi_int0_irq
+Lfunc_begin3:
+	banksel 0
+	movlw 1
+LM44:
+.stabn	0x44, 0, 180, LM44-_exi_int0_irq
+Ltmp34:
+	andwf _EXIIE+0, W
+Ltmp35:
+	sublw 0
+	beq LBB1_5
+LBB1_1:
+LM45:
+.stabn	0x44, 0, 182, LM45-_exi_int0_irq
+Ltmp36:
+	movlw 0 
+	btfsc _PT12, _PT12 
+	movlw 1
+	andlw 1
+	sublw 0
+	bne LBB1_4
+LBB1_2:
+	movlw 8
+	andwf _INTCFG1+0, W
+Ltmp37:
+	sublw 0
+	beq LBB1_4
+Ltmp38:
+LBB1_3:
+LBB1_4:
+LBB1_5:
+LM46:
+.stabn	0x44, 0, 187, LM46-_exi_int0_irq
+	return
+Ltmp39:
+Lfunc_end2:
+Lfunc_end3:
+LM47:
+.stabf LM47-_exi_int0_irq
+
+	_exi_int1_irq_sec .section rom
+	.global	_exi_int1_irq
+_exi_int1_irq:
+Lfunc_begin4:
+.stabs "exi_int1_irq:f:16", 0x24,0,0,_exi_int1_irq
+.stabn 0xc0, 0, 0, _exi_int1_irq
+.stabn 0xe0, 0, 0, _exi_int1_irq
+LM48:
+.stabn	0x44, 0, 190, LM48-_exi_int1_irq
+Lfunc_begin5:
+	banksel 0
+	movlw 2
+LM49:
+.stabn	0x44, 0, 191, LM49-_exi_int1_irq
+Ltmp40:
+	andwf _EXIIE+0, W
+Ltmp41:
+	sublw 0
+LBB2_1:
+LBB2_2:
+LM50:
+.stabn	0x44, 0, 195, LM50-_exi_int1_irq
+	return
+Ltmp42:
+Lfunc_end4:
+Lfunc_end5:
+LM51:
+.stabf LM51-_exi_int1_irq
+
+	_exi_int2_irq_sec .section rom
+	.global	_exi_int2_irq
+_exi_int2_irq:
+Lfunc_begin6:
+.stabs "exi_int2_irq:f:16", 0x24,0,0,_exi_int2_irq
+.stabn 0xc0, 0, 0, _exi_int2_irq
+.stabn 0xe0, 0, 0, _exi_int2_irq
+LM52:
+.stabn	0x44, 0, 198, LM52-_exi_int2_irq
+Lfunc_begin7:
+	banksel 0
+	movlw 4
+LM53:
+.stabn	0x44, 0, 199, LM53-_exi_int2_irq
+Ltmp43:
+	andwf _EXIIE+0, W
+Ltmp44:
+	sublw 0
+LBB3_1:
+LBB3_2:
+LM54:
+.stabn	0x44, 0, 203, LM54-_exi_int2_irq
+	return
+Ltmp45:
+Lfunc_end6:
+Lfunc_end7:
+LM55:
+.stabf LM55-_exi_int2_irq
+
+	_timer2_irq_sec .section rom
+	.global	_timer2_irq
+_timer2_irq:
+Lfunc_begin8:
+.stabs "timer2_irq:f:16", 0x24,0,0,_timer2_irq
+.stabn 0xc0, 0, 0, _timer2_irq
+.stabn 0xe0, 0, 0, _timer2_irq
+LM56:
+.stabn	0x44, 0, 240, LM56-_timer2_irq
+Lfunc_begin9:
+LM57:
+.stabn	0x44, 0, 241, LM57-_timer2_irq
+	banksel 0
+	movlw 32
+	andwf _TM2CON+0, W
+Ltmp46:
+	sublw 0
+LBB4_1:
+LBB4_2:
+LM58:
+.stabn	0x44, 0, 245, LM58-_timer2_irq
+	return
+Ltmp47:
+Lfunc_end8:
+Lfunc_end9:
+LM59:
+.stabf LM59-_timer2_irq
+
+	_timer0_irq_sec .section rom
+	.global	_timer0_irq
+_timer0_irq:
+Lfunc_begin10:
+.stabs "timer0_irq:f:16", 0x24,0,0,_timer0_irq
+.stabn 0xc0, 0, 0, _timer0_irq
+.stabn 0xe0, 0, 0, _timer0_irq
+LM60:
+.stabn	0x44, 0, 206, LM60-_timer0_irq
+Lfunc_begin11:
+LM61:
+.stabn	0x44, 0, 207, LM61-_timer0_irq
+	banksel 0
+	movlw 32
+	andwf _TM0CON+0, W
+Ltmp48:
+	sublw 0
+	beq LBB5_7
+LBB5_1:
+LM62:
+.stabn	0x44, 0, 218, LM62-_timer0_irq
+Ltmp49:
+	movfw _sys_flag+0
+Ltmp50:
+	sublw 0
+	bne LBB5_3
+LBB5_2:
+LM63:
+.stabn	0x44, 0, 220, LM63-_timer0_irq
+Ltmp51:
+	movlw 1
+	movwf _sys_flag+0
+LM64:
+.stabn	0x44, 0, 221, LM64-_timer0_irq
+	goto LBB5_4
+Ltmp52:
+LBB5_3:
+LM65:
+.stabn	0x44, 0, 225, LM65-_timer0_irq
+	;APP
+	nop
+	;NO_APP
+Ltmp53:
+LBB5_4:
+LM66:
+.stabn	0x44, 0, 228, LM66-_timer0_irq
+	movlw 1
+	addwf _sys_timer+3, F
+	movlw 0
+	addwfc _sys_timer+4, F
+	movlw 0
+	addwfc _sys_timer+5, F
+	movlw 0
+	addwfc _sys_timer+6, F
+LM67:
+.stabn	0x44, 0, 229, LM67-_timer0_irq
+	call _multi_protocol_timebase_callback
+LM68:
+.stabn	0x44, 0, 230, LM68-_timer0_irq
+	call _mod_io_vbus_switch_timer
+LM69:
+.stabn	0x44, 0, 232, LM69-_timer0_irq
+Ltmp54:
+	movfwl _SYS_in_Sleep_F+0
+Ltmp55:
+	sublw 0
+	bne LBB5_6
+Ltmp56:
+LBB5_5:
+LBB5_6:
+LBB5_7:
+LM70:
+.stabn	0x44, 0, 237, LM70-_timer0_irq
+	return
+Ltmp57:
+Lfunc_end10:
+Lfunc_end11:
+LM71:
+.stabf LM71-_timer0_irq
+
+	_typec_irq_sec .section rom
+	.global	_typec_irq
+_typec_irq:
+Lfunc_begin12:
+.stabs "typec_irq:f:16", 0x24,0,0,_typec_irq
+.stabn 0xc0, 0, 0, _typec_irq
+.stabn 0xe0, 0, 0, _typec_irq
+LM72:
+.stabn	0x44, 0, 262, LM72-_typec_irq
+Lfunc_begin13:
+LM73:
+.stabn	0x44, 0, 264, LM73-_typec_irq
+	banksel 0
+	call _fwlib_typec_get_scnaif
+	movfw _fwlib_typec_get_scnaif.frame.+0
+Ltmp58:
+	sublw 0
+	beq LBB6_2
+LBB6_1:
+LM74:
+.stabn	0x44, 0, 266, LM74-_typec_irq
+Ltmp59:
+	call _fwlib_typec_clear_scnaif
+LM75:
+.stabn	0x44, 0, 267, LM75-_typec_irq
+	goto LBB6_5
+Ltmp60:
+LBB6_2:
+	call _fwlib_typec_get_scnbif
+	movfw _fwlib_typec_get_scnbif.frame.+0
+Ltmp61:
+	sublw 0
+	beq LBB6_4
+LBB6_3:
+LM76:
+.stabn	0x44, 0, 269, LM76-_typec_irq
+Ltmp62:
+	call _fwlib_typec_clear_scnbif
+Ltmp63:
+LBB6_4:
+LBB6_5:
+LM77:
+.stabn	0x44, 0, 271, LM77-_typec_irq
+	return
+Ltmp64:
+Lfunc_end12:
+Lfunc_end13:
+LM78:
+.stabf LM78-_typec_irq
+
+	_pd_irq_sec .section rom
+	.global	_pd_irq
+_pd_irq:
+Lfunc_begin14:
+.stabs "pd_irq:f:16", 0x24,0,0,_pd_irq
+.stabn 0xc0, 0, 0, _pd_irq
+.stabn 0xe0, 0, 0, _pd_irq
+LM79:
+.stabn	0x44, 0, 294, LM79-_pd_irq
+Lfunc_begin15:
+LM80:
+.stabn	0x44, 0, 295, LM80-_pd_irq
+	banksel 0
+	call _fwlib_pd_get_tmoutif
+	movfw _fwlib_pd_get_tmoutif.frame.+0
+Ltmp65:
+	sublw 0
+	beq LBB7_2
+LBB7_1:
+LM81:
+.stabn	0x44, 0, 297, LM81-_pd_irq
+Ltmp66:
+	call _fwlib_pd_clear_tmoutif
+LM82:
+.stabn	0x44, 0, 298, LM82-_pd_irq
+	movlw 1
+	movwfl _h_pd+0xa9
+LM83:
+.stabn	0x44, 0, 299, LM83-_pd_irq
+	banksel _h_pd_of
+	clrf _h_pd_of+9
+LM84:
+.stabn	0x44, 0, 300, LM84-_pd_irq
+	goto LBB7_14
+Ltmp67:
+LBB7_2:
+	call _fwlib_pd_get_rxif
+	movfw _fwlib_pd_get_rxif.frame.+0
+Ltmp68:
+	sublw 0
+	beq LBB7_10
+LBB7_3:
+LM85:
+.stabn	0x44, 0, 302, LM85-_pd_irq
+Ltmp69:
+	call _fwlib_pd_clear_rxif
+LM86:
+.stabn	0x44, 0, 303, LM86-_pd_irq
+	banksel _h_pd_of
+	clrf _h_pd_of+9
+LM87:
+.stabn	0x44, 0, 305, LM87-_pd_irq
+	movfwl _APP_PDSOP+0
+	SrlThree
+	andlw 7
+	movwfl _h_pd+0xa2
+LM88:
+.stabn	0x44, 0, 307, LM88-_pd_irq
+Ltmp70:
+	sublw 2
+	beq LBB7_5
+LBB7_4:
+	movfwl _h_pd+0xa2
+LM89:
+.stabn	0x44, 0, 308, LM89-_pd_irq
+	sublw 3
+	bne LBB7_8
+LBB7_5:
+	movfw _h_typeca+13
+LM90:
+.stabn	0x44, 0, 309, LM90-_pd_irq
+	sublw 7
+	beq LBB7_7
+LBB7_6:
+	movfw _h_typecb+13
+Ltmp71:
+LM91:
+.stabn	0x44, 0, 306, LM91-_pd_irq
+	sublw 7
+	bne LBB7_8
+LBB7_7:
+LM92:
+.stabn	0x44, 0, 311, LM92-_pd_irq
+Ltmp72:
+	bcf BSR,0
+	bsf _APP_FIFOCTL1+0, 7
+LM93:
+.stabn	0x44, 0, 312, LM93-_pd_irq
+	goto LBB7_9
+Ltmp73:
+LBB7_8:
+LM94:
+.stabn	0x44, 0, 314, LM94-_pd_irq
+	movlw 1
+	movwfl _h_pd+0xaa
+Ltmp74:
+LBB7_9:
+LM95:
+.stabn	0x44, 0, 316, LM95-_pd_irq
+	goto LBB7_13
+Ltmp75:
+LBB7_10:
+	call _fwlib_pd_get_txif
+	movfw _fwlib_pd_get_txif.frame.+0
+Ltmp76:
+	sublw 0
+	beq LBB7_12
+LBB7_11:
+LM96:
+.stabn	0x44, 0, 318, LM96-_pd_irq
+Ltmp77:
+	call _fwlib_pd_clear_txif
+LM97:
+.stabn	0x44, 0, 319, LM97-_pd_irq
+	movlw 1
+	movwfl _h_pd+0xab
+LM98:
+.stabn	0x44, 0, 320, LM98-_pd_irq
+	banksel _h_pd_of
+	clrf _h_pd_of+9
+Ltmp78:
+LBB7_12:
+LBB7_13:
+LBB7_14:
+LM99:
+.stabn	0x44, 0, 322, LM99-_pd_irq
+	banksel 0
+	return
+Ltmp79:
+Lfunc_end14:
+Lfunc_end15:
+LM100:
+.stabf LM100-_pd_irq
+
+	_timer3_irq_sec .section rom
+	.global	_timer3_irq
+_timer3_irq:
+Lfunc_begin16:
+.stabs "timer3_irq:f:16", 0x24,0,0,_timer3_irq
+.stabn 0xc0, 0, 0, _timer3_irq
+.stabn 0xe0, 0, 0, _timer3_irq
+LM101:
+.stabn	0x44, 0, 248, LM101-_timer3_irq
+Lfunc_begin17:
+LM102:
+.stabn	0x44, 0, 249, LM102-_timer3_irq
+	banksel 0
+	movlw 32
+	bsf BSR,0
+	andwf _TM3CON+0, W
+Ltmp80:
+	sublw 0
+LBB8_1:
+LBB8_2:
+LM103:
+.stabn	0x44, 0, 252, LM103-_timer3_irq
+	banksel 0
+	return
+Ltmp81:
+Lfunc_end16:
+Lfunc_end17:
+LM104:
+.stabf LM104-_timer3_irq
+
+	_timer4_irq_sec .section rom
+	.global	_timer4_irq
+_timer4_irq:
+Lfunc_begin18:
+.stabs "timer4_irq:f:16", 0x24,0,0,_timer4_irq
+.stabn 0xc0, 0, 0, _timer4_irq
+.stabn 0xe0, 0, 0, _timer4_irq
+LM105:
+.stabn	0x44, 0, 255, LM105-_timer4_irq
+Lfunc_begin19:
+LM106:
+.stabn	0x44, 0, 256, LM106-_timer4_irq
+	banksel 0
+	movlw 32
+	bsf BSR,0
+	andwf _TM4CON+0, W
+Ltmp82:
+	sublw 0
+LBB9_1:
+LBB9_2:
+LM107:
+.stabn	0x44, 0, 259, LM107-_timer4_irq
+	banksel 0
+	return
+Ltmp83:
+Lfunc_end18:
+Lfunc_end19:
+LM108:
+.stabf LM108-_timer4_irq
+
+	_pd_interrupt_polling_sec .section rom
+	.global	_pd_interrupt_polling
+_pd_interrupt_polling:
+Lfunc_begin20:
+.stabs "pd_interrupt_polling:f:16", 0x24,0,0,_pd_interrupt_polling
+.stabn 0xc0, 0, 0, _pd_interrupt_polling
+.stabn 0xe0, 0, 0, _pd_interrupt_polling
+LM109:
+.stabn	0x44, 0, 327, LM109-_pd_interrupt_polling
+Lfunc_begin21:
+LM110:
+.stabn	0x44, 0, 342, LM110-_pd_interrupt_polling
+	banksel 0
+	movfwl _h_pd+0xa9
+Ltmp84:
+	sublw 0
+	beq LBB10_2
+LBB10_1:
+LM111:
+.stabn	0x44, 0, 344, LM111-_pd_interrupt_polling
+Ltmp85:
+	bsf BSR,1
+	clrf _h_pd+0xa9
+LM112:
+.stabn	0x44, 0, 345, LM112-_pd_interrupt_polling
+	call _pd_time_out_handler
+LM113:
+.stabn	0x44, 0, 346, LM113-_pd_interrupt_polling
+	goto LBB10_11
+Ltmp86:
+LBB10_2:
+	movfwl _h_pd+0xaa
+Ltmp87:
+	sublw 0
+	beq LBB10_7
+LBB10_3:
+LM114:
+.stabn	0x44, 0, 348, LM114-_pd_interrupt_polling
+Ltmp88:
+	bsf BSR,1
+	clrf _h_pd+0xaa
+LM115:
+.stabn	0x44, 0, 349, LM115-_pd_interrupt_polling
+	call _pd_read
+LM116:
+.stabn	0x44, 0, 350, LM116-_pd_interrupt_polling
+Ltmp89:
+	movfwl _h_pd+0xa2
+	sublw 2
+	beq LBB10_6
+LBB10_4:
+	movfwl _h_pd+0xa2
+Ltmp90:
+	sublw 3
+	beq LBB10_6
+LBB10_5:
+LM117:
+.stabn	0x44, 0, 352, LM117-_pd_interrupt_polling
+Ltmp91:
+	movlw 1
+	movwfl _plug_state_context+15
+Ltmp92:
+LBB10_6:
+LM118:
+.stabn	0x44, 0, 354, LM118-_pd_interrupt_polling
+	goto LBB10_10
+Ltmp93:
+LBB10_7:
+	movfwl _h_pd+0xab
+Ltmp94:
+	sublw 0
+	beq LBB10_9
+LBB10_8:
+LM119:
+.stabn	0x44, 0, 356, LM119-_pd_interrupt_polling
+Ltmp95:
+	bsf BSR,1
+	clrf _h_pd+0xab
+LM120:
+.stabn	0x44, 0, 357, LM120-_pd_interrupt_polling
+	call _pd_trans_complete_handler
+Ltmp96:
+LBB10_9:
+LBB10_10:
+LBB10_11:
+LM121:
+.stabn	0x44, 0, 361, LM121-_pd_interrupt_polling
+	return
+Ltmp97:
+Lfunc_end20:
+Lfunc_end21:
+LM122:
+.stabf LM122-_pd_interrupt_polling
+
+
+	_APP_PDSOP_app_interrupt.c .section bank4,addr=95
+	_APP_PDSOP .ds 1
+	.ends
+
+	_APP_FIFOCTL1_app_interrupt.c .section bank4,addr=96
+	_APP_FIFOCTL1 .ds 1
+	.ends
+
+	.@_INT_FUNCTION_sec@_INT_FUNCTION.temp. .section bank1,uninit
+	_INT_FUNCTION.temp. .ds 3
+	.ends
+
+
+
+	.global	_APP_PDSOP
+	.global	_APP_FIFOCTL1
+

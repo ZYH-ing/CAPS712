@@ -1,0 +1,5908 @@
+
+org 0810h
+dw  0002h
+dw  0000h
+dw  0000h
+dw  0000h
+
+
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\app\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\app\\app_main.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+.stabs "flash_address:G2;",0x20,0,0,_flash_address
+.stabs "Flag:G10;",0x20,0,0,_Flag
+
+.stabs "_REGx0:G17=10;;",0x20,0,0,__REGx0
+.stabs "_REGx1:G18=10;;",0x20,0,0,__REGx1
+.stabs "_REGx2:G19=10;;",0x20,0,0,__REGx2
+.stabs "_REGx3:G20=10;;",0x20,0,0,__REGx3
+.stabs "_REGx4:G21=10;;",0x20,0,0,__REGx4
+.stabs "APToBoot0:G10;",0x20,0,0,_APToBoot0
+.stabs "APToBoot1:G10;",0x20,0,0,_APToBoot1
+.stabs "flag_INT:G12;",0x20,0,0,_flag_INT
+.stabs "CCIE1:G10;",0x20,0,0,_CCIE1
+.stabs "CCIF1:G10;",0x20,0,0,_CCIF1
+.stabs "CCACTL1:G10;",0x20,0,0,_CCACTL1
+.stabs "CCBCTL1:G10;",0x20,0,0,_CCBCTL1
+.stabs "AUTODET1:G10;",0x20,0,0,_AUTODET1
+.stabs "CCARLT1:G10;",0x20,0,0,_CCARLT1
+.stabs "CCBRLT1:G10;",0x20,0,0,_CCBRLT1
+.stabs "SCNPRD1:G10;",0x20,0,0,_SCNPRD1
+.stabs "CCDRP1:G10;",0x20,0,0,_CCDRP1
+.stabs "flash_data:G22=ar23;0;1;24=10;",0x20,0,0,_flash_data
+.stabs "sleepcnt:G10;",0x20,0,0,_sleepcnt
+.stabs "VoltFlag:G10;",0x20,0,0,_VoltFlag
+.stabs "I_ChargePWM_PWM_Be:G2;",0x20,0,0,_I_ChargePWM_PWM_Be
+.stabs "I_ChargePWM_PWM:G2;",0x20,0,0,_I_ChargePWM_PWM
+.stabs "R_ChargeCur_DataBuff:G10;",0x20,0,0,_R_ChargeCur_DataBuff
+.stabs "R_ChargeCur_PDData:G10;",0x20,0,0,_R_ChargeCur_PDData
+.stabs "R_ChargeCur_Data:G10;",0x20,0,0,_R_ChargeCur_Data
+.stabs "LedData_OK:G10;",0x20,0,0,_LedData_OK
+.stabs "BatCap_Value:G10;",0x20,0,0,_BatCap_Value
+.stabs "BatCap_Value_Be:G10;",0x20,0,0,_BatCap_Value_Be
+.stabs "Charge_Start:G10;",0x20,0,0,_Charge_Start
+.stabs "Power_Value_Update:G10;",0x20,0,0,_Power_Value_Update
+.stabs "PD_curr_Pro_cnt:G10;",0x20,0,0,_PD_curr_Pro_cnt
+.stabs "USBA_curr_Pro_cnt:G10;",0x20,0,0,_USBA_curr_Pro_cnt
+.stabs "USBA2_curr_Pro_cnt:G10;",0x20,0,0,_USBA2_curr_Pro_cnt
+.stabs "UTX_8_data1:G10;",0x20,0,0,_UTX_8_data1
+.stabs "UTX_8_data2:G2;",0x20,0,0,_UTX_8_data2
+.stabs "UTX_16_data1:G2;",0x20,0,0,_UTX_16_data1
+.stabs "UTX_16_data2:G2;",0x20,0,0,_UTX_16_data2
+.stabs "VBAT_7201_Vaule:G2;",0x20,0,0,_VBAT_7201_Vaule
+.stabs "VBUS_out:G2;",0x20,0,0,_VBUS_out
+.stabs "VBUS_out_Be:G2;",0x20,0,0,_VBUS_out_Be
+.stabs "discharge_displed:G10;",0x20,0,0,_discharge_displed
+.stabs "Fast_Show_cnt:G10;",0x20,0,0,_Fast_Show_cnt
+.stabs "Sleep_up_flage:G10;",0x20,0,0,_Sleep_up_flage
+.stabs "charge_and_discharge_do:G10;",0x20,0,0,_charge_and_discharge_do
+.stabs "Time_1ms_cnt:G10;",0x20,0,0,_Time_1ms_cnt
+.stabs "Time_10ms_cnt:G10;",0x20,0,0,_Time_10ms_cnt
+.stabs "Time_100ms_cnt:G10;",0x20,0,0,_Time_100ms_cnt
+.stabs "Time_1000ms_cnt:G10;",0x20,0,0,_Time_1000ms_cnt
+.stabs "Time_1500ms_cnt:G10;",0x20,0,0,_Time_1500ms_cnt
+.stabs "WR_5V9V_out_in:G10;",0x20,0,0,_WR_5V9V_out_in
+.stabs "SW7203_Data_Cnt:G10;",0x20,0,0,_SW7203_Data_Cnt
+.stabs "TX_time_change:G2",0x20,0,0,_TX_time_change
+.stabs "TX_START:G10",0x20,0,0,_TX_START
+.stabs "TX_data_temp:G2",0x20,0,0,_TX_data_temp
+.stabs "TX_bit_H_time_cnt:G10",0x20,0,0,_TX_bit_H_time_cnt
+.stabs "TX_bit_L_time_cnt:G10",0x20,0,0,_TX_bit_L_time_cnt
+.stabs "TX_data1:G2",0x20,0,0,_TX_data1
+.stabs "TX_data2:G2",0x20,0,0,_TX_data2
+.stabs "TX_date_done:G10",0x20,0,0,_TX_date_done
+.stabs "TX_bit_vaule:G10",0x20,0,0,_TX_bit_vaule
+.stabs "TX_bit_time_cnt:G10",0x20,0,0,_TX_bit_time_cnt
+.stabs "TX_bit_cnt:G10",0x20,0,0,_TX_bit_cnt
+.stabs "TX_all_data_statu:G2",0x20,0,0,_TX_all_data_statu
+.stabs "TCB_EN_ON:G10",0x20,0,0,_TCB_EN_ON
+.stabs "TCA_EN_ON:G10",0x20,0,0,_TCA_EN_ON
+.stabs "WHITE_ON:G10",0x20,0,0,_WHITE_ON
+.stabs "RED_ON:G10",0x20,0,0,_RED_ON
+.stabs "USBA_EN_ON:G10",0x20,0,0,_USBA_EN_ON
+.stabs "USBA2_EN_ON:G10",0x20,0,0,_USBA2_EN_ON
+.stabs "CHARING_ON:G10",0x20,0,0,_CHARING_ON
+.stabs "OTG_ON:G10",0x20,0,0,_OTG_ON
+.stabs "SOS_LEVEL:G10",0x20,0,0,_SOS_LEVEL
+.stabs "CAR_LEVEL:G10",0x20,0,0,_CAR_LEVEL
+.stabs "LED_STATU:G10",0x20,0,0,_LED_STATU
+.stabs "LED_LEVEL:G10",0x20,0,0,_LED_LEVEL
+.stabs "count_tx_car:G10;",0x20,0,0,_count_tx_car
+.stabs "count_8:G10;",0x20,0,0,_count_8
+.stabs "TX_Car_number:G10;",0x20,0,0,_TX_Car_number
+.stabs "f_err_ot:G10;",0x20,0,0,_f_err_ot
+.stabs "f_ph_del:G10;",0x20,0,0,_f_ph_del
+.stabs "f_car_his:G10;",0x20,0,0,_f_car_his
+.stabs "count_car_remove:G2;",0x20,0,0,_count_car_remove
+.stabs "count_car_jump:G10;",0x20,0,0,_count_car_jump
+.stabs "data_car_jump:G10;",0x20,0,0,_data_car_jump
+.stabs "Temp_car_ST:G10;",0x20,0,0,_Temp_car_ST
+.stabs "count_jump:G10;",0x20,0,0,_count_jump
+.stabs "f_car_jump:G10;",0x20,0,0,_f_car_jump
+.stabs "car_ST:G10;",0x20,0,0,_car_ST
+.stabs "count_clr_time:G10;",0x20,0,0,_count_clr_time
+.stabs "time_noload:G10;",0x20,0,0,_time_noload
+.stabs "count_0s5:G10;",0x20,0,0,_count_0s5
+.stabs "f_ph_del_time:G10;",0x20,0,0,_f_ph_del_time
+.stabs "f_jump_start:G10;",0x20,0,0,_f_jump_start
+.stabs "count_2ms:G10;",0x20,0,0,_count_2ms
+.stabs "count_65ms:G10;",0x20,0,0,_count_65ms
+.stabs "Charge_cnt_do:G10;",0x20,0,0,_Charge_cnt_do
+.stabs "Charge_get_cnt:G10;",0x20,0,0,_Charge_get_cnt
+.stabs "sink_Vol:G10;",0x20,0,0,_sink_Vol
+.stabs "sink_Vol1:G10;",0x20,0,0,_sink_Vol1
+.stabs "bat_low_pwm_do:G10;",0x20,0,0,_bat_low_pwm_do
+.stabs "bat_low_pwm_Cnt:G10;",0x20,0,0,_bat_low_pwm_Cnt
+.stabs "bat_full_pwm_Cnt:G10;",0x20,0,0,_bat_full_pwm_Cnt
+.stabs "bat_full_pwm_do:G10;",0x20,0,0,_bat_full_pwm_do
+.stabs "bat_full_8hour_Cnt:G10;",0x20,0,0,_bat_full_8hour_Cnt
+.stabs "bat_full_1hour_Cnt:G2;",0x20,0,0,_bat_full_1hour_Cnt
+.stabs "bat_full_do_to_charge:G10;",0x20,0,0,_bat_full_do_to_charge
+.stabs "Sleep_up_shor_do:G10;",0x20,0,0,_Sleep_up_shor_do
+.stabs "Sleep_up_close_Car_ignition:G10;",0x20,0,0,_Sleep_up_close_Car_ignition
+.stabs "charge_to_sleep_close_Car_ignition:G10;",0x20,0,0,_charge_to_sleep_close_Car_ignition
+.stabs "USBA_sleep_up:G10;",0x20,0,0,_USBA_sleep_up
+.stabs "VBUS_V_Hight:G10;",0x20,0,0,_VBUS_V_Hight
+.stabs "VBUS_V_Low:G10;",0x20,0,0,_VBUS_V_Low
+.stabs "VBUS_OVP_CNT:G2;",0x20,0,0,_VBUS_OVP_CNT
+.stabs "VBUS_USBA_OVP_CNT:G2;",0x20,0,0,_VBUS_USBA_OVP_CNT
+.stabs "Into_IAP_Flage:G10;",0x20,0,0,_Into_IAP_Flage
+.stabs "USBA_VoltFlag:G10;",0x20,0,0,_USBA_VoltFlag
+.stabs "cscc_@anonymity_0:T26=s3data_count:10,0,8;frame_cs_calculate:10,8,16;jump_flag:10,16,24;;", 0x80, 0, 0, 0
+.stabs "iap_detect:G25=26;;",0x20,0,0,_iap_detect
+.stabs "request_num_copy:G10;",0x20,0,0,_request_num_copy
+.stabs "Recharge_cnt:G10;",0x20,0,0,_Recharge_cnt
+.stabs "TYPE_CA_18W_Flage:G10;",0x20,0,0,_TYPE_CA_18W_Flage
+.stabs "TYPE_CA_18W_Flage_Cnt:G10;",0x20,0,0,_TYPE_CA_18W_Flage_Cnt
+.stabs "Time_2_Flage_do:G10;",0x20,0,0,_Time_2_Flage_do
+.stabs "SYS_in_Sleep_F:G10;",0x20,0,0,_SYS_in_Sleep_F
+.stabs "Foece_Sleep_F:G10;",0x20,0,0,_Foece_Sleep_F
+.stabs "Foece_Sleep_Time_S:G10;",0x20,0,0,_Foece_Sleep_Time_S
+.stabs "Foece_Sleep_Time_Min:G2;",0x20,0,0,_Foece_Sleep_Time_Min
+.stabs "Foece_Sleep_Time_Mon:G10;",0x20,0,0,_Foece_Sleep_Time_Mon
+.stabs "Exit_Charge_Cnt:G2;",0x20,0,0,_Exit_Charge_Cnt
+.stabs "CC1_LEVEL_NOW:G10;",0x20,0,0,_CC1_LEVEL_NOW
+.stabs "CC1_LEVEL_BE:G10;",0x20,0,0,_CC1_LEVEL_BE
+.stabs "CC2_LEVEL_NOW:G10;",0x20,0,0,_CC2_LEVEL_NOW
+.stabs "CC2_LEVEL_BE:G10;",0x20,0,0,_CC2_LEVEL_BE
+.stabs "CC_Check_Cnt:G10;",0x20,0,0,_CC_Check_Cnt
+.stabs "CC1_Check1_Cnt:G10;",0x20,0,0,_CC1_Check1_Cnt
+.stabs "CC1_Check2_Cnt:G10;",0x20,0,0,_CC1_Check2_Cnt
+.stabs "CC2_Check1_Cnt:G10;",0x20,0,0,_CC2_Check1_Cnt
+.stabs "CC2_Check2_Cnt:G10;",0x20,0,0,_CC2_Check2_Cnt
+.stabs "TypeC_Slide_CC1_data:G2;",0x20,0,0,_TypeC_Slide_CC1_data
+.stabs "TypeC_Slide_CC2_data:G2;",0x20,0,0,_TypeC_Slide_CC2_data
+.stabs "TypeC_MicroB_ADC_data:G2;",0x20,0,0,_TypeC_MicroB_ADC_data
+.stabs "TypeC_VNOW_out_value:G2;",0x20,0,0,_TypeC_VNOW_out_value
+.stabs "TypeC_VBE_out_value:G2;",0x20,0,0,_TypeC_VBE_out_value
+.stabs "Out_Protest_Flage:G10;",0x20,0,0,_Out_Protest_Flage
+.stabs "Charge_OCP_Flage:G10;",0x20,0,0,_Charge_OCP_Flage
+.stabs "Charge_OCP_cnt:G10;",0x20,0,0,_Charge_OCP_cnt
+.stabs "Charge_Close_En_cnt:G10;",0x20,0,0,_Charge_Close_En_cnt
+.stabs "Charge_BEN_cnt:G10;",0x20,0,0,_Charge_BEN_cnt
+.stabs "Vbat_8_date:G10;",0x20,0,0,_Vbat_8_date
+.stabs "VBUS_8_date:G10;",0x20,0,0,_VBUS_8_date
+.stabs "VBUS_USBA_8_date:G10;",0x20,0,0,_VBUS_USBA_8_date
+.stabs "CIbat_8_date:G10;",0x20,0,0,_CIbat_8_date
+.stabs "CIbus_8_date:G10;",0x20,0,0,_CIbus_8_date
+.stabs "CIbus_16_date:G2;",0x20,0,0,_CIbus_16_date
+.stabs "AIbat_8_date:G10;",0x20,0,0,_AIbat_8_date
+.stabs "LIbat_8_date:G10;",0x20,0,0,_LIbat_8_date
+.stabs "Type_C_Ibat_16_date:G2;",0x20,0,0,_Type_C_Ibat_16_date
+.stabs "Car_Cur_data:G10;",0x20,0,0,_Car_Cur_data
+.stabs "f_RX_statu:G10;",0x20,0,0,_f_RX_statu
+.stabs "f_B_RX_statu:G10;",0x20,0,0,_f_B_RX_statu
+.stabs "f_B2_RX_statu:G10;",0x20,0,0,_f_B2_RX_statu
+.stabs "f_Rx_do_star:G10;",0x20,0,0,_f_Rx_do_star
+.stabs "Date_bit_cnt:G10;",0x20,0,0,_Date_bit_cnt
+.stabs "Time_date_L_cnt:G10;",0x20,0,0,_Time_date_L_cnt
+.stabs "Vule_Rx_date:G10;",0x20,0,0,_Vule_Rx_date
+.stabs "f_RX_date_done:G10;",0x20,0,0,_f_RX_date_done
+.stabs "Rx_huo:G10;",0x20,0,0,_Rx_huo
+.stabs "USBA_EN_BK:G10;",0x20,0,0,_USBA_EN_BK
+.stabs "Flash_bat_Vol_Start_check:G10;",0x20,0,0,_Flash_bat_Vol_Start_check
+.stabs "Bat_Car_Protect_Cnt:G10;",0x20,0,0,_Bat_Car_Protect_Cnt
+.stabs "test_data8_1:G10;",0x20,0,0,_test_data8_1
+.stabs "UP_data_2402_Flage:G10;",0x20,0,0,_UP_data_2402_Flage
+.stabs "BAT_Pro_Charge:G10;",0x20,0,0,_BAT_Pro_Charge
+.stabs "Sleep_Down_Close_Power:G10;",0x20,0,0,_Sleep_Down_Close_Power
+.stabs "Boot_NG_Flage:G10;",0x20,0,0,_Boot_NG_Flage
+.stabs "Bat_Low_5V_CNt:G2;",0x20,0,0,_Bat_Low_5V_CNt
+.stabs "Bat_Low_5V_NG_Flage:G10;",0x20,0,0,_Bat_Low_5V_NG_Flage
+.stabs "UTX_16_data3:G2;",0x20,0,0,_UTX_16_data3
+.stabs "LED_test_mode_Cnt:G10;",0x20,0,0,_LED_test_mode_Cnt
+.stabs "LED_test_mode_Cnt2:G10;",0x20,0,0,_LED_test_mode_Cnt2
+.stabs "uart_t_count:G10;",0x20,0,0,_uart_t_count
+.stabs "Languagee_C_Flag:G10;",0x20,0,0,_Languagee_C_Flag
+.stabs "LongKeyFlagtocallword:G10;",0x20,0,0,_LongKeyFlagtocallword
+.stabs "marked_word_showtime:G10;",0x20,0,0,_marked_word_showtime
+.stabs "marked_word_cnt:G10;",0x20,0,0,_marked_word_cnt
+.stabs "F_gotodec_levl:G10;",0x20,0,0,_F_gotodec_levl
+.stabs "Gotodec_levl_cnt:G10;",0x20,0,0,_Gotodec_levl_cnt
+.stabs "DubbleKeyFlag:G10;",0x20,0,0,_DubbleKeyFlag
+.stabs "DubbleKey2Flag:G10;",0x20,0,0,_DubbleKey2Flag
+.stabs "open_lcd_light:G10;",0x20,0,0,_open_lcd_light
+.stabs "Temp_Language:G10;",0x20,0,0,_Temp_Language
+.stabs "TFT_maid_mode:G10;",0x20,0,0,_TFT_maid_mode
+.stabs "TFT_minor_mode:G10;",0x20,0,0,_TFT_minor_mode
+.stabs "Star_Cartoon:G10;",0x20,0,0,_Star_Cartoon
+.stabs "Error_icon_Cnt:G10;",0x20,0,0,_Error_icon_Cnt
+.stabs "Error_icon_Mode:G10;",0x20,0,0,_Error_icon_Mode
+.stabs "USBA_in_Flage:G10;",0x20,0,0,_USBA_in_Flage
+.stabs "USBA_in_Cnt:G10;",0x20,0,0,_USBA_in_Cnt
+.stabs "BAT_VAULE_TEST:G10;",0x20,0,0,_BAT_VAULE_TEST
+.stabs "BAT_VAULE_TEST_Cnt:G10;",0x20,0,0,_BAT_VAULE_TEST_Cnt
+.stabs "TYPE_C_Waittime_Cnt:G10;",0x20,0,0,_TYPE_C_Waittime_Cnt
+.stabs "test_I_data:G10;",0x20,0,0,_test_I_data
+.stabs "close_lcd_light_cnt:G2;",0x20,0,0,_close_lcd_light_cnt
+.stabs "Change_lauge_Cnt:G10;",0x20,0,0,_Change_lauge_Cnt
+.stabs "Change_lauge_Flage:G10;",0x20,0,0,_Change_lauge_Flage
+.stabs "Change_lauge_Time_Cnt:G10;",0x20,0,0,_Change_lauge_Time_Cnt
+.stabs "sys_flag_t:T27=s2timer_1ms:28=10;;,0,8;timer_10ms:29=10;;,8,16;;", 0x80, 0, 0, 0
+.stabs "sys_flag:G27;",0x20,0,0,_sys_flag
+.stabs "sys_timer_t:T30=s7cnt_10ms:31=10;;,0,8;cnt_100ms:32=10;;,8,16;cnt_1s:33=10;;,16,24;time_ruler:34=4;;,24,56;;", 0x80, 0, 0, 0
+.stabs "sys_timer:G30;",0x20,0,0,_sys_timer
+
+
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_delay_ms_sec .section rom
+	.global	_delay_ms
+_delay_ms:
+Lfunc_begin0:
+.stabs "delay_ms:f:16", 0x24,0,0,_delay_ms
+.stabn 0xc0, 0, 0, _delay_ms
+.stabn 0xe0, 0, 0, _delay_ms
+LM0:
+.stabn	0x44, 0, 323, LM0-_delay_ms
+Lfunc_begin1:
+	banksel 0
+	movfw _delay_ms.args.+0
+	movwf _delay_ms.temp.+0
+	movfw _delay_ms.args.+1
+	movwf _delay_ms.temp.+1
+	movfw _delay_ms.args.+2
+	movwf _delay_ms.temp.+2
+	movfw _delay_ms.args.+3
+LM1:
+.stabn	0x44, 0, 324, LM1-_delay_ms
+Ltmp0:
+	movwf _delay_ms.temp.+3
+	clrf _sys_timer+3
+	clrf _sys_timer+4
+	clrf _sys_timer+5
+	clrf _sys_timer+6
+LBB0_1:
+LM2:
+.stabn	0x44, 0, 329, LM2-_delay_ms
+Ltmp1:
+	;APP
+	CLRWDT
+	;NO_APP
+LM3:
+.stabn	0x44, 0, 330, LM3-_delay_ms
+	;APP
+	nop
+	;NO_APP
+Ltmp2:
+LM4:
+.stabn	0x44, 0, 331, LM4-_delay_ms
+	movlw 1
+	movwf _delay_ms.temp.+4
+	movfw _delay_ms.temp.+0
+	subwf _sys_timer+3, W
+	ble LBB0_5
+LBB0_4:
+	movlw 0
+	movwf _delay_ms.temp.+4
+LBB0_5:
+	movfw _sys_timer+4
+	movwf _delay_ms.temp.+5
+	movlw 1
+	movwf _delay_ms.temp.+6
+	movfw _delay_ms.temp.+1
+	movwf _delay_ms.temp.+7
+	subwf _delay_ms.temp.+5, W
+	ble LBB0_7
+LBB0_6:
+	movlw 0
+	movwf _delay_ms.temp.+6
+LBB0_7:
+	movfw _delay_ms.temp.+4
+	movwf _delay_ms.temp.+4
+	movfw _delay_ms.temp.+7
+	subwf _delay_ms.temp.+5, W
+	beq LBB0_9
+LBB0_8:
+	movfw _delay_ms.temp.+6
+	movwf _delay_ms.temp.+4
+LBB0_9:
+	movfw _sys_timer+5
+	movwf _delay_ms.temp.+5
+	movlw 1
+	movwf _delay_ms.temp.+6
+	movfw _delay_ms.temp.+2
+	movwf _delay_ms.temp.+7
+	subwf _delay_ms.temp.+5, W
+	ble LBB0_11
+LBB0_10:
+	movlw 0
+	movwf _delay_ms.temp.+6
+LBB0_11:
+	movfw _sys_timer+6
+	movwf _delay_ms.temp.+8
+	movlw 1
+	movwf _delay_ms.temp.+9
+	movfw _delay_ms.temp.+3
+	movwf _delay_ms.temp.+10
+	subwf _delay_ms.temp.+8, W
+	ble LBB0_13
+LBB0_12:
+	movlw 0
+	movwf _delay_ms.temp.+9
+LBB0_13:
+	movfw _delay_ms.temp.+6
+	movwf _delay_ms.temp.+6
+	movfw _delay_ms.temp.+10
+	subwf _delay_ms.temp.+8, W
+	beq LBB0_15
+LBB0_14:
+	movfw _delay_ms.temp.+9
+	movwf _delay_ms.temp.+6
+LBB0_15:
+	movfw _delay_ms.temp.+7
+	xorwf _delay_ms.temp.+5, W
+	movwf _delay_ms.temp.+5
+	movfw _delay_ms.temp.+4
+	movwf _delay_ms.temp.+4
+	movfw _delay_ms.temp.+10
+	xorwf _delay_ms.temp.+8, W
+	iorwf _delay_ms.temp.+5, W
+	sublw 0
+	beq LBB0_17
+LBB0_16:
+	movfw _delay_ms.temp.+6
+	movwf _delay_ms.temp.+4
+LBB0_17:
+	movfw _delay_ms.temp.+4
+Ltmp3:
+	andlw 1
+	sublw 0
+	bne LBB0_1
+Ltmp4:
+LBB0_3:
+LM5:
+.stabn	0x44, 0, 332, LM5-_delay_ms
+	return
+Ltmp5:
+Lfunc_end0:
+Lfunc_end1:
+LM6:
+.stabn 0xc0,0,0, LM0-_delay_ms
+.stabs "_ms:4;",0x80,0,0,_delay_ms.args.+0
+.stabn 0xe0,0,0, LM5-_delay_ms
+.stabf LM6-_delay_ms
+
+	_main_sec .section rom
+	.global	_main
+_main:
+Lfunc_begin2:
+.stabs "main:f:16", 0x24,0,0,_main
+.stabn 0xc0, 0, 0, _main
+.stabn 0xe0, 0, 0, _main
+LM7:
+.stabn	0x44, 0, 366, LM7-_main
+Lfunc_begin3:
+LM8:
+.stabn	0x44, 0, 367, LM8-_main
+	banksel 0
+	bsf _flag_INT, _flag_INT
+LM9:
+.stabn	0x44, 0, 368, LM9-_main
+	bsf BSR,0
+	clrf _SYS_in_Sleep_F+0
+LM10:
+.stabn	0x44, 0, 369, LM10-_main
+	clrf _Port_NTC_NG_LOW_POWER_Cnt+0
+LM11:
+.stabn	0x44, 0, 370, LM11-_main
+	clrf _Port_NTC_NG_LOW_POWER_Flage+0
+LM12:
+.stabn	0x44, 0, 371, LM12-_main
+	call _app_peripheral_init
+LM13:
+.stabn	0x44, 0, 372, LM13-_main
+	call _Start_data_init
+LM14:
+.stabn	0x44, 0, 373, LM14-_main
+	call _Bootcheck_Deal
+LM15:
+.stabn	0x44, 0, 375, LM15-_main
+	bsf BSR,0
+	clrf _open_to_12hour_Cnt+0
+	clrf _open_to_12hour_Cnt+1
+LM16:
+.stabn	0x44, 0, 377, LM16-_main
+	banksel _key_down_5S_Cnt
+	clrf _key_down_5S_Cnt+0
+	clrf _key_down_5S_Cnt+1
+LM17:
+.stabn	0x44, 0, 378, LM17-_main
+	banksel _Bat_Low_5V_NG_Flage
+	clrf _Bat_Low_5V_NG_Flage+0
+LM18:
+.stabn	0x44, 0, 379, LM18-_main
+	clrf _Bat_Low_5V_CNt+0
+	clrf _Bat_Low_5V_CNt+1
+LM19:
+.stabn	0x44, 0, 380, LM19-_main
+	banksel _key_down_10S_Flage
+	clrf _key_down_10S_Flage+0
+LM20:
+.stabn	0x44, 0, 382, LM20-_main
+Ltmp6:
+	movlw 1
+	movwfl _main.temp.+1
+	movfwl _adc_convert+30
+	sublw 98
+	bgt LBB1_58
+LBB1_57:
+	movlw 0
+	movwfl _main.temp.+1
+LBB1_58:
+	movfwl _adc_convert+31
+	sublw 0
+	beq LBB1_60
+LBB1_59:
+	movlw 0
+	movwfl _main.temp.+1
+LBB1_60:
+	movfwl _main.temp.+1
+	andlw 1
+	sublw 0
+	bne LBB1_2
+Ltmp7:
+LBB1_1:
+	movlw 1
+	movwfl _main.temp.+1
+Ltmp8:
+	movfwl _adc_convert+30
+Ltmp9:
+	sublw 0x9e
+	bgt LBB1_62
+LBB1_61:
+	movlw 0
+	movwfl _main.temp.+1
+LBB1_62:
+	movlw 1
+	movwfl _main.temp.+2
+Ltmp10:
+	movfwl _adc_convert+31
+Ltmp11:
+	movwfl _main.temp.+3
+	sublw 7
+	bgt LBB1_64
+LBB1_63:
+	movlw 0
+	movwfl _main.temp.+2
+LBB1_64:
+	bcf BSR,1
+	movfw _main.temp.+1
+	movwf _main.temp.+1
+	movfw _main.temp.+3
+	sublw 7
+	beq LBB1_66
+LBB1_65:
+	movfw _main.temp.+2
+	movwf _main.temp.+1
+LBB1_66:
+	movfw _main.temp.+1
+	andlw 1
+	sublw 0
+	bne LBB1_3
+LBB1_2:
+LM21:
+.stabn	0x44, 0, 384, LM21-_main
+Ltmp12:
+	banksel _Temp
+	clrf _Temp+1
+LM22:
+.stabn	0x44, 0, 385, LM22-_main
+	movlw 1
+	banksel _LCD_display_3S_Cnt
+	movwf _LCD_display_3S_Cnt+0
+	clrf _LCD_display_3S_Cnt+1
+Ltmp13:
+LBB1_3:
+LM23:
+.stabn	0x44, 0, 387, LM23-_main
+	banksel _adc_convert
+	movfw _adc_convert+30
+	movwf _adc_convert+32
+	movfw _adc_convert+31
+	movwf _adc_convert+33
+LM24:
+.stabn	0x44, 0, 388, LM24-_main
+	bsf BSR,1
+	clrf _TFT_maid_mode+0
+LM25:
+.stabn	0x44, 0, 389, LM25-_main
+	clrf _TFT_minor_mode+0
+LM26:
+.stabn	0x44, 0, 390, LM26-_main
+	movlw 1
+	movwf _Star_Cartoon+0
+LM27:
+.stabn	0x44, 0, 392, LM27-_main
+	clrf _USBA_in_Flage+0
+LM28:
+.stabn	0x44, 0, 393, LM28-_main
+	clrf _USBA_in_Cnt+0
+LM29:
+.stabn	0x44, 0, 395, LM29-_main
+	clrf _BAT_VAULE_TEST+0
+LM30:
+.stabn	0x44, 0, 396, LM30-_main
+	clrf _BAT_VAULE_TEST_Cnt+0
+LM31:
+.stabn	0x44, 0, 397, LM31-_main
+	clrf _TYPE_C_Waittime_Cnt+0
+LM32:
+.stabn	0x44, 0, 398, LM32-_main
+	movlw 5
+	movwf _test_I_data+0
+LM33:
+.stabn	0x44, 0, 401, LM33-_main
+	bcf BSR,1
+	clrf _holdingRegisters+0
+LM34:
+.stabn	0x44, 0, 402, LM34-_main
+	clrf _holdingRegisters+1
+LM35:
+.stabn	0x44, 0, 403, LM35-_main
+	clrf _holdingRegisters+2
+LM36:
+.stabn	0x44, 0, 404, LM36-_main
+	clrf _holdingRegisters+3
+LM37:
+.stabn	0x44, 0, 405, LM37-_main
+	clrf _holdingRegisters+4
+LM38:
+.stabn	0x44, 0, 406, LM38-_main
+	clrf _holdingRegisters+5
+LM39:
+.stabn	0x44, 0, 407, LM39-_main
+	clrf _holdingRegisters+6
+LM40:
+.stabn	0x44, 0, 408, LM40-_main
+	clrf _holdingRegisters+7
+LM41:
+.stabn	0x44, 0, 409, LM41-_main
+	call _init_buffers
+LM42:
+.stabn	0x44, 0, 410, LM42-_main
+	clrf _buf+0
+	clrf _buf+1
+LM43:
+.stabn	0x44, 0, 411, LM43-_main
+	clrf _p_buffer+0
+	clrf _p_buffer+1
+LBB1_4:
+LM44:
+.stabn	0x44, 0, 425, LM44-_main
+Ltmp14:
+	movfwl _plug_state_context+12
+Ltmp15:
+	sublw 0
+	beq LBB1_6
+LBB1_5:
+LM45:
+.stabn	0x44, 0, 427, LM45-_main
+Ltmp16:
+	call _pd_interrupt_polling
+Ltmp17:
+LBB1_6:
+LM46:
+.stabn	0x44, 0, 431, LM46-_main
+	call _multi_protocol_scan_process
+LM47:
+.stabn	0x44, 0, 433, LM47-_main
+	call _mod_io_vbus_switch
+LM48:
+.stabn	0x44, 0, 436, LM48-_main
+	call _mod_adc_convert
+LM49:
+.stabn	0x44, 0, 438, LM49-_main
+Ltmp18:
+	movfw _sys_flag+0
+Ltmp19:
+	sublw 0
+	beq LBB1_51
+LBB1_7:
+LM50:
+.stabn	0x44, 0, 444, LM50-_main
+Ltmp20:
+	clrf _sys_flag+0
+LM51:
+.stabn	0x44, 0, 445, LM51-_main
+	call _wdt_feeddog
+LM52:
+.stabn	0x44, 0, 449, LM52-_main
+	call _modus_event_proc
+LM53:
+.stabn	0x44, 0, 451, LM53-_main
+	call _check_frame_timeout
+LM54:
+.stabn	0x44, 0, 453, LM54-_main
+Ltmp21:
+	clrf _main.temp.+0
+LBB1_8:
+Ltmp22:
+	movfw _main.temp.+0
+Ltmp23:
+	sublw 1
+	blt LBB1_13
+LBB1_9:
+LM55:
+.stabn	0x44, 0, 455, LM55-_main
+Ltmp24:
+	movfw _main.temp.+0
+	movwf .args.__swmul_atmp+0
+	clrf .args.__swmul_atmp+1
+	movlw 18
+	movwf .args.__swmul_btmp+0
+	clrf .args.__swmul_btmp+1
+	call .lib.__swmul
+	movlw LOW(_rxBuffers+0)
+	addwf .ret.__swmul_ret+0, W
+	movwf FSR0
+	movlw HIGH8(_rxBuffers+0)
+	movwf FSR0H
+	moviw 17
+Ltmp25:
+	sublw 0
+	beq LBB1_11
+LBB1_10:
+LM56:
+.stabn	0x44, 0, 459, LM56-_main
+Ltmp26:
+	movfw _main.temp.+0
+	movwf .args.__swmul_atmp+0
+	clrf .args.__swmul_atmp+1
+	movlw 18
+	movwf .args.__swmul_btmp+0
+	clrf .args.__swmul_btmp+1
+	call .lib.__swmul
+	movlw LOW(_rxBuffers+0)
+	addwf .ret.__swmul_ret+0, W
+	movwf _p_buffer+0
+	movlw HIGH8(_rxBuffers+0)
+	addwfc .ret.__swmul_ret+1, W
+	movwf _p_buffer+1
+LM57:
+.stabn	0x44, 0, 460, LM57-_main
+	call _process_modbus_frame
+Ltmp27:
+LBB1_11:
+LM58:
+.stabn	0x44, 0, 453, LM58-_main
+	incf _main.temp.+0, F
+	goto LBB1_8
+Ltmp28:
+LBB1_13:
+LM59:
+.stabn	0x44, 0, 464, LM59-_main
+	incf _Time_10ms_cnt+0, F
+LM60:
+.stabn	0x44, 0, 465, LM60-_main
+Ltmp29:
+	movfw _Time_10ms_cnt+0
+Ltmp30:
+	sublw 10
+	bgt LBB1_15
+LBB1_14:
+LM61:
+.stabn	0x44, 0, 467, LM61-_main
+Ltmp31:
+	clrf _Time_10ms_cnt+0
+Ltmp32:
+LBB1_15:
+LM62:
+.stabn	0x44, 0, 476, LM62-_main
+	incf _Time_100ms_cnt+0, F
+LM63:
+.stabn	0x44, 0, 477, LM63-_main
+Ltmp33:
+	movfw _Time_100ms_cnt+0
+Ltmp34:
+	sublw 100
+	bgt LBB1_28
+LBB1_16:
+LM64:
+.stabn	0x44, 0, 479, LM64-_main
+Ltmp35:
+	clrf _Time_100ms_cnt+0
+LM65:
+.stabn	0x44, 0, 482, LM65-_main
+	incf _Time_1500ms_cnt+0, F
+LM66:
+.stabn	0x44, 0, 483, LM66-_main
+Ltmp36:
+	movfw _Time_1500ms_cnt+0
+Ltmp37:
+	sublw 15
+	bgt LBB1_21
+LBB1_17:
+LM67:
+.stabn	0x44, 0, 485, LM67-_main
+Ltmp38:
+	clrf _Time_1500ms_cnt+0
+LM68:
+.stabn	0x44, 0, 486, LM68-_main
+Ltmp39:
+	movfwl _car_ST+0
+	sublw 0
+	bne LBB1_20
+LBB1_18:
+	movfw _Temp+1
+Ltmp40:
+	sublw 0
+	beq LBB1_20
+LBB1_19:
+LM69:
+.stabn	0x44, 0, 488, LM69-_main
+Ltmp41:
+	movlw 61
+	movwfl _count_tx_car+0
+Ltmp42:
+LBB1_20:
+LBB1_21:
+LM70:
+.stabn	0x44, 0, 516, LM70-_main
+	call _BSP_Temp_Control
+LM71:
+.stabn	0x44, 0, 521, LM71-_main
+	incf _Time_1000ms_cnt+0, F
+LM72:
+.stabn	0x44, 0, 522, LM72-_main
+Ltmp43:
+	movfw _Time_1000ms_cnt+0
+Ltmp44:
+	sublw 10
+	bgt LBB1_27
+LBB1_22:
+LM73:
+.stabn	0x44, 0, 525, LM73-_main
+Ltmp45:
+	clrf _Time_1000ms_cnt+0
+LM74:
+.stabn	0x44, 0, 526, LM74-_main
+	call _BSP_DisCharge_SmallCur
+LM75:
+.stabn	0x44, 0, 528, LM75-_main
+Ltmp46:
+	movfwl _TYPE_C_Waittime_Cnt+0
+Ltmp47:
+	sublw 0
+	beq LBB1_26
+LBB1_23:
+LM76:
+.stabn	0x44, 0, 530, LM76-_main
+Ltmp48:
+	banksel _TYPE_C_Waittime_Cnt
+	incf _TYPE_C_Waittime_Cnt+0, F
+LM77:
+.stabn	0x44, 0, 531, LM77-_main
+Ltmp49:
+	movfw _TYPE_C_Waittime_Cnt+0
+Ltmp50:
+	sublw 3
+	bgt LBB1_25
+LBB1_24:
+LM78:
+.stabn	0x44, 0, 533, LM78-_main
+Ltmp51:
+	clrf _TYPE_C_Waittime_Cnt+0
+Ltmp52:
+LBB1_25:
+LBB1_26:
+LBB1_27:
+LBB1_28:
+LM79:
+.stabn	0x44, 0, 540, LM79-_main
+	call _CA_CB_Port_Statu
+LM80:
+.stabn	0x44, 0, 543, LM80-_main
+	call _pd_get_limit_condition
+	movfw _pd_get_limit_condition.frame.+0
+	movwf _main.temp.+1
+	movlw LOW(_h_typeca+0)
+	movwf _typec_polling.args.+0
+	movlw HIGH8(_h_typeca+0)
+	movwf _typec_polling.args.+1
+	movfw _main.temp.+1
+	movwf _typec_polling.args.+2
+	call _typec_polling
+	movlw LOW(_h_typeca+0)
+LM81:
+.stabn	0x44, 0, 545, LM81-_main
+	movwf _typec_time.args.+0
+LM82:
+.stabn	0x44, 0, 543, LM82-_main
+	movlw HIGH8(_h_typeca+0)
+LM83:
+.stabn	0x44, 0, 545, LM83-_main
+	movwf _typec_time.args.+1
+	call _typec_time
+LM84:
+.stabn	0x44, 0, 549, LM84-_main
+Ltmp53:
+	movfwl _plug_state_context+12
+Ltmp54:
+	sublw 0
+	beq LBB1_30
+LBB1_29:
+LM85:
+.stabn	0x44, 0, 551, LM85-_main
+Ltmp55:
+	call _pd_send
+Ltmp56:
+LBB1_30:
+LM86:
+.stabn	0x44, 0, 554, LM86-_main
+	call _pd_time
+LM87:
+.stabn	0x44, 0, 557, LM87-_main
+	call _output_voltage_adjust
+LM88:
+.stabn	0x44, 0, 560, LM88-_main
+	call _Discharge_Pro_curr
+LM89:
+.stabn	0x44, 0, 563, LM89-_main
+	movfw _sys_timer+0
+	movwf _main.temp.+1
+	addlw 1
+	movwf _sys_timer+0
+	movfw _main.temp.+1
+	sublw 0
+	beq LBB1_31
+LBB1_52:
+	movfw _main.temp.+1
+	xorlw 1
+	sublw 0
+	beq LBB1_32
+LBB1_53:
+	movfw _main.temp.+1
+	xorlw 2
+	sublw 0
+	beq LBB1_37
+LBB1_54:
+	movfw _main.temp.+1
+	xorlw 3
+	sublw 0
+	beq LBB1_44
+LBB1_55:
+	movfw _main.temp.+1
+	xorlw 8
+	sublw 0
+	beq LBB1_45
+LBB1_56:
+	movfw _main.temp.+1
+	xorlw 9
+	sublw 0
+	beq LBB1_46
+	goto LBB1_47
+LBB1_31:
+LM90:
+.stabn	0x44, 0, 566, LM90-_main
+Ltmp57:
+	call _plug_state_machine_proc
+LM91:
+.stabn	0x44, 0, 568, LM91-_main
+	clrf _Type_cb_charge_in+0
+LM92:
+.stabn	0x44, 0, 569, LM92-_main
+	clrf _MiroB_charge_in+0
+LM93:
+.stabn	0x44, 0, 570, LM93-_main
+	goto LBB1_50
+LBB1_32:
+LM94:
+.stabn	0x44, 0, 572, LM94-_main
+Ltmp58:
+	movfwl _inoutput_data+6
+	sublw 0
+	beq LBB1_35
+LBB1_33:
+	movfw _R_SysMode_OK+0
+Ltmp59:
+	sublw 1
+	beq LBB1_35
+LBB1_34:
+LM95:
+.stabn	0x44, 0, 574, LM95-_main
+Ltmp60:
+	movlw 1
+	movwf _Mod_Dis_USBA_EN.args.+0
+	call _Mod_Dis_USBA_EN
+LM96:
+.stabn	0x44, 0, 576, LM96-_main
+	goto LBB1_36
+Ltmp61:
+LBB1_35:
+LM97:
+.stabn	0x44, 0, 579, LM97-_main
+	clrf _Mod_Dis_USBA_EN.args.+0
+	call _Mod_Dis_USBA_EN
+Ltmp62:
+LBB1_36:
+LM98:
+.stabn	0x44, 0, 582, LM98-_main
+	call _qc_break
+LM99:
+.stabn	0x44, 0, 583, LM99-_main
+	goto LBB1_50
+LBB1_37:
+LM100:
+.stabn	0x44, 0, 585, LM100-_main
+	call _BSP_I2C_7203_Data
+LM101:
+.stabn	0x44, 0, 588, LM101-_main
+Ltmp63:
+	movfwl _multi_protocol+58
+	movwf _hex_greater_than_compare.args.+0
+	movfwl _multi_protocol+59
+	movwf _hex_greater_than_compare.args.+1
+	clrf _hex_greater_than_compare.args.+2
+	movlw 4
+	movwf _hex_greater_than_compare.args.+3
+	call _hex_greater_than_compare
+	movfw _hex_greater_than_compare.frame.+0
+Ltmp64:
+	sublw 0
+	beq LBB1_39
+LBB1_38:
+LM102:
+.stabn	0x44, 0, 590, LM102-_main
+Ltmp65:
+	bsf BSR,0
+	setf _VBUS_8_date+0
+LM103:
+.stabn	0x44, 0, 591, LM103-_main
+	goto LBB1_40
+Ltmp66:
+LBB1_39:
+LM104:
+.stabn	0x44, 0, 593, LM104-_main
+	movfwl _multi_protocol+58
+	SrlTwo
+	movwf _main.temp.+1
+	movfwl _multi_protocol+59
+	ShlSix
+	iorwf _main.temp.+1, W
+	movwfl _VBUS_8_date+0
+Ltmp67:
+LBB1_40:
+LM105:
+.stabn	0x44, 0, 596, LM105-_main
+	banksel _adc_convert
+	movfw _adc_convert+84
+	movwfl _hex_greater_than_compare.args.+0
+	movfw _adc_convert+85
+	bcf BSR,0
+	movwf _hex_greater_than_compare.args.+1
+	clrf _hex_greater_than_compare.args.+2
+	movlw 4
+	movwf _hex_greater_than_compare.args.+3
+	call _hex_greater_than_compare
+	movfw _hex_greater_than_compare.frame.+0
+Ltmp68:
+	sublw 0
+	beq LBB1_42
+LBB1_41:
+LM106:
+.stabn	0x44, 0, 598, LM106-_main
+Ltmp69:
+	bsf BSR,0
+	setf _VBUS_USBA_8_date+0
+LM107:
+.stabn	0x44, 0, 599, LM107-_main
+	goto LBB1_43
+Ltmp70:
+LBB1_42:
+LM108:
+.stabn	0x44, 0, 601, LM108-_main
+	movfwl _adc_convert+84
+	SrlTwo
+	movwf _main.temp.+1
+	movfwl _adc_convert+85
+	ShlSix
+	iorwf _main.temp.+1, W
+	movwfl _VBUS_USBA_8_date+0
+Ltmp71:
+LBB1_43:
+LM109:
+.stabn	0x44, 0, 603, LM109-_main
+	call _Vbus_level_deal
+LM110:
+.stabn	0x44, 0, 604, LM110-_main
+	goto LBB1_50
+LBB1_44:
+LM111:
+.stabn	0x44, 0, 607, LM111-_main
+	call _Frist_sink_deal
+LM112:
+.stabn	0x44, 0, 608, LM112-_main
+	movfwl _adc_convert+6
+	movwf .args.__swmul_atmp+0
+	movfwl _adc_convert+7
+	movwf .args.__swmul_atmp+1
+	movlw 10
+	movwf .args.__swmul_btmp+0
+	clrf .args.__swmul_btmp+1
+	call .lib.__swmul
+	movfw .ret.__swmul_ret+0
+	movwfl _multi_protocol+60
+	movfw .ret.__swmul_ret+1
+	movwfl _multi_protocol+61
+LM113:
+.stabn	0x44, 0, 610, LM113-_main
+	call _pdsignal_threshold_switch
+LM114:
+.stabn	0x44, 0, 612, LM114-_main
+	goto LBB1_50
+LBB1_45:
+LM115:
+.stabn	0x44, 0, 633, LM115-_main
+	goto LBB1_50
+LBB1_46:
+LM116:
+.stabn	0x44, 0, 635, LM116-_main
+	clrf _sys_timer+0
+LM117:
+.stabn	0x44, 0, 636, LM117-_main
+	call _branch_100ms
+LM118:
+.stabn	0x44, 0, 637, LM118-_main
+	goto LBB1_50
+LBB1_47:
+LM119:
+.stabn	0x44, 0, 639, LM119-_main
+Ltmp72:
+	movfw _sys_timer+0
+Ltmp73:
+	sublw 10
+	bgt LBB1_49
+LBB1_48:
+LM120:
+.stabn	0x44, 0, 640, LM120-_main
+Ltmp74:
+	clrf _sys_timer+0
+Ltmp75:
+LBB1_49:
+LBB1_50:
+LBB1_51:
+LM121:
+.stabn	0x44, 0, 415, LM121-_main
+	goto LBB1_4
+Ltmp76:
+Lfunc_end2:
+Lfunc_end3:
+LM122:
+.stabn 0xc0,0,0, LM44-_main
+.stabs "j:10;",0x80,0,0,_main.temp.+0
+.stabn 0xe0,0,0, LM44-_main
+.stabf LM122-_main
+
+	_Bootcheck_Deal_sec .section rom
+	.global	_Bootcheck_Deal
+_Bootcheck_Deal:
+Lfunc_begin4:
+.stabs "Bootcheck_Deal:f:16", 0x24,0,0,_Bootcheck_Deal
+.stabn 0xc0, 0, 0, _Bootcheck_Deal
+.stabn 0xe0, 0, 0, _Bootcheck_Deal
+LM123:
+.stabn	0x44, 0, 2707, LM123-_Bootcheck_Deal
+Lfunc_begin5:
+	banksel 0
+LM124:
+.stabn	0x44, 0, 2709, LM124-_Bootcheck_Deal
+Ltmp77:
+	clrf _FSR0H+0
+	movlw LOW(_flash_data+0)
+	movwf _FSR0+0
+	clrf _EADRH+0
+	movlw 16
+	movwf _EADRL+0
+	movlw 1
+	movwf _r_memcpy_len+0
+	call _cs_memcpy_rom2ram
+Ltmp78:
+LM125:
+.stabn	0x44, 0, 2710, LM125-_Bootcheck_Deal
+	movfw _flash_data+0
+Ltmp79:
+	sublw 1
+	bne LBB2_4
+LBB2_3:
+LM126:
+.stabn	0x44, 0, 2712, LM126-_Bootcheck_Deal
+Ltmp80:
+	bsf BSR,0
+	clrf _Boot_NG_Flage+0
+LM127:
+.stabn	0x44, 0, 2713, LM127-_Bootcheck_Deal
+	goto LBB2_5
+Ltmp81:
+LBB2_4:
+LM128:
+.stabn	0x44, 0, 2715, LM128-_Bootcheck_Deal
+	movlw 1
+	movwfl _Boot_NG_Flage+0
+Ltmp82:
+LBB2_5:
+LM129:
+.stabn	0x44, 0, 2716, LM129-_Bootcheck_Deal
+	banksel 0
+	return
+Ltmp83:
+Lfunc_end4:
+Lfunc_end5:
+LM130:
+.stabf LM130-_Bootcheck_Deal
+
+	_output_voltage_adjust_sec .section rom
+_output_voltage_adjust:
+Lfunc_begin6:
+.stabs "output_voltage_adjust:f:16", 0x24,0,0,_output_voltage_adjust
+.stabn 0xc0, 0, 0, _output_voltage_adjust
+.stabn 0xe0, 0, 0, _output_voltage_adjust
+LM131:
+.stabn	0x44, 0, 1286, LM131-_output_voltage_adjust
+Lfunc_begin7:
+LM132:
+.stabn	0x44, 0, 1290, LM132-_output_voltage_adjust
+	banksel 0
+	clrf _output_voltage_adjust.temp.+0
+LM133:
+.stabn	0x44, 0, 1296, LM133-_output_voltage_adjust
+Ltmp84:
+	movfwl _h_pd+121
+Ltmp85:
+	sublw 0
+	beq LBB3_17
+LBB3_1:
+LM134:
+.stabn	0x44, 0, 1299, LM134-_output_voltage_adjust
+Ltmp86:
+	movfwl _h_pd+0x9e
+Ltmp87:
+	sublw 0
+	beq LBB3_16
+LBB3_2:
+LM135:
+.stabn	0x44, 0, 1302, LM135-_output_voltage_adjust
+Ltmp88:
+	movfwl _h_pd+0x9e
+	bsf BSR,0
+	xorwf _request_num_copy+0, W
+	sublw 0
+	bne LBB3_5
+LBB3_3:
+LM136:
+.stabn	0x44, 0, 1303, LM136-_output_voltage_adjust
+	movfwl _h_pd+0x9f
+	bcf BSR,0
+	xorwf _output_voltage_adjust.pps_request_volt_copy+0, W
+	movwf _output_voltage_adjust.temp.+5
+	movfwl _h_pd+0xa0
+	xorwf _output_voltage_adjust.pps_request_volt_copy+1, W
+	iorwf _output_voltage_adjust.temp.+5, W
+	sublw 0
+	bne LBB3_5
+LBB3_4:
+LM137:
+.stabn	0x44, 0, 1304, LM137-_output_voltage_adjust
+	movfwl _h_pd+0xa1
+Ltmp89:
+LM138:
+.stabn	0x44, 0, 1302, LM138-_output_voltage_adjust
+	xorwf _output_voltage_adjust.pps_request_cur_copy+0, W
+	sublw 0
+	beq LBB3_15
+LBB3_5:
+LM139:
+.stabn	0x44, 0, 1306, LM139-_output_voltage_adjust
+Ltmp90:
+	banksel _request_num_copy
+	movfw _request_num_copy+0
+	banksel _h_pd
+	subwf _h_pd+158, W
+	bge LBB3_7
+LBB3_6:
+LM140:
+.stabn	0x44, 0, 1308, LM140-_output_voltage_adjust
+Ltmp91:
+	movlw 1
+	movwf _inoutput_data+10
+LM141:
+.stabn	0x44, 0, 1309, LM141-_output_voltage_adjust
+	movlw 0xc8
+	movwf _inoutput_data+16
+Ltmp92:
+LBB3_7:
+LM142:
+.stabn	0x44, 0, 1311, LM142-_output_voltage_adjust
+	movfw _h_pd+0x9e
+	movwfl _request_num_copy+0
+LM143:
+.stabn	0x44, 0, 1312, LM143-_output_voltage_adjust
+	movfw _h_pd+0x9f
+	movwfl _output_voltage_adjust.pps_request_volt_copy+0
+	movfw _h_pd+0xa0
+	movwfl _output_voltage_adjust.pps_request_volt_copy+1
+LM144:
+.stabn	0x44, 0, 1313, LM144-_output_voltage_adjust
+	movfw _h_pd+0xa1
+	bcf BSR,1
+	movwf _output_voltage_adjust.pps_request_cur_copy+0
+LM145:
+.stabn	0x44, 0, 1314, LM145-_output_voltage_adjust
+	movlw 1
+	movwf _output_voltage_adjust.temp.+0
+LM146:
+.stabn	0x44, 0, 1315, LM146-_output_voltage_adjust
+	movfwl _h_pd+0x9e
+	movwf _output_voltage_adjust.temp.+5
+	xorlw 1
+	sublw 0
+	beq LBB3_8
+LBB3_38:
+	movfw _output_voltage_adjust.temp.+5
+	xorlw 2
+	sublw 0
+	beq LBB3_9
+LBB3_39:
+	movfw _output_voltage_adjust.temp.+5
+	xorlw 3
+	sublw 0
+	beq LBB3_10
+LBB3_40:
+	movfw _output_voltage_adjust.temp.+5
+	xorlw 4
+	sublw 0
+	beq LBB3_11
+LBB3_41:
+	movfw _output_voltage_adjust.temp.+5
+	xorlw 5
+	sublw 0
+	beq LBB3_12
+	goto LBB3_13
+LBB3_8:
+LM147:
+.stabn	0x44, 0, 1318, LM147-_output_voltage_adjust
+Ltmp93:
+	movlw 0xdc
+	movwf _output_voltage_adjust.temp.+3
+	clrf _output_voltage_adjust.temp.+4
+LM148:
+.stabn	0x44, 0, 1320, LM148-_output_voltage_adjust
+	goto LBB3_14
+LBB3_9:
+LM149:
+.stabn	0x44, 0, 1323, LM149-_output_voltage_adjust
+	movlw 113
+	movwf _output_voltage_adjust.temp.+3
+	movlw 2
+	movwf _output_voltage_adjust.temp.+4
+LM150:
+.stabn	0x44, 0, 1325, LM150-_output_voltage_adjust
+	goto LBB3_14
+LBB3_10:
+LM151:
+.stabn	0x44, 0, 1328, LM151-_output_voltage_adjust
+	movlw 0x9d
+	movwf _output_voltage_adjust.temp.+3
+	movlw 3
+	movwf _output_voltage_adjust.temp.+4
+LM152:
+.stabn	0x44, 0, 1330, LM152-_output_voltage_adjust
+	goto LBB3_14
+LBB3_11:
+LM153:
+.stabn	0x44, 0, 1332, LM153-_output_voltage_adjust
+	movlw 0xc9
+	movwf _output_voltage_adjust.temp.+3
+	movlw 4
+	movwf _output_voltage_adjust.temp.+4
+LM154:
+.stabn	0x44, 0, 1334, LM154-_output_voltage_adjust
+	goto LBB3_14
+LBB3_12:
+LM155:
+.stabn	0x44, 0, 1336, LM155-_output_voltage_adjust
+	movlw 0xbd
+	movwf _output_voltage_adjust.temp.+3
+	movlw 6
+	movwf _output_voltage_adjust.temp.+4
+LM156:
+.stabn	0x44, 0, 1338, LM156-_output_voltage_adjust
+	goto LBB3_14
+LBB3_13:
+LM157:
+.stabn	0x44, 0, 1340, LM157-_output_voltage_adjust
+	movlw 0xdc
+	movwf _output_voltage_adjust.temp.+3
+	clrf _output_voltage_adjust.temp.+4
+Ltmp94:
+LBB3_14:
+LM158:
+.stabn	0x44, 0, 1344, LM158-_output_voltage_adjust
+	movlw 90
+	movwf _mod_dcdc_write_ibus_lim_set.args.+0
+	call _mod_dcdc_write_ibus_lim_set
+LM159:
+.stabn	0x44, 0, 1345, LM159-_output_voltage_adjust
+	movlw 38
+	movwf _iic_transmit_byte.args.+0
+	setf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM160:
+.stabn	0x44, 0, 1346, LM160-_output_voltage_adjust
+	movfw _output_voltage_adjust.temp.+3
+	movwf _mod_dcdc_write_vbusref_e_set.args.+0
+	movfw _output_voltage_adjust.temp.+4
+	movwf _mod_dcdc_write_vbusref_e_set.args.+1
+	call _mod_dcdc_write_vbusref_e_set
+Ltmp95:
+LBB3_15:
+LBB3_16:
+LM161:
+.stabn	0x44, 0, 1349, LM161-_output_voltage_adjust
+	goto LBB3_34
+Ltmp96:
+LBB3_17:
+LM162:
+.stabn	0x44, 0, 1354, LM162-_output_voltage_adjust
+	movfwl _multi_protocol+51
+	movwf _output_voltage_adjust.temp.+5
+	sublw 2
+	bgt LBB3_18
+LBB3_35:
+	movfw _output_voltage_adjust.temp.+5
+	xorlw 2
+	sublw 0
+	beq LBB3_19
+LBB3_36:
+	movfw _output_voltage_adjust.temp.+5
+	xorlw 3
+	sublw 0
+	beq LBB3_20
+LBB3_37:
+	movfw _output_voltage_adjust.temp.+5
+	xorlw 8
+	sublw 0
+	beq LBB3_21
+	goto LBB3_32
+LBB3_18:
+LM163:
+.stabn	0x44, 0, 1360, LM163-_output_voltage_adjust
+Ltmp97:
+	movlw 0xdc
+	movwf _output_voltage_adjust.temp.+3
+	clrf _output_voltage_adjust.temp.+4
+LM164:
+.stabn	0x44, 0, 1361, LM164-_output_voltage_adjust
+	movlw 52
+	movwf _output_voltage_adjust.temp.+1
+	clrf _output_voltage_adjust.temp.+2
+LM165:
+.stabn	0x44, 0, 1362, LM165-_output_voltage_adjust
+	goto LBB3_33
+LBB3_19:
+LM166:
+.stabn	0x44, 0, 1365, LM166-_output_voltage_adjust
+	movlw 113
+	movwf _output_voltage_adjust.temp.+3
+	movlw 2
+	movwf _output_voltage_adjust.temp.+4
+LM167:
+.stabn	0x44, 0, 1366, LM167-_output_voltage_adjust
+	movlw 32
+	movwf _output_voltage_adjust.temp.+1
+	clrf _output_voltage_adjust.temp.+2
+LM168:
+.stabn	0x44, 0, 1367, LM168-_output_voltage_adjust
+	goto LBB3_33
+LBB3_20:
+LM169:
+.stabn	0x44, 0, 1370, LM169-_output_voltage_adjust
+	movlw 0x9d
+	movwf _output_voltage_adjust.temp.+3
+	movlw 3
+	movwf _output_voltage_adjust.temp.+4
+LM170:
+.stabn	0x44, 0, 1371, LM170-_output_voltage_adjust
+	movlw 22
+	movwf _output_voltage_adjust.temp.+1
+	clrf _output_voltage_adjust.temp.+2
+LM171:
+.stabn	0x44, 0, 1372, LM171-_output_voltage_adjust
+	goto LBB3_33
+LBB3_21:
+LM172:
+.stabn	0x44, 0, 1376, LM172-_output_voltage_adjust
+	movlw 52
+	movwf _output_voltage_adjust.temp.+1
+	clrf _output_voltage_adjust.temp.+2
+LM173:
+.stabn	0x44, 0, 1377, LM173-_output_voltage_adjust
+Ltmp98:
+	movfwl _multi_protocol+39
+Ltmp99:
+	sublw 0
+	beq LBB3_23
+LBB3_22:
+LM174:
+.stabn	0x44, 0, 1379, LM174-_output_voltage_adjust
+Ltmp100:
+	movfwl _multi_protocol+52
+	movwf .args.__swmul_atmp+0
+	clrf .args.__swmul_atmp+1
+	movlw 10
+	movwf .args.__swmul_btmp+0
+	clrf .args.__swmul_btmp+1
+	call .lib.__swmul
+	movlw 0xd4
+	addwf .ret.__swmul_ret+0, W
+	movwf _output_voltage_adjust.temp.+3
+	movlw 0xfe
+	addwfc .ret.__swmul_ret+1, W
+	movwf _output_voltage_adjust.temp.+4
+LM175:
+.stabn	0x44, 0, 1381, LM175-_output_voltage_adjust
+	goto LBB3_31
+Ltmp101:
+LBB3_23:
+LM176:
+.stabn	0x44, 0, 1382, LM176-_output_voltage_adjust
+	movfwl _multi_protocol+44
+Ltmp102:
+	sublw 0
+	beq LBB3_25
+LBB3_24:
+LM177:
+.stabn	0x44, 0, 1384, LM177-_output_voltage_adjust
+Ltmp103:
+	movlw 92
+	movwf _output_voltage_adjust.temp.+1
+	clrf _output_voltage_adjust.temp.+2
+LM178:
+.stabn	0x44, 0, 1385, LM178-_output_voltage_adjust
+	movlw 72
+	bsf BSR,2
+	addwf _multi_protocol+56, W
+	movwfl .args.__uwdiv_atmp+0
+	movlw 0xf4
+	addwfc _multi_protocol+57, W
+	bcf BSR,2
+	movwf .args.__uwdiv_atmp+1
+	movlw 10
+	movwf .args.__uwdiv_btmp+0
+	clrf .args.__uwdiv_btmp+1
+	call .lib.__uwdiv
+	movfw .ret.__uwdiv_ret+0
+	movwf _output_voltage_adjust.temp.+3
+	movfw .ret.__uwdiv_ret+1
+	movwf _output_voltage_adjust.temp.+4
+LM179:
+.stabn	0x44, 0, 1387, LM179-_output_voltage_adjust
+	goto LBB3_30
+Ltmp104:
+LBB3_25:
+LM180:
+.stabn	0x44, 0, 1388, LM180-_output_voltage_adjust
+	movfwl _multi_protocol+40
+	sublw 0
+	bne LBB3_28
+LBB3_26:
+LM181:
+.stabn	0x44, 0, 1389, LM181-_output_voltage_adjust
+	movfwl _multi_protocol+41
+	sublw 0
+	bne LBB3_28
+LBB3_27:
+LM182:
+.stabn	0x44, 0, 1390, LM182-_output_voltage_adjust
+	movfwl _multi_protocol+42
+Ltmp105:
+LM183:
+.stabn	0x44, 0, 1388, LM183-_output_voltage_adjust
+	sublw 0
+	beq LBB3_29
+LBB3_28:
+LM184:
+.stabn	0x44, 0, 1393, LM184-_output_voltage_adjust
+Ltmp106:
+	movlw 72
+	bsf BSR,2
+	addwf _multi_protocol+54, W
+	movwfl .args.__uwdiv_atmp+0
+	movlw 0xf4
+	addwfc _multi_protocol+55, W
+	bcf BSR,2
+	movwf .args.__uwdiv_atmp+1
+	movlw 10
+	movwf .args.__uwdiv_btmp+0
+	clrf .args.__uwdiv_btmp+1
+	call .lib.__uwdiv
+	movfw .ret.__uwdiv_ret+0
+	movwf _output_voltage_adjust.temp.+3
+	movfw .ret.__uwdiv_ret+1
+	movwf _output_voltage_adjust.temp.+4
+Ltmp107:
+LBB3_29:
+LBB3_30:
+LBB3_31:
+LBB3_32:
+LBB3_33:
+LM185:
+.stabn	0x44, 0, 1400, LM185-_output_voltage_adjust
+	movfw _output_voltage_adjust.temp.+1
+	movwf _mod_dcdc_write_ibus_lim_set.args.+0
+	call _mod_dcdc_write_ibus_lim_set
+LM186:
+.stabn	0x44, 0, 1401, LM186-_output_voltage_adjust
+	movlw 38
+	movwf _iic_transmit_byte.args.+0
+	setf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM187:
+.stabn	0x44, 0, 1402, LM187-_output_voltage_adjust
+	movfw _output_voltage_adjust.temp.+3
+	movwf _mod_dcdc_write_vbusref_e_set.args.+0
+	movfw _output_voltage_adjust.temp.+4
+	movwf _mod_dcdc_write_vbusref_e_set.args.+1
+	call _mod_dcdc_write_vbusref_e_set
+Ltmp108:
+LBB3_34:
+LM188:
+.stabn	0x44, 0, 1418, LM188-_output_voltage_adjust
+	return
+Ltmp109:
+Lfunc_end6:
+Lfunc_end7:
+.stabn 0xc0,0,0, LM132-_output_voltage_adjust
+.stabs "pps_request_volt_copy:2;",0x80,0,0,_output_voltage_adjust.pps_request_volt_copy
+.stabn 0xe0,0,0, LM188-_output_voltage_adjust
+.stabn 0xc0,0,0, LM132-_output_voltage_adjust
+.stabs "pps_request_cur_copy:10;",0x80,0,0,_output_voltage_adjust.pps_request_cur_copy
+.stabn 0xe0,0,0, LM188-_output_voltage_adjust
+LM189:
+.stabn 0xc0,0,0, LM132-_output_voltage_adjust
+.stabs "temp_refresh_flag:10;",0x80,0,0,_output_voltage_adjust.temp.+0
+.stabn 0xe0,0,0, LM188-_output_voltage_adjust
+.stabn 0xc0,0,0, LM133-_output_voltage_adjust
+.stabs "temp_vbus_ref:2;",0x80,0,0,_output_voltage_adjust.temp.+3
+.stabn 0xe0,0,0, LM188-_output_voltage_adjust
+.stabn 0xc0,0,0, LM133-_output_voltage_adjust
+.stabs "temp_ibus_lim:2;",0x80,0,0,_output_voltage_adjust.temp.+1
+.stabn 0xe0,0,0, LM188-_output_voltage_adjust
+.stabn 0xc0,0,0, LM133-_output_voltage_adjust
+.stabs "RE_data_temp8:10;",0x80,0,0,_output_voltage_adjust.temp.+5
+.stabn 0xe0,0,0, LM188-_output_voltage_adjust
+.stabn 0xc0,0,0, LM133-_output_voltage_adjust
+.stabs "V_cha_vule:2;",0x80,0,0,_output_voltage_adjust.temp.+6
+.stabn 0xe0,0,0, LM188-_output_voltage_adjust
+.stabf LM189-_output_voltage_adjust
+
+	_Discharge_Pro_curr_sec .section rom
+_Discharge_Pro_curr:
+Lfunc_begin8:
+.stabs "Discharge_Pro_curr:f:16", 0x24,0,0,_Discharge_Pro_curr
+.stabn 0xc0, 0, 0, _Discharge_Pro_curr
+.stabn 0xe0, 0, 0, _Discharge_Pro_curr
+LM190:
+.stabn	0x44, 0, 2139, LM190-_Discharge_Pro_curr
+Lfunc_begin9:
+LM191:
+.stabn	0x44, 0, 2145, LM191-_Discharge_Pro_curr
+	banksel 0
+	movfwl _VBUS_8_date+0
+	movwf _Discharge_Pro_curr.temp.+0
+LM192:
+.stabn	0x44, 0, 2146, LM192-_Discharge_Pro_curr
+Ltmp110:
+	movfw _R_SysMode_OK+0
+Ltmp111:
+	sublw 1
+	bne LBB4_2
+LBB4_1:
+LM193:
+.stabn	0x44, 0, 2147, LM193-_Discharge_Pro_curr
+Ltmp112:
+	goto LBB4_63
+Ltmp113:
+LBB4_2:
+LM194:
+.stabn	0x44, 0, 2148, LM194-_Discharge_Pro_curr
+	movlw 0x8f
+	movwf _Discharge_Pro_curr.temp.+3
+LM195:
+.stabn	0x44, 0, 2149, LM195-_Discharge_Pro_curr
+	movlw 39
+	movwf _Discharge_Pro_curr.temp.+1
+	movlw 1
+	movwf _Discharge_Pro_curr.temp.+2
+LM196:
+.stabn	0x44, 0, 2151, LM196-_Discharge_Pro_curr
+	movlw 60
+	bsf BSR,0
+	movwf _VBUS_V_Hight+0
+LM197:
+.stabn	0x44, 0, 2152, LM197-_Discharge_Pro_curr
+	movlw 38
+	movwf _VBUS_V_Low+0
+LM198:
+.stabn	0x44, 0, 2154, LM198-_Discharge_Pro_curr
+Ltmp114:
+	movfwl _h_pd+121
+Ltmp115:
+	sublw 0
+	beq LBB4_27
+LBB4_3:
+LM199:
+.stabn	0x44, 0, 2156, LM199-_Discharge_Pro_curr
+Ltmp116:
+	movfwl _h_pd+0x9e
+	movwfl _Discharge_Pro_curr.temp.+5
+	xorlw 1
+	sublw 0
+	beq LBB4_4
+LBB4_64:
+	movfwl _Discharge_Pro_curr.temp.+5
+	xorlw 2
+	sublw 0
+	beq LBB4_5
+LBB4_65:
+	movfwl _Discharge_Pro_curr.temp.+5
+	xorlw 3
+	sublw 0
+	beq LBB4_8
+LBB4_66:
+	movfwl _Discharge_Pro_curr.temp.+5
+	xorlw 4
+	sublw 0
+	beq LBB4_11
+LBB4_67:
+	movfwl _Discharge_Pro_curr.temp.+5
+	xorlw 5
+	sublw 0
+	beq LBB4_14
+	goto LBB4_22
+LBB4_4:
+LM200:
+.stabn	0x44, 0, 2159, LM200-_Discharge_Pro_curr
+Ltmp117:
+	movlw 0x8f
+	movwfl _Discharge_Pro_curr.temp.+3
+LM201:
+.stabn	0x44, 0, 2160, LM201-_Discharge_Pro_curr
+	movlw 60
+	movwf _VBUS_V_Hight+0
+LM202:
+.stabn	0x44, 0, 2161, LM202-_Discharge_Pro_curr
+	movlw 38
+	movwf _VBUS_V_Low+0
+LM203:
+.stabn	0x44, 0, 2162, LM203-_Discharge_Pro_curr
+	goto LBB4_22
+LBB4_5:
+LM204:
+.stabn	0x44, 0, 2164, LM204-_Discharge_Pro_curr
+	movlw 0x8f
+	movwfl _Discharge_Pro_curr.temp.+3
+LM205:
+.stabn	0x44, 0, 2165, LM205-_Discharge_Pro_curr
+Ltmp118:
+	movfw _TYPE_CA_18W_Flage+0
+Ltmp119:
+	sublw 0
+	beq LBB4_7
+LBB4_6:
+LM206:
+.stabn	0x44, 0, 2166, LM206-_Discharge_Pro_curr
+Ltmp120:
+	movlw 0x9c
+	movwfl _Discharge_Pro_curr.temp.+3
+Ltmp121:
+LBB4_7:
+LM207:
+.stabn	0x44, 0, 2167, LM207-_Discharge_Pro_curr
+	movlw 102
+	movwf _VBUS_V_Hight+0
+LM208:
+.stabn	0x44, 0, 2168, LM208-_Discharge_Pro_curr
+	movlw 82
+	movwf _VBUS_V_Low+0
+LM209:
+.stabn	0x44, 0, 2169, LM209-_Discharge_Pro_curr
+	goto LBB4_22
+LBB4_8:
+LM210:
+.stabn	0x44, 0, 2171, LM210-_Discharge_Pro_curr
+	movlw 0x8f
+	movwfl _Discharge_Pro_curr.temp.+3
+LM211:
+.stabn	0x44, 0, 2172, LM211-_Discharge_Pro_curr
+Ltmp122:
+	movfw _TYPE_CA_18W_Flage+0
+Ltmp123:
+	sublw 0
+	beq LBB4_10
+LBB4_9:
+LM212:
+.stabn	0x44, 0, 2173, LM212-_Discharge_Pro_curr
+Ltmp124:
+	movlw 0x8b
+	movwfl _Discharge_Pro_curr.temp.+3
+Ltmp125:
+LBB4_10:
+LM213:
+.stabn	0x44, 0, 2174, LM213-_Discharge_Pro_curr
+	movlw 0x87
+	movwf _VBUS_V_Hight+0
+LM214:
+.stabn	0x44, 0, 2175, LM214-_Discharge_Pro_curr
+	movlw 105
+	movwf _VBUS_V_Low+0
+LM215:
+.stabn	0x44, 0, 2176, LM215-_Discharge_Pro_curr
+	goto LBB4_22
+LBB4_11:
+LM216:
+.stabn	0x44, 0, 2178, LM216-_Discharge_Pro_curr
+	movlw 0x8f
+	movwfl _Discharge_Pro_curr.temp.+3
+LM217:
+.stabn	0x44, 0, 2179, LM217-_Discharge_Pro_curr
+Ltmp126:
+	movfw _TYPE_CA_18W_Flage+0
+Ltmp127:
+	sublw 0
+	beq LBB4_13
+LBB4_12:
+LM218:
+.stabn	0x44, 0, 2180, LM218-_Discharge_Pro_curr
+Ltmp128:
+	movlw 115
+	movwfl _Discharge_Pro_curr.temp.+3
+Ltmp129:
+LBB4_13:
+LM219:
+.stabn	0x44, 0, 2181, LM219-_Discharge_Pro_curr
+	movlw 0xa5
+	movwf _VBUS_V_Hight+0
+LM220:
+.stabn	0x44, 0, 2182, LM220-_Discharge_Pro_curr
+	movlw 0x8c
+	movwf _VBUS_V_Low+0
+LM221:
+.stabn	0x44, 0, 2183, LM221-_Discharge_Pro_curr
+	goto LBB4_22
+LBB4_14:
+LM222:
+.stabn	0x44, 0, 2185, LM222-_Discharge_Pro_curr
+Ltmp130:
+	movfwl _h_pd+113
+Ltmp131:
+	sublw 0
+	bne LBB4_16
+LBB4_15:
+LM223:
+.stabn	0x44, 0, 2186, LM223-_Discharge_Pro_curr
+Ltmp132:
+	movlw 0x8f
+	movwfl _Discharge_Pro_curr.temp.+3
+	goto LBB4_17
+LBB4_16:
+LM224:
+.stabn	0x44, 0, 2188, LM224-_Discharge_Pro_curr
+	movlw 0x9c
+	movwfl _Discharge_Pro_curr.temp.+3
+Ltmp133:
+LBB4_17:
+LM225:
+.stabn	0x44, 0, 2190, LM225-_Discharge_Pro_curr
+	movfw _Port_NTC_NG_LOW_POWER_Flage+0
+Ltmp134:
+	sublw 0
+	beq LBB4_19
+LBB4_18:
+LM226:
+.stabn	0x44, 0, 2192, LM226-_Discharge_Pro_curr
+Ltmp135:
+	movlw 123
+	movwfl _Discharge_Pro_curr.temp.+3
+Ltmp136:
+LBB4_19:
+LM227:
+.stabn	0x44, 0, 2195, LM227-_Discharge_Pro_curr
+	movfw _TYPE_CA_18W_Flage+0
+Ltmp137:
+	sublw 0
+	beq LBB4_21
+LBB4_20:
+LM228:
+.stabn	0x44, 0, 2196, LM228-_Discharge_Pro_curr
+Ltmp138:
+	movlw 94
+	movwfl _Discharge_Pro_curr.temp.+3
+Ltmp139:
+LBB4_21:
+LM229:
+.stabn	0x44, 0, 2198, LM229-_Discharge_Pro_curr
+	movlw 0xdc
+	movwf _VBUS_V_Hight+0
+LM230:
+.stabn	0x44, 0, 2199, LM230-_Discharge_Pro_curr
+	movlw 0xb9
+	movwf _VBUS_V_Low+0
+Ltmp140:
+LBB4_22:
+LM231:
+.stabn	0x44, 0, 2203, LM231-_Discharge_Pro_curr
+	movfw _VBUS_V_Hight+0
+	bcf BSR,0
+	subwf _Discharge_Pro_curr.temp.+0, W
+	bge LBB4_24
+Ltmp141:
+LBB4_23:
+	movfwl _VBUS_V_Low+0
+	subwf _Discharge_Pro_curr.temp.+0, W
+	bgt LBB4_25
+LBB4_24:
+LM232:
+.stabn	0x44, 0, 2205, LM232-_Discharge_Pro_curr
+Ltmp142:
+	movlw 1
+	bsf BSR,0
+	addwf _VBUS_OVP_CNT+0, F
+	movlw 0
+	addwfc _VBUS_OVP_CNT+1, W
+	movwf _VBUS_OVP_CNT+1
+LM233:
+.stabn	0x44, 0, 2206, LM233-_Discharge_Pro_curr
+	goto LBB4_26
+Ltmp143:
+LBB4_25:
+LM234:
+.stabn	0x44, 0, 2208, LM234-_Discharge_Pro_curr
+	bsf BSR,0
+	clrf _VBUS_OVP_CNT+0
+	clrf _VBUS_OVP_CNT+1
+Ltmp144:
+LBB4_26:
+LM235:
+.stabn	0x44, 0, 2209, LM235-_Discharge_Pro_curr
+	goto LBB4_28
+Ltmp145:
+LBB4_27:
+LM236:
+.stabn	0x44, 0, 2212, LM236-_Discharge_Pro_curr
+	movlw 0x8f
+	movwfl _Discharge_Pro_curr.temp.+3
+LM237:
+.stabn	0x44, 0, 2213, LM237-_Discharge_Pro_curr
+	movlw 60
+	movwf _VBUS_V_Hight+0
+LM238:
+.stabn	0x44, 0, 2214, LM238-_Discharge_Pro_curr
+	movlw 38
+	movwf _VBUS_V_Low+0
+Ltmp146:
+LBB4_28:
+LM239:
+.stabn	0x44, 0, 2217, LM239-_Discharge_Pro_curr
+	movfw _USBA_VoltFlag+0
+Ltmp147:
+	sublw 5
+	bgt LBB4_30
+LBB4_29:
+LM240:
+.stabn	0x44, 0, 2219, LM240-_Discharge_Pro_curr
+Ltmp148:
+	movlw 41
+	bcf BSR,0
+	movwf _Discharge_Pro_curr.temp.+1
+	clrf _Discharge_Pro_curr.temp.+2
+LM241:
+.stabn	0x44, 0, 2220, LM241-_Discharge_Pro_curr
+	goto LBB4_37
+Ltmp149:
+LBB4_30:
+LM242:
+.stabn	0x44, 0, 2221, LM242-_Discharge_Pro_curr
+	movfw _USBA_VoltFlag+0
+Ltmp150:
+	sublw 4
+	bne LBB4_32
+LBB4_31:
+LM243:
+.stabn	0x44, 0, 2223, LM243-_Discharge_Pro_curr
+Ltmp151:
+	movlw 0xf6
+	bcf BSR,0
+	movwf _Discharge_Pro_curr.temp.+1
+	clrf _Discharge_Pro_curr.temp.+2
+LM244:
+.stabn	0x44, 0, 2224, LM244-_Discharge_Pro_curr
+	goto LBB4_36
+Ltmp152:
+LBB4_32:
+LM245:
+.stabn	0x44, 0, 2225, LM245-_Discharge_Pro_curr
+	movfw _USBA_VoltFlag+0
+Ltmp153:
+	sublw 3
+	bne LBB4_34
+LBB4_33:
+LM246:
+.stabn	0x44, 0, 2227, LM246-_Discharge_Pro_curr
+Ltmp154:
+	movlw 0xf6
+	bcf BSR,0
+	movwf _Discharge_Pro_curr.temp.+1
+	clrf _Discharge_Pro_curr.temp.+2
+LM247:
+.stabn	0x44, 0, 2228, LM247-_Discharge_Pro_curr
+	goto LBB4_35
+Ltmp155:
+LBB4_34:
+LM248:
+.stabn	0x44, 0, 2231, LM248-_Discharge_Pro_curr
+	movlw 39
+	bcf BSR,0
+	movwf _Discharge_Pro_curr.temp.+1
+	movlw 1
+	movwf _Discharge_Pro_curr.temp.+2
+Ltmp156:
+LBB4_35:
+LBB4_36:
+LBB4_37:
+LM249:
+.stabn	0x44, 0, 2235, LM249-_Discharge_Pro_curr
+	movfwl _inoutput_data+6
+Ltmp157:
+	sublw 0
+	beq LBB4_43
+LBB4_38:
+LM250:
+.stabn	0x44, 0, 2237, LM250-_Discharge_Pro_curr
+Ltmp158:
+	movfwl _VBUS_USBA_8_date+0
+	sublw 39
+	bgt LBB4_40
+Ltmp159:
+LBB4_39:
+	movlw 0x80
+	bsf BSR,0
+	xorwf _VBUS_USBA_8_date+0, W
+	sublw 127
+	blt LBB4_41
+LBB4_40:
+LM251:
+.stabn	0x44, 0, 2239, LM251-_Discharge_Pro_curr
+Ltmp160:
+	movlw 1
+	banksel _VBUS_USBA_OVP_CNT
+	addwf _VBUS_USBA_OVP_CNT+0, F
+	movlw 0
+	addwfc _VBUS_USBA_OVP_CNT+1, W
+	movwf _VBUS_USBA_OVP_CNT+1
+LM252:
+.stabn	0x44, 0, 2240, LM252-_Discharge_Pro_curr
+	goto LBB4_42
+Ltmp161:
+LBB4_41:
+LM253:
+.stabn	0x44, 0, 2243, LM253-_Discharge_Pro_curr
+	clrf _VBUS_USBA_OVP_CNT+0
+	clrf _VBUS_USBA_OVP_CNT+1
+Ltmp162:
+LBB4_42:
+LM254:
+.stabn	0x44, 0, 2245, LM254-_Discharge_Pro_curr
+	goto LBB4_44
+Ltmp163:
+LBB4_43:
+LM255:
+.stabn	0x44, 0, 2248, LM255-_Discharge_Pro_curr
+	bsf BSR,0
+	clrf _VBUS_USBA_OVP_CNT+0
+	clrf _VBUS_USBA_OVP_CNT+1
+Ltmp164:
+LBB4_44:
+LM256:
+.stabn	0x44, 0, 2251, LM256-_Discharge_Pro_curr
+	movfw _adc_convert+6
+	movwfl _hex_greater_than_compare.args.+0
+	movfw _adc_convert+7
+	bcf BSR,0
+	movwf _hex_greater_than_compare.args.+1
+	setf _hex_greater_than_compare.args.+2
+	clrf _hex_greater_than_compare.args.+3
+	call _hex_greater_than_compare
+	movfw _hex_greater_than_compare.frame.+0
+Ltmp165:
+	sublw 0
+	beq LBB4_46
+LBB4_45:
+LM257:
+.stabn	0x44, 0, 2252, LM257-_Discharge_Pro_curr
+Ltmp166:
+	setf _Discharge_Pro_curr.temp.+6
+	goto LBB4_47
+LBB4_46:
+LM258:
+.stabn	0x44, 0, 2254, LM258-_Discharge_Pro_curr
+	movfwl _adc_convert+6
+	movwf _Discharge_Pro_curr.temp.+6
+Ltmp167:
+LBB4_47:
+LM259:
+.stabn	0x44, 0, 2257, LM259-_Discharge_Pro_curr
+	movfw _Discharge_Pro_curr.temp.+3
+	subwf _Discharge_Pro_curr.temp.+6, W
+	blt LBB4_49
+LBB4_48:
+LM260:
+.stabn	0x44, 0, 2259, LM260-_Discharge_Pro_curr
+Ltmp168:
+	incf _PD_curr_Pro_cnt+0, F
+LM261:
+.stabn	0x44, 0, 2260, LM261-_Discharge_Pro_curr
+	goto LBB4_50
+Ltmp169:
+LBB4_49:
+LM262:
+.stabn	0x44, 0, 2262, LM262-_Discharge_Pro_curr
+	clrf _PD_curr_Pro_cnt+0
+Ltmp170:
+LBB4_50:
+LM263:
+.stabn	0x44, 0, 2265, LM263-_Discharge_Pro_curr
+	movfwl _adc_convert+19
+	movwf _hex_greater_than_compare.args.+0
+	movfwl _adc_convert+20
+	movwf _hex_greater_than_compare.args.+1
+	movfw _Discharge_Pro_curr.temp.+1
+	movwf _hex_greater_than_compare.args.+2
+	movfw _Discharge_Pro_curr.temp.+2
+	movwf _hex_greater_than_compare.args.+3
+	call _hex_greater_than_compare
+	movfw _hex_greater_than_compare.frame.+0
+Ltmp171:
+	sublw 0
+	beq LBB4_52
+LBB4_51:
+LM264:
+.stabn	0x44, 0, 2267, LM264-_Discharge_Pro_curr
+Ltmp172:
+	incf _USBA_curr_Pro_cnt+0, F
+LM265:
+.stabn	0x44, 0, 2268, LM265-_Discharge_Pro_curr
+	goto LBB4_53
+Ltmp173:
+LBB4_52:
+LM266:
+.stabn	0x44, 0, 2270, LM266-_Discharge_Pro_curr
+	clrf _USBA_curr_Pro_cnt+0
+Ltmp174:
+LBB4_53:
+LM267:
+.stabn	0x44, 0, 2273, LM267-_Discharge_Pro_curr
+	movfwl _VBUS_USBA_OVP_CNT+0
+	movwf _hex_greater_than_compare.args.+0
+	movfwl _VBUS_USBA_OVP_CNT+1
+	movwf _hex_greater_than_compare.args.+1
+	movlw 0xf4
+	movwf _hex_greater_than_compare.args.+2
+	movlw 1
+	movwf _hex_greater_than_compare.args.+3
+	call _hex_greater_than_compare
+	movfw _hex_greater_than_compare.frame.+0
+	sublw 0
+	bne LBB4_57
+LBB4_54:
+	movfwl _VBUS_OVP_CNT+0
+	movwf _hex_greater_than_compare.args.+0
+	movfwl _VBUS_OVP_CNT+1
+	movwf _hex_greater_than_compare.args.+1
+	movlw 32
+	movwf _hex_greater_than_compare.args.+2
+	movlw 3
+	movwf _hex_greater_than_compare.args.+3
+	call _hex_greater_than_compare
+	movfw _hex_greater_than_compare.frame.+0
+	sublw 0
+	bne LBB4_57
+LBB4_55:
+	movfw _USBA_curr_Pro_cnt+0
+	sublw 0xf9
+	blt LBB4_57
+LBB4_56:
+	movfw _PD_curr_Pro_cnt+0
+Ltmp175:
+	sublw 0xfa
+	bgt LBB4_62
+LBB4_57:
+LM268:
+.stabn	0x44, 0, 2283, LM268-_Discharge_Pro_curr
+Ltmp176:
+	movfw _USBA_curr_Pro_cnt+0
+	sublw 0xf9
+	blt LBB4_59
+LBB4_58:
+	movfw _PD_curr_Pro_cnt+0
+Ltmp177:
+	sublw 0xfa
+	bgt LBB4_60
+LBB4_59:
+LM269:
+.stabn	0x44, 0, 2285, LM269-_Discharge_Pro_curr
+Ltmp178:
+	bsf BSR,0
+	bsf _holdingRegisters+8, 5
+LM270:
+.stabn	0x44, 0, 2286, LM270-_Discharge_Pro_curr
+	goto LBB4_61
+Ltmp179:
+LBB4_60:
+LM271:
+.stabn	0x44, 0, 2289, LM271-_Discharge_Pro_curr
+	bsf BSR,0
+	bcf _holdingRegisters+8, 5
+Ltmp180:
+LBB4_61:
+LM272:
+.stabn	0x44, 0, 2292, LM272-_Discharge_Pro_curr
+	clrf _VBUS_OVP_CNT+0
+	clrf _VBUS_OVP_CNT+1
+LM273:
+.stabn	0x44, 0, 2293, LM273-_Discharge_Pro_curr
+	bcf BSR,0
+	clrf _PD_curr_Pro_cnt+0
+LM274:
+.stabn	0x44, 0, 2294, LM274-_Discharge_Pro_curr
+	clrf _USBA_curr_Pro_cnt+0
+LM275:
+.stabn	0x44, 0, 2297, LM275-_Discharge_Pro_curr
+	clrf _Mod_Dis_USBA_EN.args.+0
+	call _Mod_Dis_USBA_EN
+LM276:
+.stabn	0x44, 0, 2298, LM276-_Discharge_Pro_curr
+	bsf BSR,1
+	clrf _F_A1_ON+0
+LM277:
+.stabn	0x44, 0, 2299, LM277-_Discharge_Pro_curr
+	banksel _SOS_LEVEL
+	clrf _SOS_LEVEL+0
+LM278:
+.stabn	0x44, 0, 2300, LM278-_Discharge_Pro_curr
+	clrf _WHITE_ON+0
+LM279:
+.stabn	0x44, 0, 2301, LM279-_Discharge_Pro_curr
+	clrf _RED_ON+0
+LM280:
+.stabn	0x44, 0, 2305, LM280-_Discharge_Pro_curr
+	banksel _inoutput_data
+	clrf _inoutput_data+6
+LM281:
+.stabn	0x44, 0, 2306, LM281-_Discharge_Pro_curr
+	clrf _inoutput_data+8
+LM282:
+.stabn	0x44, 0, 2308, LM282-_Discharge_Pro_curr
+	clrf _inoutput_data+12
+LM283:
+.stabn	0x44, 0, 2309, LM283-_Discharge_Pro_curr
+	clrf _inoutput_data+13
+LM284:
+.stabn	0x44, 0, 2310, LM284-_Discharge_Pro_curr
+	clrf _inoutput_data+14
+LM285:
+.stabn	0x44, 0, 2312, LM285-_Discharge_Pro_curr
+	movlw 1
+	bcf BSR,1
+	movwf _Discharge_MinCur+0
+LM286:
+.stabn	0x44, 0, 2313, LM286-_Discharge_Pro_curr
+	movlw 2
+	movwf _sleepcnt+0
+LM287:
+.stabn	0x44, 0, 2314, LM287-_Discharge_Pro_curr
+	movlw 31
+	movwf _discharge_displed+0
+LM288:
+.stabn	0x44, 0, 2315, LM288-_Discharge_Pro_curr
+	call _app_power_PDO_rerest
+LM289:
+.stabn	0x44, 0, 2316, LM289-_Discharge_Pro_curr
+	call _TYPE_C_constraint_sleep
+LM290:
+.stabn	0x44, 0, 2317, LM290-_Discharge_Pro_curr
+	goto LBB4_63
+Ltmp181:
+LBB4_62:
+LM291:
+.stabn	0x44, 0, 2319, LM291-_Discharge_Pro_curr
+	bsf BSR,0
+	bcf _holdingRegisters+8, 5
+LBB4_63:
+LM292:
+.stabn	0x44, 0, 2320, LM292-_Discharge_Pro_curr
+	banksel 0
+	return
+Ltmp182:
+Lfunc_end8:
+Lfunc_end9:
+LM293:
+.stabn 0xc0,0,0, LM191-_Discharge_Pro_curr
+.stabs "TCA_Pro_cur:10;",0x80,0,0,_Discharge_Pro_curr.temp.+3
+.stabn 0xe0,0,0, LM292-_Discharge_Pro_curr
+.stabn 0xc0,0,0, LM191-_Discharge_Pro_curr
+.stabs "TAA_Pro_cur:2;",0x80,0,0,_Discharge_Pro_curr.temp.+1
+.stabn 0xe0,0,0, LM292-_Discharge_Pro_curr
+.stabn 0xc0,0,0, LM191-_Discharge_Pro_curr
+.stabs "R_VbusVol_Value:10;",0x80,0,0,_Discharge_Pro_curr.temp.+0
+.stabn 0xe0,0,0, LM292-_Discharge_Pro_curr
+.stabn 0xc0,0,0, LM191-_Discharge_Pro_curr
+.stabs "R_Ibus_Value:10;",0x80,0,0,_Discharge_Pro_curr.temp.+6
+.stabn 0xe0,0,0, LM292-_Discharge_Pro_curr
+.stabf LM293-_Discharge_Pro_curr
+
+	_qc_break_sec .section rom
+_qc_break:
+Lfunc_begin10:
+.stabs "qc_break:f:16", 0x24,0,0,_qc_break
+.stabn 0xc0, 0, 0, _qc_break
+.stabn 0xe0, 0, 0, _qc_break
+LM294:
+.stabn	0x44, 0, 1238, LM294-_qc_break
+Lfunc_begin11:
+LM295:
+.stabn	0x44, 0, 1239, LM295-_qc_break
+	banksel 0
+	movfwl _multi_protocol+53
+Ltmp183:
+	sublw 0
+	beq LBB5_7
+LBB5_1:
+LM296:
+.stabn	0x44, 0, 1246, LM296-_qc_break
+Ltmp184:
+	movfwl _plug_state_context+14
+	movwf _qc_break.temp.+0
+	xorlw 1
+	sublw 0
+	beq LBB5_2
+LBB5_9:
+	movfw _qc_break.temp.+0
+	xorlw 2
+	sublw 0
+	beq LBB5_3
+LBB5_10:
+	movfw _qc_break.temp.+0
+	xorlw 3
+	sublw 0
+	beq LBB5_4
+	goto LBB5_5
+LBB5_2:
+LM297:
+.stabn	0x44, 0, 1249, LM297-_qc_break
+Ltmp185:
+	movlw 1
+	movwfl _plug_state_context+8
+LM298:
+.stabn	0x44, 0, 1250, LM298-_qc_break
+	movlw 7
+	movwf _mod_queue_send.args.+0
+	call _mod_queue_send
+LM299:
+.stabn	0x44, 0, 1259, LM299-_qc_break
+	goto LBB5_6
+LBB5_3:
+LM300:
+.stabn	0x44, 0, 1263, LM300-_qc_break
+	goto LBB5_6
+Ltmp186:
+LBB5_4:
+LBB5_5:
+LBB5_6:
+LM301:
+.stabn	0x44, 0, 1278, LM301-_qc_break
+	goto LBB5_8
+Ltmp187:
+LBB5_7:
+LM302:
+.stabn	0x44, 0, 1281, LM302-_qc_break
+	bsf BSR,1
+	clrf _plug_state_context+8
+Ltmp188:
+LBB5_8:
+LM303:
+.stabn	0x44, 0, 1283, LM303-_qc_break
+	banksel 0
+	return
+Ltmp189:
+Lfunc_end10:
+Lfunc_end11:
+LM304:
+.stabf LM304-_qc_break
+
+	_Vbus_level_deal_sec .section rom
+_Vbus_level_deal:
+Lfunc_begin12:
+.stabs "Vbus_level_deal:f:16", 0x24,0,0,_Vbus_level_deal
+.stabn 0xc0, 0, 0, _Vbus_level_deal
+.stabn 0xe0, 0, 0, _Vbus_level_deal
+LM305:
+.stabn	0x44, 0, 1882, LM305-_Vbus_level_deal
+Lfunc_begin13:
+LM306:
+.stabn	0x44, 0, 1887, LM306-_Vbus_level_deal
+	banksel 0
+	movfwl _VBUS_USBA_8_date+0
+	movwf _Vbus_level_deal.temp.+0
+LM307:
+.stabn	0x44, 0, 1886, LM307-_Vbus_level_deal
+	movfwl _VBUS_8_date+0
+	movwf _Vbus_level_deal.temp.+1
+LM308:
+.stabn	0x44, 0, 1889, LM308-_Vbus_level_deal
+	sublw 0xb0
+	bgt LBB6_2
+LBB6_1:
+LM309:
+.stabn	0x44, 0, 1890, LM309-_Vbus_level_deal
+Ltmp190:
+	movlw 6
+	movwf _VoltFlag+0
+	goto LBB6_18
+LBB6_2:
+LM310:
+.stabn	0x44, 0, 1891, LM310-_Vbus_level_deal
+Ltmp191:
+	movfw _Vbus_level_deal.temp.+1
+Ltmp192:
+	sublw 0x88
+	bgt LBB6_4
+LBB6_3:
+LM311:
+.stabn	0x44, 0, 1892, LM311-_Vbus_level_deal
+Ltmp193:
+	movlw 5
+	movwf _VoltFlag+0
+	goto LBB6_17
+LBB6_4:
+LM312:
+.stabn	0x44, 0, 1893, LM312-_Vbus_level_deal
+Ltmp194:
+	movfw _Vbus_level_deal.temp.+1
+Ltmp195:
+	sublw 106
+	bgt LBB6_6
+LBB6_5:
+LM313:
+.stabn	0x44, 0, 1894, LM313-_Vbus_level_deal
+Ltmp196:
+	movlw 4
+	movwf _VoltFlag+0
+	goto LBB6_16
+LBB6_6:
+LM314:
+.stabn	0x44, 0, 1895, LM314-_Vbus_level_deal
+Ltmp197:
+	movfw _Vbus_level_deal.temp.+1
+Ltmp198:
+	sublw 71
+	bgt LBB6_8
+LBB6_7:
+LM315:
+.stabn	0x44, 0, 1896, LM315-_Vbus_level_deal
+Ltmp199:
+	movlw 3
+	movwf _VoltFlag+0
+	goto LBB6_15
+LBB6_8:
+LM316:
+.stabn	0x44, 0, 1897, LM316-_Vbus_level_deal
+Ltmp200:
+	movfw _Vbus_level_deal.temp.+1
+Ltmp201:
+	sublw 66
+	bgt LBB6_10
+LBB6_9:
+LM317:
+.stabn	0x44, 0, 1898, LM317-_Vbus_level_deal
+Ltmp202:
+	movlw 2
+	movwf _VoltFlag+0
+	goto LBB6_14
+LBB6_10:
+LM318:
+.stabn	0x44, 0, 1899, LM318-_Vbus_level_deal
+Ltmp203:
+	movfw _Vbus_level_deal.temp.+1
+Ltmp204:
+	sublw 26
+	bgt LBB6_12
+LBB6_11:
+LM319:
+.stabn	0x44, 0, 1901, LM319-_Vbus_level_deal
+Ltmp205:
+	movlw 1
+	movwf _VoltFlag+0
+LM320:
+.stabn	0x44, 0, 1902, LM320-_Vbus_level_deal
+	goto LBB6_13
+Ltmp206:
+LBB6_12:
+LM321:
+.stabn	0x44, 0, 1905, LM321-_Vbus_level_deal
+	clrf _VoltFlag+0
+Ltmp207:
+LBB6_13:
+LBB6_14:
+LBB6_15:
+LBB6_16:
+LBB6_17:
+LBB6_18:
+LM322:
+.stabn	0x44, 0, 1909, LM322-_Vbus_level_deal
+	movfw _Vbus_level_deal.temp.+0
+Ltmp208:
+	sublw 0x88
+	bgt LBB6_20
+LBB6_19:
+LM323:
+.stabn	0x44, 0, 1910, LM323-_Vbus_level_deal
+Ltmp209:
+	movlw 5
+	movwfl _USBA_VoltFlag+0
+	goto LBB6_33
+LBB6_20:
+LM324:
+.stabn	0x44, 0, 1911, LM324-_Vbus_level_deal
+Ltmp210:
+	movfw _Vbus_level_deal.temp.+0
+Ltmp211:
+	sublw 106
+	bgt LBB6_22
+LBB6_21:
+LM325:
+.stabn	0x44, 0, 1912, LM325-_Vbus_level_deal
+Ltmp212:
+	movlw 4
+	movwfl _USBA_VoltFlag+0
+	goto LBB6_32
+LBB6_22:
+LM326:
+.stabn	0x44, 0, 1913, LM326-_Vbus_level_deal
+Ltmp213:
+	movfw _Vbus_level_deal.temp.+0
+Ltmp214:
+	sublw 71
+	bgt LBB6_24
+LBB6_23:
+LM327:
+.stabn	0x44, 0, 1914, LM327-_Vbus_level_deal
+Ltmp215:
+	movlw 3
+	movwfl _USBA_VoltFlag+0
+	goto LBB6_31
+LBB6_24:
+LM328:
+.stabn	0x44, 0, 1915, LM328-_Vbus_level_deal
+Ltmp216:
+	movfw _Vbus_level_deal.temp.+0
+Ltmp217:
+	sublw 66
+	bgt LBB6_26
+LBB6_25:
+LM329:
+.stabn	0x44, 0, 1916, LM329-_Vbus_level_deal
+Ltmp218:
+	movlw 2
+	movwfl _USBA_VoltFlag+0
+	goto LBB6_30
+LBB6_26:
+LM330:
+.stabn	0x44, 0, 1917, LM330-_Vbus_level_deal
+Ltmp219:
+	movfw _Vbus_level_deal.temp.+0
+Ltmp220:
+	sublw 26
+	bgt LBB6_28
+LBB6_27:
+LM331:
+.stabn	0x44, 0, 1919, LM331-_Vbus_level_deal
+Ltmp221:
+	movlw 1
+	movwfl _USBA_VoltFlag+0
+LM332:
+.stabn	0x44, 0, 1920, LM332-_Vbus_level_deal
+	goto LBB6_29
+Ltmp222:
+LBB6_28:
+LM333:
+.stabn	0x44, 0, 1923, LM333-_Vbus_level_deal
+	bsf BSR,0
+	clrf _USBA_VoltFlag+0
+Ltmp223:
+LBB6_29:
+LBB6_30:
+LBB6_31:
+LBB6_32:
+LBB6_33:
+LM334:
+.stabn	0x44, 0, 1925, LM334-_Vbus_level_deal
+	banksel 0
+	return
+Ltmp224:
+Lfunc_end12:
+Lfunc_end13:
+LM335:
+.stabn 0xc0,0,0, LM306-_Vbus_level_deal
+.stabs "R_VbusVol_Value:10;",0x80,0,0,_Vbus_level_deal.temp.+1
+.stabn 0xe0,0,0, LM334-_Vbus_level_deal
+.stabn 0xc0,0,0, LM306-_Vbus_level_deal
+.stabs "R_VbusUSBA_Value:10;",0x80,0,0,_Vbus_level_deal.temp.+0
+.stabn 0xe0,0,0, LM334-_Vbus_level_deal
+.stabf LM335-_Vbus_level_deal
+
+	_pdsignal_threshold_switch_sec .section rom
+	.global	_pdsignal_threshold_switch
+_pdsignal_threshold_switch:
+Lfunc_begin14:
+.stabs "pdsignal_threshold_switch:f:16", 0x24,0,0,_pdsignal_threshold_switch
+.stabn 0xc0, 0, 0, _pdsignal_threshold_switch
+.stabn 0xe0, 0, 0, _pdsignal_threshold_switch
+LM336:
+.stabn	0x44, 0, 2728, LM336-_pdsignal_threshold_switch
+Lfunc_begin15:
+LM337:
+.stabn	0x44, 0, 2731, LM337-_pdsignal_threshold_switch
+	banksel 0
+	movfwl _multi_protocol+60
+	movwf _hex_less_than_compare.args.+0
+	movfwl _multi_protocol+61
+	movwf _hex_less_than_compare.args.+1
+	movlw 0xd0
+	movwf _hex_less_than_compare.args.+2
+	movlw 7
+	movwf _hex_less_than_compare.args.+3
+	call _hex_less_than_compare
+	movfw _hex_less_than_compare.frame.+0
+Ltmp225:
+	sublw 0
+	beq LBB7_4
+LBB7_1:
+LM338:
+.stabn	0x44, 0, 2733, LM338-_pdsignal_threshold_switch
+Ltmp226:
+	movlw 1
+	addwf _pdsignal_threshold_switch.debounce_cnt+0, W
+	movwf _pdsignal_threshold_switch.debounce_cnt+0
+Ltmp227:
+	sublw 10
+	bgt LBB7_3
+LBB7_2:
+LM339:
+.stabn	0x44, 0, 2735, LM339-_pdsignal_threshold_switch
+Ltmp228:
+	clrf _pdsignal_threshold_switch.debounce_cnt+0
+LM340:
+.stabn	0x44, 0, 2736, LM340-_pdsignal_threshold_switch
+	movlw 3
+	bsf BSR,1
+	movwf _h_pd+107
+LM341:
+.stabn	0x44, 0, 2737, LM341-_pdsignal_threshold_switch
+	movlw 2
+	movwf _h_pd+108
+LM342:
+.stabn	0x44, 0, 2738, LM342-_pdsignal_threshold_switch
+	clrf _h_pd+109
+LM343:
+.stabn	0x44, 0, 2739, LM343-_pdsignal_threshold_switch
+	movfw _h_pd+107
+	movwfl _fwlib_pd_electric_set.args.+0
+	movfw _h_pd+108
+	movwfl _fwlib_pd_electric_set.args.+1
+	movfw _h_pd+109
+	movwfl _fwlib_pd_electric_set.args.+2
+	call _fwlib_pd_electric_set
+Ltmp229:
+LBB7_3:
+LM344:
+.stabn	0x44, 0, 2741, LM344-_pdsignal_threshold_switch
+	goto LBB7_5
+Ltmp230:
+LBB7_4:
+LM345:
+.stabn	0x44, 0, 2744, LM345-_pdsignal_threshold_switch
+	clrf _pdsignal_threshold_switch.debounce_cnt+0
+LM346:
+.stabn	0x44, 0, 2746, LM346-_pdsignal_threshold_switch
+	movlw 3
+LM347:
+.stabn	0x44, 0, 2745, LM347-_pdsignal_threshold_switch
+	bsf BSR,1
+	movwf _h_pd+107
+LM348:
+.stabn	0x44, 0, 2746, LM348-_pdsignal_threshold_switch
+	movwf _h_pd+108
+LM349:
+.stabn	0x44, 0, 2748, LM349-_pdsignal_threshold_switch
+	movfw _h_pd+107
+	movwfl _fwlib_pd_electric_set.args.+0
+	movfw _h_pd+108
+	movwfl _fwlib_pd_electric_set.args.+1
+LM350:
+.stabn	0x44, 0, 2747, LM350-_pdsignal_threshold_switch
+	movlw 4
+	movwf _h_pd+109
+LM351:
+.stabn	0x44, 0, 2748, LM351-_pdsignal_threshold_switch
+	movwfl _fwlib_pd_electric_set.args.+2
+	call _fwlib_pd_electric_set
+Ltmp231:
+LBB7_5:
+LM352:
+.stabn	0x44, 0, 2750, LM352-_pdsignal_threshold_switch
+	return
+Ltmp232:
+Lfunc_end14:
+Lfunc_end15:
+.stabn 0xc0,0,0, LM337-_pdsignal_threshold_switch
+.stabs "debounce_cnt:10;",0x80,0,0,_pdsignal_threshold_switch.debounce_cnt
+.stabn 0xe0,0,0, LM352-_pdsignal_threshold_switch
+LM353:
+.stabf LM353-_pdsignal_threshold_switch
+
+	_branch_100ms_sec .section rom
+_branch_100ms:
+Lfunc_begin16:
+.stabs "branch_100ms:f:16", 0x24,0,0,_branch_100ms
+.stabn 0xc0, 0, 0, _branch_100ms
+.stabn 0xe0, 0, 0, _branch_100ms
+LM354:
+.stabn	0x44, 0, 648, LM354-_branch_100ms
+Lfunc_begin17:
+LM355:
+.stabn	0x44, 0, 651, LM355-_branch_100ms
+	banksel 0
+	movfw _sys_timer+1
+	movwf _branch_100ms.temp.+0
+	addlw 1
+	movwf _sys_timer+1
+	movfw _branch_100ms.temp.+0
+	sublw 0
+	beq LBB8_1
+LBB8_95:
+	movfw _branch_100ms.temp.+0
+	xorlw 1
+	sublw 0
+	beq LBB8_16
+LBB8_96:
+	movfw _branch_100ms.temp.+0
+	xorlw 2
+	sublw 0
+	beq LBB8_17
+LBB8_97:
+	movfw _branch_100ms.temp.+0
+	xorlw 3
+	sublw 0
+	beq LBB8_40
+LBB8_98:
+	movfw _branch_100ms.temp.+0
+	xorlw 4
+	sublw 0
+	beq LBB8_73
+LBB8_99:
+	movfw _branch_100ms.temp.+0
+	xorlw 5
+	sublw 0
+	beq LBB8_74
+LBB8_100:
+	movfw _branch_100ms.temp.+0
+	xorlw 6
+	sublw 0
+	beq LBB8_75
+LBB8_101:
+	movfw _branch_100ms.temp.+0
+	xorlw 8
+	sublw 0
+	beq LBB8_76
+LBB8_102:
+	movfw _branch_100ms.temp.+0
+	xorlw 9
+	sublw 0
+	beq LBB8_90
+	goto LBB8_91
+LBB8_1:
+LM356:
+.stabn	0x44, 0, 655, LM356-_branch_100ms
+Ltmp233:
+	movfwl _Change_lauge_Cnt+0
+Ltmp234:
+	sublw 0
+	beq LBB8_5
+LBB8_2:
+LM357:
+.stabn	0x44, 0, 657, LM357-_branch_100ms
+Ltmp235:
+	banksel _Change_lauge_Time_Cnt
+	incf _Change_lauge_Time_Cnt+0, F
+LM358:
+.stabn	0x44, 0, 658, LM358-_branch_100ms
+Ltmp236:
+	movfw _Change_lauge_Time_Cnt+0
+Ltmp237:
+	sublw 50
+	bgt LBB8_4
+LBB8_3:
+LM359:
+.stabn	0x44, 0, 660, LM359-_branch_100ms
+Ltmp238:
+	clrf _Change_lauge_Time_Cnt+0
+LM360:
+.stabn	0x44, 0, 661, LM360-_branch_100ms
+	clrf _Change_lauge_Cnt+0
+LM361:
+.stabn	0x44, 0, 663, LM361-_branch_100ms
+	movlw 7
+	movwfl _iic_transmit_24C02_byte.args.+0
+	movfw _Change_lauge_Flage+0
+	movwfl _iic_transmit_24C02_byte.args.+1
+	call _iic_transmit_24C02_byte
+Ltmp239:
+LBB8_4:
+LBB8_5:
+LM362:
+.stabn	0x44, 0, 668, LM362-_branch_100ms
+	banksel _BAT_CO_OPEN_CNT
+	movfw _BAT_CO_OPEN_CNT+0
+Ltmp240:
+	sublw 0
+	beq LBB8_14
+LBB8_6:
+LM363:
+.stabn	0x44, 0, 672, LM363-_branch_100ms
+Ltmp241:
+	bcf BSR,0
+	movfw _VBAT_7201_Vaule+0
+	movwf _hex_greater_than_compare.args.+0
+	movfw _VBAT_7201_Vaule+1
+	movwf _hex_greater_than_compare.args.+1
+	movlw 32
+	movwf _hex_greater_than_compare.args.+2
+	movlw 3
+	movwf _hex_greater_than_compare.args.+3
+	call _hex_greater_than_compare
+	movfw _hex_greater_than_compare.frame.+0
+Ltmp242:
+	sublw 0
+	beq LBB8_8
+LBB8_7:
+LM364:
+.stabn	0x44, 0, 675, LM364-_branch_100ms
+Ltmp243:
+	bsf BSR,0
+	incf _BAT_CO_OPEN_CNT+0, F
+LM365:
+.stabn	0x44, 0, 676, LM365-_branch_100ms
+	goto LBB8_9
+Ltmp244:
+LBB8_8:
+LM366:
+.stabn	0x44, 0, 679, LM366-_branch_100ms
+	movlw 1
+	bsf BSR,0
+	movwf _BAT_CO_OPEN_CNT+0
+LM367:
+.stabn	0x44, 0, 680, LM367-_branch_100ms
+	addwf _Bat_Low_5V_CNt+0, F
+	movlw 0
+	addwfc _Bat_Low_5V_CNt+1, W
+	movwf _Bat_Low_5V_CNt+1
+Ltmp245:
+LBB8_9:
+LM368:
+.stabn	0x44, 0, 683, LM368-_branch_100ms
+	movfw _Bat_Low_5V_CNt+0
+	movwfl _hex_greater_than_compare.args.+0
+	movfw _Bat_Low_5V_CNt+1
+	bcf BSR,0
+	movwf _hex_greater_than_compare.args.+1
+	movlw 0xb0
+	movwf _hex_greater_than_compare.args.+2
+	movlw 4
+	movwf _hex_greater_than_compare.args.+3
+	call _hex_greater_than_compare
+	movfw _hex_greater_than_compare.frame.+0
+Ltmp246:
+	sublw 0
+	beq LBB8_11
+LBB8_10:
+LM369:
+.stabn	0x44, 0, 685, LM369-_branch_100ms
+Ltmp247:
+	bsf BSR,0
+	clrf _Bat_Low_5V_CNt+0
+	clrf _Bat_Low_5V_CNt+1
+LM370:
+.stabn	0x44, 0, 686, LM370-_branch_100ms
+	clrf _BAT_CO_OPEN_CNT+0
+LM371:
+.stabn	0x44, 0, 687, LM371-_branch_100ms
+	movlw 1
+	movwf _Bat_Low_5V_NG_Flage+0
+Ltmp248:
+LBB8_11:
+LM372:
+.stabn	0x44, 0, 689, LM372-_branch_100ms
+	banksel _BAT_CO_OPEN_CNT
+	movfw _BAT_CO_OPEN_CNT+0
+Ltmp249:
+	sublw 20
+	bgt LBB8_13
+LBB8_12:
+LM373:
+.stabn	0x44, 0, 691, LM373-_branch_100ms
+Ltmp250:
+	clrf _BAT_CO_OPEN_CNT+0
+Ltmp251:
+LBB8_13:
+LM374:
+.stabn	0x44, 0, 694, LM374-_branch_100ms
+	goto LBB8_15
+Ltmp252:
+LBB8_14:
+LM375:
+.stabn	0x44, 0, 698, LM375-_branch_100ms
+	bcf BSR,0
+	bsf _PT2EN6, _PT2EN6
+	bcf _PT26, _PT26
+Ltmp253:
+LM376:
+.stabn	0x44, 0, 700, LM376-_branch_100ms
+	bsf BSR,0
+	clrf _Bat_Low_5V_CNt+0
+	clrf _Bat_Low_5V_CNt+1
+Ltmp254:
+LBB8_15:
+LM377:
+.stabn	0x44, 0, 702, LM377-_branch_100ms
+	goto LBB8_94
+LBB8_16:
+LM378:
+.stabn	0x44, 0, 707, LM378-_branch_100ms
+	call _Poweron_24C02_Self_inspec
+LM379:
+.stabn	0x44, 0, 708, LM379-_branch_100ms
+	goto LBB8_94
+LBB8_17:
+LM380:
+.stabn	0x44, 0, 710, LM380-_branch_100ms
+Ltmp255:
+	movfwl _F_A1_ON+0
+Ltmp256:
+	sublw 0
+	beq LBB8_39
+LBB8_18:
+LM381:
+.stabn	0x44, 0, 712, LM381-_branch_100ms
+Ltmp257:
+	movfw _R_SysMode_OK+0
+Ltmp258:
+	sublw 1
+	beq LBB8_20
+LBB8_19:
+LM382:
+.stabn	0x44, 0, 713, LM382-_branch_100ms
+Ltmp259:
+	bsf BSR,1
+	incf _F_A1_ON+0, F
+	goto LBB8_21
+LBB8_20:
+LM383:
+.stabn	0x44, 0, 715, LM383-_branch_100ms
+	bsf BSR,1
+	clrf _F_A1_ON+0
+Ltmp260:
+LBB8_21:
+LM384:
+.stabn	0x44, 0, 718, LM384-_branch_100ms
+	movfw _F_A1_ON+0
+Ltmp261:
+	sublw 15
+	bgt LBB8_38
+LBB8_22:
+LM385:
+.stabn	0x44, 0, 720, LM385-_branch_100ms
+Ltmp262:
+	clrf _F_A1_ON+0
+LM386:
+.stabn	0x44, 0, 722, LM386-_branch_100ms
+Ltmp263:
+	movfwl _adc_convert+30
+	movwfl _hex_less_than_compare.args.+0
+	movfwl _adc_convert+31
+	bcf BSR,1
+	movwf _hex_less_than_compare.args.+1
+	movlw 98
+	movwf _hex_less_than_compare.args.+2
+	clrf _hex_less_than_compare.args.+3
+	call _hex_less_than_compare
+	movfw _hex_less_than_compare.frame.+0
+	sublw 0
+	bne LBB8_24
+LBB8_23:
+	movfwl _adc_convert+30
+	movwf _hex_greater_than_compare.args.+0
+	movfwl _adc_convert+31
+	movwf _hex_greater_than_compare.args.+1
+	movlw 0x9e
+	movwf _hex_greater_than_compare.args.+2
+	movlw 7
+	movwf _hex_greater_than_compare.args.+3
+	call _hex_greater_than_compare
+	movfw _hex_greater_than_compare.frame.+0
+Ltmp264:
+	sublw 0
+	beq LBB8_27
+LBB8_24:
+LM387:
+.stabn	0x44, 0, 724, LM387-_branch_100ms
+Ltmp265:
+	movfw _Temp+1
+Ltmp266:
+	sublw 0
+	beq LBB8_26
+LBB8_25:
+LM388:
+.stabn	0x44, 0, 726, LM388-_branch_100ms
+Ltmp267:
+	clrf _Temp+1
+LM389:
+.stabn	0x44, 0, 727, LM389-_branch_100ms
+	movlw 1
+	banksel _LCD_display_3S_Cnt
+	movwf _LCD_display_3S_Cnt+0
+	clrf _LCD_display_3S_Cnt+1
+Ltmp268:
+LBB8_26:
+LBB8_27:
+LM390:
+.stabn	0x44, 0, 735, LM390-_branch_100ms
+	banksel _Bat_low_Cnt
+	movfw _Bat_low_Cnt+0
+	sublw 29
+	blt LBB8_32
+LBB8_28:
+	movfw _Temp+1
+	sublw 0
+	beq LBB8_32
+LBB8_29:
+	movfw _R_SysMode_OK+0
+	sublw 1
+	beq LBB8_32
+LBB8_30:
+	movfwl _f_car_jump+0
+Ltmp269:
+	sublw 0
+	bne LBB8_32
+LBB8_31:
+LM391:
+.stabn	0x44, 0, 737, LM391-_branch_100ms
+Ltmp270:
+	bsf BSR,0
+	clrf _A1_closeTIME+0
+	clrf _A1_closeTIME+1
+LM392:
+.stabn	0x44, 0, 738, LM392-_branch_100ms
+	movlw 1
+	movwfl _Mod_Dis_USBA_EN.args.+0
+	call _Mod_Dis_USBA_EN
+	movlw 1
+LM393:
+.stabn	0x44, 0, 739, LM393-_branch_100ms
+	movwfl _inoutput_data+6
+LM394:
+.stabn	0x44, 0, 740, LM394-_branch_100ms
+	bsf BSR,0
+	clrf _Sleep_up_close_Car_ignition+0
+LM395:
+.stabn	0x44, 0, 741, LM395-_branch_100ms
+	banksel _coulomb_data
+	clrf _coulomb_data+13
+LM396:
+.stabn	0x44, 0, 742, LM396-_branch_100ms
+	banksel _bat_full_do_to_charge
+	clrf _bat_full_do_to_charge+0
+Ltmp271:
+LBB8_32:
+LM397:
+.stabn	0x44, 0, 744, LM397-_branch_100ms
+	banksel _Bat_low_Cnt
+	movfw _Bat_low_Cnt+0
+	sublw 30
+	blt LBB8_34
+LBB8_33:
+	movfw _Temp+1
+Ltmp272:
+	sublw 0
+	bne LBB8_37
+LBB8_34:
+LM398:
+.stabn	0x44, 0, 746, LM398-_branch_100ms
+Ltmp273:
+	movfw _R_SysMode_OK+0
+Ltmp274:
+	sublw 1
+	beq LBB8_36
+LBB8_35:
+LM399:
+.stabn	0x44, 0, 748, LM399-_branch_100ms
+Ltmp275:
+	movlw 29
+	movwf _discharge_displed+0
+LM400:
+.stabn	0x44, 0, 749, LM400-_branch_100ms
+	movlw 1
+	movwf _Discharge_MinCur+0
+Ltmp276:
+LBB8_36:
+LBB8_37:
+LBB8_38:
+LBB8_39:
+LM401:
+.stabn	0x44, 0, 765, LM401-_branch_100ms
+	goto LBB8_94
+LBB8_40:
+LM402:
+.stabn	0x44, 0, 768, LM402-_branch_100ms
+Ltmp277:
+	movfw _Type_ca_charge_in+0
+Ltmp278:
+	sublw 0
+	beq LBB8_64
+LBB8_41:
+LM403:
+.stabn	0x44, 0, 770, LM403-_branch_100ms
+Ltmp279:
+	movfwl _Bat_low_sleep_flage+0
+Ltmp280:
+	sublw 0
+	bne LBB8_51
+LBB8_42:
+LM404:
+.stabn	0x44, 0, 772, LM404-_branch_100ms
+Ltmp281:
+	movfw _Bat_low_Cnt+0
+Ltmp282:
+	sublw 30
+	bgt LBB8_49
+LBB8_43:
+LM405:
+.stabn	0x44, 0, 774, LM405-_branch_100ms
+Ltmp283:
+	movfwl _Vbat_8_date+0
+Ltmp284:
+	sublw 100
+	bgt LBB8_45
+LBB8_44:
+LM406:
+.stabn	0x44, 0, 776, LM406-_branch_100ms
+Ltmp285:
+	incf _Bat_low_RE_Cnt+0, F
+LM407:
+.stabn	0x44, 0, 777, LM407-_branch_100ms
+	goto LBB8_46
+Ltmp286:
+LBB8_45:
+LM408:
+.stabn	0x44, 0, 779, LM408-_branch_100ms
+	clrf _Bat_low_RE_Cnt+0
+Ltmp287:
+LBB8_46:
+LM409:
+.stabn	0x44, 0, 781, LM409-_branch_100ms
+	movfw _Bat_low_RE_Cnt+0
+Ltmp288:
+	sublw 0xc8
+	bgt LBB8_48
+LBB8_47:
+LM410:
+.stabn	0x44, 0, 783, LM410-_branch_100ms
+Ltmp289:
+	clrf _Bat_low_RE_Cnt+0
+LM411:
+.stabn	0x44, 0, 784, LM411-_branch_100ms
+	clrf _Bat_low_Cnt+0
+LM412:
+.stabn	0x44, 0, 785, LM412-_branch_100ms
+	movlw 1
+	movwf _BatCap_Value+0
+LM413:
+.stabn	0x44, 0, 786, LM413-_branch_100ms
+	bsf BSR,0
+	clrf _ADD_IBAT_cnt+0
+	clrf _ADD_IBAT_cnt+1
+Ltmp290:
+LBB8_48:
+LM414:
+.stabn	0x44, 0, 788, LM414-_branch_100ms
+	goto LBB8_50
+Ltmp291:
+LBB8_49:
+LM415:
+.stabn	0x44, 0, 791, LM415-_branch_100ms
+	clrf _Bat_low_RE_Cnt+0
+Ltmp292:
+LBB8_50:
+LBB8_51:
+LM416:
+.stabn	0x44, 0, 796, LM416-_branch_100ms
+	banksel _WHITE_ON
+	clrf _WHITE_ON+0
+LM417:
+.stabn	0x44, 0, 797, LM417-_branch_100ms
+	clrf _RED_ON+0
+LM418:
+.stabn	0x44, 0, 798, LM418-_branch_100ms
+	clrf _SOS_LEVEL+0
+LM419:
+.stabn	0x44, 0, 799, LM419-_branch_100ms
+	banksel _inoutput_data
+	clrf _inoutput_data+6
+LM420:
+.stabn	0x44, 0, 800, LM420-_branch_100ms
+	clrf _F_A1_ON+0
+LM421:
+.stabn	0x44, 0, 802, LM421-_branch_100ms
+Ltmp293:
+	movfwl _Charge_Start+0
+Ltmp294:
+	sublw 0
+	bne LBB8_60
+LBB8_52:
+LM422:
+.stabn	0x44, 0, 804, LM422-_branch_100ms
+Ltmp295:
+	call _Charge_bat_Full_check
+LM423:
+.stabn	0x44, 0, 805, LM423-_branch_100ms
+	call _Charge_current_deal
+LM424:
+.stabn	0x44, 0, 806, LM424-_branch_100ms
+	call _Vin_vol_charge_deal
+LM425:
+.stabn	0x44, 0, 807, LM425-_branch_100ms
+Ltmp296:
+	movfwl _Charge_OCP_Flage+0
+Ltmp297:
+	sublw 0
+	beq LBB8_54
+LBB8_53:
+LM426:
+.stabn	0x44, 0, 810, LM426-_branch_100ms
+Ltmp298:
+	bsf BSR,1
+	clrf _inoutput_data+8
+LM427:
+.stabn	0x44, 0, 811, LM427-_branch_100ms
+	clrf _inoutput_data+7
+Ltmp299:
+LBB8_54:
+LM428:
+.stabn	0x44, 0, 816, LM428-_branch_100ms
+	banksel _Frist_start_sink
+	movfw _Frist_start_sink+0
+	sublw 0
+	bne LBB8_59
+LBB8_55:
+	movfwl _Bat_low_sleep_flage+0
+Ltmp300:
+	sublw 0
+	bne LBB8_59
+LBB8_56:
+LM429:
+.stabn	0x44, 0, 818, LM429-_branch_100ms
+Ltmp301:
+	movlw 1
+	movwf _discharge_displed+0
+LM430:
+.stabn	0x44, 0, 819, LM430-_branch_100ms
+Ltmp302:
+	movfwl _close_lcd_light_cnt+0
+	movwf _hex_greater_than_compare.args.+0
+	movfwl _close_lcd_light_cnt+1
+	movwf _hex_greater_than_compare.args.+1
+	movlw 31
+	movwf _hex_greater_than_compare.args.+2
+	movlw 28
+	movwf _hex_greater_than_compare.args.+3
+	call _hex_greater_than_compare
+	movfw _hex_greater_than_compare.frame.+0
+Ltmp303:
+	sublw 0
+	beq LBB8_58
+LBB8_57:
+LM431:
+.stabn	0x44, 0, 820, LM431-_branch_100ms
+Ltmp304:
+	movlw 31
+	movwf _discharge_displed+0
+Ltmp305:
+LBB8_58:
+LBB8_59:
+LM432:
+.stabn	0x44, 0, 823, LM432-_branch_100ms
+	movlw 13
+	movwf _UTX_8_data1+0
+LM433:
+.stabn	0x44, 0, 824, LM433-_branch_100ms
+	goto LBB8_63
+Ltmp306:
+LBB8_60:
+LM434:
+.stabn	0x44, 0, 827, LM434-_branch_100ms
+	bcf BSR,1
+	incf _Charge_Start+0, F
+LM435:
+.stabn	0x44, 0, 828, LM435-_branch_100ms
+Ltmp307:
+	movfw _Charge_Start+0
+Ltmp308:
+	sublw 2
+	bgt LBB8_62
+LBB8_61:
+LM436:
+.stabn	0x44, 0, 830, LM436-_branch_100ms
+Ltmp309:
+	clrf _Charge_Start+0
+Ltmp310:
+LBB8_62:
+LBB8_63:
+LBB8_64:
+LM437:
+.stabn	0x44, 0, 835, LM437-_branch_100ms
+	movfwl _plug_state_context+0
+	SrlSix
+	andlw 1
+Ltmp311:
+	sublw 0
+	beq LBB8_66
+LBB8_65:
+LM438:
+.stabn	0x44, 0, 837, LM438-_branch_100ms
+Ltmp312:
+	movlw 1
+	movwf _R_SysMode_OK+0
+LM439:
+.stabn	0x44, 0, 838, LM439-_branch_100ms
+	goto LBB8_70
+Ltmp313:
+LBB8_66:
+LM440:
+.stabn	0x44, 0, 839, LM440-_branch_100ms
+	movfwl _plug_state_context+0
+	SrlSeven
+Ltmp314:
+	sublw 0
+	beq LBB8_68
+LBB8_67:
+LM441:
+.stabn	0x44, 0, 841, LM441-_branch_100ms
+Ltmp315:
+	movlw 2
+	movwf _R_SysMode_OK+0
+LM442:
+.stabn	0x44, 0, 842, LM442-_branch_100ms
+	goto LBB8_69
+Ltmp316:
+LBB8_68:
+LM443:
+.stabn	0x44, 0, 845, LM443-_branch_100ms
+	clrf _R_SysMode_OK+0
+Ltmp317:
+LBB8_69:
+LBB8_70:
+LM444:
+.stabn	0x44, 0, 847, LM444-_branch_100ms
+	movfw _R_SysMode_BE+0
+Ltmp318:
+	xorwf _R_SysMode_OK+0, W
+	sublw 0
+	beq LBB8_72
+LBB8_71:
+LM445:
+.stabn	0x44, 0, 849, LM445-_branch_100ms
+Ltmp319:
+	movfw _R_SysMode_OK+0
+	movwf _R_SysMode_BE+0
+LM446:
+.stabn	0x44, 0, 858, LM446-_branch_100ms
+	clrf _UTX_8_data2+0
+	clrf _UTX_8_data2+1
+LM447:
+.stabn	0x44, 0, 859, LM447-_branch_100ms
+	clrf _UTX_16_data1+0
+	clrf _UTX_16_data1+1
+LM448:
+.stabn	0x44, 0, 865, LM448-_branch_100ms
+	banksel _LED_test_mode_Cnt2
+	clrf _LED_test_mode_Cnt2+0
+LM449:
+.stabn	0x44, 0, 866, LM449-_branch_100ms
+	clrf _LED_test_mode_Cnt+0
+Ltmp320:
+LBB8_72:
+LM450:
+.stabn	0x44, 0, 868, LM450-_branch_100ms
+	goto LBB8_94
+LBB8_73:
+LM451:
+.stabn	0x44, 0, 871, LM451-_branch_100ms
+	goto LBB8_94
+LBB8_74:
+LM452:
+.stabn	0x44, 0, 874, LM452-_branch_100ms
+	movfw _BatCap_Value+0
+	movwf _mod_display_batt_level.args.+0
+	call _mod_display_batt_level
+LM453:
+.stabn	0x44, 0, 875, LM453-_branch_100ms
+	call _led_deal
+LM454:
+.stabn	0x44, 0, 876, LM454-_branch_100ms
+	goto LBB8_94
+LBB8_75:
+LM455:
+.stabn	0x44, 0, 914, LM455-_branch_100ms
+	goto LBB8_94
+LBB8_76:
+LM456:
+.stabn	0x44, 0, 917, LM456-_branch_100ms
+Ltmp321:
+	bsf BSR,0
+	movfw _TYPEC_sleep_time_cnt+0
+Ltmp322:
+	iorwf _TYPEC_sleep_time_cnt+1, W
+	sublw 0
+	beq LBB8_83
+LBB8_77:
+LM457:
+.stabn	0x44, 0, 920, LM457-_branch_100ms
+Ltmp323:
+	movfw _adc_convert+6
+	movwfl _hex_greater_than_compare.args.+0
+	movfw _adc_convert+7
+	bcf BSR,0
+	movwf _hex_greater_than_compare.args.+1
+	movlw 6
+	movwf _hex_greater_than_compare.args.+2
+	clrf _hex_greater_than_compare.args.+3
+	call _hex_greater_than_compare
+	movfw _hex_greater_than_compare.frame.+0
+Ltmp324:
+	sublw 0
+	beq LBB8_81
+LBB8_78:
+LM458:
+.stabn	0x44, 0, 922, LM458-_branch_100ms
+Ltmp325:
+	bsf BSR,0
+	incf _TYPEC_sleep_distime_cnt+0, F
+LM459:
+.stabn	0x44, 0, 923, LM459-_branch_100ms
+Ltmp326:
+	movfw _TYPEC_sleep_distime_cnt+0
+Ltmp327:
+	sublw 50
+	bgt LBB8_80
+LBB8_79:
+LM460:
+.stabn	0x44, 0, 925, LM460-_branch_100ms
+Ltmp328:
+	clrf _TYPEC_sleep_distime_cnt+0
+LM461:
+.stabn	0x44, 0, 926, LM461-_branch_100ms
+	clrf _TYPEC_sleep_time_cnt+0
+	clrf _TYPEC_sleep_time_cnt+1
+Ltmp329:
+LBB8_80:
+LM462:
+.stabn	0x44, 0, 928, LM462-_branch_100ms
+	goto LBB8_82
+Ltmp330:
+LBB8_81:
+LM463:
+.stabn	0x44, 0, 930, LM463-_branch_100ms
+	bsf BSR,0
+	clrf _TYPEC_sleep_distime_cnt+0
+Ltmp331:
+LBB8_82:
+LBB8_83:
+LM464:
+.stabn	0x44, 0, 998, LM464-_branch_100ms
+	bsf BSR,1
+	movfw _LCD_display_3S_Cnt+0
+Ltmp332:
+	iorwf _LCD_display_3S_Cnt+1, W
+	sublw 0
+	beq LBB8_89
+LBB8_84:
+LM465:
+.stabn	0x44, 0, 1000, LM465-_branch_100ms
+Ltmp333:
+	movlw 1
+	movwfl _discharge_displed+0
+LM466:
+.stabn	0x44, 0, 1001, LM466-_branch_100ms
+	addwf _LCD_display_3S_Cnt+0, F
+	movlw 0
+	addwfc _LCD_display_3S_Cnt+1, F
+LM467:
+.stabn	0x44, 0, 1003, LM467-_branch_100ms
+Ltmp334:
+	banksel 0
+	CSCC_CMP_CONST _LCD_display_3S_Cnt,31,0,0,0,5,1,16,0,6
+Ltmp335:
+	andlw 1
+	sublw 0
+	bne LBB8_88
+LBB8_85:
+LM468:
+.stabn	0x44, 0, 1005, LM468-_branch_100ms
+Ltmp336:
+	banksel _LCD_display_3S_Cnt
+	clrf _LCD_display_3S_Cnt+0
+	clrf _LCD_display_3S_Cnt+1
+LM469:
+.stabn	0x44, 0, 1007, LM469-_branch_100ms
+Ltmp337:
+	movfwl _Temp+1
+Ltmp338:
+	sublw 0
+	bne LBB8_87
+LBB8_86:
+LM470:
+.stabn	0x44, 0, 1008, LM470-_branch_100ms
+Ltmp339:
+	movlw 31
+	movwfl _discharge_displed+0
+Ltmp340:
+LBB8_87:
+LBB8_88:
+LBB8_89:
+LM471:
+.stabn	0x44, 0, 1011, LM471-_branch_100ms
+	goto LBB8_94
+LBB8_90:
+LM472:
+.stabn	0x44, 0, 1013, LM472-_branch_100ms
+	clrf _sys_timer+1
+LM473:
+.stabn	0x44, 0, 1014, LM473-_branch_100ms
+	call _branch_1s
+LM474:
+.stabn	0x44, 0, 1015, LM474-_branch_100ms
+	goto LBB8_94
+LBB8_91:
+LM475:
+.stabn	0x44, 0, 1017, LM475-_branch_100ms
+Ltmp341:
+	movfw _sys_timer+1
+Ltmp342:
+	sublw 10
+	bgt LBB8_93
+LBB8_92:
+LM476:
+.stabn	0x44, 0, 1018, LM476-_branch_100ms
+Ltmp343:
+	clrf _sys_timer+1
+Ltmp344:
+LBB8_93:
+LBB8_94:
+LM477:
+.stabn	0x44, 0, 1021, LM477-_branch_100ms
+	banksel 0
+	return
+Ltmp345:
+Lfunc_end16:
+Lfunc_end17:
+LM478:
+.stabn 0xc0,0,0, LM355-_branch_100ms
+.stabs "charge_status:10;",0x80,0,0,_branch_100ms.temp.+0
+.stabn 0xe0,0,0, LM477-_branch_100ms
+.stabn 0xc0,0,0, LM355-_branch_100ms
+.stabs "Mach_Vbat:4;",0x80,0,0,_branch_100ms.temp.+1
+.stabn 0xe0,0,0, LM477-_branch_100ms
+.stabf LM478-_branch_100ms
+
+	_pd_firmware_update_cb_sec .section rom
+	.global	_pd_firmware_update_cb
+_pd_firmware_update_cb:
+Lfunc_begin18:
+.stabs "pd_firmware_update_cb:f:16", 0x24,0,0,_pd_firmware_update_cb
+.stabn 0xc0, 0, 0, _pd_firmware_update_cb
+.stabn 0xe0, 0, 0, _pd_firmware_update_cb
+LM479:
+.stabn	0x44, 0, 2698, LM479-_pd_firmware_update_cb
+Lfunc_begin19:
+LM480:
+.stabn	0x44, 0, 2699, LM480-_pd_firmware_update_cb
+	banksel 0
+	bcf _GIE, _GIE
+LM481:
+.stabn	0x44, 0, 2700, LM481-_pd_firmware_update_cb
+	movlw 85
+	movwf _APToBoot0+0
+LM482:
+.stabn	0x44, 0, 2701, LM482-_pd_firmware_update_cb
+	movlw 0xaa
+	movwf _APToBoot1+0
+LBB9_1:
+LM483:
+.stabn	0x44, 0, 2702, LM483-_pd_firmware_update_cb
+	goto LBB9_1
+Ltmp346:
+Lfunc_end18:
+Lfunc_end19:
+LM484:
+.stabf LM484-_pd_firmware_update_cb
+
+	_tcpd_debug_cb_sec .section rom
+	.global	_tcpd_debug_cb
+_tcpd_debug_cb:
+Lfunc_begin20:
+.stabs "tcpd_debug_cb:f:16", 0x24,0,0,_tcpd_debug_cb
+.stabn 0xc0, 0, 0, _tcpd_debug_cb
+.stabn 0xe0, 0, 0, _tcpd_debug_cb
+LM485:
+.stabn	0x44, 0, 2719, LM485-_tcpd_debug_cb
+Lfunc_begin21:
+	banksel 0
+	movfw _tcpd_debug_cb.args.+0
+LM486:
+.stabn	0x44, 0, 2721, LM486-_tcpd_debug_cb
+Ltmp347:
+	movwf _tcpd_debug_cb.temp.+0
+	return
+Ltmp348:
+Lfunc_end20:
+Lfunc_end21:
+LM487:
+.stabn 0xc0,0,0, LM485-_tcpd_debug_cb
+.stabs "errno:10;",0x80,0,0,_tcpd_debug_cb.args.+0
+.stabn 0xe0,0,0, LM486-_tcpd_debug_cb
+.stabf LM487-_tcpd_debug_cb
+
+	_typecx_param_cb_sec .section rom
+	.global	_typecx_param_cb
+_typecx_param_cb:
+Lfunc_begin22:
+.stabs "typecx_param_cb:f:16", 0x24,0,0,_typecx_param_cb
+.stabn 0xc0, 0, 0, _typecx_param_cb
+.stabn 0xe0, 0, 0, _typecx_param_cb
+LM488:
+.stabn	0x44, 0, 2724, LM488-_typecx_param_cb
+Lfunc_begin23:
+	banksel 0
+	movfw _typecx_param_cb.args.+0
+	movwf _typecx_param_cb.temp.+0
+	movfw _typecx_param_cb.args.+1
+LM489:
+.stabn	0x44, 0, 2726, LM489-_typecx_param_cb
+Ltmp349:
+	movwf _typecx_param_cb.temp.+1
+	return
+Ltmp350:
+Lfunc_end22:
+Lfunc_end23:
+.stabs "typec_param_input_t:T39=s12instance:40=41=10;;;,0,8;b_huawei_support:42=43=10;;;,8,16;b_vbus_isexist:44=45=10;;;,16,24;b_power_on:46=47=10;;;,24,32;b_low_battery:48=49=10;;;,32,40;current_source:50=51=10;;;,40,48;port_type:52=53=10;;;,48,56;b_tim_attachwaitsnk_en:54=55=10;;;,56,64;tim_attachwaitsnk_x1ms:56=57=2;;;,64,80;tim_drp_try:58=59=2;;;,80,96;;", 0x80, 0, 0, 0
+.stabs "typec_param_output_t:T61=s5b_emarker_isexist:62=63=10;;;,0,8;state:64=65=10;;;,8,16;current_capacity:66=67=2;;;,16,32;cc_pin_sel:68=69=10;;;,32,40;;", 0x80, 0, 0, 0
+.stabs "typec_param_private_t:T71=s18t_breaker:72=73=2;;;,0,16;auto_status:74=75=10;;;,16,24;auto_status_copy:76=77=10;;;,24,32;t_isexist:78=79=2;;;,32,48;t_isnotexist:80=81=2;;;,48,64;t_cc_magic:82=83=2;;;,64,80;state_copy:84=85=10;;;,80,88;t_try_src_times:86=87=10;;;,88,96;t_typec_halted:88=89=2;;;,96,112;cnt_typec_halted:90=91=10;;;,112,120;callback_switch_branch:92=93=10;;;,120,128;b_trysrc_insurance_n:94=95=10;;;,128,136;b_typec_hard_reset_lock:96=97=10;;;,136,144;;", 0x80, 0, 0, 0
+.stabs "typec_handle_t:T37=s35input:38=39;;,0,96;output:60=61;;,96,136;private:70=71;;,136,280;;", 0x80, 0, 0, 0
+LM490:
+.stabn 0xc0,0,0, LM488-_typecx_param_cb
+.stabs "p_h_typec:35=*36=37;;",0x80,0,0,_typecx_param_cb.args.+0
+.stabn 0xe0,0,0, LM489-_typecx_param_cb
+.stabf LM490-_typecx_param_cb
+
+	_Charge_current_deal_sec .section rom
+_Charge_current_deal:
+Lfunc_begin24:
+.stabs "Charge_current_deal:f:16", 0x24,0,0,_Charge_current_deal
+.stabn 0xc0, 0, 0, _Charge_current_deal
+.stabn 0xe0, 0, 0, _Charge_current_deal
+LM491:
+.stabn	0x44, 0, 1977, LM491-_Charge_current_deal
+Lfunc_begin25:
+LM492:
+.stabn	0x44, 0, 1983, LM492-_Charge_current_deal
+	banksel 0
+	movfw _VoltFlag+0
+Ltmp351:
+	sublw 2
+	bgt LBB12_8
+LBB12_1:
+LM493:
+.stabn	0x44, 0, 1985, LM493-_Charge_current_deal
+Ltmp352:
+	movlw 30
+	movwf _R_ChargeCur_DataBuff+0
+LM494:
+.stabn	0x44, 0, 1986, LM494-_Charge_current_deal
+Ltmp353:
+	movfw _VoltFlag+0
+Ltmp354:
+	sublw 2
+	bne LBB12_3
+LBB12_2:
+LM495:
+.stabn	0x44, 0, 1987, LM495-_Charge_current_deal
+Ltmp355:
+	movlw 50
+	movwf _R_ChargeCur_DataBuff+0
+Ltmp356:
+LBB12_3:
+LM496:
+.stabn	0x44, 0, 1988, LM496-_Charge_current_deal
+	movfw _VoltFlag+0
+Ltmp357:
+	sublw 3
+	bne LBB12_5
+LBB12_4:
+LM497:
+.stabn	0x44, 0, 1989, LM497-_Charge_current_deal
+Ltmp358:
+	movlw 50
+	movwf _R_ChargeCur_DataBuff+0
+Ltmp359:
+LBB12_5:
+LM498:
+.stabn	0x44, 0, 1990, LM498-_Charge_current_deal
+	movfw _VoltFlag+0
+Ltmp360:
+	sublw 4
+	bne LBB12_7
+LBB12_6:
+LM499:
+.stabn	0x44, 0, 1991, LM499-_Charge_current_deal
+Ltmp361:
+	movlw 20
+	movwf _R_ChargeCur_DataBuff+0
+Ltmp362:
+LBB12_7:
+LM500:
+.stabn	0x44, 0, 1992, LM500-_Charge_current_deal
+	goto LBB12_11
+Ltmp363:
+LBB12_8:
+LM501:
+.stabn	0x44, 0, 1995, LM501-_Charge_current_deal
+	movlw 50
+	movwf _R_ChargeCur_DataBuff+0
+LM502:
+.stabn	0x44, 0, 1996, LM502-_Charge_current_deal
+Ltmp364:
+	movfw _MiroB_charge_in+0
+Ltmp365:
+	sublw 0
+	beq LBB12_10
+LBB12_9:
+LM503:
+.stabn	0x44, 0, 1997, LM503-_Charge_current_deal
+Ltmp366:
+	movlw 30
+	movwf _R_ChargeCur_DataBuff+0
+Ltmp367:
+LBB12_10:
+LBB12_11:
+LM504:
+.stabn	0x44, 0, 1999, LM504-_Charge_current_deal
+	bsf BSR,1
+	movfw _h_pd+0x9a
+Ltmp368:
+	iorwf _h_pd+0x9b, W
+	sublw 0
+	beq LBB12_19
+LBB12_12:
+LM505:
+.stabn	0x44, 0, 2001, LM505-_Charge_current_deal
+Ltmp369:
+	movfw _h_pd+0x9c
+	movwfl _BSP_PDCur_Deal.args.+0
+	movfw _h_pd+0x9d
+	movwfl _BSP_PDCur_Deal.args.+1
+	call _BSP_PDCur_Deal
+LM506:
+.stabn	0x44, 0, 2002, LM506-_Charge_current_deal
+	movfw _R_ChargeCur_PDData+0
+	movwf _R_ChargeCur_DataBuff+0
+LM507:
+.stabn	0x44, 0, 2004, LM507-_Charge_current_deal
+Ltmp370:
+	movfw _VoltFlag+0
+	sublw 3
+	bne LBB12_17
+LBB12_13:
+	movlw 55
+Ltmp371:
+	bsf BSR,1
+	xorwf _h_pd+0x9a, W
+	iorwf _h_pd+0x9b, W
+	sublw 0
+	bne LBB12_17
+LBB12_14:
+LM508:
+.stabn	0x44, 0, 2006, LM508-_Charge_current_deal
+Ltmp372:
+	movfwl _LED_test_mode_Cnt+0
+Ltmp373:
+	sublw 0
+	bne LBB12_16
+LBB12_15:
+LM509:
+.stabn	0x44, 0, 2008, LM509-_Charge_current_deal
+Ltmp374:
+	movlw 1
+	bsf BSR,0
+	movwf _LED_test_mode_Cnt+0
+LM510:
+.stabn	0x44, 0, 2009, LM510-_Charge_current_deal
+	clrf _LED_test_mode_Cnt2+0
+Ltmp375:
+LBB12_16:
+LM511:
+.stabn	0x44, 0, 2011, LM511-_Charge_current_deal
+	goto LBB12_18
+Ltmp376:
+LBB12_17:
+LM512:
+.stabn	0x44, 0, 2013, LM512-_Charge_current_deal
+	banksel _LED_test_mode_Cnt
+	clrf _LED_test_mode_Cnt+0
+Ltmp377:
+LBB12_18:
+LBB12_19:
+LM513:
+.stabn	0x44, 0, 2015, LM513-_Charge_current_deal
+	banksel _Temp
+	movfw _Temp+4
+	sublw 0
+	beq LBB12_26
+LBB12_20:
+	movfwl _V_NO_Cha_flage+0
+	sublw 0
+	bne LBB12_26
+LBB12_21:
+	movfwl _V_NO_BAT_Charge+0
+	sublw 0
+	bne LBB12_26
+LBB12_22:
+LM514:
+.stabn	0x44, 0, 2016, LM514-_Charge_current_deal
+	movfwl _Bat_Protest_cnt+0
+	sublw 9
+	blt LBB12_26
+LBB12_23:
+	movfwl _Charge_OCP_Flage+0
+	sublw 0
+	bne LBB12_26
+LBB12_24:
+	movfwl _Bat_low_sleep_flage+0
+	sublw 0
+	bne LBB12_26
+LBB12_25:
+	movfwl _Bat_Low_5V_NG_Flage+0
+Ltmp378:
+LM515:
+.stabn	0x44, 0, 2015, LM515-_Charge_current_deal
+	sublw 0
+	beq LBB12_27
+LBB12_26:
+LM516:
+.stabn	0x44, 0, 2018, LM516-_Charge_current_deal
+Ltmp379:
+	clrf _R_ChargeCur_DataBuff+0
+LM517:
+.stabn	0x44, 0, 2019, LM517-_Charge_current_deal
+	clrf _R_ChargeCur_Data+0
+LM518:
+.stabn	0x44, 0, 2020, LM518-_Charge_current_deal
+	clrf _mod_charge_ibat0_limit_deal.args.+0
+	call _mod_charge_ibat0_limit_deal
+LM519:
+.stabn	0x44, 0, 2021, LM519-_Charge_current_deal
+	goto LBB12_55
+Ltmp380:
+LBB12_27:
+LM520:
+.stabn	0x44, 0, 2025, LM520-_Charge_current_deal
+	movlw 1
+	movwf _mod_charge_ibat0_limit_deal.args.+0
+	call _mod_charge_ibat0_limit_deal
+LM521:
+.stabn	0x44, 0, 2052, LM521-_Charge_current_deal
+Ltmp381:
+	movfwl _Bat_Protest_cnt+0
+	sublw 0
+	bne LBB12_29
+LBB12_28:
+	movfwl _Charge_low_power_F+0
+Ltmp382:
+	sublw 0
+	beq LBB12_30
+LBB12_29:
+LM522:
+.stabn	0x44, 0, 2055, LM522-_Charge_current_deal
+Ltmp383:
+	clrf _R_ChargeCur_DataBuff+0
+LM523:
+.stabn	0x44, 0, 2056, LM523-_Charge_current_deal
+	clrf _R_ChargeCur_Data+0
+LM524:
+.stabn	0x44, 0, 2057, LM524-_Charge_current_deal
+	clrf _mod_charge_cur_deal.args.+0
+	call _mod_charge_cur_deal
+LM525:
+.stabn	0x44, 0, 2058, LM525-_Charge_current_deal
+	goto LBB12_33
+Ltmp384:
+LBB12_30:
+LM526:
+.stabn	0x44, 0, 2061, LM526-_Charge_current_deal
+	movfwl _Charge_HIG_Vbat_F+0
+Ltmp385:
+	sublw 0
+	beq LBB12_32
+LBB12_31:
+LM527:
+.stabn	0x44, 0, 2065, LM527-_Charge_current_deal
+Ltmp386:
+	movfw _R_ChargeCur_DataBuff+0
+	SrlOne
+	movwf _R_ChargeCur_DataBuff+0
+Ltmp387:
+LBB12_32:
+LBB12_33:
+LM528:
+.stabn	0x44, 0, 2086, LM528-_Charge_current_deal
+	movfw _R_ChargeCur_Data+0
+Ltmp388:
+	xorwf _R_ChargeCur_DataBuff+0, W
+	sublw 0
+	beq LBB12_42
+LBB12_35:
+LM529:
+.stabn	0x44, 0, 2088, LM529-_Charge_current_deal
+Ltmp389:
+	movfw _R_ChargeCur_Data+0
+	subwf _R_ChargeCur_DataBuff+0, W
+	ble LBB12_37
+LBB12_36:
+LM530:
+.stabn	0x44, 0, 2090, LM530-_Charge_current_deal
+Ltmp390:
+	incf _R_ChargeCur_Data+0, F
+LM531:
+.stabn	0x44, 0, 2091, LM531-_Charge_current_deal
+	goto LBB12_41
+Ltmp391:
+LBB12_37:
+LM532:
+.stabn	0x44, 0, 2094, LM532-_Charge_current_deal
+	movfw _R_ChargeCur_DataBuff+0
+	subwf _R_ChargeCur_Data+0, W
+	movwf _Charge_current_deal.temp.+1
+LM533:
+.stabn	0x44, 0, 2095, LM533-_Charge_current_deal
+	sublw 4
+	bgt LBB12_39
+LBB12_38:
+LM534:
+.stabn	0x44, 0, 2097, LM534-_Charge_current_deal
+Ltmp392:
+	movlw 0xfd
+	addwf _R_ChargeCur_Data+0, F
+LM535:
+.stabn	0x44, 0, 2098, LM535-_Charge_current_deal
+	goto LBB12_40
+Ltmp393:
+LBB12_39:
+LM536:
+.stabn	0x44, 0, 2100, LM536-_Charge_current_deal
+	decf _R_ChargeCur_Data+0, F
+Ltmp394:
+LBB12_40:
+LBB12_41:
+LM537:
+.stabn	0x44, 0, 2102, LM537-_Charge_current_deal
+	movfw _R_ChargeCur_Data+0
+	movwf _mod_charge_cur_deal.args.+0
+	call _mod_charge_cur_deal
+Ltmp395:
+LBB12_42:
+LM538:
+.stabn	0x44, 0, 2106, LM538-_Charge_current_deal
+	movfwl _Charge_bat_low_power_F+0
+Ltmp396:
+	sublw 0
+	beq LBB12_49
+LBB12_43:
+LM539:
+.stabn	0x44, 0, 2108, LM539-_Charge_current_deal
+Ltmp397:
+	movfwl _Vbat_8_date+0
+Ltmp398:
+	sublw 67
+	bgt LBB12_45
+LBB12_44:
+LM540:
+.stabn	0x44, 0, 2109, LM540-_Charge_current_deal
+Ltmp399:
+	bsf BSR,0
+	incf _Charge_bat_low_power_CNT+0, F
+	goto LBB12_46
+LBB12_45:
+LM541:
+.stabn	0x44, 0, 2111, LM541-_Charge_current_deal
+	bsf BSR,0
+	clrf _Charge_bat_low_power_CNT+0
+Ltmp400:
+LBB12_46:
+LM542:
+.stabn	0x44, 0, 2113, LM542-_Charge_current_deal
+	movfw _Charge_bat_low_power_CNT+0
+Ltmp401:
+	sublw 5
+	bgt LBB12_48
+LBB12_47:
+LM543:
+.stabn	0x44, 0, 2115, LM543-_Charge_current_deal
+Ltmp402:
+	clrf _Charge_bat_low_power_CNT+0
+LM544:
+.stabn	0x44, 0, 2116, LM544-_Charge_current_deal
+	clrf _Charge_bat_low_power_F+0
+LM545:
+.stabn	0x44, 0, 2117, LM545-_Charge_current_deal
+	call _mod_SC8886_Charge_init
+Ltmp403:
+LBB12_48:
+LM546:
+.stabn	0x44, 0, 2121, LM546-_Charge_current_deal
+	goto LBB12_55
+Ltmp404:
+LBB12_49:
+LM547:
+.stabn	0x44, 0, 2124, LM547-_Charge_current_deal
+	movfwl _Vbat_8_date+0
+Ltmp405:
+	sublw 54
+	blt LBB12_51
+LBB12_50:
+LM548:
+.stabn	0x44, 0, 2125, LM548-_Charge_current_deal
+Ltmp406:
+	bsf BSR,0
+	incf _Charge_bat_low_power_CNT+0, F
+	goto LBB12_52
+LBB12_51:
+LM549:
+.stabn	0x44, 0, 2127, LM549-_Charge_current_deal
+	bsf BSR,0
+	clrf _Charge_bat_low_power_CNT+0
+Ltmp407:
+LBB12_52:
+LM550:
+.stabn	0x44, 0, 2129, LM550-_Charge_current_deal
+	movfw _Charge_bat_low_power_CNT+0
+Ltmp408:
+	sublw 5
+	bgt LBB12_54
+LBB12_53:
+LM551:
+.stabn	0x44, 0, 2131, LM551-_Charge_current_deal
+Ltmp409:
+	clrf _Charge_bat_low_power_CNT+0
+LM552:
+.stabn	0x44, 0, 2132, LM552-_Charge_current_deal
+	movlw 1
+	movwf _Charge_bat_low_power_F+0
+LM553:
+.stabn	0x44, 0, 2133, LM553-_Charge_current_deal
+	movlw 58
+	bcf BSR,0
+	movwf _iic_transmit_byte.args.+0
+	movlw 24
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+Ltmp410:
+LBB12_54:
+LBB12_55:
+LM554:
+.stabn	0x44, 0, 2136, LM554-_Charge_current_deal
+	banksel 0
+	return
+Ltmp411:
+Lfunc_end24:
+Lfunc_end25:
+LM555:
+.stabn 0xc0,0,0, LM492-_Charge_current_deal
+.stabs "temp_I:10;",0x80,0,0,_Charge_current_deal.temp.+0
+.stabn 0xe0,0,0, LM554-_Charge_current_deal
+.stabn 0xc0,0,0, LM492-_Charge_current_deal
+.stabs "temp_I_min:10;",0x80,0,0,_Charge_current_deal.temp.+1
+.stabn 0xe0,0,0, LM554-_Charge_current_deal
+.stabn 0xc0,0,0, LM492-_Charge_current_deal
+.stabs "temp_I_max:10;",0x80,0,0,_Charge_current_deal.temp.+1
+.stabn 0xe0,0,0, LM554-_Charge_current_deal
+.stabn 0xc0,0,0, LM492-_Charge_current_deal
+.stabs "Add_I_max:10;",0x80,0,0,_Charge_current_deal.temp.+3
+.stabn 0xe0,0,0, LM554-_Charge_current_deal
+.stabn 0xc0,0,0, LM492-_Charge_current_deal
+.stabs "RE_data_temp8:10;",0x80,0,0,_Charge_current_deal.temp.+4
+.stabn 0xe0,0,0, LM554-_Charge_current_deal
+.stabf LM555-_Charge_current_deal
+
+	_led_deal_sec .section rom
+_led_deal:
+Lfunc_begin26:
+.stabs "led_deal:f:16", 0x24,0,0,_led_deal
+.stabn 0xc0, 0, 0, _led_deal
+.stabn 0xe0, 0, 0, _led_deal
+LM556:
+.stabn	0x44, 0, 2323, LM556-_led_deal
+Lfunc_begin27:
+LM557:
+.stabn	0x44, 0, 2355, LM557-_led_deal
+	banksel 0
+	return
+Ltmp412:
+Lfunc_end26:
+Lfunc_end27:
+LM558:
+.stabf LM558-_led_deal
+
+	_branch_1s_sec .section rom
+_branch_1s:
+Lfunc_begin28:
+.stabs "branch_1s:f:16", 0x24,0,0,_branch_1s
+.stabn 0xc0, 0, 0, _branch_1s
+.stabn 0xe0, 0, 0, _branch_1s
+LM559:
+.stabn	0x44, 0, 1023, LM559-_branch_1s
+Lfunc_begin29:
+LM560:
+.stabn	0x44, 0, 1024, LM560-_branch_1s
+	banksel 0
+	movfw _sys_timer+2
+	movwf _branch_1s.temp.+0
+	addlw 1
+	movwf _sys_timer+2
+	movfw _branch_1s.temp.+0
+	sublw 0
+	beq LBB14_1
+LBB14_47:
+	movfw _branch_1s.temp.+0
+	xorlw 1
+	sublw 0
+	beq LBB14_24
+LBB14_48:
+	movfw _branch_1s.temp.+0
+	xorlw 2
+	sublw 0
+	beq LBB14_30
+LBB14_49:
+	movfw _branch_1s.temp.+0
+	xorlw 8
+	sublw 0
+	beq LBB14_41
+LBB14_50:
+	movfw _branch_1s.temp.+0
+	xorlw 9
+	sublw 0
+	beq LBB14_42
+	goto LBB14_43
+LBB14_1:
+LM561:
+.stabn	0x44, 0, 1039, LM561-_branch_1s
+Ltmp413:
+	movfw _R_SysMode_OK+0
+Ltmp414:
+	sublw 1
+	bne LBB14_7
+LBB14_2:
+LM562:
+.stabn	0x44, 0, 1041, LM562-_branch_1s
+Ltmp415:
+	movfw _BatCap_Value+0
+	sublw 100
+	beq LBB14_4
+LBB14_3:
+	movfwl _coulomb_data+13
+Ltmp416:
+	sublw 0
+	beq LBB14_5
+LBB14_4:
+LM563:
+.stabn	0x44, 0, 1043, LM563-_branch_1s
+Ltmp417:
+	movlw 1
+	banksel _close_lcd_light_cnt
+	addwf _close_lcd_light_cnt+0, F
+	movlw 0
+	addwfc _close_lcd_light_cnt+1, W
+	movwf _close_lcd_light_cnt+1
+LM564:
+.stabn	0x44, 0, 1044, LM564-_branch_1s
+	goto LBB14_6
+Ltmp418:
+LBB14_5:
+LM565:
+.stabn	0x44, 0, 1046, LM565-_branch_1s
+	banksel _close_lcd_light_cnt
+	clrf _close_lcd_light_cnt+0
+	clrf _close_lcd_light_cnt+1
+Ltmp419:
+LBB14_6:
+LM566:
+.stabn	0x44, 0, 1047, LM566-_branch_1s
+	goto LBB14_8
+Ltmp420:
+LBB14_7:
+LM567:
+.stabn	0x44, 0, 1049, LM567-_branch_1s
+	banksel _close_lcd_light_cnt
+	clrf _close_lcd_light_cnt+0
+	clrf _close_lcd_light_cnt+1
+Ltmp421:
+LBB14_8:
+LM568:
+.stabn	0x44, 0, 1051, LM568-_branch_1s
+	movfwl _Boot_NG_Flage+0
+Ltmp422:
+	sublw 0
+	beq LBB14_10
+LBB14_9:
+LM569:
+.stabn	0x44, 0, 1053, LM569-_branch_1s
+Ltmp423:
+	call _Bootcheck_Deal
+Ltmp424:
+LBB14_10:
+LM570:
+.stabn	0x44, 0, 1056, LM570-_branch_1s
+	banksel _Bat_Protest_cnt
+	movfw _Bat_Protest_cnt+0
+	sublw 0
+	beq LBB14_15
+LBB14_11:
+	movfw _Charge_Bat_Start_Cnt+0
+Ltmp425:
+	sublw 0
+	bne LBB14_15
+LBB14_12:
+LM571:
+.stabn	0x44, 0, 1058, LM571-_branch_1s
+Ltmp426:
+	incf _Bat_Protest_cnt+0, F
+LM572:
+.stabn	0x44, 0, 1059, LM572-_branch_1s
+Ltmp427:
+	movfw _Bat_Protest_cnt+0
+Ltmp428:
+	sublw 15
+	bgt LBB14_14
+LBB14_13:
+LM573:
+.stabn	0x44, 0, 1061, LM573-_branch_1s
+Ltmp429:
+	movlw 1
+	movwf _Bat_Protest_cnt+0
+Ltmp430:
+LBB14_14:
+LBB14_15:
+LM574:
+.stabn	0x44, 0, 1065, LM574-_branch_1s
+	call _Bat_Vaule_deal
+LM575:
+.stabn	0x44, 0, 1068, LM575-_branch_1s
+Ltmp431:
+	movfwl _BAT_Pro_Charge+0
+Ltmp432:
+	sublw 0
+	beq LBB14_19
+LBB14_16:
+LM576:
+.stabn	0x44, 0, 1070, LM576-_branch_1s
+Ltmp433:
+	movfwl _BAT_Pro_Charge+0
+	movwf _branch_1s.temp.+0
+	addlw 1
+	movwfl _BAT_Pro_Charge+0
+Ltmp434:
+	movfw _branch_1s.temp.+0
+	sublw 5
+	bgt LBB14_18
+LBB14_17:
+LM577:
+.stabn	0x44, 0, 1072, LM577-_branch_1s
+Ltmp435:
+	bsf BSR,0
+	clrf _BAT_Pro_Charge+0
+Ltmp436:
+LBB14_18:
+LBB14_19:
+LM578:
+.stabn	0x44, 0, 1076, LM578-_branch_1s
+	call _Charge_Bat_data_Err_Deal
+LM579:
+.stabn	0x44, 0, 1078, LM579-_branch_1s
+Ltmp437:
+	movfwl _CA_IN_Frist_No_Soure+0
+Ltmp438:
+	sublw 0
+	beq LBB14_23
+LBB14_20:
+LM580:
+.stabn	0x44, 0, 1080, LM580-_branch_1s
+Ltmp439:
+	bsf BSR,0
+	incf _CA_IN_Frist_No_Soure+0, F
+LM581:
+.stabn	0x44, 0, 1081, LM581-_branch_1s
+Ltmp440:
+	movfw _CA_IN_Frist_No_Soure+0
+Ltmp441:
+	sublw 5
+	bgt LBB14_22
+LBB14_21:
+LM582:
+.stabn	0x44, 0, 1082, LM582-_branch_1s
+Ltmp442:
+	clrf _CA_IN_Frist_No_Soure+0
+Ltmp443:
+LBB14_22:
+LBB14_23:
+LM583:
+.stabn	0x44, 0, 1084, LM583-_branch_1s
+	goto LBB14_46
+LBB14_24:
+LM584:
+.stabn	0x44, 0, 1110, LM584-_branch_1s
+Ltmp444:
+	movfw _R_SysMode_OK+0
+Ltmp445:
+	sublw 1
+	beq LBB14_29
+LBB14_25:
+LM585:
+.stabn	0x44, 0, 1113, LM585-_branch_1s
+Ltmp446:
+	movfwl _f_car_jump+0
+Ltmp447:
+	sublw 0
+	bne LBB14_27
+LBB14_26:
+LM586:
+.stabn	0x44, 0, 1116, LM586-_branch_1s
+Ltmp448:
+	incf _discharge_displed+0, F
+LM587:
+.stabn	0x44, 0, 1118, LM587-_branch_1s
+	goto LBB14_28
+Ltmp449:
+LBB14_27:
+LM588:
+.stabn	0x44, 0, 1121, LM588-_branch_1s
+	movlw 1
+	movwf _discharge_displed+0
+LM589:
+.stabn	0x44, 0, 1122, LM589-_branch_1s
+	movlw 6
+	movwf _UTX_8_data1+0
+Ltmp450:
+LBB14_28:
+LBB14_29:
+LM590:
+.stabn	0x44, 0, 1125, LM590-_branch_1s
+	goto LBB14_46
+LBB14_30:
+LM591:
+.stabn	0x44, 0, 1127, LM591-_branch_1s
+Ltmp451:
+	movfwl _UP_data_2402_Flage+0
+Ltmp452:
+	sublw 0
+	beq LBB14_38
+LBB14_31:
+LM592:
+.stabn	0x44, 0, 1129, LM592-_branch_1s
+Ltmp453:
+	movlw 1
+	bsf BSR,0
+	addwf _UP_data_2402_Flage+0, W
+	movwf _UP_data_2402_Flage+0
+LM593:
+.stabn	0x44, 0, 1130, LM593-_branch_1s
+	sublw 2
+	bne LBB14_33
+LBB14_32:
+LM594:
+.stabn	0x44, 0, 1132, LM594-_branch_1s
+Ltmp454:
+	movlw 2
+	bcf BSR,0
+	movwf _iic_transmit_24C02_byte.args.+0
+	movfw _BatCap_Value+0
+	movwf _iic_transmit_24C02_byte.args.+1
+	call _iic_transmit_24C02_byte
+LM595:
+.stabn	0x44, 0, 1133, LM595-_branch_1s
+	goto LBB14_37
+Ltmp455:
+LBB14_33:
+LM596:
+.stabn	0x44, 0, 1134, LM596-_branch_1s
+	movfw _UP_data_2402_Flage+0
+Ltmp456:
+	sublw 3
+	bne LBB14_35
+LBB14_34:
+LM597:
+.stabn	0x44, 0, 1136, LM597-_branch_1s
+Ltmp457:
+	movlw 3
+	movwfl _iic_transmit_24C02_byte.args.+0
+	movfw _Vbat_8_date+0
+	movwfl _iic_transmit_24C02_byte.args.+1
+	call _iic_transmit_24C02_byte
+LM598:
+.stabn	0x44, 0, 1137, LM598-_branch_1s
+	goto LBB14_36
+Ltmp458:
+LBB14_35:
+LM599:
+.stabn	0x44, 0, 1143, LM599-_branch_1s
+	clrf _UP_data_2402_Flage+0
+Ltmp459:
+LBB14_36:
+LBB14_37:
+LBB14_38:
+LM600:
+.stabn	0x44, 0, 1146, LM600-_branch_1s
+	call _BSP_I2C_BATVaule_Deal
+LM601:
+.stabn	0x44, 0, 1148, LM601-_branch_1s
+Ltmp460:
+	movfwl _Flash_Bat_Value_data+0
+Ltmp461:
+	xorwf _BatCap_Value+0, W
+	sublw 0
+	beq LBB14_40
+LBB14_39:
+LM602:
+.stabn	0x44, 0, 1150, LM602-_branch_1s
+Ltmp462:
+	movfw _BatCap_Value+0
+	bsf BSR,0
+	movwf _Flash_Bat_Value_data+0
+LM603:
+.stabn	0x44, 0, 1156, LM603-_branch_1s
+	movlw 1
+LM604:
+.stabn	0x44, 0, 1152, LM604-_branch_1s
+	movwf _UP_data_2402_Flage+0
+LM605:
+.stabn	0x44, 0, 1156, LM605-_branch_1s
+	bcf BSR,0
+	movwf _iic_transmit_24C02_byte.args.+0
+	movlw 85
+	movwf _iic_transmit_24C02_byte.args.+1
+	call _iic_transmit_24C02_byte
+Ltmp463:
+LBB14_40:
+LM606:
+.stabn	0x44, 0, 1159, LM606-_branch_1s
+	goto LBB14_46
+LBB14_41:
+LM607:
+.stabn	0x44, 0, 1227, LM607-_branch_1s
+	goto LBB14_46
+LBB14_42:
+LM608:
+.stabn	0x44, 0, 1229, LM608-_branch_1s
+	clrf _sys_timer+2
+LM609:
+.stabn	0x44, 0, 1230, LM609-_branch_1s
+	goto LBB14_46
+LBB14_43:
+LM610:
+.stabn	0x44, 0, 1232, LM610-_branch_1s
+Ltmp464:
+	movfw _sys_timer+2
+Ltmp465:
+	sublw 10
+	bgt LBB14_45
+LBB14_44:
+LM611:
+.stabn	0x44, 0, 1233, LM611-_branch_1s
+Ltmp466:
+	clrf _sys_timer+2
+Ltmp467:
+LBB14_45:
+LBB14_46:
+LM612:
+.stabn	0x44, 0, 1236, LM612-_branch_1s
+	banksel 0
+	return
+Ltmp468:
+Lfunc_end28:
+Lfunc_end29:
+LM613:
+.stabf LM613-_branch_1s
+
+	_BSP_PDCur_Deal_sec .section rom
+_BSP_PDCur_Deal:
+Lfunc_begin30:
+.stabs "BSP_PDCur_Deal:f:16", 0x24,0,0,_BSP_PDCur_Deal
+.stabn 0xc0, 0, 0, _BSP_PDCur_Deal
+.stabn 0xe0, 0, 0, _BSP_PDCur_Deal
+LM614:
+.stabn	0x44, 0, 1927, LM614-_BSP_PDCur_Deal
+Lfunc_begin31:
+	banksel 0
+	movfw _BSP_PDCur_Deal.args.+0
+	movwf _BSP_PDCur_Deal.temp.+0
+	movfw _BSP_PDCur_Deal.args.+1
+LM615:
+.stabn	0x44, 0, 1928, LM615-_BSP_PDCur_Deal
+Ltmp469:
+	movwf _BSP_PDCur_Deal.temp.+1
+	iorwf _BSP_PDCur_Deal.temp.+0, W
+	sublw 0
+	beq LBB15_22
+LBB15_1:
+LM616:
+.stabn	0x44, 0, 1932, LM616-_BSP_PDCur_Deal
+Ltmp470:
+	movlw 1
+	movwf _BSP_PDCur_Deal.temp.+2
+Ltmp471:
+	movfw _BSP_PDCur_Deal.temp.+0
+Ltmp472:
+	sublw 50
+	bgt LBB15_28
+LBB15_27:
+	movlw 0
+	movwf _BSP_PDCur_Deal.temp.+2
+LBB15_28:
+Ltmp473:
+	movfw _BSP_PDCur_Deal.temp.+1
+Ltmp474:
+	sublw 0
+	beq LBB15_30
+LBB15_29:
+	movlw 0
+	movwf _BSP_PDCur_Deal.temp.+2
+LBB15_30:
+	movfw _BSP_PDCur_Deal.temp.+2
+	andlw 1
+	sublw 0
+	bne LBB15_3
+LBB15_2:
+LM617:
+.stabn	0x44, 0, 1933, LM617-_BSP_PDCur_Deal
+Ltmp475:
+	movlw 0xce
+	addwf _BSP_PDCur_Deal.temp.+0, F
+	movlw 0xff
+	addwfc _BSP_PDCur_Deal.temp.+1, W
+	movwf _BSP_PDCur_Deal.temp.+1
+	goto LBB15_4
+LBB15_3:
+LM618:
+.stabn	0x44, 0, 1935, LM618-_BSP_PDCur_Deal
+	clrf _BSP_PDCur_Deal.temp.+0
+	clrf _BSP_PDCur_Deal.temp.+1
+Ltmp476:
+LBB15_4:
+LM619:
+.stabn	0x44, 0, 1937, LM619-_BSP_PDCur_Deal
+	movfw _BSP_PDCur_Deal.temp.+0
+	movwf .args.__uwdiv_atmp+0
+	movfw _BSP_PDCur_Deal.temp.+1
+	movwf .args.__uwdiv_atmp+1
+	movlw 5
+	movwf .args.__uwdiv_btmp+0
+	clrf .args.__uwdiv_btmp+1
+	call .lib.__uwdiv
+	movfw .ret.__uwdiv_ret+0
+	movwf _BSP_PDCur_Deal.temp.+0
+	movfw .ret.__uwdiv_ret+1
+	movwf _BSP_PDCur_Deal.temp.+1
+LM620:
+.stabn	0x44, 0, 1939, LM620-_BSP_PDCur_Deal
+	movfw _VoltFlag+0
+	movwf _BSP_PDCur_Deal.temp.+2
+	xorlw 1
+	sublw 0
+	beq LBB15_5
+LBB15_23:
+	movfw _BSP_PDCur_Deal.temp.+2
+	xorlw 3
+	sublw 0
+	beq LBB15_8
+LBB15_24:
+	movfw _BSP_PDCur_Deal.temp.+2
+	xorlw 4
+	sublw 0
+	beq LBB15_11
+LBB15_25:
+	movfw _BSP_PDCur_Deal.temp.+2
+	xorlw 5
+	sublw 0
+	beq LBB15_14
+LBB15_26:
+	movfw _BSP_PDCur_Deal.temp.+2
+	xorlw 6
+	sublw 0
+	beq LBB15_17
+	goto LBB15_20
+LBB15_5:
+LM621:
+.stabn	0x44, 0, 1942, LM621-_BSP_PDCur_Deal
+Ltmp477:
+	movlw 1
+	movwf _BSP_PDCur_Deal.temp.+2
+Ltmp478:
+	movfw _BSP_PDCur_Deal.temp.+0
+Ltmp479:
+	sublw 51
+	bgt LBB15_32
+LBB15_31:
+	movlw 0
+	movwf _BSP_PDCur_Deal.temp.+2
+LBB15_32:
+Ltmp480:
+	movfw _BSP_PDCur_Deal.temp.+1
+Ltmp481:
+	sublw 0
+	beq LBB15_34
+LBB15_33:
+	movlw 0
+	movwf _BSP_PDCur_Deal.temp.+2
+LBB15_34:
+	movfw _BSP_PDCur_Deal.temp.+2
+	andlw 1
+	sublw 0
+	bne LBB15_7
+LBB15_6:
+LM622:
+.stabn	0x44, 0, 1943, LM622-_BSP_PDCur_Deal
+Ltmp482:
+	movlw 50
+	movwf _BSP_PDCur_Deal.temp.+0
+	clrf _BSP_PDCur_Deal.temp.+1
+Ltmp483:
+LBB15_7:
+LM623:
+.stabn	0x44, 0, 1945, LM623-_BSP_PDCur_Deal
+	goto LBB15_21
+LBB15_8:
+LM624:
+.stabn	0x44, 0, 1948, LM624-_BSP_PDCur_Deal
+	movlw 1
+	movwf _BSP_PDCur_Deal.temp.+2
+Ltmp484:
+	movfw _BSP_PDCur_Deal.temp.+0
+Ltmp485:
+	sublw 51
+	bgt LBB15_36
+LBB15_35:
+	movlw 0
+	movwf _BSP_PDCur_Deal.temp.+2
+LBB15_36:
+Ltmp486:
+	movfw _BSP_PDCur_Deal.temp.+1
+Ltmp487:
+	sublw 0
+	beq LBB15_38
+LBB15_37:
+	movlw 0
+	movwf _BSP_PDCur_Deal.temp.+2
+LBB15_38:
+	movfw _BSP_PDCur_Deal.temp.+2
+	andlw 1
+	sublw 0
+	bne LBB15_10
+LBB15_9:
+LM625:
+.stabn	0x44, 0, 1949, LM625-_BSP_PDCur_Deal
+Ltmp488:
+	movlw 50
+	movwf _BSP_PDCur_Deal.temp.+0
+	clrf _BSP_PDCur_Deal.temp.+1
+Ltmp489:
+LBB15_10:
+LM626:
+.stabn	0x44, 0, 1951, LM626-_BSP_PDCur_Deal
+	goto LBB15_21
+LBB15_11:
+LM627:
+.stabn	0x44, 0, 1954, LM627-_BSP_PDCur_Deal
+	movlw 1
+	movwf _BSP_PDCur_Deal.temp.+2
+Ltmp490:
+	movfw _BSP_PDCur_Deal.temp.+0
+Ltmp491:
+	sublw 51
+	bgt LBB15_40
+LBB15_39:
+	movlw 0
+	movwf _BSP_PDCur_Deal.temp.+2
+LBB15_40:
+Ltmp492:
+	movfw _BSP_PDCur_Deal.temp.+1
+Ltmp493:
+	sublw 0
+	beq LBB15_42
+LBB15_41:
+	movlw 0
+	movwf _BSP_PDCur_Deal.temp.+2
+LBB15_42:
+	movfw _BSP_PDCur_Deal.temp.+2
+	andlw 1
+	sublw 0
+	bne LBB15_13
+LBB15_12:
+LM628:
+.stabn	0x44, 0, 1955, LM628-_BSP_PDCur_Deal
+Ltmp494:
+	movlw 50
+	movwf _BSP_PDCur_Deal.temp.+0
+	clrf _BSP_PDCur_Deal.temp.+1
+Ltmp495:
+LBB15_13:
+LM629:
+.stabn	0x44, 0, 1957, LM629-_BSP_PDCur_Deal
+	goto LBB15_21
+LBB15_14:
+LM630:
+.stabn	0x44, 0, 1960, LM630-_BSP_PDCur_Deal
+	movlw 1
+	movwf _BSP_PDCur_Deal.temp.+2
+Ltmp496:
+	movfw _BSP_PDCur_Deal.temp.+0
+Ltmp497:
+	sublw 51
+	bgt LBB15_44
+LBB15_43:
+	movlw 0
+	movwf _BSP_PDCur_Deal.temp.+2
+LBB15_44:
+Ltmp498:
+	movfw _BSP_PDCur_Deal.temp.+1
+Ltmp499:
+	sublw 0
+	beq LBB15_46
+LBB15_45:
+	movlw 0
+	movwf _BSP_PDCur_Deal.temp.+2
+LBB15_46:
+	movfw _BSP_PDCur_Deal.temp.+2
+	andlw 1
+	sublw 0
+	bne LBB15_16
+LBB15_15:
+LM631:
+.stabn	0x44, 0, 1961, LM631-_BSP_PDCur_Deal
+Ltmp500:
+	movlw 50
+	movwf _BSP_PDCur_Deal.temp.+0
+	clrf _BSP_PDCur_Deal.temp.+1
+Ltmp501:
+LBB15_16:
+LM632:
+.stabn	0x44, 0, 1963, LM632-_BSP_PDCur_Deal
+	goto LBB15_21
+LBB15_17:
+LM633:
+.stabn	0x44, 0, 1966, LM633-_BSP_PDCur_Deal
+	movlw 1
+	movwf _BSP_PDCur_Deal.temp.+2
+Ltmp502:
+	movfw _BSP_PDCur_Deal.temp.+0
+Ltmp503:
+	sublw 55
+	bgt LBB15_48
+LBB15_47:
+	movlw 0
+	movwf _BSP_PDCur_Deal.temp.+2
+LBB15_48:
+Ltmp504:
+	movfw _BSP_PDCur_Deal.temp.+1
+Ltmp505:
+	sublw 0
+	beq LBB15_50
+LBB15_49:
+	movlw 0
+	movwf _BSP_PDCur_Deal.temp.+2
+LBB15_50:
+	movfw _BSP_PDCur_Deal.temp.+2
+	andlw 1
+	sublw 0
+	bne LBB15_19
+LBB15_18:
+LM634:
+.stabn	0x44, 0, 1967, LM634-_BSP_PDCur_Deal
+Ltmp506:
+	movlw 54
+	movwf _BSP_PDCur_Deal.temp.+0
+	clrf _BSP_PDCur_Deal.temp.+1
+Ltmp507:
+LBB15_19:
+LBB15_20:
+LBB15_21:
+LM635:
+.stabn	0x44, 0, 1973, LM635-_BSP_PDCur_Deal
+	movfw _BSP_PDCur_Deal.temp.+0
+	movwf _R_ChargeCur_PDData+0
+Ltmp508:
+LBB15_22:
+LM636:
+.stabn	0x44, 0, 1975, LM636-_BSP_PDCur_Deal
+	return
+Ltmp509:
+Lfunc_end30:
+Lfunc_end31:
+LM637:
+.stabn 0xc0,0,0, LM614-_BSP_PDCur_Deal
+.stabs "PDCur:2;",0x80,0,0,_BSP_PDCur_Deal.temp.+0
+.stabn 0xe0,0,0, LM636-_BSP_PDCur_Deal
+.stabf LM637-_BSP_PDCur_Deal
+
+
+	_flash_address_app_main.c_Init .section rom,init
+	.db _flash_address+0,16
+	.db _flash_address+1,0
+	.ends
+
+
+	_flash_address_app_main.c .section bank0,uninit
+	_flash_address .ds 2
+	.ends
+
+	_Flag_app_main.c .section bank0,uninit
+	_Flag .ds 1
+	.ends
+
+	_sys_timer_app_main.c .section bank0,uninit
+	_sys_timer .ds 7
+	.ends
+
+	_flag_INT_app_main.c .section bank0,addr=128,bitfield=0,uninit
+	_flag_INT .ds 1
+	.ends
+
+	_SYS_in_Sleep_F_app_main.c .section bank3,uninit
+	_SYS_in_Sleep_F .ds 1
+	.ends
+
+	_Bat_Low_5V_NG_Flage_app_main.c .section bank3,uninit
+	_Bat_Low_5V_NG_Flage .ds 1
+	.ends
+
+	_Bat_Low_5V_CNt_app_main.c .section bank3,uninit
+	_Bat_Low_5V_CNt .ds 2
+	.ends
+
+	_TFT_maid_mode_app_main.c .section bank6,uninit
+	_TFT_maid_mode .ds 1
+	.ends
+
+	_TFT_minor_mode_app_main.c .section bank6,uninit
+	_TFT_minor_mode .ds 1
+	.ends
+
+	_Star_Cartoon_app_main.c .section bank6,uninit
+	_Star_Cartoon .ds 1
+	.ends
+
+	_USBA_in_Flage_app_main.c .section bank6,uninit
+	_USBA_in_Flage .ds 1
+	.ends
+
+	_USBA_in_Cnt_app_main.c .section bank6,uninit
+	_USBA_in_Cnt .ds 1
+	.ends
+
+	_BAT_VAULE_TEST_app_main.c .section bank6,uninit
+	_BAT_VAULE_TEST .ds 1
+	.ends
+
+	_BAT_VAULE_TEST_Cnt_app_main.c .section bank6,uninit
+	_BAT_VAULE_TEST_Cnt .ds 1
+	.ends
+
+	_TYPE_C_Waittime_Cnt_app_main.c .section bank6,uninit
+	_TYPE_C_Waittime_Cnt .ds 1
+	.ends
+
+	_test_I_data_app_main.c .section bank6,uninit
+	_test_I_data .ds 1
+	.ends
+
+	_sys_flag_app_main.c .section bank0,uninit
+	_sys_flag .ds 2
+	.ends
+
+	_Time_10ms_cnt_app_main.c .section bank0,uninit
+	_Time_10ms_cnt .ds 1
+	.ends
+
+	_Time_100ms_cnt_app_main.c .section bank0,uninit
+	_Time_100ms_cnt .ds 1
+	.ends
+
+	_Time_1500ms_cnt_app_main.c .section bank0,uninit
+	_Time_1500ms_cnt .ds 1
+	.ends
+
+	_car_ST_app_main.c .section bank3,uninit
+	_car_ST .ds 1
+	.ends
+
+	_count_tx_car_app_main.c .section bank3,uninit
+	_count_tx_car .ds 1
+	.ends
+
+	_Time_1000ms_cnt_app_main.c .section bank0,uninit
+	_Time_1000ms_cnt .ds 1
+	.ends
+
+	_VBUS_8_date_app_main.c .section bank3,uninit
+	_VBUS_8_date .ds 1
+	.ends
+
+	_VBUS_USBA_8_date_app_main.c .section bank3,uninit
+	_VBUS_USBA_8_date .ds 1
+	.ends
+
+	_APToBoot0_app_main.c .section bank0,addr=254
+	_APToBoot0 .ds 1
+	.ends
+
+	_APToBoot1_app_main.c .section bank0,addr=255
+	_APToBoot1 .ds 1
+	.ends
+
+	_flash_data_app_main.c .section bank0,uninit
+	_flash_data .ds 2
+	.ends
+
+	_Boot_NG_Flage_app_main.c .section bank3,uninit
+	_Boot_NG_Flage .ds 1
+	.ends
+
+	_pdsignal_threshold_switch.debounce_cnt_app_main.c .section bank0,uninit
+	_pdsignal_threshold_switch.debounce_cnt .ds 1
+	.ends
+
+	__REGx0_app_main.c .section bank4,addr=120
+	__REGx0 .ds 1
+	.ends
+
+	__REGx1_app_main.c .section bank4,addr=121
+	__REGx1 .ds 1
+	.ends
+
+	__REGx2_app_main.c .section bank4,addr=122
+	__REGx2 .ds 1
+	.ends
+
+	__REGx3_app_main.c .section bank4,addr=123
+	__REGx3 .ds 1
+	.ends
+
+	__REGx4_app_main.c .section bank4,addr=124
+	__REGx4 .ds 1
+	.ends
+
+	_CCIE1_app_main.c .section bank4,addr=64
+	_CCIE1 .ds 1
+	.ends
+
+	_CCIF1_app_main.c .section bank4,addr=65
+	_CCIF1 .ds 1
+	.ends
+
+	_CCACTL1_app_main.c .section bank4,addr=66
+	_CCACTL1 .ds 1
+	.ends
+
+	_CCBCTL1_app_main.c .section bank4,addr=67
+	_CCBCTL1 .ds 1
+	.ends
+
+	_AUTODET1_app_main.c .section bank4,addr=68
+	_AUTODET1 .ds 1
+	.ends
+
+	_CCARLT1_app_main.c .section bank4,addr=69
+	_CCARLT1 .ds 1
+	.ends
+
+	_CCBRLT1_app_main.c .section bank4,addr=70
+	_CCBRLT1 .ds 1
+	.ends
+
+	_SCNPRD1_app_main.c .section bank4,addr=71
+	_SCNPRD1 .ds 1
+	.ends
+
+	_CCDRP1_app_main.c .section bank4,addr=72
+	_CCDRP1 .ds 1
+	.ends
+
+	_sleepcnt_app_main.c .section bank0,uninit
+	_sleepcnt .ds 1
+	.ends
+
+	_VoltFlag_app_main.c .section bank0,uninit
+	_VoltFlag .ds 1
+	.ends
+
+	_I_ChargePWM_PWM_Be_app_main.c .section bank0,uninit
+	_I_ChargePWM_PWM_Be .ds 2
+	.ends
+
+	_I_ChargePWM_PWM_app_main.c .section bank0,uninit
+	_I_ChargePWM_PWM .ds 2
+	.ends
+
+	_R_ChargeCur_DataBuff_app_main.c .section bank0,uninit
+	_R_ChargeCur_DataBuff .ds 1
+	.ends
+
+	_R_ChargeCur_PDData_app_main.c .section bank0,uninit
+	_R_ChargeCur_PDData .ds 1
+	.ends
+
+	_R_ChargeCur_Data_app_main.c .section bank0,uninit
+	_R_ChargeCur_Data .ds 1
+	.ends
+
+	_LedData_OK_app_main.c .section bank0,uninit
+	_LedData_OK .ds 1
+	.ends
+
+	_BatCap_Value_app_main.c .section bank0,uninit
+	_BatCap_Value .ds 1
+	.ends
+
+	_BatCap_Value_Be_app_main.c .section bank0,uninit
+	_BatCap_Value_Be .ds 1
+	.ends
+
+	_Charge_Start_app_main.c .section bank0,uninit
+	_Charge_Start .ds 1
+	.ends
+
+	_Power_Value_Update_app_main.c .section bank0,uninit
+	_Power_Value_Update .ds 1
+	.ends
+
+	_PD_curr_Pro_cnt_app_main.c .section bank0,uninit
+	_PD_curr_Pro_cnt .ds 1
+	.ends
+
+	_USBA_curr_Pro_cnt_app_main.c .section bank0,uninit
+	_USBA_curr_Pro_cnt .ds 1
+	.ends
+
+	_USBA2_curr_Pro_cnt_app_main.c .section bank0,uninit
+	_USBA2_curr_Pro_cnt .ds 1
+	.ends
+
+	_UTX_8_data1_app_main.c .section bank0,uninit
+	_UTX_8_data1 .ds 1
+	.ends
+
+	_UTX_8_data2_app_main.c .section bank0,uninit
+	_UTX_8_data2 .ds 2
+	.ends
+
+	_UTX_16_data1_app_main.c .section bank0,uninit
+	_UTX_16_data1 .ds 2
+	.ends
+
+	_UTX_16_data2_app_main.c .section bank0,uninit
+	_UTX_16_data2 .ds 2
+	.ends
+
+	_VBAT_7201_Vaule_app_main.c .section bank0,uninit
+	_VBAT_7201_Vaule .ds 2
+	.ends
+
+	_VBUS_out_app_main.c .section bank0,uninit
+	_VBUS_out .ds 2
+	.ends
+
+	_VBUS_out_Be_app_main.c .section bank0,uninit
+	_VBUS_out_Be .ds 2
+	.ends
+
+	_discharge_displed_app_main.c .section bank0,uninit
+	_discharge_displed .ds 1
+	.ends
+
+	_Fast_Show_cnt_app_main.c .section bank0,uninit
+	_Fast_Show_cnt .ds 1
+	.ends
+
+	_Sleep_up_flage_app_main.c .section bank0,uninit
+	_Sleep_up_flage .ds 1
+	.ends
+
+	_charge_and_discharge_do_app_main.c .section bank0,uninit
+	_charge_and_discharge_do .ds 1
+	.ends
+
+	_Time_1ms_cnt_app_main.c .section bank0,uninit
+	_Time_1ms_cnt .ds 1
+	.ends
+
+	_WR_5V9V_out_in_app_main.c .section bank0,uninit
+	_WR_5V9V_out_in .ds 1
+	.ends
+
+	_SW7203_Data_Cnt_app_main.c .section bank3,uninit
+	_SW7203_Data_Cnt .ds 1
+	.ends
+
+	_TX_time_change_app_main.c .section bank1,uninit
+	_TX_time_change .ds 2
+	.ends
+
+	_TX_START_app_main.c .section bank1,uninit
+	_TX_START .ds 1
+	.ends
+
+	_TX_data_temp_app_main.c .section bank1,uninit
+	_TX_data_temp .ds 2
+	.ends
+
+	_TX_bit_H_time_cnt_app_main.c .section bank1,uninit
+	_TX_bit_H_time_cnt .ds 1
+	.ends
+
+	_TX_bit_L_time_cnt_app_main.c .section bank1,uninit
+	_TX_bit_L_time_cnt .ds 1
+	.ends
+
+	_TX_data1_app_main.c .section bank1,uninit
+	_TX_data1 .ds 2
+	.ends
+
+	_TX_data2_app_main.c .section bank1,uninit
+	_TX_data2 .ds 2
+	.ends
+
+	_TX_date_done_app_main.c .section bank1,uninit
+	_TX_date_done .ds 1
+	.ends
+
+	_TX_bit_vaule_app_main.c .section bank1,uninit
+	_TX_bit_vaule .ds 1
+	.ends
+
+	_TX_bit_time_cnt_app_main.c .section bank1,uninit
+	_TX_bit_time_cnt .ds 1
+	.ends
+
+	_TX_bit_cnt_app_main.c .section bank1,uninit
+	_TX_bit_cnt .ds 1
+	.ends
+
+	_TX_all_data_statu_app_main.c .section bank1,uninit
+	_TX_all_data_statu .ds 2
+	.ends
+
+	_TCB_EN_ON_app_main.c .section bank3,uninit
+	_TCB_EN_ON .ds 1
+	.ends
+
+	_TCA_EN_ON_app_main.c .section bank3,uninit
+	_TCA_EN_ON .ds 1
+	.ends
+
+	_WHITE_ON_app_main.c .section bank3,uninit
+	_WHITE_ON .ds 1
+	.ends
+
+	_RED_ON_app_main.c .section bank3,uninit
+	_RED_ON .ds 1
+	.ends
+
+	_USBA_EN_ON_app_main.c .section bank3,uninit
+	_USBA_EN_ON .ds 1
+	.ends
+
+	_USBA2_EN_ON_app_main.c .section bank3,uninit
+	_USBA2_EN_ON .ds 1
+	.ends
+
+	_CHARING_ON_app_main.c .section bank3,uninit
+	_CHARING_ON .ds 1
+	.ends
+
+	_OTG_ON_app_main.c .section bank3,uninit
+	_OTG_ON .ds 1
+	.ends
+
+	_SOS_LEVEL_app_main.c .section bank3,uninit
+	_SOS_LEVEL .ds 1
+	.ends
+
+	_CAR_LEVEL_app_main.c .section bank3,uninit
+	_CAR_LEVEL .ds 1
+	.ends
+
+	_LED_STATU_app_main.c .section bank3,uninit
+	_LED_STATU .ds 1
+	.ends
+
+	_LED_LEVEL_app_main.c .section bank3,uninit
+	_LED_LEVEL .ds 1
+	.ends
+
+	_count_8_app_main.c .section bank3,uninit
+	_count_8 .ds 1
+	.ends
+
+	_TX_Car_number_app_main.c .section bank3,uninit
+	_TX_Car_number .ds 1
+	.ends
+
+	_f_err_ot_app_main.c .section bank3,uninit
+	_f_err_ot .ds 1
+	.ends
+
+	_f_ph_del_app_main.c .section bank3,uninit
+	_f_ph_del .ds 1
+	.ends
+
+	_f_car_his_app_main.c .section bank3,uninit
+	_f_car_his .ds 1
+	.ends
+
+	_count_car_remove_app_main.c .section bank3,uninit
+	_count_car_remove .ds 2
+	.ends
+
+	_count_car_jump_app_main.c .section bank3,uninit
+	_count_car_jump .ds 1
+	.ends
+
+	_data_car_jump_app_main.c .section bank3,uninit
+	_data_car_jump .ds 1
+	.ends
+
+	_Temp_car_ST_app_main.c .section bank3,uninit
+	_Temp_car_ST .ds 1
+	.ends
+
+	_count_jump_app_main.c .section bank3,uninit
+	_count_jump .ds 1
+	.ends
+
+	_f_car_jump_app_main.c .section bank3,uninit
+	_f_car_jump .ds 1
+	.ends
+
+	_count_clr_time_app_main.c .section bank3,uninit
+	_count_clr_time .ds 1
+	.ends
+
+	_time_noload_app_main.c .section bank3,uninit
+	_time_noload .ds 1
+	.ends
+
+	_count_0s5_app_main.c .section bank3,uninit
+	_count_0s5 .ds 1
+	.ends
+
+	_f_ph_del_time_app_main.c .section bank3,uninit
+	_f_ph_del_time .ds 1
+	.ends
+
+	_f_jump_start_app_main.c .section bank3,uninit
+	_f_jump_start .ds 1
+	.ends
+
+	_count_2ms_app_main.c .section bank3,uninit
+	_count_2ms .ds 1
+	.ends
+
+	_count_65ms_app_main.c .section bank3,uninit
+	_count_65ms .ds 1
+	.ends
+
+	_Charge_cnt_do_app_main.c .section bank3,uninit
+	_Charge_cnt_do .ds 1
+	.ends
+
+	_Charge_get_cnt_app_main.c .section bank3,uninit
+	_Charge_get_cnt .ds 1
+	.ends
+
+	_sink_Vol_app_main.c .section bank3,uninit
+	_sink_Vol .ds 1
+	.ends
+
+	_sink_Vol1_app_main.c .section bank3,uninit
+	_sink_Vol1 .ds 1
+	.ends
+
+	_bat_low_pwm_do_app_main.c .section bank3,uninit
+	_bat_low_pwm_do .ds 1
+	.ends
+
+	_bat_low_pwm_Cnt_app_main.c .section bank3,uninit
+	_bat_low_pwm_Cnt .ds 1
+	.ends
+
+	_bat_full_pwm_Cnt_app_main.c .section bank3,uninit
+	_bat_full_pwm_Cnt .ds 1
+	.ends
+
+	_bat_full_pwm_do_app_main.c .section bank3,uninit
+	_bat_full_pwm_do .ds 1
+	.ends
+
+	_bat_full_8hour_Cnt_app_main.c .section bank3,uninit
+	_bat_full_8hour_Cnt .ds 1
+	.ends
+
+	_bat_full_1hour_Cnt_app_main.c .section bank3,uninit
+	_bat_full_1hour_Cnt .ds 2
+	.ends
+
+	_bat_full_do_to_charge_app_main.c .section bank3,uninit
+	_bat_full_do_to_charge .ds 1
+	.ends
+
+	_Sleep_up_shor_do_app_main.c .section bank3,uninit
+	_Sleep_up_shor_do .ds 1
+	.ends
+
+	_Sleep_up_close_Car_ignition_app_main.c .section bank3,uninit
+	_Sleep_up_close_Car_ignition .ds 1
+	.ends
+
+	_charge_to_sleep_close_Car_ignition_app_main.c .section bank3,uninit
+	_charge_to_sleep_close_Car_ignition .ds 1
+	.ends
+
+	_USBA_sleep_up_app_main.c .section bank3,uninit
+	_USBA_sleep_up .ds 1
+	.ends
+
+	_VBUS_V_Hight_app_main.c .section bank3,uninit
+	_VBUS_V_Hight .ds 1
+	.ends
+
+	_VBUS_V_Low_app_main.c .section bank3,uninit
+	_VBUS_V_Low .ds 1
+	.ends
+
+	_VBUS_OVP_CNT_app_main.c .section bank3,uninit
+	_VBUS_OVP_CNT .ds 2
+	.ends
+
+	_VBUS_USBA_OVP_CNT_app_main.c .section bank3,uninit
+	_VBUS_USBA_OVP_CNT .ds 2
+	.ends
+
+	_Into_IAP_Flage_app_main.c .section bank3,uninit
+	_Into_IAP_Flage .ds 1
+	.ends
+
+	_USBA_VoltFlag_app_main.c .section bank3,uninit
+	_USBA_VoltFlag .ds 1
+	.ends
+
+	_iap_detect_app_main.c .section bank3,uninit
+	_iap_detect .ds 3
+	.ends
+
+	_request_num_copy_app_main.c .section bank3,uninit
+	_request_num_copy .ds 1
+	.ends
+
+	_Recharge_cnt_app_main.c .section bank3,uninit
+	_Recharge_cnt .ds 1
+	.ends
+
+	_TYPE_CA_18W_Flage_app_main.c .section bank3,uninit
+	_TYPE_CA_18W_Flage .ds 1
+	.ends
+
+	_TYPE_CA_18W_Flage_Cnt_app_main.c .section bank3,uninit
+	_TYPE_CA_18W_Flage_Cnt .ds 1
+	.ends
+
+	_Time_2_Flage_do_app_main.c .section bank3,uninit
+	_Time_2_Flage_do .ds 1
+	.ends
+
+	_Foece_Sleep_F_app_main.c .section bank3,uninit
+	_Foece_Sleep_F .ds 1
+	.ends
+
+	_Foece_Sleep_Time_S_app_main.c .section bank3,uninit
+	_Foece_Sleep_Time_S .ds 1
+	.ends
+
+	_Foece_Sleep_Time_Min_app_main.c .section bank3,uninit
+	_Foece_Sleep_Time_Min .ds 2
+	.ends
+
+	_Foece_Sleep_Time_Mon_app_main.c .section bank3,uninit
+	_Foece_Sleep_Time_Mon .ds 1
+	.ends
+
+	_Exit_Charge_Cnt_app_main.c .section bank3,uninit
+	_Exit_Charge_Cnt .ds 2
+	.ends
+
+	_CC1_LEVEL_NOW_app_main.c .section bank3,uninit
+	_CC1_LEVEL_NOW .ds 1
+	.ends
+
+	_CC1_LEVEL_BE_app_main.c .section bank3,uninit
+	_CC1_LEVEL_BE .ds 1
+	.ends
+
+	_CC2_LEVEL_NOW_app_main.c .section bank3,uninit
+	_CC2_LEVEL_NOW .ds 1
+	.ends
+
+	_CC2_LEVEL_BE_app_main.c .section bank3,uninit
+	_CC2_LEVEL_BE .ds 1
+	.ends
+
+	_CC_Check_Cnt_app_main.c .section bank3,uninit
+	_CC_Check_Cnt .ds 1
+	.ends
+
+	_CC1_Check1_Cnt_app_main.c .section bank3,uninit
+	_CC1_Check1_Cnt .ds 1
+	.ends
+
+	_CC1_Check2_Cnt_app_main.c .section bank3,uninit
+	_CC1_Check2_Cnt .ds 1
+	.ends
+
+	_CC2_Check1_Cnt_app_main.c .section bank3,uninit
+	_CC2_Check1_Cnt .ds 1
+	.ends
+
+	_CC2_Check2_Cnt_app_main.c .section bank3,uninit
+	_CC2_Check2_Cnt .ds 1
+	.ends
+
+	_TypeC_Slide_CC1_data_app_main.c .section bank3,uninit
+	_TypeC_Slide_CC1_data .ds 2
+	.ends
+
+	_TypeC_Slide_CC2_data_app_main.c .section bank3,uninit
+	_TypeC_Slide_CC2_data .ds 2
+	.ends
+
+	_TypeC_MicroB_ADC_data_app_main.c .section bank3,uninit
+	_TypeC_MicroB_ADC_data .ds 2
+	.ends
+
+	_TypeC_VNOW_out_value_app_main.c .section bank3,uninit
+	_TypeC_VNOW_out_value .ds 2
+	.ends
+
+	_TypeC_VBE_out_value_app_main.c .section bank3,uninit
+	_TypeC_VBE_out_value .ds 2
+	.ends
+
+	_Out_Protest_Flage_app_main.c .section bank3,uninit
+	_Out_Protest_Flage .ds 1
+	.ends
+
+	_Charge_OCP_Flage_app_main.c .section bank3,uninit
+	_Charge_OCP_Flage .ds 1
+	.ends
+
+	_Charge_OCP_cnt_app_main.c .section bank3,uninit
+	_Charge_OCP_cnt .ds 1
+	.ends
+
+	_Charge_Close_En_cnt_app_main.c .section bank3,uninit
+	_Charge_Close_En_cnt .ds 1
+	.ends
+
+	_Charge_BEN_cnt_app_main.c .section bank3,uninit
+	_Charge_BEN_cnt .ds 1
+	.ends
+
+	_Vbat_8_date_app_main.c .section bank3,uninit
+	_Vbat_8_date .ds 1
+	.ends
+
+	_CIbat_8_date_app_main.c .section bank3,uninit
+	_CIbat_8_date .ds 1
+	.ends
+
+	_CIbus_8_date_app_main.c .section bank2,uninit
+	_CIbus_8_date .ds 1
+	.ends
+
+	_CIbus_16_date_app_main.c .section bank2,uninit
+	_CIbus_16_date .ds 2
+	.ends
+
+	_AIbat_8_date_app_main.c .section bank3,uninit
+	_AIbat_8_date .ds 1
+	.ends
+
+	_LIbat_8_date_app_main.c .section bank3,uninit
+	_LIbat_8_date .ds 1
+	.ends
+
+	_Type_C_Ibat_16_date_app_main.c .section bank3,uninit
+	_Type_C_Ibat_16_date .ds 2
+	.ends
+
+	_Car_Cur_data_app_main.c .section bank3,uninit
+	_Car_Cur_data .ds 1
+	.ends
+
+	_f_RX_statu_app_main.c .section bank3,uninit
+	_f_RX_statu .ds 1
+	.ends
+
+	_f_B_RX_statu_app_main.c .section bank3,uninit
+	_f_B_RX_statu .ds 1
+	.ends
+
+	_f_B2_RX_statu_app_main.c .section bank3,uninit
+	_f_B2_RX_statu .ds 1
+	.ends
+
+	_f_Rx_do_star_app_main.c .section bank3,uninit
+	_f_Rx_do_star .ds 1
+	.ends
+
+	_Date_bit_cnt_app_main.c .section bank3,uninit
+	_Date_bit_cnt .ds 1
+	.ends
+
+	_Time_date_L_cnt_app_main.c .section bank3,uninit
+	_Time_date_L_cnt .ds 1
+	.ends
+
+	_Vule_Rx_date_app_main.c .section bank3,uninit
+	_Vule_Rx_date .ds 1
+	.ends
+
+	_f_RX_date_done_app_main.c .section bank3,uninit
+	_f_RX_date_done .ds 1
+	.ends
+
+	_Rx_huo_app_main.c .section bank3,uninit
+	_Rx_huo .ds 1
+	.ends
+
+	_USBA_EN_BK_app_main.c .section bank3,uninit
+	_USBA_EN_BK .ds 1
+	.ends
+
+	_Flash_bat_Vol_Start_check_app_main.c .section bank3,uninit
+	_Flash_bat_Vol_Start_check .ds 1
+	.ends
+
+	_Bat_Car_Protect_Cnt_app_main.c .section bank3,uninit
+	_Bat_Car_Protect_Cnt .ds 1
+	.ends
+
+	_test_data8_1_app_main.c .section bank3,uninit
+	_test_data8_1 .ds 1
+	.ends
+
+	_UP_data_2402_Flage_app_main.c .section bank3,uninit
+	_UP_data_2402_Flage .ds 1
+	.ends
+
+	_BAT_Pro_Charge_app_main.c .section bank3,uninit
+	_BAT_Pro_Charge .ds 1
+	.ends
+
+	_Sleep_Down_Close_Power_app_main.c .section bank3,uninit
+	_Sleep_Down_Close_Power .ds 1
+	.ends
+
+	_UTX_16_data3_app_main.c .section bank3,uninit
+	_UTX_16_data3 .ds 2
+	.ends
+
+	_LED_test_mode_Cnt_app_main.c .section bank6,uninit
+	_LED_test_mode_Cnt .ds 1
+	.ends
+
+	_LED_test_mode_Cnt2_app_main.c .section bank6,uninit
+	_LED_test_mode_Cnt2 .ds 1
+	.ends
+
+	_uart_t_count_app_main.c .section bank6,uninit
+	_uart_t_count .ds 1
+	.ends
+
+	_Languagee_C_Flag_app_main.c .section bank6,uninit
+	_Languagee_C_Flag .ds 1
+	.ends
+
+	_LongKeyFlagtocallword_app_main.c .section bank6,uninit
+	_LongKeyFlagtocallword .ds 1
+	.ends
+
+	_marked_word_showtime_app_main.c .section bank6,uninit
+	_marked_word_showtime .ds 1
+	.ends
+
+	_marked_word_cnt_app_main.c .section bank6,uninit
+	_marked_word_cnt .ds 1
+	.ends
+
+	_F_gotodec_levl_app_main.c .section bank6,uninit
+	_F_gotodec_levl .ds 1
+	.ends
+
+	_Gotodec_levl_cnt_app_main.c .section bank6,uninit
+	_Gotodec_levl_cnt .ds 1
+	.ends
+
+	_DubbleKeyFlag_app_main.c .section bank6,uninit
+	_DubbleKeyFlag .ds 1
+	.ends
+
+	_DubbleKey2Flag_app_main.c .section bank6,uninit
+	_DubbleKey2Flag .ds 1
+	.ends
+
+	_open_lcd_light_app_main.c .section bank6,uninit
+	_open_lcd_light .ds 1
+	.ends
+
+	_Temp_Language_app_main.c .section bank6,uninit
+	_Temp_Language .ds 1
+	.ends
+
+	_Error_icon_Cnt_app_main.c .section bank6,uninit
+	_Error_icon_Cnt .ds 1
+	.ends
+
+	_Error_icon_Mode_app_main.c .section bank6,uninit
+	_Error_icon_Mode .ds 1
+	.ends
+
+	_close_lcd_light_cnt_app_main.c .section bank6,uninit
+	_close_lcd_light_cnt .ds 2
+	.ends
+
+	_Change_lauge_Cnt_app_main.c .section bank6,uninit
+	_Change_lauge_Cnt .ds 1
+	.ends
+
+	_Change_lauge_Flage_app_main.c .section bank6,uninit
+	_Change_lauge_Flage .ds 1
+	.ends
+
+	_Change_lauge_Time_Cnt_app_main.c .section bank6,uninit
+	_Change_lauge_Time_Cnt .ds 1
+	.ends
+
+	_output_voltage_adjust.pps_request_volt_copy_app_main.c .section bank0,uninit
+	_output_voltage_adjust.pps_request_volt_copy .ds 2
+	.ends
+
+	_output_voltage_adjust.pps_request_cur_copy_app_main.c .section bank0,uninit
+	_output_voltage_adjust.pps_request_cur_copy .ds 1
+	.ends
+
+	.@_delay_ms_sec@_delay_ms.args. .section bank1,uninit
+	_delay_ms.args. .ds 4
+	.ends
+
+	.@_delay_ms_sec@_delay_ms.temp. .section bank1,uninit
+	_delay_ms.temp. .ds 11
+	.ends
+
+	.@_main_sec@_main.temp. .section bank1,uninit
+	_main.temp. .ds 4
+	.ends
+
+	.@_output_voltage_adjust_sec@_output_voltage_adjust.temp. .section bank1,uninit
+	_output_voltage_adjust.temp. .ds 6
+	.ends
+
+	.@_Discharge_Pro_curr_sec@_Discharge_Pro_curr.temp. .section bank1,uninit
+	_Discharge_Pro_curr.temp. .ds 7
+	.ends
+
+	.@_qc_break_sec@_qc_break.temp. .section bank1,uninit
+	_qc_break.temp. .ds 1
+	.ends
+
+	.@_Vbus_level_deal_sec@_Vbus_level_deal.temp. .section bank1,uninit
+	_Vbus_level_deal.temp. .ds 2
+	.ends
+
+	.@_branch_100ms_sec@_branch_100ms.temp. .section bank1,uninit
+	_branch_100ms.temp. .ds 1
+	.ends
+
+	.@_tcpd_debug_cb_sec@_tcpd_debug_cb.args. .section bank1,uninit
+	_tcpd_debug_cb.args. .ds 1
+	.ends
+
+	.@_tcpd_debug_cb_sec@_tcpd_debug_cb.temp. .section bank1,uninit
+	_tcpd_debug_cb.temp. .ds 1
+	.ends
+
+	.@_typecx_param_cb_sec@_typecx_param_cb.args. .section bank1,uninit
+	_typecx_param_cb.args. .ds 2
+	.ends
+
+	.@_typecx_param_cb_sec@_typecx_param_cb.temp. .section bank1,uninit
+	_typecx_param_cb.temp. .ds 2
+	.ends
+
+	.@_Charge_current_deal_sec@_Charge_current_deal.temp. .section bank1,uninit
+	_Charge_current_deal.temp. .ds 2
+	.ends
+
+	.@_branch_1s_sec@_branch_1s.temp. .section bank1,uninit
+	_branch_1s.temp. .ds 1
+	.ends
+
+	.@_BSP_PDCur_Deal_sec@_BSP_PDCur_Deal.args. .section bank1,uninit
+	_BSP_PDCur_Deal.args. .ds 2
+	.ends
+
+	.@_BSP_PDCur_Deal_sec@_BSP_PDCur_Deal.temp. .section bank1,uninit
+	_BSP_PDCur_Deal.temp. .ds 3
+	.ends
+
+
+
+	.global	_flash_address
+	.global	_Flag
+	.global	_sys_timer
+	.global	_flag_INT
+	.global	_SYS_in_Sleep_F
+	.global	_Bat_Low_5V_NG_Flage
+	.global	_Bat_Low_5V_CNt
+	.global	_TFT_maid_mode
+	.global	_TFT_minor_mode
+	.global	_Star_Cartoon
+	.global	_USBA_in_Flage
+	.global	_USBA_in_Cnt
+	.global	_BAT_VAULE_TEST
+	.global	_BAT_VAULE_TEST_Cnt
+	.global	_TYPE_C_Waittime_Cnt
+	.global	_test_I_data
+	.global	_sys_flag
+	.global	_Time_10ms_cnt
+	.global	_Time_100ms_cnt
+	.global	_Time_1500ms_cnt
+	.global	_car_ST
+	.global	_count_tx_car
+	.global	_Time_1000ms_cnt
+	.global	_VBUS_8_date
+	.global	_VBUS_USBA_8_date
+	.global	_APToBoot0
+	.global	_APToBoot1
+	.global	_flash_data
+	.global	_Boot_NG_Flage
+	.global	__REGx0
+	.global	__REGx1
+	.global	__REGx2
+	.global	__REGx3
+	.global	__REGx4
+	.global	_CCIE1
+	.global	_CCIF1
+	.global	_CCACTL1
+	.global	_CCBCTL1
+	.global	_AUTODET1
+	.global	_CCARLT1
+	.global	_CCBRLT1
+	.global	_SCNPRD1
+	.global	_CCDRP1
+	.global	_sleepcnt
+	.global	_VoltFlag
+	.global	_I_ChargePWM_PWM_Be
+	.global	_I_ChargePWM_PWM
+	.global	_R_ChargeCur_DataBuff
+	.global	_R_ChargeCur_PDData
+	.global	_R_ChargeCur_Data
+	.global	_LedData_OK
+	.global	_BatCap_Value
+	.global	_BatCap_Value_Be
+	.global	_Charge_Start
+	.global	_Power_Value_Update
+	.global	_PD_curr_Pro_cnt
+	.global	_USBA_curr_Pro_cnt
+	.global	_USBA2_curr_Pro_cnt
+	.global	_UTX_8_data1
+	.global	_UTX_8_data2
+	.global	_UTX_16_data1
+	.global	_UTX_16_data2
+	.global	_VBAT_7201_Vaule
+	.global	_VBUS_out
+	.global	_VBUS_out_Be
+	.global	_discharge_displed
+	.global	_Fast_Show_cnt
+	.global	_Sleep_up_flage
+	.global	_charge_and_discharge_do
+	.global	_Time_1ms_cnt
+	.global	_WR_5V9V_out_in
+	.global	_SW7203_Data_Cnt
+	.global	_TX_time_change
+	.global	_TX_START
+	.global	_TX_data_temp
+	.global	_TX_bit_H_time_cnt
+	.global	_TX_bit_L_time_cnt
+	.global	_TX_data1
+	.global	_TX_data2
+	.global	_TX_date_done
+	.global	_TX_bit_vaule
+	.global	_TX_bit_time_cnt
+	.global	_TX_bit_cnt
+	.global	_TX_all_data_statu
+	.global	_TCB_EN_ON
+	.global	_TCA_EN_ON
+	.global	_WHITE_ON
+	.global	_RED_ON
+	.global	_USBA_EN_ON
+	.global	_USBA2_EN_ON
+	.global	_CHARING_ON
+	.global	_OTG_ON
+	.global	_SOS_LEVEL
+	.global	_CAR_LEVEL
+	.global	_LED_STATU
+	.global	_LED_LEVEL
+	.global	_count_8
+	.global	_TX_Car_number
+	.global	_f_err_ot
+	.global	_f_ph_del
+	.global	_f_car_his
+	.global	_count_car_remove
+	.global	_count_car_jump
+	.global	_data_car_jump
+	.global	_Temp_car_ST
+	.global	_count_jump
+	.global	_f_car_jump
+	.global	_count_clr_time
+	.global	_time_noload
+	.global	_count_0s5
+	.global	_f_ph_del_time
+	.global	_f_jump_start
+	.global	_count_2ms
+	.global	_count_65ms
+	.global	_Charge_cnt_do
+	.global	_Charge_get_cnt
+	.global	_sink_Vol
+	.global	_sink_Vol1
+	.global	_bat_low_pwm_do
+	.global	_bat_low_pwm_Cnt
+	.global	_bat_full_pwm_Cnt
+	.global	_bat_full_pwm_do
+	.global	_bat_full_8hour_Cnt
+	.global	_bat_full_1hour_Cnt
+	.global	_bat_full_do_to_charge
+	.global	_Sleep_up_shor_do
+	.global	_Sleep_up_close_Car_ignition
+	.global	_charge_to_sleep_close_Car_ignition
+	.global	_USBA_sleep_up
+	.global	_VBUS_V_Hight
+	.global	_VBUS_V_Low
+	.global	_VBUS_OVP_CNT
+	.global	_VBUS_USBA_OVP_CNT
+	.global	_Into_IAP_Flage
+	.global	_USBA_VoltFlag
+	.global	_iap_detect
+	.global	_request_num_copy
+	.global	_Recharge_cnt
+	.global	_TYPE_CA_18W_Flage
+	.global	_TYPE_CA_18W_Flage_Cnt
+	.global	_Time_2_Flage_do
+	.global	_Foece_Sleep_F
+	.global	_Foece_Sleep_Time_S
+	.global	_Foece_Sleep_Time_Min
+	.global	_Foece_Sleep_Time_Mon
+	.global	_Exit_Charge_Cnt
+	.global	_CC1_LEVEL_NOW
+	.global	_CC1_LEVEL_BE
+	.global	_CC2_LEVEL_NOW
+	.global	_CC2_LEVEL_BE
+	.global	_CC_Check_Cnt
+	.global	_CC1_Check1_Cnt
+	.global	_CC1_Check2_Cnt
+	.global	_CC2_Check1_Cnt
+	.global	_CC2_Check2_Cnt
+	.global	_TypeC_Slide_CC1_data
+	.global	_TypeC_Slide_CC2_data
+	.global	_TypeC_MicroB_ADC_data
+	.global	_TypeC_VNOW_out_value
+	.global	_TypeC_VBE_out_value
+	.global	_Out_Protest_Flage
+	.global	_Charge_OCP_Flage
+	.global	_Charge_OCP_cnt
+	.global	_Charge_Close_En_cnt
+	.global	_Charge_BEN_cnt
+	.global	_Vbat_8_date
+	.global	_CIbat_8_date
+	.global	_CIbus_8_date
+	.global	_CIbus_16_date
+	.global	_AIbat_8_date
+	.global	_LIbat_8_date
+	.global	_Type_C_Ibat_16_date
+	.global	_Car_Cur_data
+	.global	_f_RX_statu
+	.global	_f_B_RX_statu
+	.global	_f_B2_RX_statu
+	.global	_f_Rx_do_star
+	.global	_Date_bit_cnt
+	.global	_Time_date_L_cnt
+	.global	_Vule_Rx_date
+	.global	_f_RX_date_done
+	.global	_Rx_huo
+	.global	_USBA_EN_BK
+	.global	_Flash_bat_Vol_Start_check
+	.global	_Bat_Car_Protect_Cnt
+	.global	_test_data8_1
+	.global	_UP_data_2402_Flage
+	.global	_BAT_Pro_Charge
+	.global	_Sleep_Down_Close_Power
+	.global	_UTX_16_data3
+	.global	_LED_test_mode_Cnt
+	.global	_LED_test_mode_Cnt2
+	.global	_uart_t_count
+	.global	_Languagee_C_Flag
+	.global	_LongKeyFlagtocallword
+	.global	_marked_word_showtime
+	.global	_marked_word_cnt
+	.global	_F_gotodec_levl
+	.global	_Gotodec_levl_cnt
+	.global	_DubbleKeyFlag
+	.global	_DubbleKey2Flag
+	.global	_open_lcd_light
+	.global	_Temp_Language
+	.global	_Error_icon_Cnt
+	.global	_Error_icon_Mode
+	.global	_close_lcd_light_cnt
+	.global	_Change_lauge_Cnt
+	.global	_Change_lauge_Flage
+	.global	_Change_lauge_Time_Cnt
+

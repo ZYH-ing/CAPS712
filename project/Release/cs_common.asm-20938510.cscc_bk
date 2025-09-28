@@ -1,0 +1,806 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\chip\\misc\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\chip\\misc\\cs_common.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+.stabs "r_memcpy_len:G10",0x20,0,0,_r_memcpy_len
+.stabs "r_memcmp_res:G10",0x20,0,0,_r_memcmp_res
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_cs_memcpy_sec .section rom
+	.global	_cs_memcpy
+_cs_memcpy:
+Lfunc_begin0:
+.stabs "cs_memcpy:f:16", 0x24,0,0,_cs_memcpy
+.stabn 0xc0, 0, 0, _cs_memcpy
+.stabn 0xe0, 0, 0, _cs_memcpy
+LM0:
+.stabn	0x44, 0, 23, LM0-_cs_memcpy
+Lfunc_begin1:
+LM1:
+.stabn	0x44, 0, 24, LM1-_cs_memcpy
+	banksel 0
+	;APP
+	L_memcpy_loop:					
+	;NO_APP
+LM2:
+.stabn	0x44, 0, 25, LM2-_cs_memcpy
+	;APP
+		movfw	_IND1				
+	;NO_APP
+LM3:
+.stabn	0x44, 0, 26, LM3-_cs_memcpy
+	;APP
+		movwf	_IND0				
+	;NO_APP
+LM4:
+.stabn	0x44, 0, 27, LM4-_cs_memcpy
+	;APP
+		addlfsr 0, 1				
+	;NO_APP
+LM5:
+.stabn	0x44, 0, 28, LM5-_cs_memcpy
+	;APP
+		addlfsr 1, 1				
+	;NO_APP
+LM6:
+.stabn	0x44, 0, 29, LM6-_cs_memcpy
+	;APP
+		decfsz	_r_memcpy_len, 1	
+	;NO_APP
+LM7:
+.stabn	0x44, 0, 30, LM7-_cs_memcpy
+	;APP
+		goto 	L_memcpy_loop		
+	;NO_APP
+LM8:
+.stabn	0x44, 0, 31, LM8-_cs_memcpy
+	;APP
+		clrf 	_FSR0H				
+	;NO_APP
+LM9:
+.stabn	0x44, 0, 32, LM9-_cs_memcpy
+	;APP
+		clrf 	_FSR0				
+	;NO_APP
+LM10:
+.stabn	0x44, 0, 33, LM10-_cs_memcpy
+	;APP
+		clrf 	_FSR1H				
+	;NO_APP
+LM11:
+.stabn	0x44, 0, 34, LM11-_cs_memcpy
+	;APP
+		clrf 	_FSR1				
+	;NO_APP
+LM12:
+.stabn	0x44, 0, 35, LM12-_cs_memcpy
+	;APP
+		clrf 	_BSR				
+	;NO_APP
+LM13:
+.stabn	0x44, 0, 36, LM13-_cs_memcpy
+	return
+Ltmp0:
+Lfunc_end0:
+Lfunc_end1:
+LM14:
+.stabf LM14-_cs_memcpy
+
+	_cs_memcpy_rom2ram_sec .section rom
+	.global	_cs_memcpy_rom2ram
+_cs_memcpy_rom2ram:
+Lfunc_begin2:
+.stabs "cs_memcpy_rom2ram:f:16", 0x24,0,0,_cs_memcpy_rom2ram
+.stabn 0xc0, 0, 0, _cs_memcpy_rom2ram
+.stabn 0xe0, 0, 0, _cs_memcpy_rom2ram
+LM15:
+.stabn	0x44, 0, 41, LM15-_cs_memcpy_rom2ram
+Lfunc_begin3:
+LM16:
+.stabn	0x44, 0, 42, LM16-_cs_memcpy_rom2ram
+	banksel 0
+	;APP
+		clrf	_CMD					
+	;NO_APP
+LM17:
+.stabn	0x44, 0, 43, LM17-_cs_memcpy_rom2ram
+	;APP
+	L_memcpy_rom2ram:					
+	;NO_APP
+LM18:
+.stabn	0x44, 0, 44, LM18-_cs_memcpy_rom2ram
+	;APP
+		btfsc	ISPSR, 0				
+	;NO_APP
+LM19:
+.stabn	0x44, 0, 45, LM19-_cs_memcpy_rom2ram
+	;APP
+		goto	L_memcpy_rom2ram		
+	;NO_APP
+LM20:
+.stabn	0x44, 0, 46, LM20-_cs_memcpy_rom2ram
+	;APP
+	L_memcpy_rom2ram_loop:				
+	;NO_APP
+LM21:
+.stabn	0x44, 0, 47, LM21-_cs_memcpy_rom2ram
+	;APP
+		movlw	1						
+	;NO_APP
+LM22:
+.stabn	0x44, 0, 48, LM22-_cs_memcpy_rom2ram
+	;APP
+		addwf	EADRL, 1				
+	;NO_APP
+LM23:
+.stabn	0x44, 0, 49, LM23-_cs_memcpy_rom2ram
+	;APP
+		clrf	WORK					
+	;NO_APP
+LM24:
+.stabn	0x44, 0, 50, LM24-_cs_memcpy_rom2ram
+	;APP
+		addwfc	EADRH, 1				
+	;NO_APP
+LM25:
+.stabn	0x44, 0, 51, LM25-_cs_memcpy_rom2ram
+	;APP
+		bsf		_ISPCR, 0				
+	;NO_APP
+LM26:
+.stabn	0x44, 0, 52, LM26-_cs_memcpy_rom2ram
+	;APP
+	L_memcpy_rom2ram_wait:				
+	;NO_APP
+LM27:
+.stabn	0x44, 0, 53, LM27-_cs_memcpy_rom2ram
+	;APP
+		btfsc	ISPSR, 0				
+	;NO_APP
+LM28:
+.stabn	0x44, 0, 54, LM28-_cs_memcpy_rom2ram
+	;APP
+		goto	L_memcpy_rom2ram_wait	
+	;NO_APP
+LM29:
+.stabn	0x44, 0, 55, LM29-_cs_memcpy_rom2ram
+	;APP
+		movfw	EDATL					
+	;NO_APP
+LM30:
+.stabn	0x44, 0, 56, LM30-_cs_memcpy_rom2ram
+	;APP
+		movwf	_IND0					
+	;NO_APP
+LM31:
+.stabn	0x44, 0, 57, LM31-_cs_memcpy_rom2ram
+	;APP
+		addlfsr 0, 1					
+	;NO_APP
+LM32:
+.stabn	0x44, 0, 58, LM32-_cs_memcpy_rom2ram
+	;APP
+		decfsz	_r_memcpy_len, 1		
+	;NO_APP
+LM33:
+.stabn	0x44, 0, 59, LM33-_cs_memcpy_rom2ram
+	;APP
+		goto 	L_memcpy_rom2ram		
+	;NO_APP
+LM34:
+.stabn	0x44, 0, 60, LM34-_cs_memcpy_rom2ram
+	;APP
+		clrf 	_FSR0H					
+	;NO_APP
+LM35:
+.stabn	0x44, 0, 61, LM35-_cs_memcpy_rom2ram
+	;APP
+		clrf 	_FSR0					
+	;NO_APP
+LM36:
+.stabn	0x44, 0, 62, LM36-_cs_memcpy_rom2ram
+	;APP
+		clrf 	_EADRH					
+	;NO_APP
+LM37:
+.stabn	0x44, 0, 63, LM37-_cs_memcpy_rom2ram
+	;APP
+		clrf 	_EADRL					
+	;NO_APP
+LM38:
+.stabn	0x44, 0, 64, LM38-_cs_memcpy_rom2ram
+	;APP
+		clrf 	_BSR					
+	;NO_APP
+LM39:
+.stabn	0x44, 0, 65, LM39-_cs_memcpy_rom2ram
+	return
+Ltmp1:
+Lfunc_end2:
+Lfunc_end3:
+LM40:
+.stabf LM40-_cs_memcpy_rom2ram
+
+	_cs_memset_sec .section rom
+	.global	_cs_memset
+_cs_memset:
+Lfunc_begin4:
+.stabs "cs_memset:f:16", 0x24,0,0,_cs_memset
+.stabn 0xc0, 0, 0, _cs_memset
+.stabn 0xe0, 0, 0, _cs_memset
+LM41:
+.stabn	0x44, 0, 70, LM41-_cs_memset
+Lfunc_begin5:
+	banksel 0
+	movfw _cs_memset.args.+0
+LM42:
+.stabn	0x44, 0, 71, LM42-_cs_memset
+Ltmp2:
+	movwf _cs_memset.temp.+0
+	;APP
+	L_memset_loop:					
+	;NO_APP
+LM43:
+.stabn	0x44, 0, 72, LM43-_cs_memset
+	movfw _cs_memset.temp.+0
+	movwf _WORK+0
+LM44:
+.stabn	0x44, 0, 73, LM44-_cs_memset
+	;APP
+		movwf	_IND0				
+	;NO_APP
+LM45:
+.stabn	0x44, 0, 74, LM45-_cs_memset
+	;APP
+		addlfsr 0, 1				
+	;NO_APP
+LM46:
+.stabn	0x44, 0, 75, LM46-_cs_memset
+	;APP
+		decfsz	_r_memcpy_len, 1	
+	;NO_APP
+LM47:
+.stabn	0x44, 0, 76, LM47-_cs_memset
+	;APP
+		goto 	L_memset_loop		
+	;NO_APP
+LM48:
+.stabn	0x44, 0, 77, LM48-_cs_memset
+	;APP
+		clrf 	_FSR0H				
+	;NO_APP
+LM49:
+.stabn	0x44, 0, 78, LM49-_cs_memset
+	;APP
+		clrf 	_FSR0				
+	;NO_APP
+LM50:
+.stabn	0x44, 0, 79, LM50-_cs_memset
+	;APP
+		clrf 	_BSR				
+	;NO_APP
+LM51:
+.stabn	0x44, 0, 81, LM51-_cs_memset
+	return
+Ltmp3:
+Lfunc_end4:
+Lfunc_end5:
+LM52:
+.stabn 0xc0,0,0, LM41-_cs_memset
+.stabs "_data:10",0x80,0,0,_cs_memset.args.+0
+.stabn 0xe0,0,0, LM51-_cs_memset
+.stabf LM52-_cs_memset
+
+	_cs_memcmp_sec .section rom
+	.global	_cs_memcmp
+_cs_memcmp:
+Lfunc_begin6:
+.stabs "cs_memcmp:f17=10;;", 0x24,0,0,_cs_memcmp
+.stabn 0xc0, 0, 0, _cs_memcmp
+.stabn 0xe0, 0, 0, _cs_memcmp
+LM53:
+.stabn	0x44, 0, 86, LM53-_cs_memcmp
+Lfunc_begin7:
+	banksel 0
+	movlw 1
+LM54:
+.stabn	0x44, 0, 87, LM54-_cs_memcmp
+Ltmp4:
+	movwf _r_memcmp_res+0
+LM55:
+.stabn	0x44, 0, 88, LM55-_cs_memcmp
+	;APP
+	L_memcmp_loop:					
+	;NO_APP
+LM56:
+.stabn	0x44, 0, 89, LM56-_cs_memcmp
+	;APP
+		movfw	_IND1				
+	;NO_APP
+LM57:
+.stabn	0x44, 0, 90, LM57-_cs_memcmp
+	;APP
+		xorwf	_IND0, 0			
+	;NO_APP
+LM58:
+.stabn	0x44, 0, 91, LM58-_cs_memcmp
+	;APP
+		btfss	_STATUS, 0			
+	;NO_APP
+LM59:
+.stabn	0x44, 0, 92, LM59-_cs_memcmp
+	;APP
+		clrf	_r_memcmp_res		
+	;NO_APP
+LM60:
+.stabn	0x44, 0, 93, LM60-_cs_memcmp
+	;APP
+		addlfsr 0, 1				
+	;NO_APP
+LM61:
+.stabn	0x44, 0, 94, LM61-_cs_memcmp
+	;APP
+		addlfsr 1, 1				
+	;NO_APP
+LM62:
+.stabn	0x44, 0, 95, LM62-_cs_memcmp
+	;APP
+		decfsz	_r_memcpy_len, 1	
+	;NO_APP
+LM63:
+.stabn	0x44, 0, 96, LM63-_cs_memcmp
+	;APP
+		goto 	L_memcmp_loop		
+	;NO_APP
+LM64:
+.stabn	0x44, 0, 97, LM64-_cs_memcmp
+	;APP
+		clrf 	_FSR0H				
+	;NO_APP
+LM65:
+.stabn	0x44, 0, 98, LM65-_cs_memcmp
+	;APP
+		clrf 	_FSR0				
+	;NO_APP
+LM66:
+.stabn	0x44, 0, 99, LM66-_cs_memcmp
+	;APP
+		clrf 	_FSR1H				
+	;NO_APP
+LM67:
+.stabn	0x44, 0, 100, LM67-_cs_memcmp
+	;APP
+		clrf 	_FSR1				
+	;NO_APP
+LM68:
+.stabn	0x44, 0, 101, LM68-_cs_memcmp
+	;APP
+		clrf 	_BSR				
+	;NO_APP
+LM69:
+.stabn	0x44, 0, 103, LM69-_cs_memcmp
+	movlw 1
+	xorwf _r_memcmp_res+0, W
+	movwf _r_memcmp_res+0
+LM70:
+.stabn	0x44, 0, 104, LM70-_cs_memcmp
+	movwf _cs_memcmp.frame.+0
+	return
+Ltmp5:
+Lfunc_end6:
+Lfunc_end7:
+LM71:
+.stabf LM71-_cs_memcmp
+
+	_hex_greater_than_compare_sec .section rom
+	.global	_hex_greater_than_compare
+_hex_greater_than_compare:
+Lfunc_begin8:
+.stabs "hex_greater_than_compare:f18=10;;", 0x24,0,0,_hex_greater_than_compare
+.stabn 0xc0, 0, 0, _hex_greater_than_compare
+.stabn 0xe0, 0, 0, _hex_greater_than_compare
+LM72:
+.stabn	0x44, 0, 117, LM72-_hex_greater_than_compare
+Lfunc_begin9:
+	banksel 0
+	movfw _hex_greater_than_compare.args.+2
+	movwf _hex_greater_than_compare.temp.+0
+	movfw _hex_greater_than_compare.args.+3
+	movwf _hex_greater_than_compare.temp.+1
+	movwf _hex_greater_than_compare.temp.+4
+	movfw _hex_greater_than_compare.args.+0
+	movwf _hex_greater_than_compare.temp.+2
+	movfw _hex_greater_than_compare.args.+1
+	movwf _hex_greater_than_compare.temp.+3
+LM73:
+.stabn	0x44, 0, 118, LM73-_hex_greater_than_compare
+Ltmp6:
+	movlw 1
+	movwf _hex_greater_than_compare.temp.+5
+	movfw _hex_greater_than_compare.args.+2
+	subwf _hex_greater_than_compare.temp.+2, W
+	ble LBB4_5
+LBB4_4:
+	movlw 0
+	movwf _hex_greater_than_compare.temp.+5
+LBB4_5:
+Ltmp7:
+	movfw _hex_greater_than_compare.temp.+3
+Ltmp8:
+	movwf _hex_greater_than_compare.temp.+6
+	movlw 1
+	movwf _hex_greater_than_compare.temp.+8
+	movfw _hex_greater_than_compare.temp.+4
+	subwf _hex_greater_than_compare.temp.+6, W
+	ble LBB4_7
+LBB4_6:
+	movlw 0
+	movwf _hex_greater_than_compare.temp.+8
+LBB4_7:
+	movfw _hex_greater_than_compare.temp.+5
+	movwf _hex_greater_than_compare.temp.+5
+	movfw _hex_greater_than_compare.temp.+4
+	subwf _hex_greater_than_compare.temp.+6, W
+	beq LBB4_9
+LBB4_8:
+	movfw _hex_greater_than_compare.temp.+8
+	movwf _hex_greater_than_compare.temp.+5
+LBB4_9:
+	movfw _hex_greater_than_compare.temp.+5
+	andlw 1
+	sublw 0
+	bne LBB4_2
+LBB4_1:
+LM74:
+.stabn	0x44, 0, 120, LM74-_hex_greater_than_compare
+Ltmp9:
+	movlw 1
+	movwf _hex_greater_than_compare.temp.+7
+	goto LBB4_3
+Ltmp10:
+LBB4_2:
+LM75:
+.stabn	0x44, 0, 122, LM75-_hex_greater_than_compare
+	clrf _hex_greater_than_compare.temp.+7
+LBB4_3:
+LM76:
+.stabn	0x44, 0, 123, LM76-_hex_greater_than_compare
+	movfw _hex_greater_than_compare.temp.+7
+	movwf _hex_greater_than_compare.frame.+0
+	return
+Ltmp11:
+Lfunc_end8:
+Lfunc_end9:
+LM77:
+.stabn 0xc0,0,0, LM72-_hex_greater_than_compare
+.stabs "a:2;",0x80,0,0,_hex_greater_than_compare.args.+0
+.stabn 0xe0,0,0, LM76-_hex_greater_than_compare
+.stabn 0xc0,0,0, LM72-_hex_greater_than_compare
+.stabs "b:2;",0x80,0,0,_hex_greater_than_compare.args.+2
+.stabn 0xe0,0,0, LM76-_hex_greater_than_compare
+.stabf LM77-_hex_greater_than_compare
+
+	_hex_less_than_compare_sec .section rom
+	.global	_hex_less_than_compare
+_hex_less_than_compare:
+Lfunc_begin10:
+.stabs "hex_less_than_compare:f19=10;;", 0x24,0,0,_hex_less_than_compare
+.stabn 0xc0, 0, 0, _hex_less_than_compare
+.stabn 0xe0, 0, 0, _hex_less_than_compare
+LM78:
+.stabn	0x44, 0, 134, LM78-_hex_less_than_compare
+Lfunc_begin11:
+	banksel 0
+	movfw _hex_less_than_compare.args.+2
+	movwf _hex_less_than_compare.temp.+0
+	movfw _hex_less_than_compare.args.+3
+	movwf _hex_less_than_compare.temp.+1
+	movfw _hex_less_than_compare.args.+0
+	movwf _hex_less_than_compare.temp.+2
+	movfw _hex_less_than_compare.args.+1
+	movwf _hex_less_than_compare.temp.+3
+LM79:
+.stabn	0x44, 0, 135, LM79-_hex_less_than_compare
+Ltmp12:
+	movfw _hex_less_than_compare.args.+2
+	xorwf _hex_less_than_compare.temp.+2, W
+	movwf _hex_less_than_compare.temp.+4
+	movfw _hex_less_than_compare.temp.+1
+	xorwf _hex_less_than_compare.temp.+3, W
+	iorwf _hex_less_than_compare.temp.+4, W
+	sublw 0
+	beq LBB5_2
+LBB5_1:
+	movfw _hex_less_than_compare.temp.+2
+	movwf _hex_greater_than_compare.args.+0
+	movfw _hex_less_than_compare.temp.+3
+	movwf _hex_greater_than_compare.args.+1
+	movfw _hex_less_than_compare.temp.+0
+	movwf _hex_greater_than_compare.args.+2
+	movfw _hex_less_than_compare.temp.+1
+	movwf _hex_greater_than_compare.args.+3
+	call _hex_greater_than_compare
+	movfw _hex_greater_than_compare.frame.+0
+Ltmp13:
+	sublw 0
+	beq LBB5_3
+LBB5_2:
+LM80:
+.stabn	0x44, 0, 137, LM80-_hex_less_than_compare
+Ltmp14:
+	clrf _hex_less_than_compare.temp.+5
+	goto LBB5_4
+Ltmp15:
+LBB5_3:
+LM81:
+.stabn	0x44, 0, 139, LM81-_hex_less_than_compare
+	movlw 1
+	movwf _hex_less_than_compare.temp.+5
+LBB5_4:
+LM82:
+.stabn	0x44, 0, 140, LM82-_hex_less_than_compare
+	movfw _hex_less_than_compare.temp.+5
+	movwf _hex_less_than_compare.frame.+0
+	return
+Ltmp16:
+Lfunc_end10:
+Lfunc_end11:
+LM83:
+.stabn 0xc0,0,0, LM78-_hex_less_than_compare
+.stabs "a:2;",0x80,0,0,_hex_less_than_compare.args.+0
+.stabn 0xe0,0,0, LM82-_hex_less_than_compare
+.stabn 0xc0,0,0, LM78-_hex_less_than_compare
+.stabs "b:2;",0x80,0,0,_hex_less_than_compare.args.+2
+.stabn 0xe0,0,0, LM82-_hex_less_than_compare
+.stabf LM83-_hex_less_than_compare
+
+	_isr_hex_greater_than_compare_sec .section rom
+	.global	_isr_hex_greater_than_compare
+_isr_hex_greater_than_compare:
+Lfunc_begin12:
+.stabs "isr_hex_greater_than_compare:f20=10;;", 0x24,0,0,_isr_hex_greater_than_compare
+.stabn 0xc0, 0, 0, _isr_hex_greater_than_compare
+.stabn 0xe0, 0, 0, _isr_hex_greater_than_compare
+LM84:
+.stabn	0x44, 0, 151, LM84-_isr_hex_greater_than_compare
+Lfunc_begin13:
+	banksel 0
+	movfw _isr_hex_greater_than_compare.args.+2
+	movwf _isr_hex_greater_than_compare.temp.+0
+	movfw _isr_hex_greater_than_compare.args.+3
+	movwf _isr_hex_greater_than_compare.temp.+1
+	movwf _isr_hex_greater_than_compare.temp.+4
+	movfw _isr_hex_greater_than_compare.args.+0
+	movwf _isr_hex_greater_than_compare.temp.+2
+	movfw _isr_hex_greater_than_compare.args.+1
+	movwf _isr_hex_greater_than_compare.temp.+3
+LM85:
+.stabn	0x44, 0, 152, LM85-_isr_hex_greater_than_compare
+Ltmp17:
+	movlw 1
+	movwf _isr_hex_greater_than_compare.temp.+5
+	movfw _isr_hex_greater_than_compare.args.+2
+	subwf _isr_hex_greater_than_compare.temp.+2, W
+	ble LBB6_5
+LBB6_4:
+	movlw 0
+	movwf _isr_hex_greater_than_compare.temp.+5
+LBB6_5:
+Ltmp18:
+	movfw _isr_hex_greater_than_compare.temp.+3
+Ltmp19:
+	movwf _isr_hex_greater_than_compare.temp.+6
+	movlw 1
+	movwf _isr_hex_greater_than_compare.temp.+8
+	movfw _isr_hex_greater_than_compare.temp.+4
+	subwf _isr_hex_greater_than_compare.temp.+6, W
+	ble LBB6_7
+LBB6_6:
+	movlw 0
+	movwf _isr_hex_greater_than_compare.temp.+8
+LBB6_7:
+	movfw _isr_hex_greater_than_compare.temp.+5
+	movwf _isr_hex_greater_than_compare.temp.+5
+	movfw _isr_hex_greater_than_compare.temp.+4
+	subwf _isr_hex_greater_than_compare.temp.+6, W
+	beq LBB6_9
+LBB6_8:
+	movfw _isr_hex_greater_than_compare.temp.+8
+	movwf _isr_hex_greater_than_compare.temp.+5
+LBB6_9:
+	movfw _isr_hex_greater_than_compare.temp.+5
+	andlw 1
+	sublw 0
+	bne LBB6_2
+LBB6_1:
+LM86:
+.stabn	0x44, 0, 154, LM86-_isr_hex_greater_than_compare
+Ltmp20:
+	movlw 1
+	movwf _isr_hex_greater_than_compare.temp.+7
+	goto LBB6_3
+Ltmp21:
+LBB6_2:
+LM87:
+.stabn	0x44, 0, 156, LM87-_isr_hex_greater_than_compare
+	clrf _isr_hex_greater_than_compare.temp.+7
+LBB6_3:
+LM88:
+.stabn	0x44, 0, 157, LM88-_isr_hex_greater_than_compare
+	movfw _isr_hex_greater_than_compare.temp.+7
+	movwf _isr_hex_greater_than_compare.frame.+0
+	return
+Ltmp22:
+Lfunc_end12:
+Lfunc_end13:
+LM89:
+.stabn 0xc0,0,0, LM84-_isr_hex_greater_than_compare
+.stabs "a:2;",0x80,0,0,_isr_hex_greater_than_compare.args.+0
+.stabn 0xe0,0,0, LM88-_isr_hex_greater_than_compare
+.stabn 0xc0,0,0, LM84-_isr_hex_greater_than_compare
+.stabs "b:2;",0x80,0,0,_isr_hex_greater_than_compare.args.+2
+.stabn 0xe0,0,0, LM88-_isr_hex_greater_than_compare
+.stabf LM89-_isr_hex_greater_than_compare
+
+	_isr_hex_less_than_compare_sec .section rom
+	.global	_isr_hex_less_than_compare
+_isr_hex_less_than_compare:
+Lfunc_begin14:
+.stabs "isr_hex_less_than_compare:f21=10;;", 0x24,0,0,_isr_hex_less_than_compare
+.stabn 0xc0, 0, 0, _isr_hex_less_than_compare
+.stabn 0xe0, 0, 0, _isr_hex_less_than_compare
+LM90:
+.stabn	0x44, 0, 169, LM90-_isr_hex_less_than_compare
+Lfunc_begin15:
+	banksel 0
+	movfw _isr_hex_less_than_compare.args.+2
+	movwf _isr_hex_less_than_compare.temp.+0
+	movfw _isr_hex_less_than_compare.args.+3
+	movwf _isr_hex_less_than_compare.temp.+1
+	movfw _isr_hex_less_than_compare.args.+0
+	movwf _isr_hex_less_than_compare.temp.+2
+	movfw _isr_hex_less_than_compare.args.+1
+	movwf _isr_hex_less_than_compare.temp.+3
+LM91:
+.stabn	0x44, 0, 170, LM91-_isr_hex_less_than_compare
+Ltmp23:
+	movfw _isr_hex_less_than_compare.args.+2
+	xorwf _isr_hex_less_than_compare.temp.+2, W
+	movwf _isr_hex_less_than_compare.temp.+4
+	movfw _isr_hex_less_than_compare.temp.+1
+	xorwf _isr_hex_less_than_compare.temp.+3, W
+	iorwf _isr_hex_less_than_compare.temp.+4, W
+	sublw 0
+	beq LBB7_2
+LBB7_1:
+	movfw _isr_hex_less_than_compare.temp.+2
+	movwf _isr_hex_greater_than_compare.args.+0
+	movfw _isr_hex_less_than_compare.temp.+3
+	movwf _isr_hex_greater_than_compare.args.+1
+	movfw _isr_hex_less_than_compare.temp.+0
+	movwf _isr_hex_greater_than_compare.args.+2
+	movfw _isr_hex_less_than_compare.temp.+1
+	movwf _isr_hex_greater_than_compare.args.+3
+	call _isr_hex_greater_than_compare
+	movfw _isr_hex_greater_than_compare.frame.+0
+Ltmp24:
+	sublw 0
+	beq LBB7_3
+LBB7_2:
+LM92:
+.stabn	0x44, 0, 172, LM92-_isr_hex_less_than_compare
+Ltmp25:
+	clrf _isr_hex_less_than_compare.temp.+5
+	goto LBB7_4
+Ltmp26:
+LBB7_3:
+LM93:
+.stabn	0x44, 0, 174, LM93-_isr_hex_less_than_compare
+	movlw 1
+	movwf _isr_hex_less_than_compare.temp.+5
+LBB7_4:
+LM94:
+.stabn	0x44, 0, 175, LM94-_isr_hex_less_than_compare
+	movfw _isr_hex_less_than_compare.temp.+5
+	movwf _isr_hex_less_than_compare.frame.+0
+	return
+Ltmp27:
+Lfunc_end14:
+Lfunc_end15:
+LM95:
+.stabn 0xc0,0,0, LM90-_isr_hex_less_than_compare
+.stabs "a:2;",0x80,0,0,_isr_hex_less_than_compare.args.+0
+.stabn 0xe0,0,0, LM94-_isr_hex_less_than_compare
+.stabn 0xc0,0,0, LM90-_isr_hex_less_than_compare
+.stabs "b:2;",0x80,0,0,_isr_hex_less_than_compare.args.+2
+.stabn 0xe0,0,0, LM94-_isr_hex_less_than_compare
+.stabf LM95-_isr_hex_less_than_compare
+
+
+	_r_memcmp_res_cs_common.c .section bank0,uninit
+	_r_memcmp_res .ds 1
+	.ends
+
+	_r_memcpy_len_cs_common.c .section bank0,uninit
+	_r_memcpy_len .ds 1
+	.ends
+
+	.@_cs_memset_sec@_cs_memset.args. .section bank1,uninit
+	_cs_memset.args. .ds 1
+	.ends
+
+	.@_cs_memset_sec@_cs_memset.temp. .section bank1,uninit
+	_cs_memset.temp. .ds 1
+	.ends
+
+	.@_cs_memcmp_sec@_cs_memcmp.frame. .section bank1,uninit
+	_cs_memcmp.frame. .ds 1
+	.ends
+
+	.@_hex_greater_than_compare_sec@_hex_greater_than_compare.args. .section bank1,uninit
+	_hex_greater_than_compare.args. .ds 4
+	.ends
+
+	.@_hex_greater_than_compare_sec@_hex_greater_than_compare.frame. .section bank1,uninit
+	_hex_greater_than_compare.frame. .ds 1
+	.ends
+
+	.@_hex_greater_than_compare_sec@_hex_greater_than_compare.temp. .section bank1,uninit
+	_hex_greater_than_compare.temp. .ds 9
+	.ends
+
+	.@_hex_less_than_compare_sec@_hex_less_than_compare.args. .section bank1,uninit
+	_hex_less_than_compare.args. .ds 4
+	.ends
+
+	.@_hex_less_than_compare_sec@_hex_less_than_compare.frame. .section bank1,uninit
+	_hex_less_than_compare.frame. .ds 1
+	.ends
+
+	.@_hex_less_than_compare_sec@_hex_less_than_compare.temp. .section bank1,uninit
+	_hex_less_than_compare.temp. .ds 6
+	.ends
+
+	.@_isr_hex_greater_than_compare_sec@_isr_hex_greater_than_compare.args. .section bank1,uninit
+	_isr_hex_greater_than_compare.args. .ds 4
+	.ends
+
+	.@_isr_hex_greater_than_compare_sec@_isr_hex_greater_than_compare.frame. .section bank1,uninit
+	_isr_hex_greater_than_compare.frame. .ds 1
+	.ends
+
+	.@_isr_hex_greater_than_compare_sec@_isr_hex_greater_than_compare.temp. .section bank1,uninit
+	_isr_hex_greater_than_compare.temp. .ds 9
+	.ends
+
+	.@_isr_hex_less_than_compare_sec@_isr_hex_less_than_compare.args. .section bank1,uninit
+	_isr_hex_less_than_compare.args. .ds 4
+	.ends
+
+	.@_isr_hex_less_than_compare_sec@_isr_hex_less_than_compare.frame. .section bank1,uninit
+	_isr_hex_less_than_compare.frame. .ds 1
+	.ends
+
+	.@_isr_hex_less_than_compare_sec@_isr_hex_less_than_compare.temp. .section bank1,uninit
+	_isr_hex_less_than_compare.temp. .ds 6
+	.ends
+
+
+
+	.global	_r_memcmp_res
+	.global	_r_memcpy_len
+

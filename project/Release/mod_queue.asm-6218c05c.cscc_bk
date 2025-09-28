@@ -1,0 +1,249 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\module\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\module\\mod_queue.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+.stabs "quque_event_stack:S17=ar18;0;9;19=10;",0x26,0,0,_quque_event_stack
+.stabs "head:S10;",0x26,0,0,_head
+.stabs "tail:S10;",0x26,0,0,_tail
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_mod_queue_create_sec .section rom
+	.global	_mod_queue_create
+_mod_queue_create:
+Lfunc_begin0:
+.stabs "mod_queue_create:f:16", 0x24,0,0,_mod_queue_create
+.stabn 0xc0, 0, 0, _mod_queue_create
+.stabn 0xe0, 0, 0, _mod_queue_create
+LM0:
+.stabn	0x44, 0, 22, LM0-_mod_queue_create
+Lfunc_begin1:
+LM1:
+.stabn	0x44, 0, 23, LM1-_mod_queue_create
+	banksel 0
+	bsf BSR,1
+	clrf _head+0
+LM2:
+.stabn	0x44, 0, 24, LM2-_mod_queue_create
+	clrf _tail+0
+LM3:
+.stabn	0x44, 0, 25, LM3-_mod_queue_create
+	banksel 0
+	return
+Ltmp0:
+Lfunc_end0:
+Lfunc_end1:
+LM4:
+.stabf LM4-_mod_queue_create
+
+	_mod_queue_send_sec .section rom
+	.global	_mod_queue_send
+_mod_queue_send:
+Lfunc_begin2:
+.stabs "mod_queue_send:f20=10;;", 0x24,0,0,_mod_queue_send
+.stabn 0xc0, 0, 0, _mod_queue_send
+.stabn 0xe0, 0, 0, _mod_queue_send
+LM5:
+.stabn	0x44, 0, 28, LM5-_mod_queue_send
+Lfunc_begin3:
+	banksel 0
+	movfw _mod_queue_send.args.+0
+	movwf _mod_queue_send.temp.+0
+LM6:
+.stabn	0x44, 0, 29, LM6-_mod_queue_send
+Ltmp1:
+	movlw 1
+	bsf BSR,1
+	addwf _tail+0, W
+	bcf BSR,1
+	movwf .args.__uwmod_atmp+0
+	movlw 0
+	addlwc 0
+	movwf .args.__uwmod_atmp+1
+	movlw 10
+	movwf .args.__uwmod_btmp+0
+	clrf .args.__uwmod_btmp+1
+	call .lib.__uwmod
+	movfw .ret.__uwmod_ret+0
+Ltmp2:
+	bsf BSR,1
+	xorwf _head+0, W
+	bcf BSR,1
+	iorwf .ret.__uwmod_ret+1, W
+	sublw 0
+	bne LBB1_2
+LBB1_1:
+LM7:
+.stabn	0x44, 0, 31, LM7-_mod_queue_send
+Ltmp3:
+	clrf _mod_queue_send.temp.+2
+	goto LBB1_3
+Ltmp4:
+LBB1_2:
+LM8:
+.stabn	0x44, 0, 34, LM8-_mod_queue_send
+	movlw LOW(_quque_event_stack+0)
+	bsf BSR,1
+	addwf _tail+0, W
+	movwf FSR0
+	banksel 0
+	fsr0_add FSR0, 0
+	movlw HIGH8(_quque_event_stack+0)
+	movwf FSR0H
+	movfw _mod_queue_send.temp.+0
+	movwf IND0
+LM9:
+.stabn	0x44, 0, 35, LM9-_mod_queue_send
+	movlw 1
+	bsf BSR,1
+	addwf _tail+0, W
+	bcf BSR,1
+	movwf .args.__uwmod_atmp+0
+	movlw 0
+	addlwc 0
+	movwf .args.__uwmod_atmp+1
+	movlw 10
+	movwf .args.__uwmod_btmp+0
+	clrf .args.__uwmod_btmp+1
+	call .lib.__uwmod
+	movfw .ret.__uwmod_ret+0
+	movwfl _tail+0
+	movlw 1
+LM10:
+.stabn	0x44, 0, 36, LM10-_mod_queue_send
+	movwf _mod_queue_send.temp.+2
+Ltmp5:
+LBB1_3:
+LM11:
+.stabn	0x44, 0, 38, LM11-_mod_queue_send
+	movfw _mod_queue_send.temp.+2
+	movwf _mod_queue_send.frame.+0
+	return
+Ltmp6:
+Lfunc_end2:
+Lfunc_end3:
+LM12:
+.stabn 0xc0,0,0, LM5-_mod_queue_send
+.stabs "data:10;",0x80,0,0,_mod_queue_send.args.+0
+.stabn 0xe0,0,0, LM11-_mod_queue_send
+.stabf LM12-_mod_queue_send
+
+	_mod_queue_receive_sec .section rom
+	.global	_mod_queue_receive
+_mod_queue_receive:
+Lfunc_begin4:
+.stabs "mod_queue_receive:f21=10;;", 0x24,0,0,_mod_queue_receive
+.stabn 0xc0, 0, 0, _mod_queue_receive
+.stabn 0xe0, 0, 0, _mod_queue_receive
+LM13:
+.stabn	0x44, 0, 41, LM13-_mod_queue_receive
+Lfunc_begin5:
+LM14:
+.stabn	0x44, 0, 44, LM14-_mod_queue_receive
+	banksel 0
+	bsf BSR,1
+	movfw _head+0
+Ltmp7:
+	xorwf _tail+0, W
+	sublw 0
+	bne LBB2_2
+LBB2_1:
+LM15:
+.stabn	0x44, 0, 46, LM15-_mod_queue_receive
+Ltmp8:
+	bcf BSR,1
+	clrf _mod_queue_receive.temp.+0
+	goto LBB2_3
+Ltmp9:
+LBB2_2:
+LM16:
+.stabn	0x44, 0, 49, LM16-_mod_queue_receive
+	movlw LOW(_quque_event_stack+0)
+	addwf _head+0, W
+	movwf FSR0
+	movlw HIGH8(_quque_event_stack+0)
+	movwf FSR0H
+	moviw 0
+	movwf _mod_queue_receive.temp.+1
+LM17:
+.stabn	0x44, 0, 50, LM17-_mod_queue_receive
+	movlw 1
+	bsf BSR,1
+	addwf _head+0, W
+	bcf BSR,1
+	movwf .args.__uwmod_atmp+0
+	movlw 0
+	addlwc 0
+	movwf .args.__uwmod_atmp+1
+	movlw 10
+	movwf .args.__uwmod_btmp+0
+	clrf .args.__uwmod_btmp+1
+	call .lib.__uwmod
+	movfw .ret.__uwmod_ret+0
+	movwfl _head+0
+LM18:
+.stabn	0x44, 0, 51, LM18-_mod_queue_receive
+	movfw _mod_queue_receive.temp.+1
+	movwf _mod_queue_receive.temp.+0
+Ltmp10:
+LBB2_3:
+LM19:
+.stabn	0x44, 0, 53, LM19-_mod_queue_receive
+	movfw _mod_queue_receive.temp.+0
+	movwf _mod_queue_receive.frame.+0
+	return
+Ltmp11:
+Lfunc_end4:
+Lfunc_end5:
+LM20:
+.stabn 0xc0,0,0, LM14-_mod_queue_receive
+.stabs "u8value:10;",0x80,0,0,_mod_queue_receive.temp.+1
+.stabn 0xe0,0,0, LM19-_mod_queue_receive
+.stabf LM20-_mod_queue_receive
+
+
+	_head_mod_queue.c .section bank4,uninit
+	_head .ds 1
+	.ends
+
+	_tail_mod_queue.c .section bank4,uninit
+	_tail .ds 1
+	.ends
+
+	_quque_event_stack_mod_queue.c .section bank4,uninit
+	_quque_event_stack .ds 10
+	.ends
+
+	.@_mod_queue_send_sec@_mod_queue_send.args. .section bank1,uninit
+	_mod_queue_send.args. .ds 1
+	.ends
+
+	.@_mod_queue_send_sec@_mod_queue_send.frame. .section bank1,uninit
+	_mod_queue_send.frame. .ds 1
+	.ends
+
+	.@_mod_queue_send_sec@_mod_queue_send.temp. .section bank1,uninit
+	_mod_queue_send.temp. .ds 3
+	.ends
+
+	.@_mod_queue_receive_sec@_mod_queue_receive.frame. .section bank1,uninit
+	_mod_queue_receive.frame. .ds 1
+	.ends
+
+	.@_mod_queue_receive_sec@_mod_queue_receive.temp. .section bank1,uninit
+	_mod_queue_receive.temp. .ds 2
+	.ends
+

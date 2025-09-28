@@ -1,0 +1,72 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\chip\\fwlib\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\chip\\fwlib\\csu39fx10_syscfg.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_syscfg_init_sec .section rom
+	.global	_syscfg_init
+_syscfg_init:
+Lfunc_begin0:
+.stabs "syscfg_init:f:16", 0x24,0,0,_syscfg_init
+.stabn 0xc0, 0, 0, _syscfg_init
+.stabn 0xe0, 0, 0, _syscfg_init
+LM0:
+.stabn	0x44, 0, 24, LM0-_syscfg_init
+Lfunc_begin1:
+LM1:
+.stabn	0x44, 0, 25, LM1-_syscfg_init
+	banksel 0
+	movlw 0x80
+	movwf _CFGR1+0
+LM2:
+.stabn	0x44, 0, 26, LM2-_syscfg_init
+	clrf _CFGR2+0
+LM3:
+.stabn	0x44, 0, 27, LM3-_syscfg_init
+	clrf _CFGR3+0
+LM4:
+.stabn	0x44, 0, 28, LM4-_syscfg_init
+	movlw 69
+	movwf _CFGR4+0
+LM5:
+.stabn	0x44, 0, 34, LM5-_syscfg_init
+	movlw 1
+	movwf _CFGR5+0
+LM6:
+.stabn	0x44, 0, 38, LM6-_syscfg_init
+	movlw 53
+	movwf _CFGR6+0
+LM7:
+.stabn	0x44, 0, 42, LM7-_syscfg_init
+	movlw 104
+	movwf _CFGR7+0
+LM8:
+.stabn	0x44, 0, 43, LM8-_syscfg_init
+	clrf _CFGR8+0
+LM9:
+.stabn	0x44, 0, 44, LM9-_syscfg_init
+	return
+Ltmp0:
+Lfunc_end0:
+Lfunc_end1:
+LM10:
+.stabf LM10-_syscfg_init
+
+
+
+

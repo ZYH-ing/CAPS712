@@ -1,0 +1,2617 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\module\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\module\\mod_modbus.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+.stabs "holdingRegisters:G17=ar18;0;9;19=10;",0x20,0,0,_holdingRegisters
+.stabs "Buffer:T23=s18data:24=ar25;0;15;26=10;;,0,128;length:27=28=10;;;,128,136;ready:29=30=10;;;,136,144;;", 0x80, 0, 0, 0
+.stabs "rxBuffers:G20=ar21;0;1;22=23;",0x20,0,0,_rxBuffers
+.stabs "activeBuffer:G10;",0x20,0,0,_activeBuffer
+.stabs "lastRxTime:G10;",0x20,0,0,_lastRxTime
+.stabs "buf:G31=*32=23;;",0x20,0,0,_buf
+.stabs "p_buffer:G33=*34=23;;",0x20,0,0,_p_buffer
+.stabs "cscc_@anonymity_0:T36=s1uart_discharge_on_falg_bak:37=10;;,0,1;uart_charge_on_falg_bak:38=10;;,1,2;charge_vbus_undervol_flag:39=10;;,2,3;charge_bat_overvol_flag:40=10;;,3,4;user_flag5:41=10;;,4,5;user_flag6:42=10;;,5,6;user_flag7:43=10;;,6,7;plug_refresh:44=10;;,7,8;;", 0x80, 0, 0, 0
+.stabs "user_flag_t:T35=u1bit:36,0,8;byte:45=10;;,0,8;;", 0x80, 0, 0, 0
+.stabs "user_flag:G35;",0x20,0,0,_user_flag
+.stabs "now_power_number:G10;",0x20,0,0,_now_power_number
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_modbus_crc16_sec .section rom
+	.global	_modbus_crc16
+_modbus_crc16:
+Lfunc_begin0:
+.stabs "modbus_crc16:f46=2;;", 0x24,0,0,_modbus_crc16
+.stabn 0xc0, 0, 0, _modbus_crc16
+.stabn 0xe0, 0, 0, _modbus_crc16
+LM0:
+.stabn	0x44, 0, 32, LM0-_modbus_crc16
+Lfunc_begin1:
+	banksel 0
+	movfw _modbus_crc16.args.+0
+	movwf _modbus_crc16.temp.+4
+	movfw _modbus_crc16.args.+1
+	movwf _modbus_crc16.temp.+5
+	movfw _modbus_crc16.args.+2
+LM1:
+.stabn	0x44, 0, 33, LM1-_modbus_crc16
+Ltmp0:
+	movwf _modbus_crc16.temp.+3
+	setf _modbus_crc16.temp.+1
+	setf _modbus_crc16.temp.+2
+LM2:
+.stabn	0x44, 0, 35, LM2-_modbus_crc16
+Ltmp1:
+	clrf _modbus_crc16.temp.+0
+	movfw _modbus_crc16.temp.+5
+LBB0_1:
+	movfw _modbus_crc16.temp.+3
+	subwf _modbus_crc16.temp.+0, W
+	bge LBB0_11
+LBB0_2:
+LM3:
+.stabn	0x44, 0, 37, LM3-_modbus_crc16
+Ltmp2:
+	movfw _modbus_crc16.temp.+4
+	addwf _modbus_crc16.temp.+0, W
+	movwf _modbus_crc16.temp.+6
+	movlw 0
+	addwfc _modbus_crc16.temp.+5, W
+	movwf _modbus_crc16.temp.+8
+	movfw _modbus_crc16.temp.+6
+	movwf FSR0
+	movfw _modbus_crc16.temp.+8
+	movwf FSR0H
+	moviw 0
+	xorwf _modbus_crc16.temp.+1, W
+	movwf _modbus_crc16.temp.+1
+LM4:
+.stabn	0x44, 0, 39, LM4-_modbus_crc16
+Ltmp3:
+	clrf _modbus_crc16.temp.+7
+LBB0_3:
+Ltmp4:
+	movfw _modbus_crc16.temp.+7
+Ltmp5:
+	sublw 7
+	blt LBB0_9
+LBB0_4:
+LM5:
+.stabn	0x44, 0, 41, LM5-_modbus_crc16
+Ltmp6:
+	movlw 1
+	andwf _modbus_crc16.temp.+1, W
+	sublw 0
+	beq LBB0_6
+LBB0_5:
+LM6:
+.stabn	0x44, 0, 43, LM6-_modbus_crc16
+Ltmp7:
+	movfw _modbus_crc16.temp.+1
+	SrlOne
+	movwf _modbus_crc16.temp.+6
+	movfw _modbus_crc16.temp.+2
+	ShlSeven
+	iorwf _modbus_crc16.temp.+6, W
+	xorlw 1
+	movwf _modbus_crc16.temp.+1
+	movfw _modbus_crc16.temp.+2
+	SrlOne
+	xorlw 0xa0
+	movwf _modbus_crc16.temp.+2
+LM7:
+.stabn	0x44, 0, 44, LM7-_modbus_crc16
+	goto LBB0_7
+Ltmp8:
+LBB0_6:
+LM8:
+.stabn	0x44, 0, 47, LM8-_modbus_crc16
+	movfw _modbus_crc16.temp.+1
+	SrlOne
+	movwf _modbus_crc16.temp.+6
+	movfw _modbus_crc16.temp.+2
+	ShlSeven
+	iorwf _modbus_crc16.temp.+6, W
+	movwf _modbus_crc16.temp.+1
+	movfw _modbus_crc16.temp.+2
+	SrlOne
+	movwf _modbus_crc16.temp.+2
+Ltmp9:
+LBB0_7:
+LM9:
+.stabn	0x44, 0, 39, LM9-_modbus_crc16
+	incf _modbus_crc16.temp.+7, F
+	goto LBB0_3
+Ltmp10:
+LBB0_9:
+LM10:
+.stabn	0x44, 0, 35, LM10-_modbus_crc16
+	incf _modbus_crc16.temp.+0, F
+	goto LBB0_1
+Ltmp11:
+LBB0_11:
+LM11:
+.stabn	0x44, 0, 51, LM11-_modbus_crc16
+	movfw _modbus_crc16.temp.+1
+	movwf _modbus_crc16.frame.+0
+	movfw _modbus_crc16.temp.+2
+	movwf _modbus_crc16.frame.+1
+	return
+Ltmp12:
+Lfunc_end0:
+Lfunc_end1:
+LM12:
+.stabn 0xc0,0,0, LM0-_modbus_crc16
+.stabs "data:47=*48=10;;",0x80,0,0,_modbus_crc16.args.+0
+.stabn 0xe0,0,0, LM11-_modbus_crc16
+.stabn 0xc0,0,0, LM0-_modbus_crc16
+.stabs "length:10;",0x80,0,0,_modbus_crc16.args.+2
+.stabn 0xe0,0,0, LM11-_modbus_crc16
+.stabn 0xc0,0,0, LM1-_modbus_crc16
+.stabs "crc:2;",0x80,0,0,_modbus_crc16.temp.+1
+.stabn 0xe0,0,0, LM11-_modbus_crc16
+.stabn 0xc0,0,0, LM2-_modbus_crc16
+.stabs "i:10;",0x80,0,0,_modbus_crc16.temp.+0
+.stabn 0xe0,0,0, LM2-_modbus_crc16
+.stabn 0xc0,0,0, LM4-_modbus_crc16
+.stabs "j:10;",0x80,0,0,_modbus_crc16.temp.+7
+.stabn 0xe0,0,0, LM4-_modbus_crc16
+.stabf LM12-_modbus_crc16
+
+	_init_buffers_sec .section rom
+	.global	_init_buffers
+_init_buffers:
+Lfunc_begin2:
+.stabs "init_buffers:f:16", 0x24,0,0,_init_buffers
+.stabn 0xc0, 0, 0, _init_buffers
+.stabn 0xe0, 0, 0, _init_buffers
+LM13:
+.stabn	0x44, 0, 56, LM13-_init_buffers
+Lfunc_begin3:
+LM14:
+.stabn	0x44, 0, 57, LM14-_init_buffers
+	banksel 0
+	clrf _init_buffers.temp.+0
+	clrf _init_buffers.temp.+1
+LBB1_1:
+	movlw 1
+	movwf _init_buffers.temp.+2
+Ltmp13:
+	movfw _init_buffers.temp.+0
+Ltmp14:
+	sublw 1
+	blt LBB1_6
+LBB1_5:
+	movlw 0
+	movwf _init_buffers.temp.+2
+LBB1_6:
+	movlw 1
+	movwf _init_buffers.temp.+3
+Ltmp15:
+	movfw _init_buffers.temp.+1
+Ltmp16:
+	movwf _init_buffers.temp.+4
+	xorlw 0x80
+	sublw 0x80
+	blt LBB1_8
+LBB1_7:
+	movlw 0
+	movwf _init_buffers.temp.+3
+LBB1_8:
+	movfw _init_buffers.temp.+2
+	movwf _init_buffers.temp.+5
+	movfw _init_buffers.temp.+4
+	sublw 0
+	beq LBB1_10
+LBB1_9:
+	movfw _init_buffers.temp.+3
+	movwf _init_buffers.temp.+5
+LBB1_10:
+	movfw _init_buffers.temp.+5
+	andlw 1
+	sublw 0
+	bne LBB1_4
+LBB1_2:
+LM15:
+.stabn	0x44, 0, 59, LM15-_init_buffers
+Ltmp17:
+	movfw _init_buffers.temp.+0
+	movwf .args.__swmul_atmp+0
+	movfw _init_buffers.temp.+1
+	movwf .args.__swmul_atmp+1
+	movlw 18
+	movwf .args.__swmul_btmp+0
+	clrf .args.__swmul_btmp+1
+	call .lib.__swmul
+	movlw LOW(_rxBuffers+0)
+	addwf .ret.__swmul_ret+0, W
+	movwf _init_buffers.temp.+3
+	movlw HIGH8(_rxBuffers+0)
+	addwfc .ret.__swmul_ret+1, W
+	movwf _init_buffers.temp.+4
+	movfw _init_buffers.temp.+3
+	movwf FSR0
+	fsr0_add FSR0, 16
+	movfw _init_buffers.temp.+4
+	movwf FSR0H
+	movlw 0
+	movwf IND0
+LM16:
+.stabn	0x44, 0, 60, LM16-_init_buffers
+	movfw _init_buffers.temp.+0
+	movwf .args.__swmul_atmp+0
+	movfw _init_buffers.temp.+1
+	movwf .args.__swmul_atmp+1
+LM17:
+.stabn	0x44, 0, 59, LM17-_init_buffers
+	movlw 18
+LM18:
+.stabn	0x44, 0, 60, LM18-_init_buffers
+	movwf .args.__swmul_btmp+0
+	clrf .args.__swmul_btmp+1
+	call .lib.__swmul
+LM19:
+.stabn	0x44, 0, 59, LM19-_init_buffers
+	movlw LOW(_rxBuffers+0)
+LM20:
+.stabn	0x44, 0, 60, LM20-_init_buffers
+	addwf .ret.__swmul_ret+0, W
+	movwf FSR0
+	fsr0_add FSR0, 17
+LM21:
+.stabn	0x44, 0, 59, LM21-_init_buffers
+	movlw HIGH8(_rxBuffers+0)
+LM22:
+.stabn	0x44, 0, 60, LM22-_init_buffers
+	movwf FSR0H
+	movlw 0
+	movwf IND0
+Ltmp18:
+LM23:
+.stabn	0x44, 0, 57, LM23-_init_buffers
+	movlw 1
+	addwf _init_buffers.temp.+0, F
+	movlw 0
+	addwfc _init_buffers.temp.+1, W
+	movwf _init_buffers.temp.+1
+	goto LBB1_1
+Ltmp19:
+LBB1_4:
+LM24:
+.stabn	0x44, 0, 62, LM24-_init_buffers
+	bsf BSR,0
+	clrf _activeBuffer+0
+LM25:
+.stabn	0x44, 0, 64, LM25-_init_buffers
+	banksel 0
+	return
+Ltmp20:
+Lfunc_end2:
+Lfunc_end3:
+LM26:
+.stabn 0xc0,0,0, LM14-_init_buffers
+.stabs "i:1",0x80,0,0,_init_buffers.temp.+0
+.stabn 0xe0,0,0, LM14-_init_buffers
+.stabf LM26-_init_buffers
+
+	_check_frame_timeout_sec .section rom
+	.global	_check_frame_timeout
+_check_frame_timeout:
+Lfunc_begin4:
+.stabs "check_frame_timeout:f:16", 0x24,0,0,_check_frame_timeout
+.stabn 0xc0, 0, 0, _check_frame_timeout
+.stabn 0xe0, 0, 0, _check_frame_timeout
+LM27:
+.stabn	0x44, 0, 68, LM27-_check_frame_timeout
+Lfunc_begin5:
+LM28:
+.stabn	0x44, 0, 69, LM28-_check_frame_timeout
+	banksel 0
+	movfwl _activeBuffer+0
+	movwf .args.__swmul_atmp+0
+	clrf .args.__swmul_atmp+1
+	movlw 18
+	movwf .args.__swmul_btmp+0
+	clrf .args.__swmul_btmp+1
+	call .lib.__swmul
+	movlw LOW(_rxBuffers+0)
+	addwf .ret.__swmul_ret+0, W
+	movwf _buf+0
+	movlw HIGH8(_rxBuffers+0)
+	addwfc .ret.__swmul_ret+1, W
+	movwf _buf+1
+LM29:
+.stabn	0x44, 0, 71, LM29-_check_frame_timeout
+Ltmp21:
+	movfw _buf+0
+	movwf FSR0
+Ltmp22:
+LM30:
+.stabn	0x44, 0, 69, LM30-_check_frame_timeout
+	movlw HIGH8(_rxBuffers+0)
+LM31:
+.stabn	0x44, 0, 71, LM31-_check_frame_timeout
+Ltmp23:
+	movwf FSR0H
+	moviw 16
+	sublw 0
+	beq LBB2_3
+LBB2_1:
+	movfwl _lastRxTime+0
+Ltmp24:
+	sublw 0xf8
+	blt LBB2_3
+LBB2_2:
+LM32:
+.stabn	0x44, 0, 73, LM32-_check_frame_timeout
+Ltmp25:
+	movlw 17
+	addwf _buf+0, W
+	movwf _check_frame_timeout.temp.+0
+	movlw 0
+	addwfc _buf+1, W
+	movwf _check_frame_timeout.temp.+1
+	movfw _check_frame_timeout.temp.+0
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _check_frame_timeout.temp.+1
+	movwf FSR0H
+	movlw 1
+	movwf IND0
+LM33:
+.stabn	0x44, 0, 74, LM33-_check_frame_timeout
+	bsf BSR,0
+	addwf _activeBuffer+0, W
+	andlw 1
+	movwf _activeBuffer+0
+LM34:
+.stabn	0x44, 0, 77, LM34-_check_frame_timeout
+	bcf BSR,0
+	movwf .args.__swmul_atmp+0
+	clrf .args.__swmul_atmp+1
+	movlw 18
+	movwf .args.__swmul_btmp+0
+	clrf .args.__swmul_btmp+1
+	call .lib.__swmul
+	movlw LOW(_rxBuffers+0)
+	addwf .ret.__swmul_ret+0, W
+	movwf _check_frame_timeout.temp.+0
+	movlw HIGH8(_rxBuffers+0)
+	addwfc .ret.__swmul_ret+1, W
+	movwf _check_frame_timeout.temp.+1
+	movfw _check_frame_timeout.temp.+0
+	movwf FSR0
+	fsr0_add FSR0, 16
+	movfw _check_frame_timeout.temp.+1
+	movwf FSR0H
+	movlw 0
+	movwf IND0
+LM35:
+.stabn	0x44, 0, 78, LM35-_check_frame_timeout
+	movfwl _activeBuffer+0
+	movwf .args.__swmul_atmp+0
+	clrf .args.__swmul_atmp+1
+LM36:
+.stabn	0x44, 0, 77, LM36-_check_frame_timeout
+	movlw 18
+LM37:
+.stabn	0x44, 0, 78, LM37-_check_frame_timeout
+	movwf .args.__swmul_btmp+0
+	clrf .args.__swmul_btmp+1
+	call .lib.__swmul
+LM38:
+.stabn	0x44, 0, 77, LM38-_check_frame_timeout
+	movlw LOW(_rxBuffers+0)
+LM39:
+.stabn	0x44, 0, 78, LM39-_check_frame_timeout
+	addwf .ret.__swmul_ret+0, W
+	movwf FSR0
+	fsr0_add FSR0, 17
+LM40:
+.stabn	0x44, 0, 77, LM40-_check_frame_timeout
+	movlw HIGH8(_rxBuffers+0)
+LM41:
+.stabn	0x44, 0, 78, LM41-_check_frame_timeout
+	movwf FSR0H
+	movlw 0
+	movwf IND0
+Ltmp26:
+LBB2_3:
+LM42:
+.stabn	0x44, 0, 80, LM42-_check_frame_timeout
+	return
+Ltmp27:
+Lfunc_end4:
+Lfunc_end5:
+LM43:
+.stabf LM43-_check_frame_timeout
+
+	_process_modbus_frame_sec .section rom
+	.global	_process_modbus_frame
+_process_modbus_frame:
+Lfunc_begin6:
+.stabs "process_modbus_frame:f:16", 0x24,0,0,_process_modbus_frame
+.stabn 0xc0, 0, 0, _process_modbus_frame
+.stabn 0xe0, 0, 0, _process_modbus_frame
+LM44:
+.stabn	0x44, 0, 84, LM44-_process_modbus_frame
+Lfunc_begin7:
+LM45:
+.stabn	0x44, 0, 86, LM45-_process_modbus_frame
+	banksel 0
+	clrf _process_modbus_frame.temp.+0
+LM46:
+.stabn	0x44, 0, 101, LM46-_process_modbus_frame
+Ltmp28:
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 16
+	moviw 0
+	sublw 4
+	bgt LBB3_2
+LBB3_1:
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	moviw 0
+Ltmp29:
+	sublw 18
+	beq LBB3_3
+LBB3_2:
+LM47:
+.stabn	0x44, 0, 103, LM47-_process_modbus_frame
+Ltmp30:
+	movlw 17
+	addwf _p_buffer+0, W
+	movwf _process_modbus_frame.temp.+5
+	movlw 0
+	addwfc _p_buffer+1, W
+	movwf _process_modbus_frame.temp.+6
+	movfw _process_modbus_frame.temp.+5
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _process_modbus_frame.temp.+6
+	movwf FSR0H
+	movlw 0
+	movwf IND0
+LM48:
+.stabn	0x44, 0, 104, LM48-_process_modbus_frame
+	movlw 16
+	addwf _p_buffer+0, W
+LM49:
+.stabn	0x44, 0, 103, LM49-_process_modbus_frame
+	movwf _process_modbus_frame.temp.+5
+	movlw 0
+LM50:
+.stabn	0x44, 0, 104, LM50-_process_modbus_frame
+	addwfc _p_buffer+1, W
+	movwf _process_modbus_frame.temp.+6
+	movfw _process_modbus_frame.temp.+5
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _process_modbus_frame.temp.+6
+	movwf FSR0H
+	movlw 0
+	movwf IND0
+LM51:
+.stabn	0x44, 0, 106, LM51-_process_modbus_frame
+	goto LBB3_12
+Ltmp31:
+LBB3_3:
+LM52:
+.stabn	0x44, 0, 110, LM52-_process_modbus_frame
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 16
+	moviw 0
+	movwf _process_modbus_frame.temp.+5
+	movfw _p_buffer+0
+LM53:
+.stabn	0x44, 0, 111, LM53-_process_modbus_frame
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 16
+	moviw 0
+LM54:
+.stabn	0x44, 0, 110, LM54-_process_modbus_frame
+	movwf _process_modbus_frame.temp.+6
+	movfw _p_buffer+0
+	addwf _process_modbus_frame.temp.+5, W
+LM55:
+.stabn	0x44, 0, 111, LM55-_process_modbus_frame
+	movwf _process_modbus_frame.temp.+5
+	movfw _p_buffer+1
+LM56:
+.stabn	0x44, 0, 110, LM56-_process_modbus_frame
+	addlwc 0
+	movwf _process_modbus_frame.temp.+25
+	movfw _process_modbus_frame.temp.+5
+	movwf FSR0
+	movfw _process_modbus_frame.temp.+25
+	movwf FSR0H
+	sublfsr 0, 1
+	moviw 0
+	movwf _process_modbus_frame.temp.+4
+LM57:
+.stabn	0x44, 0, 111, LM57-_process_modbus_frame
+	movfw _process_modbus_frame.temp.+6
+	addwf _p_buffer+0, W
+	movwf _process_modbus_frame.temp.+5
+	movlw 0
+	addwfc _p_buffer+1, W
+	movwf _process_modbus_frame.temp.+6
+	movfw _process_modbus_frame.temp.+5
+	movwf FSR0
+	movfw _process_modbus_frame.temp.+6
+	movwf FSR0H
+	sublfsr 0, 2
+	moviw 0
+	movwf _process_modbus_frame.temp.+3
+LM58:
+.stabn	0x44, 0, 112, LM58-_process_modbus_frame
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+0
+	movwf _modbus_crc16.args.+0
+	movfw _p_buffer+1
+	movwf _modbus_crc16.args.+1
+	movwf FSR0H
+	addlfsr 0, 16
+	moviw 0
+	addlw 0xfe
+	movwf _modbus_crc16.args.+2
+	call _modbus_crc16
+	movfw _modbus_crc16.frame.+0
+	movwf _process_modbus_frame.temp.+1
+LM59:
+.stabn	0x44, 0, 114, LM59-_process_modbus_frame
+	xorwf _process_modbus_frame.temp.+3, W
+	movwf _process_modbus_frame.temp.+5
+LM60:
+.stabn	0x44, 0, 112, LM60-_process_modbus_frame
+	movfw _modbus_crc16.frame.+1
+	movwf _process_modbus_frame.temp.+2
+LM61:
+.stabn	0x44, 0, 114, LM61-_process_modbus_frame
+	xorwf _process_modbus_frame.temp.+4, W
+	iorwf _process_modbus_frame.temp.+5, W
+	sublw 0
+	beq LBB3_5
+LBB3_4:
+LM62:
+.stabn	0x44, 0, 116, LM62-_process_modbus_frame
+Ltmp32:
+	movlw 17
+	addwf _p_buffer+0, W
+	movwf _process_modbus_frame.temp.+5
+	movlw 0
+	addwfc _p_buffer+1, W
+	movwf _process_modbus_frame.temp.+6
+	movfw _process_modbus_frame.temp.+5
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _process_modbus_frame.temp.+6
+	movwf FSR0H
+	movlw 0
+	movwf IND0
+LM63:
+.stabn	0x44, 0, 118, LM63-_process_modbus_frame
+	goto LBB3_12
+Ltmp33:
+LBB3_5:
+LM64:
+.stabn	0x44, 0, 121, LM64-_process_modbus_frame
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 1
+	moviw 0
+	movwf _process_modbus_frame.temp.+5
+	xorlw 3
+	sublw 0
+	beq LBB3_6
+LBB3_13:
+	movfw _process_modbus_frame.temp.+5
+	xorlw 6
+	sublw 0
+	beq LBB3_7
+	goto LBB3_8
+LBB3_6:
+	movlw LOW(_process_modbus_frame.temp.+7)
+LM65:
+.stabn	0x44, 0, 124, LM65-_process_modbus_frame
+Ltmp34:
+	movwf _handle_read_registers.args.+0
+	movlw HIGH8(_process_modbus_frame.temp.+7)
+	movwf _handle_read_registers.args.+1
+	movlw LOW(_process_modbus_frame.temp.+0)
+	movwf _handle_read_registers.args.+2
+	movlw HIGH8(_process_modbus_frame.temp.+0)
+	movwf _handle_read_registers.args.+3
+	call _handle_read_registers
+LM66:
+.stabn	0x44, 0, 126, LM66-_process_modbus_frame
+	goto LBB3_9
+LBB3_7:
+	movlw LOW(_process_modbus_frame.temp.+7)
+LM67:
+.stabn	0x44, 0, 129, LM67-_process_modbus_frame
+	movwf _handle_write_register.args.+0
+	movlw HIGH8(_process_modbus_frame.temp.+7)
+	movwf _handle_write_register.args.+1
+	movlw LOW(_process_modbus_frame.temp.+0)
+	movwf _handle_write_register.args.+2
+	movlw HIGH8(_process_modbus_frame.temp.+0)
+	movwf _handle_write_register.args.+3
+	call _handle_write_register
+LM68:
+.stabn	0x44, 0, 131, LM68-_process_modbus_frame
+	goto LBB3_9
+LBB3_8:
+LM69:
+.stabn	0x44, 0, 134, LM69-_process_modbus_frame
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	moviw 0
+	movwf _process_modbus_frame.temp.+7
+LM70:
+.stabn	0x44, 0, 135, LM70-_process_modbus_frame
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 1
+	moviw 0
+	iorlw 0x80
+	movwf _process_modbus_frame.temp.+8
+LM71:
+.stabn	0x44, 0, 136, LM71-_process_modbus_frame
+	movlw 1
+	movwf _process_modbus_frame.temp.+9
+LM72:
+.stabn	0x44, 0, 137, LM72-_process_modbus_frame
+	movlw LOW(_process_modbus_frame.temp.+7)
+	movwf _modbus_crc16.args.+0
+	movlw HIGH8(_process_modbus_frame.temp.+7)
+	movwf _modbus_crc16.args.+1
+	movlw 3
+	movwf _modbus_crc16.args.+2
+	call _modbus_crc16
+	movfw _modbus_crc16.frame.+0
+	movwf _process_modbus_frame.temp.+23
+LM73:
+.stabn	0x44, 0, 138, LM73-_process_modbus_frame
+	movwf _process_modbus_frame.temp.+10
+LM74:
+.stabn	0x44, 0, 137, LM74-_process_modbus_frame
+	movfw _modbus_crc16.frame.+1
+	movwf _process_modbus_frame.temp.+24
+LM75:
+.stabn	0x44, 0, 139, LM75-_process_modbus_frame
+	movwf _process_modbus_frame.temp.+11
+LM76:
+.stabn	0x44, 0, 140, LM76-_process_modbus_frame
+	movlw 5
+	movwf _process_modbus_frame.temp.+0
+Ltmp35:
+LBB3_9:
+LM77:
+.stabn	0x44, 0, 146, LM77-_process_modbus_frame
+	movfw _process_modbus_frame.temp.+0
+Ltmp36:
+	sublw 0
+	beq LBB3_11
+LBB3_10:
+LM78:
+.stabn	0x44, 0, 148, LM78-_process_modbus_frame
+Ltmp37:
+	movlw LOW(_process_modbus_frame.temp.+7)
+	movwf _UART_Transmit.args.+0
+	movlw HIGH8(_process_modbus_frame.temp.+7)
+	movwf _UART_Transmit.args.+1
+	movfw _process_modbus_frame.temp.+0
+	movwf _UART_Transmit.args.+2
+	call _UART_Transmit
+Ltmp38:
+LBB3_11:
+LM79:
+.stabn	0x44, 0, 151, LM79-_process_modbus_frame
+	movlw 17
+	addwf _p_buffer+0, W
+	movwf _process_modbus_frame.temp.+5
+	movlw 0
+	addwfc _p_buffer+1, W
+	movwf _process_modbus_frame.temp.+6
+	movfw _process_modbus_frame.temp.+5
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _process_modbus_frame.temp.+6
+	movwf FSR0H
+	movlw 0
+	movwf IND0
+LBB3_12:
+LM80:
+.stabn	0x44, 0, 153, LM80-_process_modbus_frame
+	return
+Ltmp39:
+Lfunc_end6:
+Lfunc_end7:
+LM81:
+.stabn 0xc0,0,0, LM45-_process_modbus_frame
+.stabs "response:49=ar50;0;15;51=10;",0x80,0,0,_process_modbus_frame.temp.+7
+.stabn 0xe0,0,0, LM80-_process_modbus_frame
+.stabn 0xc0,0,0, LM45-_process_modbus_frame
+.stabs "responseLength:10;",0x80,0,0,_process_modbus_frame.temp.+0
+.stabn 0xe0,0,0, LM80-_process_modbus_frame
+.stabn 0xc0,0,0, LM52-_process_modbus_frame
+.stabs "crcReceived:2;",0x80,0,0,_process_modbus_frame.temp.+3
+.stabn 0xe0,0,0, LM80-_process_modbus_frame
+.stabn 0xc0,0,0, LM58-_process_modbus_frame
+.stabs "crcCalculated:2;",0x80,0,0,_process_modbus_frame.temp.+1
+.stabn 0xe0,0,0, LM80-_process_modbus_frame
+.stabn 0xc0,0,0, LM72-_process_modbus_frame
+.stabs "crc:2;",0x80,0,0,_process_modbus_frame.temp.+23
+.stabn 0xe0,0,0, LM76-_process_modbus_frame
+.stabf LM81-_process_modbus_frame
+
+	_handle_read_registers_sec .section rom
+	.global	_handle_read_registers
+_handle_read_registers:
+Lfunc_begin8:
+.stabs "handle_read_registers:f:16", 0x24,0,0,_handle_read_registers
+.stabn 0xc0, 0, 0, _handle_read_registers
+.stabn 0xe0, 0, 0, _handle_read_registers
+LM82:
+.stabn	0x44, 0, 157, LM82-_handle_read_registers
+Lfunc_begin9:
+	banksel 0
+	movfw _handle_read_registers.args.+2
+	movwf _handle_read_registers.temp.+0
+	movfw _handle_read_registers.args.+0
+	movwf _handle_read_registers.temp.+2
+	movfw _handle_read_registers.args.+1
+	movwf _handle_read_registers.temp.+3
+	movfw _handle_read_registers.args.+3
+	movwf _handle_read_registers.temp.+1
+LM83:
+.stabn	0x44, 0, 159, LM83-_handle_read_registers
+Ltmp40:
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 2
+	moviw 0
+	sublw 0
+	bne LBB4_4
+LBB4_1:
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 4
+	moviw 0
+	sublw 0
+	bne LBB4_4
+LBB4_2:
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 5
+	moviw 0
+	sublw 10
+	blt LBB4_4
+LBB4_3:
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 3
+	moviw 0
+	movwf _handle_read_registers.temp.+4
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 5
+	moviw 0
+	addwf _handle_read_registers.temp.+4, W
+	movwf _handle_read_registers.temp.+4
+	movlw 0
+	addlwc 0
+Ltmp41:
+	movwf _handle_read_registers.temp.+6
+	movlw 1
+	movwf _handle_read_registers.temp.+9
+	movfw _handle_read_registers.temp.+4
+	sublw 11
+	bgt LBB4_12
+LBB4_11:
+	movlw 0
+	movwf _handle_read_registers.temp.+9
+LBB4_12:
+	movlw 1
+	movwf _handle_read_registers.temp.+4
+	movfw _handle_read_registers.temp.+6
+	iorlw 0x80
+	sublw 0x80
+	bgt LBB4_14
+LBB4_13:
+	movlw 0
+	movwf _handle_read_registers.temp.+4
+LBB4_14:
+	movfw _handle_read_registers.temp.+9
+	movwf _handle_read_registers.temp.+9
+	movfw _handle_read_registers.temp.+6
+	sublw 0
+	beq LBB4_16
+LBB4_15:
+	movfw _handle_read_registers.temp.+4
+	movwf _handle_read_registers.temp.+9
+LBB4_16:
+	movfw _handle_read_registers.temp.+9
+	andlw 1
+	sublw 0
+	bne LBB4_5
+LBB4_4:
+LM84:
+.stabn	0x44, 0, 161, LM84-_handle_read_registers
+Ltmp42:
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	moviw 0
+	movwf _handle_read_registers.temp.+4
+	movfw _handle_read_registers.temp.+2
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_read_registers.temp.+3
+	movwf FSR0H
+	movfw _handle_read_registers.temp.+4
+	movwf IND0
+LM85:
+.stabn	0x44, 0, 162, LM85-_handle_read_registers
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 1
+	moviw 0
+	iorlw 0x80
+	movwf _handle_read_registers.temp.+4
+	movlw 1
+	addwf _handle_read_registers.temp.+2, W
+	movwf _handle_read_registers.temp.+6
+	movlw 0
+	addwfc _handle_read_registers.temp.+3, W
+	movwf _handle_read_registers.temp.+9
+	movfw _handle_read_registers.temp.+6
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_read_registers.temp.+9
+	movwf FSR0H
+	movfw _handle_read_registers.temp.+4
+	movwf IND0
+LM86:
+.stabn	0x44, 0, 163, LM86-_handle_read_registers
+	movlw 2
+	addwf _handle_read_registers.temp.+2, W
+LM87:
+.stabn	0x44, 0, 162, LM87-_handle_read_registers
+	movwf _handle_read_registers.temp.+4
+	movlw 0
+LM88:
+.stabn	0x44, 0, 163, LM88-_handle_read_registers
+	addwfc _handle_read_registers.temp.+3, W
+	movwf _handle_read_registers.temp.+6
+	movfw _handle_read_registers.temp.+4
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_read_registers.temp.+6
+	movwf FSR0H
+	movlw 2
+	movwf IND0
+LM89:
+.stabn	0x44, 0, 164, LM89-_handle_read_registers
+	movfw _handle_read_registers.temp.+2
+	movwf _modbus_crc16.args.+0
+	movfw _handle_read_registers.temp.+3
+	movwf _modbus_crc16.args.+1
+	movlw 3
+	movwf _modbus_crc16.args.+2
+	call _modbus_crc16
+	movfw _modbus_crc16.frame.+0
+	movwf _handle_read_registers.temp.+11
+	movfw _modbus_crc16.frame.+1
+	movwf _handle_read_registers.temp.+12
+	movlw 3
+LM90:
+.stabn	0x44, 0, 165, LM90-_handle_read_registers
+	addwf _handle_read_registers.temp.+2, W
+LM91:
+.stabn	0x44, 0, 162, LM91-_handle_read_registers
+	movwf _handle_read_registers.temp.+4
+	movlw 0
+LM92:
+.stabn	0x44, 0, 165, LM92-_handle_read_registers
+	addwfc _handle_read_registers.temp.+3, W
+	movwf _handle_read_registers.temp.+6
+	movfw _handle_read_registers.temp.+4
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_read_registers.temp.+6
+	movwf FSR0H
+	movfw _handle_read_registers.temp.+11
+	movwf IND0
+LM93:
+.stabn	0x44, 0, 166, LM93-_handle_read_registers
+	movlw 4
+	addwf _handle_read_registers.temp.+2, W
+LM94:
+.stabn	0x44, 0, 162, LM94-_handle_read_registers
+	movwf _handle_read_registers.temp.+4
+	movlw 0
+LM95:
+.stabn	0x44, 0, 166, LM95-_handle_read_registers
+	addwfc _handle_read_registers.temp.+3, W
+	movwf _handle_read_registers.temp.+6
+	movfw _handle_read_registers.temp.+4
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_read_registers.temp.+6
+	movwf FSR0H
+	movfw _handle_read_registers.temp.+12
+	movwf IND0
+LM96:
+.stabn	0x44, 0, 167, LM96-_handle_read_registers
+	movfw _handle_read_registers.temp.+0
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_read_registers.temp.+1
+	movwf FSR0H
+	movlw 5
+	movwf IND0
+LM97:
+.stabn	0x44, 0, 168, LM97-_handle_read_registers
+	goto LBB4_10
+Ltmp43:
+LBB4_5:
+LM98:
+.stabn	0x44, 0, 172, LM98-_handle_read_registers
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	moviw 0
+	movwf _handle_read_registers.temp.+4
+	movfw _handle_read_registers.temp.+2
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_read_registers.temp.+3
+	movwf FSR0H
+	movfw _handle_read_registers.temp.+4
+	movwf IND0
+LM99:
+.stabn	0x44, 0, 173, LM99-_handle_read_registers
+	movlw 1
+	addwf _handle_read_registers.temp.+2, W
+	movwf _handle_read_registers.temp.+4
+	movlw 0
+	addwfc _handle_read_registers.temp.+3, W
+	movwf _handle_read_registers.temp.+6
+	movfw _handle_read_registers.temp.+4
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_read_registers.temp.+6
+	movwf FSR0H
+	movlw 3
+	movwf IND0
+LM100:
+.stabn	0x44, 0, 174, LM100-_handle_read_registers
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 5
+	moviw 0
+	movwf _handle_read_registers.temp.+4
+	movlw 2
+	addwf _handle_read_registers.temp.+2, W
+LM101:
+.stabn	0x44, 0, 173, LM101-_handle_read_registers
+	movwf _handle_read_registers.temp.+6
+	movlw 0
+LM102:
+.stabn	0x44, 0, 174, LM102-_handle_read_registers
+	addwfc _handle_read_registers.temp.+3, W
+	movwf _handle_read_registers.temp.+9
+	movfw _handle_read_registers.temp.+6
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_read_registers.temp.+9
+	movwf FSR0H
+	movfw _handle_read_registers.temp.+4
+	movwf IND0
+LM103:
+.stabn	0x44, 0, 176, LM103-_handle_read_registers
+Ltmp44:
+	clrf _handle_read_registers.temp.+5
+LBB4_6:
+Ltmp45:
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 5
+	moviw 0
+Ltmp46:
+	subwf _handle_read_registers.temp.+5, W
+	bge LBB4_9
+LBB4_7:
+LM104:
+.stabn	0x44, 0, 178, LM104-_handle_read_registers
+Ltmp47:
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 3
+	moviw 0
+	movwf _handle_read_registers.temp.+4
+	addwf _handle_read_registers.temp.+5, W
+	movwf _handle_read_registers.temp.+4
+	movlw LOW(_holdingRegisters+0)
+	addwf _handle_read_registers.temp.+4, W
+	movwf FSR0
+	movlw HIGH8(_holdingRegisters+0)
+	movwf FSR0H
+	moviw 0
+	movwf _handle_read_registers.temp.+4
+	movfw _handle_read_registers.temp.+5
+	addwf _handle_read_registers.temp.+2, W
+	movwf _handle_read_registers.temp.+6
+	movlw 0
+	addwfc _handle_read_registers.temp.+3, W
+	movwf _handle_read_registers.temp.+9
+	movfw _handle_read_registers.temp.+6
+	movwf FSR0
+	fsr0_add FSR0, 3
+	movfw _handle_read_registers.temp.+9
+	movwf FSR0H
+	movfw _handle_read_registers.temp.+4
+	movwf IND0
+Ltmp48:
+LM105:
+.stabn	0x44, 0, 176, LM105-_handle_read_registers
+	incf _handle_read_registers.temp.+5, F
+	goto LBB4_6
+Ltmp49:
+LBB4_9:
+LM106:
+.stabn	0x44, 0, 181, LM106-_handle_read_registers
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 5
+	moviw 0
+	addlw 3
+	movwf _handle_read_registers.temp.+4
+	movfw _handle_read_registers.temp.+0
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_read_registers.temp.+1
+	movwf FSR0H
+	movfw _handle_read_registers.temp.+4
+	movwf IND0
+LM107:
+.stabn	0x44, 0, 182, LM107-_handle_read_registers
+	movfw _handle_read_registers.temp.+0
+	movwf FSR0
+	movfw _handle_read_registers.temp.+2
+	movwf _modbus_crc16.args.+0
+	movfw _handle_read_registers.temp.+3
+	movwf _modbus_crc16.args.+1
+	movfw _handle_read_registers.temp.+1
+	movwf FSR0H
+	moviw 0
+	movwf _modbus_crc16.args.+2
+	call _modbus_crc16
+	movfw _modbus_crc16.frame.+0
+	movwf _handle_read_registers.temp.+7
+	movfw _modbus_crc16.frame.+1
+	movwf _handle_read_registers.temp.+8
+LM108:
+.stabn	0x44, 0, 183, LM108-_handle_read_registers
+	movfw _handle_read_registers.temp.+0
+	movwf FSR0
+	movfw _handle_read_registers.temp.+1
+	movwf FSR0H
+	moviw 0
+	addwf _handle_read_registers.temp.+2, W
+	movwf _handle_read_registers.temp.+4
+	movlw 0
+	addwfc _handle_read_registers.temp.+3, W
+	movwf _handle_read_registers.temp.+6
+	movfw _handle_read_registers.temp.+4
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_read_registers.temp.+6
+	movwf FSR0H
+	movfw _handle_read_registers.temp.+7
+	movwf IND0
+LM109:
+.stabn	0x44, 0, 184, LM109-_handle_read_registers
+	movfw _handle_read_registers.temp.+0
+	movwf FSR0
+	movfw _handle_read_registers.temp.+1
+	movwf FSR0H
+	moviw 0
+	addwf _handle_read_registers.temp.+2, W
+LM110:
+.stabn	0x44, 0, 183, LM110-_handle_read_registers
+	movwf _handle_read_registers.temp.+4
+	movlw 0
+LM111:
+.stabn	0x44, 0, 184, LM111-_handle_read_registers
+	addwfc _handle_read_registers.temp.+3, W
+	movwf _handle_read_registers.temp.+6
+	movfw _handle_read_registers.temp.+4
+	movwf FSR0
+	fsr0_add FSR0, 1
+	movfw _handle_read_registers.temp.+6
+	movwf FSR0H
+	movfw _handle_read_registers.temp.+8
+	movwf IND0
+LM112:
+.stabn	0x44, 0, 185, LM112-_handle_read_registers
+	movfw _handle_read_registers.temp.+0
+	movwf FSR0
+	movfw _handle_read_registers.temp.+1
+	movwf FSR0H
+	moviw 0
+	addlw 2
+	movwf _handle_read_registers.temp.+4
+	movfw _handle_read_registers.temp.+0
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_read_registers.temp.+1
+	movwf FSR0H
+	movfw _handle_read_registers.temp.+4
+	movwf IND0
+LBB4_10:
+LM113:
+.stabn	0x44, 0, 216, LM113-_handle_read_registers
+	return
+Ltmp50:
+Lfunc_end8:
+Lfunc_end9:
+LM114:
+.stabn 0xc0,0,0, LM82-_handle_read_registers
+.stabs "response:52=*53=10;;",0x80,0,0,_handle_read_registers.args.+0
+.stabn 0xe0,0,0, LM113-_handle_read_registers
+.stabn 0xc0,0,0, LM82-_handle_read_registers
+.stabs "length:54=*55=10;;",0x80,0,0,_handle_read_registers.args.+2
+.stabn 0xe0,0,0, LM113-_handle_read_registers
+.stabn 0xc0,0,0, LM89-_handle_read_registers
+.stabs "crc:2;",0x80,0,0,_handle_read_registers.temp.+11
+.stabn 0xe0,0,0, LM97-_handle_read_registers
+.stabn 0xc0,0,0, LM103-_handle_read_registers
+.stabs "i:10;",0x80,0,0,_handle_read_registers.temp.+5
+.stabn 0xe0,0,0, LM103-_handle_read_registers
+.stabn 0xc0,0,0, LM107-_handle_read_registers
+.stabs "crc:2;",0x80,0,0,_handle_read_registers.temp.+7
+.stabn 0xe0,0,0, LM113-_handle_read_registers
+.stabf LM114-_handle_read_registers
+
+	_handle_write_register_sec .section rom
+	.global	_handle_write_register
+_handle_write_register:
+Lfunc_begin10:
+.stabs "handle_write_register:f:16", 0x24,0,0,_handle_write_register
+.stabn 0xc0, 0, 0, _handle_write_register
+.stabn 0xe0, 0, 0, _handle_write_register
+LM115:
+.stabn	0x44, 0, 220, LM115-_handle_write_register
+Lfunc_begin11:
+	banksel 0
+	movfw _handle_write_register.args.+2
+	movwf _handle_write_register.temp.+0
+	movfw _handle_write_register.args.+0
+	movwf _handle_write_register.temp.+2
+	movfw _handle_write_register.args.+1
+	movwf _handle_write_register.temp.+3
+	movfw _handle_write_register.args.+3
+	movwf _handle_write_register.temp.+1
+LM116:
+.stabn	0x44, 0, 223, LM116-_handle_write_register
+Ltmp51:
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 3
+	moviw 0
+	sublw 0
+	beq LBB5_3
+LBB5_1:
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 3
+	moviw 0
+Ltmp52:
+	sublw 5
+	beq LBB5_3
+LBB5_2:
+LM117:
+.stabn	0x44, 0, 225, LM117-_handle_write_register
+Ltmp53:
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	moviw 0
+	movwf _handle_write_register.temp.+4
+	movfw _handle_write_register.temp.+2
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_write_register.temp.+3
+	movwf FSR0H
+	movfw _handle_write_register.temp.+4
+	movwf IND0
+LM118:
+.stabn	0x44, 0, 226, LM118-_handle_write_register
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 1
+	moviw 0
+	iorlw 0x80
+	movwf _handle_write_register.temp.+4
+	movlw 1
+	addwf _handle_write_register.temp.+2, W
+	movwf _handle_write_register.temp.+11
+	movlw 0
+	addwfc _handle_write_register.temp.+3, W
+	movwf _handle_write_register.temp.+12
+	movfw _handle_write_register.temp.+11
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_write_register.temp.+12
+	movwf FSR0H
+	movfw _handle_write_register.temp.+4
+	movwf IND0
+LM119:
+.stabn	0x44, 0, 227, LM119-_handle_write_register
+	movlw 2
+	addwf _handle_write_register.temp.+2, W
+LM120:
+.stabn	0x44, 0, 226, LM120-_handle_write_register
+	movwf _handle_write_register.temp.+4
+	movlw 0
+LM121:
+.stabn	0x44, 0, 227, LM121-_handle_write_register
+	addwfc _handle_write_register.temp.+3, W
+	movwf _handle_write_register.temp.+11
+	movfw _handle_write_register.temp.+4
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_write_register.temp.+11
+	movwf FSR0H
+	movlw 2
+	movwf IND0
+LM122:
+.stabn	0x44, 0, 228, LM122-_handle_write_register
+	movfw _handle_write_register.temp.+2
+	movwf _modbus_crc16.args.+0
+	movfw _handle_write_register.temp.+3
+	movwf _modbus_crc16.args.+1
+	movlw 3
+	movwf _modbus_crc16.args.+2
+	call _modbus_crc16
+	movfw _modbus_crc16.frame.+0
+	movwf _handle_write_register.temp.+9
+	movfw _modbus_crc16.frame.+1
+	movwf _handle_write_register.temp.+10
+	movlw 3
+LM123:
+.stabn	0x44, 0, 229, LM123-_handle_write_register
+	addwf _handle_write_register.temp.+2, W
+LM124:
+.stabn	0x44, 0, 226, LM124-_handle_write_register
+	movwf _handle_write_register.temp.+4
+	movlw 0
+LM125:
+.stabn	0x44, 0, 229, LM125-_handle_write_register
+	addwfc _handle_write_register.temp.+3, W
+	movwf _handle_write_register.temp.+11
+	movfw _handle_write_register.temp.+4
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_write_register.temp.+11
+	movwf FSR0H
+	movfw _handle_write_register.temp.+9
+	movwf IND0
+LM126:
+.stabn	0x44, 0, 230, LM126-_handle_write_register
+	movlw 4
+	addwf _handle_write_register.temp.+2, W
+LM127:
+.stabn	0x44, 0, 226, LM127-_handle_write_register
+	movwf _handle_write_register.temp.+4
+	movlw 0
+LM128:
+.stabn	0x44, 0, 230, LM128-_handle_write_register
+	addwfc _handle_write_register.temp.+3, W
+	movwf _handle_write_register.temp.+11
+	movfw _handle_write_register.temp.+4
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_write_register.temp.+11
+	movwf FSR0H
+	movfw _handle_write_register.temp.+10
+	movwf IND0
+LM129:
+.stabn	0x44, 0, 231, LM129-_handle_write_register
+	movfw _handle_write_register.temp.+0
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_write_register.temp.+1
+	movwf FSR0H
+	movlw 5
+	movwf IND0
+LM130:
+.stabn	0x44, 0, 232, LM130-_handle_write_register
+	goto LBB5_11
+Ltmp54:
+LBB5_3:
+LM131:
+.stabn	0x44, 0, 236, LM131-_handle_write_register
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 3
+	moviw 0
+Ltmp55:
+	sublw 0
+	bne LBB5_5
+LBB5_4:
+LM132:
+.stabn	0x44, 0, 238, LM132-_handle_write_register
+Ltmp56:
+	movlw 15
+	bsf BSR,0
+	andwf _holdingRegisters+0, F
+LM133:
+.stabn	0x44, 0, 239, LM133-_handle_write_register
+	movfwl _p_buffer+0
+	movwf FSR0
+	movfwl _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 4
+	moviw 0
+	andlw 0xf0
+	bsf BSR,0
+	iorwf _holdingRegisters+0, F
+LM134:
+.stabn	0x44, 0, 240, LM134-_handle_write_register
+	goto LBB5_6
+Ltmp57:
+LBB5_5:
+LM135:
+.stabn	0x44, 0, 243, LM135-_handle_write_register
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 4
+	moviw 0
+	movwf _handle_write_register.temp.+4
+	movfw _p_buffer+0
+	movwf FSR0
+	movfw _p_buffer+1
+	movwf FSR0H
+	addlfsr 0, 3
+	moviw 0
+	movwf _handle_write_register.temp.+11
+	movlw LOW(_holdingRegisters+0)
+	addwf _handle_write_register.temp.+11, W
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movlw HIGH8(_holdingRegisters+0)
+	movwf FSR0H
+	movfw _handle_write_register.temp.+4
+	movwf IND0
+Ltmp58:
+LBB5_6:
+LM136:
+.stabn	0x44, 0, 246, LM136-_handle_write_register
+	banksel _handle_write_register.temp.
+	clrf _handle_write_register.temp.+5
+	clrf _handle_write_register.temp.+6
+LBB5_7:
+	movlw 1
+	movwf _handle_write_register.temp.+4
+Ltmp59:
+	movfw _handle_write_register.temp.+5
+Ltmp60:
+	sublw 4
+	blt LBB5_13
+LBB5_12:
+	movlw 0
+	movwf _handle_write_register.temp.+4
+LBB5_13:
+	movlw 1
+	movwf _handle_write_register.temp.+11
+Ltmp61:
+	movfw _handle_write_register.temp.+6
+Ltmp62:
+	movwf _handle_write_register.temp.+12
+	xorlw 0x80
+	sublw 0x80
+	blt LBB5_15
+LBB5_14:
+	movlw 0
+	movwf _handle_write_register.temp.+11
+LBB5_15:
+	movfw _handle_write_register.temp.+4
+	movwf _handle_write_register.temp.+13
+	movfw _handle_write_register.temp.+12
+	sublw 0
+	beq LBB5_17
+LBB5_16:
+	movfw _handle_write_register.temp.+11
+	movwf _handle_write_register.temp.+13
+LBB5_17:
+	movfw _handle_write_register.temp.+13
+	andlw 1
+	sublw 0
+	bne LBB5_10
+LBB5_8:
+LM137:
+.stabn	0x44, 0, 248, LM137-_handle_write_register
+Ltmp63:
+	movfw _handle_write_register.temp.+5
+	addwf _p_buffer+0, W
+	movwf _handle_write_register.temp.+11
+	movfw _handle_write_register.temp.+6
+	addwfc _p_buffer+1, W
+	movwf _handle_write_register.temp.+12
+	movfw _handle_write_register.temp.+11
+	movwf FSR0
+	movfw _handle_write_register.temp.+12
+	movwf FSR0H
+	moviw 0
+	movwf _handle_write_register.temp.+11
+	movfw _handle_write_register.temp.+5
+	addwf _handle_write_register.temp.+2, W
+	movwf _handle_write_register.temp.+12
+	movfw _handle_write_register.temp.+6
+	addwfc _handle_write_register.temp.+3, W
+	movwf _handle_write_register.temp.+13
+	movfw _handle_write_register.temp.+12
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_write_register.temp.+13
+	movwf FSR0H
+	movfw _handle_write_register.temp.+11
+	movwf IND0
+Ltmp64:
+LM138:
+.stabn	0x44, 0, 246, LM138-_handle_write_register
+	movlw 1
+	addwf _handle_write_register.temp.+5, F
+	movlw 0
+	addwfc _handle_write_register.temp.+6, W
+	movwf _handle_write_register.temp.+6
+	goto LBB5_7
+Ltmp65:
+LBB5_10:
+LM139:
+.stabn	0x44, 0, 251, LM139-_handle_write_register
+	movfw _handle_write_register.temp.+2
+	movwf _modbus_crc16.args.+0
+	movfw _handle_write_register.temp.+3
+	movwf _modbus_crc16.args.+1
+	movlw 6
+	movwf _modbus_crc16.args.+2
+	call _modbus_crc16
+	movfw _modbus_crc16.frame.+0
+	movwf _handle_write_register.temp.+7
+	movfw _modbus_crc16.frame.+1
+	movwf _handle_write_register.temp.+8
+LM140:
+.stabn	0x44, 0, 252, LM140-_handle_write_register
+	movlw 5
+	addwf _handle_write_register.temp.+2, W
+	movwf _handle_write_register.temp.+4
+	movlw 0
+	addwfc _handle_write_register.temp.+3, W
+	movwf _handle_write_register.temp.+11
+	movfw _handle_write_register.temp.+4
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_write_register.temp.+11
+	movwf FSR0H
+	movfw _handle_write_register.temp.+7
+	movwf IND0
+LM141:
+.stabn	0x44, 0, 251, LM141-_handle_write_register
+	movlw 6
+LM142:
+.stabn	0x44, 0, 253, LM142-_handle_write_register
+	addwf _handle_write_register.temp.+2, W
+LM143:
+.stabn	0x44, 0, 252, LM143-_handle_write_register
+	movwf _handle_write_register.temp.+4
+	movlw 0
+LM144:
+.stabn	0x44, 0, 253, LM144-_handle_write_register
+	addwfc _handle_write_register.temp.+3, W
+	movwf _handle_write_register.temp.+11
+	movfw _handle_write_register.temp.+4
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_write_register.temp.+11
+	movwf FSR0H
+	movfw _handle_write_register.temp.+8
+	movwf IND0
+LM145:
+.stabn	0x44, 0, 254, LM145-_handle_write_register
+	movfw _handle_write_register.temp.+0
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _handle_write_register.temp.+1
+	movwf FSR0H
+	movlw 7
+	movwf IND0
+LBB5_11:
+LM146:
+.stabn	0x44, 0, 255, LM146-_handle_write_register
+	return
+Ltmp66:
+Lfunc_end10:
+Lfunc_end11:
+LM147:
+.stabn 0xc0,0,0, LM115-_handle_write_register
+.stabs "response:56=*57=10;;",0x80,0,0,_handle_write_register.args.+0
+.stabn 0xe0,0,0, LM146-_handle_write_register
+.stabn 0xc0,0,0, LM115-_handle_write_register
+.stabs "length:58=*59=10;;",0x80,0,0,_handle_write_register.args.+2
+.stabn 0xe0,0,0, LM146-_handle_write_register
+.stabn 0xc0,0,0, LM122-_handle_write_register
+.stabs "crc:2;",0x80,0,0,_handle_write_register.temp.+9
+.stabn 0xe0,0,0, LM130-_handle_write_register
+.stabn 0xc0,0,0, LM136-_handle_write_register
+.stabs "i:1",0x80,0,0,_handle_write_register.temp.+5
+.stabn 0xe0,0,0, LM136-_handle_write_register
+.stabn 0xc0,0,0, LM139-_handle_write_register
+.stabs "crc:2;",0x80,0,0,_handle_write_register.temp.+7
+.stabn 0xe0,0,0, LM146-_handle_write_register
+.stabf LM147-_handle_write_register
+
+	_UART_Transmit_sec .section rom
+	.global	_UART_Transmit
+_UART_Transmit:
+Lfunc_begin12:
+.stabs "UART_Transmit:f:16", 0x24,0,0,_UART_Transmit
+.stabn 0xc0, 0, 0, _UART_Transmit
+.stabn 0xe0, 0, 0, _UART_Transmit
+LM148:
+.stabn	0x44, 0, 258, LM148-_UART_Transmit
+Lfunc_begin13:
+	banksel 0
+	movfw _UART_Transmit.args.+0
+	movwf _UART_Transmit.temp.+1
+	movfw _UART_Transmit.args.+1
+	movwf _UART_Transmit.temp.+2
+	movfw _UART_Transmit.args.+2
+	movwf _UART_Transmit.temp.+0
+LM149:
+.stabn	0x44, 0, 259, LM149-_UART_Transmit
+Ltmp67:
+	sublw 16
+	bgt LBB6_2
+LBB6_1:
+LM150:
+.stabn	0x44, 0, 261, LM150-_UART_Transmit
+Ltmp68:
+	goto LBB6_6
+Ltmp69:
+LBB6_2:
+LM151:
+.stabn	0x44, 0, 263, LM151-_UART_Transmit
+	clrf _UART_Transmit.temp.+3
+LBB6_3:
+	movfw _UART_Transmit.temp.+0
+	subwf _UART_Transmit.temp.+3, W
+	bge LBB6_6
+LBB6_4:
+LM152:
+.stabn	0x44, 0, 265, LM152-_UART_Transmit
+Ltmp70:
+	movfw _UART_Transmit.temp.+1
+	addwf _UART_Transmit.temp.+3, W
+	movwf _UART_Transmit.temp.+4
+	movlw 0
+	addwfc _UART_Transmit.temp.+2, W
+	movwf _UART_Transmit.temp.+5
+	movfw _UART_Transmit.temp.+4
+	movwf FSR0
+	movfw _UART_Transmit.temp.+5
+	movwf FSR0H
+	moviw 0
+	movwf _uart_putchar.args.+0
+	call _uart_putchar
+Ltmp71:
+LM153:
+.stabn	0x44, 0, 263, LM153-_UART_Transmit
+	incf _UART_Transmit.temp.+3, F
+	goto LBB6_3
+Ltmp72:
+LBB6_6:
+LM154:
+.stabn	0x44, 0, 267, LM154-_UART_Transmit
+	return
+Ltmp73:
+Lfunc_end12:
+Lfunc_end13:
+LM155:
+.stabn 0xc0,0,0, LM148-_UART_Transmit
+.stabs "response:60=*61=10;;",0x80,0,0,_UART_Transmit.args.+0
+.stabn 0xe0,0,0, LM154-_UART_Transmit
+.stabn 0xc0,0,0, LM148-_UART_Transmit
+.stabs "responseLength:10;",0x80,0,0,_UART_Transmit.args.+2
+.stabn 0xe0,0,0, LM154-_UART_Transmit
+.stabn 0xc0,0,0, LM151-_UART_Transmit
+.stabs "i:10;",0x80,0,0,_UART_Transmit.temp.+3
+.stabn 0xe0,0,0, LM151-_UART_Transmit
+.stabf LM155-_UART_Transmit
+
+	_modus_event_proc_sec .section rom
+	.global	_modus_event_proc
+_modus_event_proc:
+Lfunc_begin14:
+.stabs "modus_event_proc:f:16", 0x24,0,0,_modus_event_proc
+.stabn 0xc0, 0, 0, _modus_event_proc
+.stabn 0xe0, 0, 0, _modus_event_proc
+LM156:
+.stabn	0x44, 0, 271, LM156-_modus_event_proc
+Lfunc_begin15:
+LM157:
+.stabn	0x44, 0, 272, LM157-_modus_event_proc
+	banksel 0
+	movfw _R_SysMode_OK+0
+	movwf _modus_event_proc.temp.+0
+	sublw 0
+	beq LBB7_1
+LBB7_84:
+	movfw _modus_event_proc.temp.+0
+	xorlw 1
+	sublw 0
+	beq LBB7_2
+LBB7_85:
+	movfw _modus_event_proc.temp.+0
+	xorlw 2
+	sublw 0
+	beq LBB7_3
+	goto LBB7_4
+LBB7_1:
+LM158:
+.stabn	0x44, 0, 276, LM158-_modus_event_proc
+Ltmp74:
+	bsf BSR,0
+	bcf _holdingRegisters+0, 0
+LM159:
+.stabn	0x44, 0, 277, LM159-_modus_event_proc
+	bcf _holdingRegisters+0, 1
+LM160:
+.stabn	0x44, 0, 278, LM160-_modus_event_proc
+	bcf _holdingRegisters+0, 3
+LM161:
+.stabn	0x44, 0, 279, LM161-_modus_event_proc
+	goto LBB7_5
+LBB7_2:
+LM162:
+.stabn	0x44, 0, 283, LM162-_modus_event_proc
+	bsf BSR,0
+	bsf _holdingRegisters+0, 0
+LM163:
+.stabn	0x44, 0, 284, LM163-_modus_event_proc
+	goto LBB7_5
+LBB7_3:
+LM164:
+.stabn	0x44, 0, 288, LM164-_modus_event_proc
+	bsf BSR,0
+	bsf _holdingRegisters+0, 3
+Ltmp75:
+LBB7_4:
+LBB7_5:
+LM165:
+.stabn	0x44, 0, 296, LM165-_modus_event_proc
+	banksel _coulomb_data
+	movfw _coulomb_data+13
+Ltmp76:
+	sublw 0
+	beq LBB7_7
+LBB7_6:
+LM166:
+.stabn	0x44, 0, 298, LM166-_modus_event_proc
+Ltmp77:
+	banksel _holdingRegisters
+	bsf _holdingRegisters+0, 2
+LM167:
+.stabn	0x44, 0, 299, LM167-_modus_event_proc
+	goto LBB7_8
+Ltmp78:
+LBB7_7:
+LM168:
+.stabn	0x44, 0, 302, LM168-_modus_event_proc
+	banksel _holdingRegisters
+	bcf _holdingRegisters+0, 2
+Ltmp79:
+LBB7_8:
+LM169:
+.stabn	0x44, 0, 305, LM169-_modus_event_proc
+	movfwl _multi_protocol+59
+	movwf _holdingRegisters+1
+LM170:
+.stabn	0x44, 0, 306, LM170-_modus_event_proc
+	movfwl _multi_protocol+58
+	movwf _holdingRegisters+2
+LM171:
+.stabn	0x44, 0, 310, LM171-_modus_event_proc
+	movfw _CIbus_16_date+1
+	movwf _holdingRegisters+3
+LM172:
+.stabn	0x44, 0, 311, LM172-_modus_event_proc
+	movfw _CIbus_16_date+0
+	movwf _holdingRegisters+4
+LM173:
+.stabn	0x44, 0, 313, LM173-_modus_event_proc
+Ltmp80:
+	movlw 32
+	andwf _holdingRegisters+0, W
+Ltmp81:
+	sublw 0
+	beq LBB7_12
+LBB7_9:
+LM174:
+.stabn	0x44, 0, 316, LM174-_modus_event_proc
+Ltmp82:
+	movfwl _R_SysMode_OK+0
+Ltmp83:
+	sublw 1
+	bne LBB7_11
+LBB7_10:
+LM175:
+.stabn	0x44, 0, 318, LM175-_modus_event_proc
+Ltmp84:
+	movlw 7
+	movwfl _mod_queue_send.args.+0
+	call _mod_queue_send
+Ltmp85:
+LBB7_11:
+LM176:
+.stabn	0x44, 0, 320, LM176-_modus_event_proc
+	banksel _user_flag
+	bcf _user_flag+0, 1
+Ltmp86:
+LBB7_12:
+LM177:
+.stabn	0x44, 0, 322, LM177-_modus_event_proc
+	movlw 32
+	andwf _holdingRegisters+0, W
+	sublw 0
+	bne LBB7_15
+LBB7_13:
+	movfw _user_flag+0
+	SrlOne
+	andlw 1
+Ltmp87:
+	sublw 0
+	bne LBB7_15
+LBB7_14:
+LM178:
+.stabn	0x44, 0, 324, LM178-_modus_event_proc
+Ltmp88:
+	bsf _user_flag+0, 1
+LM179:
+.stabn	0x44, 0, 325, LM179-_modus_event_proc
+	movlw LOW(_h_typeca+0)
+	bcf BSR,0
+	movwf _typec_break.args.+0
+	movlw HIGH8(_h_typeca+0)
+	movwf _typec_break.args.+1
+	call _typec_break
+Ltmp89:
+LBB7_15:
+LM180:
+.stabn	0x44, 0, 327, LM180-_modus_event_proc
+	movlw 16
+	banksel _holdingRegisters
+	andwf _holdingRegisters+0, W
+Ltmp90:
+	sublw 0
+	beq LBB7_19
+LBB7_16:
+LM181:
+.stabn	0x44, 0, 330, LM181-_modus_event_proc
+Ltmp91:
+	movfwl _R_SysMode_OK+0
+Ltmp92:
+	sublw 2
+	bne LBB7_18
+LBB7_17:
+LM182:
+.stabn	0x44, 0, 332, LM182-_modus_event_proc
+Ltmp93:
+	movlw 7
+	movwfl _mod_queue_send.args.+0
+	call _mod_queue_send
+Ltmp94:
+LBB7_18:
+LM183:
+.stabn	0x44, 0, 334, LM183-_modus_event_proc
+	banksel _user_flag
+	bcf _user_flag+0, 0
+Ltmp95:
+LBB7_19:
+LM184:
+.stabn	0x44, 0, 336, LM184-_modus_event_proc
+	movlw 16
+	andwf _holdingRegisters+0, W
+	sublw 0
+	bne LBB7_22
+LBB7_20:
+	movlw 1
+	andwf _user_flag+0, W
+Ltmp96:
+	sublw 0
+	bne LBB7_22
+LBB7_21:
+LM185:
+.stabn	0x44, 0, 338, LM185-_modus_event_proc
+Ltmp97:
+	bsf _user_flag+0, 0
+LM186:
+.stabn	0x44, 0, 339, LM186-_modus_event_proc
+	movlw LOW(_h_typeca+0)
+	bcf BSR,0
+	movwf _typec_break.args.+0
+	movlw HIGH8(_h_typeca+0)
+	movwf _typec_break.args.+1
+	call _typec_break
+Ltmp98:
+LBB7_22:
+LM187:
+.stabn	0x44, 0, 343, LM187-_modus_event_proc
+	movlw 15
+	banksel _holdingRegisters
+	andwf _holdingRegisters+5, W
+	movwfl _modus_event_proc.temp.+0
+	sublw 0
+	beq LBB7_23
+LBB7_86:
+	movfwl _modus_event_proc.temp.+0
+	xorlw 1
+	sublw 0
+	beq LBB7_26
+LBB7_87:
+	movfwl _modus_event_proc.temp.+0
+	xorlw 2
+	sublw 0
+	beq LBB7_29
+LBB7_88:
+	movfwl _modus_event_proc.temp.+0
+	xorlw 3
+	sublw 0
+	beq LBB7_32
+	goto LBB7_35
+LBB7_23:
+LM188:
+.stabn	0x44, 0, 346, LM188-_modus_event_proc
+Ltmp99:
+	movlw 15
+	andwf _now_power_number+0, W
+Ltmp100:
+	sublw 0
+	beq LBB7_25
+LBB7_24:
+LM189:
+.stabn	0x44, 0, 348, LM189-_modus_event_proc
+Ltmp101:
+	movlw 0xf0
+	andwf _now_power_number+0, F
+LM190:
+.stabn	0x44, 0, 349, LM190-_modus_event_proc
+	call _app_power_capabilities_switch_h
+Ltmp102:
+LBB7_25:
+LM191:
+.stabn	0x44, 0, 351, LM191-_modus_event_proc
+	goto LBB7_36
+LBB7_26:
+LM192:
+.stabn	0x44, 0, 354, LM192-_modus_event_proc
+Ltmp103:
+	movlw 15
+	andwf _now_power_number+0, W
+Ltmp104:
+	xorlw 1
+	sublw 0
+	beq LBB7_28
+LBB7_27:
+LM193:
+.stabn	0x44, 0, 356, LM193-_modus_event_proc
+Ltmp105:
+	movlw 0xf0
+	andwf _now_power_number+0, F
+LM194:
+.stabn	0x44, 0, 357, LM194-_modus_event_proc
+	bsf _now_power_number+0, 0
+LM195:
+.stabn	0x44, 0, 358, LM195-_modus_event_proc
+	call _app_power_capabilities_switch_h_1
+Ltmp106:
+LBB7_28:
+LM196:
+.stabn	0x44, 0, 360, LM196-_modus_event_proc
+	goto LBB7_36
+LBB7_29:
+LM197:
+.stabn	0x44, 0, 363, LM197-_modus_event_proc
+Ltmp107:
+	movlw 15
+	andwf _now_power_number+0, W
+Ltmp108:
+	xorlw 2
+	sublw 0
+	beq LBB7_31
+LBB7_30:
+LM198:
+.stabn	0x44, 0, 365, LM198-_modus_event_proc
+Ltmp109:
+	movlw 0xf0
+	andwf _now_power_number+0, F
+LM199:
+.stabn	0x44, 0, 366, LM199-_modus_event_proc
+	bsf _now_power_number+0, 1
+LM200:
+.stabn	0x44, 0, 367, LM200-_modus_event_proc
+	call _app_power_capabilities_switch_h_2
+Ltmp110:
+LBB7_31:
+LM201:
+.stabn	0x44, 0, 369, LM201-_modus_event_proc
+	goto LBB7_36
+LBB7_32:
+LM202:
+.stabn	0x44, 0, 372, LM202-_modus_event_proc
+Ltmp111:
+	movlw 15
+	andwf _now_power_number+0, W
+Ltmp112:
+	xorlw 3
+	sublw 0
+	beq LBB7_34
+LBB7_33:
+LM203:
+.stabn	0x44, 0, 374, LM203-_modus_event_proc
+Ltmp113:
+	movlw 0xf0
+	andwf _now_power_number+0, F
+LM204:
+.stabn	0x44, 0, 375, LM204-_modus_event_proc
+	movlw 3
+	iorwf _now_power_number+0, F
+LM205:
+.stabn	0x44, 0, 376, LM205-_modus_event_proc
+	call _app_power_capabilities_switch_l
+Ltmp114:
+LBB7_34:
+LBB7_35:
+LBB7_36:
+LM206:
+.stabn	0x44, 0, 385, LM206-_modus_event_proc
+	call _vbus_ibus_cheak
+LM207:
+.stabn	0x44, 0, 386, LM207-_modus_event_proc
+Ltmp115:
+	movfwl _multi_protocol+59
+	movwf _modus_event_proc.temp.+0
+Ltmp116:
+	movlw 1
+	movwf _modus_event_proc.temp.+1
+	movfwl _multi_protocol+58
+	sublw 0x8b
+	bgt LBB7_93
+LBB7_92:
+	movlw 0
+	movwf _modus_event_proc.temp.+1
+LBB7_93:
+	movlw 1
+	movwf _modus_event_proc.temp.+2
+	movfw _modus_event_proc.temp.+0
+	sublw 2
+	bgt LBB7_95
+LBB7_94:
+	movlw 0
+	movwf _modus_event_proc.temp.+2
+LBB7_95:
+	movfw _modus_event_proc.temp.+1
+	movwf _modus_event_proc.temp.+1
+	movfw _modus_event_proc.temp.+0
+	sublw 2
+	beq LBB7_97
+LBB7_96:
+	movfw _modus_event_proc.temp.+2
+	movwf _modus_event_proc.temp.+1
+LBB7_97:
+	movfw _modus_event_proc.temp.+1
+	andlw 1
+	sublw 0
+	bne LBB7_38
+LBB7_37:
+LM208:
+.stabn	0x44, 0, 387, LM208-_modus_event_proc
+Ltmp117:
+	movlw 4
+	movwf _volt_flag+0
+	goto LBB7_48
+LBB7_38:
+LM209:
+.stabn	0x44, 0, 388, LM209-_modus_event_proc
+Ltmp118:
+	movfwl _multi_protocol+59
+	movwf _modus_event_proc.temp.+0
+Ltmp119:
+	movlw 1
+	movwf _modus_event_proc.temp.+1
+	movfwl _multi_protocol+58
+	sublw 9
+	bgt LBB7_99
+LBB7_98:
+	movlw 0
+	movwf _modus_event_proc.temp.+1
+LBB7_99:
+	movlw 1
+	movwf _modus_event_proc.temp.+2
+	movfw _modus_event_proc.temp.+0
+	sublw 2
+	bgt LBB7_101
+LBB7_100:
+	movlw 0
+	movwf _modus_event_proc.temp.+2
+LBB7_101:
+	movfw _modus_event_proc.temp.+1
+	movwf _modus_event_proc.temp.+1
+	movfw _modus_event_proc.temp.+0
+	sublw 2
+	beq LBB7_103
+LBB7_102:
+	movfw _modus_event_proc.temp.+2
+	movwf _modus_event_proc.temp.+1
+LBB7_103:
+	movfw _modus_event_proc.temp.+1
+	andlw 1
+	sublw 0
+	bne LBB7_40
+LBB7_39:
+LM210:
+.stabn	0x44, 0, 389, LM210-_modus_event_proc
+Ltmp120:
+	movlw 3
+	movwf _volt_flag+0
+	goto LBB7_47
+LBB7_40:
+LM211:
+.stabn	0x44, 0, 390, LM211-_modus_event_proc
+Ltmp121:
+	movfwl _multi_protocol+59
+	movwf _modus_event_proc.temp.+0
+Ltmp122:
+	movlw 1
+	movwf _modus_event_proc.temp.+1
+	movfwl _multi_protocol+58
+	sublw 0x91
+	bgt LBB7_105
+LBB7_104:
+	movlw 0
+	movwf _modus_event_proc.temp.+1
+LBB7_105:
+	movlw 1
+	movwf _modus_event_proc.temp.+2
+	movfw _modus_event_proc.temp.+0
+	sublw 0
+	beq LBB7_107
+LBB7_106:
+	movlw 0
+	movwf _modus_event_proc.temp.+2
+LBB7_107:
+	movfw _modus_event_proc.temp.+1
+	movwf _modus_event_proc.temp.+1
+	movfw _modus_event_proc.temp.+0
+	sublw 1
+	beq LBB7_109
+LBB7_108:
+	movfw _modus_event_proc.temp.+2
+	movwf _modus_event_proc.temp.+1
+LBB7_109:
+	movfw _modus_event_proc.temp.+1
+	andlw 1
+	sublw 0
+	bne LBB7_42
+LBB7_41:
+LM212:
+.stabn	0x44, 0, 391, LM212-_modus_event_proc
+Ltmp123:
+	movlw 2
+	movwf _volt_flag+0
+	goto LBB7_46
+LBB7_42:
+LM213:
+.stabn	0x44, 0, 392, LM213-_modus_event_proc
+Ltmp124:
+	movfwl _multi_protocol+59
+	movwf _modus_event_proc.temp.+0
+Ltmp125:
+	movlw 1
+	movwf _modus_event_proc.temp.+1
+	movfwl _multi_protocol+58
+	sublw 65
+	bgt LBB7_111
+LBB7_110:
+	movlw 0
+	movwf _modus_event_proc.temp.+1
+LBB7_111:
+	movlw 1
+	movwf _modus_event_proc.temp.+2
+	movfw _modus_event_proc.temp.+0
+	sublw 0
+	beq LBB7_113
+LBB7_112:
+	movlw 0
+	movwf _modus_event_proc.temp.+2
+LBB7_113:
+	movfw _modus_event_proc.temp.+1
+	movwf _modus_event_proc.temp.+1
+	movfw _modus_event_proc.temp.+0
+	sublw 1
+	beq LBB7_115
+LBB7_114:
+	movfw _modus_event_proc.temp.+2
+	movwf _modus_event_proc.temp.+1
+LBB7_115:
+	movfw _modus_event_proc.temp.+1
+	andlw 1
+	sublw 0
+	bne LBB7_44
+LBB7_43:
+LM214:
+.stabn	0x44, 0, 393, LM214-_modus_event_proc
+Ltmp126:
+	movlw 1
+	movwf _volt_flag+0
+	goto LBB7_45
+LBB7_44:
+LM215:
+.stabn	0x44, 0, 395, LM215-_modus_event_proc
+	clrf _volt_flag+0
+Ltmp127:
+LBB7_45:
+LBB7_46:
+LBB7_47:
+LBB7_48:
+LM216:
+.stabn	0x44, 0, 397, LM216-_modus_event_proc
+	movlw 0xf0
+	bsf BSR,0
+	andwf _holdingRegisters+5, W
+	movwfl _modus_event_proc.temp.+0
+	sublw 0
+	beq LBB7_49
+LBB7_89:
+	movfwl _modus_event_proc.temp.+0
+	xorlw 16
+	sublw 0
+	beq LBB7_52
+LBB7_90:
+	movfwl _modus_event_proc.temp.+0
+	xorlw 32
+	sublw 0
+	beq LBB7_55
+LBB7_91:
+	movfwl _modus_event_proc.temp.+0
+	xorlw 48
+	sublw 0
+	beq LBB7_58
+	goto LBB7_61
+LBB7_49:
+LM217:
+.stabn	0x44, 0, 400, LM217-_modus_event_proc
+Ltmp128:
+	movlw 0xf0
+	andwf _now_power_number+0, W
+Ltmp129:
+	sublw 0
+	beq LBB7_51
+LBB7_50:
+LM218:
+.stabn	0x44, 0, 402, LM218-_modus_event_proc
+Ltmp130:
+	movlw 15
+	andwf _now_power_number+0, F
+Ltmp131:
+LBB7_51:
+LM219:
+.stabn	0x44, 0, 404, LM219-_modus_event_proc
+	goto LBB7_62
+LBB7_52:
+LM220:
+.stabn	0x44, 0, 407, LM220-_modus_event_proc
+Ltmp132:
+	movlw 0xf0
+	andwf _now_power_number+0, W
+Ltmp133:
+	iorlw 1
+	sublw 0
+	beq LBB7_54
+LBB7_53:
+LM221:
+.stabn	0x44, 0, 409, LM221-_modus_event_proc
+Ltmp134:
+	movlw 15
+	andwf _now_power_number+0, F
+LM222:
+.stabn	0x44, 0, 410, LM222-_modus_event_proc
+	bsf _now_power_number+0, 4
+Ltmp135:
+LBB7_54:
+LM223:
+.stabn	0x44, 0, 412, LM223-_modus_event_proc
+	goto LBB7_62
+LBB7_55:
+LM224:
+.stabn	0x44, 0, 415, LM224-_modus_event_proc
+Ltmp136:
+	movlw 0xf0
+	andwf _now_power_number+0, W
+Ltmp137:
+	iorlw 2
+	sublw 0
+	beq LBB7_57
+LBB7_56:
+LM225:
+.stabn	0x44, 0, 417, LM225-_modus_event_proc
+Ltmp138:
+	movlw 15
+	andwf _now_power_number+0, F
+LM226:
+.stabn	0x44, 0, 418, LM226-_modus_event_proc
+	bsf _now_power_number+0, 5
+Ltmp139:
+LBB7_57:
+LM227:
+.stabn	0x44, 0, 420, LM227-_modus_event_proc
+	goto LBB7_62
+LBB7_58:
+LM228:
+.stabn	0x44, 0, 423, LM228-_modus_event_proc
+Ltmp140:
+	movlw 0xf0
+	andwf _now_power_number+0, W
+Ltmp141:
+	iorlw 3
+	sublw 0
+	beq LBB7_60
+LBB7_59:
+LM229:
+.stabn	0x44, 0, 425, LM229-_modus_event_proc
+Ltmp142:
+	movlw 15
+	andwf _now_power_number+0, F
+LM230:
+.stabn	0x44, 0, 426, LM230-_modus_event_proc
+	movlw 48
+	iorwf _now_power_number+0, F
+Ltmp143:
+LBB7_60:
+LBB7_61:
+LBB7_62:
+LM231:
+.stabn	0x44, 0, 433, LM231-_modus_event_proc
+	movfw _now_power_number+0
+	movwfl _app_power_adjust.args.+0
+	call _app_power_adjust
+LM232:
+.stabn	0x44, 0, 439, LM232-_modus_event_proc
+Ltmp144:
+	movfw _Temp+4
+Ltmp145:
+	sublw 0
+	beq LBB7_64
+LBB7_63:
+LM233:
+.stabn	0x44, 0, 441, LM233-_modus_event_proc
+Ltmp146:
+	bsf BSR,0
+	bcf _holdingRegisters+7, 6
+LM234:
+.stabn	0x44, 0, 442, LM234-_modus_event_proc
+	goto LBB7_65
+Ltmp147:
+LBB7_64:
+LM235:
+.stabn	0x44, 0, 445, LM235-_modus_event_proc
+	bsf BSR,0
+	bsf _holdingRegisters+7, 6
+Ltmp148:
+LBB7_65:
+LM236:
+.stabn	0x44, 0, 449, LM236-_modus_event_proc
+	movfwl _R_SysMode_OK+0
+Ltmp149:
+	sublw 1
+	bne LBB7_77
+LBB7_66:
+LM237:
+.stabn	0x44, 0, 452, LM237-_modus_event_proc
+Ltmp150:
+	movfw _V_NO_Cha_flage+0
+	sublw 0
+	beq LBB7_69
+LBB7_67:
+	movfw _user_flag+0
+	SrlTwo
+	andlw 1
+Ltmp151:
+	sublw 0
+	bne LBB7_69
+LBB7_68:
+LM238:
+.stabn	0x44, 0, 454, LM238-_modus_event_proc
+Ltmp152:
+	bsf _holdingRegisters+7, 4
+LM239:
+.stabn	0x44, 0, 455, LM239-_modus_event_proc
+	goto LBB7_70
+Ltmp153:
+LBB7_69:
+LM240:
+.stabn	0x44, 0, 458, LM240-_modus_event_proc
+	bcf _holdingRegisters+7, 4
+Ltmp154:
+LBB7_70:
+LM241:
+.stabn	0x44, 0, 462, LM241-_modus_event_proc
+	movfw _user_flag+0
+	SrlTwo
+	andlw 1
+Ltmp155:
+	sublw 0
+	beq LBB7_72
+LBB7_71:
+LM242:
+.stabn	0x44, 0, 464, LM242-_modus_event_proc
+Ltmp156:
+	bsf _holdingRegisters+7, 3
+LM243:
+.stabn	0x44, 0, 465, LM243-_modus_event_proc
+	goto LBB7_73
+Ltmp157:
+LBB7_72:
+LM244:
+.stabn	0x44, 0, 468, LM244-_modus_event_proc
+	bcf _holdingRegisters+7, 3
+Ltmp158:
+LBB7_73:
+LM245:
+.stabn	0x44, 0, 472, LM245-_modus_event_proc
+	movfw _Charge_OCP_Flage+0
+Ltmp159:
+	sublw 0
+	beq LBB7_75
+LBB7_74:
+LM246:
+.stabn	0x44, 0, 474, LM246-_modus_event_proc
+Ltmp160:
+	bsf _holdingRegisters+8, 6
+LM247:
+.stabn	0x44, 0, 475, LM247-_modus_event_proc
+	goto LBB7_76
+Ltmp161:
+LBB7_75:
+LM248:
+.stabn	0x44, 0, 478, LM248-_modus_event_proc
+	bcf _holdingRegisters+8, 6
+Ltmp162:
+LBB7_76:
+LBB7_77:
+LM249:
+.stabn	0x44, 0, 483, LM249-_modus_event_proc
+	movfw _V_NO_BAT_Charge+0
+Ltmp163:
+	sublw 0
+	beq LBB7_79
+LBB7_78:
+LM250:
+.stabn	0x44, 0, 485, LM250-_modus_event_proc
+Ltmp164:
+	bsf _holdingRegisters+7, 2
+LM251:
+.stabn	0x44, 0, 486, LM251-_modus_event_proc
+	goto LBB7_80
+Ltmp165:
+LBB7_79:
+LM252:
+.stabn	0x44, 0, 489, LM252-_modus_event_proc
+	bcf _holdingRegisters+7, 2
+Ltmp166:
+LBB7_80:
+LM253:
+.stabn	0x44, 0, 493, LM253-_modus_event_proc
+	bcf BSR,0
+	movfw _VBAT_7201_Vaule+0
+	movwf _hex_greater_than_compare.args.+0
+	movfw _VBAT_7201_Vaule+1
+	movwf _hex_greater_than_compare.args.+1
+	movlw 53
+	movwf _hex_greater_than_compare.args.+2
+	movlw 5
+	movwf _hex_greater_than_compare.args.+3
+	call _hex_greater_than_compare
+	movfw _hex_greater_than_compare.frame.+0
+Ltmp167:
+	sublw 0
+	beq LBB7_82
+LBB7_81:
+LM254:
+.stabn	0x44, 0, 495, LM254-_modus_event_proc
+Ltmp168:
+	bsf BSR,0
+	bcf _holdingRegisters+7, 1
+LM255:
+.stabn	0x44, 0, 496, LM255-_modus_event_proc
+	goto LBB7_83
+Ltmp169:
+LBB7_82:
+LM256:
+.stabn	0x44, 0, 499, LM256-_modus_event_proc
+	bsf BSR,0
+	bsf _holdingRegisters+7, 1
+Ltmp170:
+LBB7_83:
+LM257:
+.stabn	0x44, 0, 513, LM257-_modus_event_proc
+	banksel 0
+	return
+Ltmp171:
+Lfunc_end14:
+Lfunc_end15:
+LM258:
+.stabf LM258-_modus_event_proc
+
+
+	_rxBuffers_mod_modbus.c .section bank2,uninit
+	_rxBuffers .ds 36
+	.ends
+
+	_activeBuffer_mod_modbus.c .section bank2,uninit
+	_activeBuffer .ds 1
+	.ends
+
+	_buf_mod_modbus.c .section bank0,uninit
+	_buf .ds 2
+	.ends
+
+	_lastRxTime_mod_modbus.c .section bank2,uninit
+	_lastRxTime .ds 1
+	.ends
+
+	_p_buffer_mod_modbus.c .section bank0,uninit
+	_p_buffer .ds 2
+	.ends
+
+	_holdingRegisters_mod_modbus.c .section bank2,uninit
+	_holdingRegisters .ds 10
+	.ends
+
+	_user_flag_mod_modbus.c .section bank2,uninit
+	_user_flag .ds 1
+	.ends
+
+	_now_power_number_mod_modbus.c .section bank2,uninit
+	_now_power_number .ds 1
+	.ends
+
+	.@_modbus_crc16_sec@_modbus_crc16.args. .section bank1,uninit
+	_modbus_crc16.args. .ds 3
+	.ends
+
+	.@_modbus_crc16_sec@_modbus_crc16.frame. .section bank1,uninit
+	_modbus_crc16.frame. .ds 2
+	.ends
+
+	.@_modbus_crc16_sec@_modbus_crc16.temp. .section bank1,uninit
+	_modbus_crc16.temp. .ds 9
+	.ends
+
+	.@_init_buffers_sec@_init_buffers.temp. .section bank1,uninit
+	_init_buffers.temp. .ds 6
+	.ends
+
+	.@_check_frame_timeout_sec@_check_frame_timeout.temp. .section bank1,uninit
+	_check_frame_timeout.temp. .ds 2
+	.ends
+
+	.@_process_modbus_frame_sec@_process_modbus_frame.temp. .section bank1,uninit
+	_process_modbus_frame.temp. .ds 26
+	.ends
+
+	.@_handle_read_registers_sec@_handle_read_registers.args. .section bank1,uninit
+	_handle_read_registers.args. .ds 4
+	.ends
+
+	.@_handle_read_registers_sec@_handle_read_registers.temp. .section bank1,uninit
+	_handle_read_registers.temp. .ds 13
+	.ends
+
+	.@_handle_write_register_sec@_handle_write_register.args. .section bank1,uninit
+	_handle_write_register.args. .ds 4
+	.ends
+
+	.@_handle_write_register_sec@_handle_write_register.temp. .section bank1,uninit
+	_handle_write_register.temp. .ds 14
+	.ends
+
+	.@_UART_Transmit_sec@_UART_Transmit.args. .section bank1,uninit
+	_UART_Transmit.args. .ds 3
+	.ends
+
+	.@_UART_Transmit_sec@_UART_Transmit.temp. .section bank1,uninit
+	_UART_Transmit.temp. .ds 6
+	.ends
+
+	.@_modus_event_proc_sec@_modus_event_proc.temp. .section bank1,uninit
+	_modus_event_proc.temp. .ds 3
+	.ends
+
+
+
+	.global	_rxBuffers
+	.global	_activeBuffer
+	.global	_buf
+	.global	_lastRxTime
+	.global	_p_buffer
+	.global	_holdingRegisters
+	.global	_user_flag
+	.global	_now_power_number
+

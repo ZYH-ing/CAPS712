@@ -1,0 +1,207 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\module\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\module\\mod_key.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+.stabs "cscc_@anonymity_0:T21=s2long_press:22=10;;,0,8;value_refresh:23=10;;,8,16;;", 0x80, 0, 0, 0
+.stabs "key_t:T17=s7key_value:18=10;;,0,8;key_cnt:19=2;;,8,24;double_press_cnt:20=2;;,24,40;flag:21,40,56;;", 0x80, 0, 0, 0
+.stabs "key_data:G17;",0x20,0,0,_key_data
+.stabs "key2_data:G17;",0x20,0,0,_key2_data
+.stabs "Vaule1:G10;",0x20,0,0,_Vaule1
+.stabs "Set_3S_to_into_IAP:G10;",0x20,0,0,_Set_3S_to_into_IAP
+.stabs "short_key_to_IAPtime:G10;",0x20,0,0,_short_key_to_IAPtime
+.stabs "short_key_to_IAP_Cnt:G10;",0x20,0,0,_short_key_to_IAP_Cnt
+.stabs "F_A1_ON:G10;",0x20,0,0,_F_A1_ON
+.stabs "F_A1ON_TIME:G10;",0x20,0,0,_F_A1ON_TIME
+.stabs "key_down_5S_Flage:G10;",0x20,0,0,_key_down_5S_Flage
+.stabs "key_down_5S_Cnt:G2;",0x20,0,0,_key_down_5S_Cnt
+.stabs "key_down_10S_Flage:G10;",0x20,0,0,_key_down_10S_Flage
+.stabs "key_down_10S_Cnt:G2;",0x20,0,0,_key_down_10S_Cnt
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_mod_key_init_sec .section rom
+	.global	_mod_key_init
+_mod_key_init:
+Lfunc_begin0:
+.stabs "mod_key_init:f:16", 0x24,0,0,_mod_key_init
+.stabn 0xc0, 0, 0, _mod_key_init
+.stabn 0xe0, 0, 0, _mod_key_init
+LM0:
+.stabn	0x44, 0, 54, LM0-_mod_key_init
+Lfunc_begin1:
+LM1:
+.stabn	0x44, 0, 56, LM1-_mod_key_init
+	banksel 0
+	bsf BSR,1
+	clrf _key_data+0
+LM2:
+.stabn	0x44, 0, 57, LM2-_mod_key_init
+	banksel 0
+	return
+Ltmp0:
+Lfunc_end0:
+Lfunc_end1:
+LM3:
+.stabf LM3-_mod_key_init
+
+	_key_scan_sec .section rom
+	.global	_key_scan
+_key_scan:
+Lfunc_begin2:
+.stabs "key_scan:f:16", 0x24,0,0,_key_scan
+.stabn 0xc0, 0, 0, _key_scan
+.stabn 0xe0, 0, 0, _key_scan
+LM4:
+.stabn	0x44, 0, 69, LM4-_key_scan
+Lfunc_begin3:
+LM5:
+.stabn	0x44, 0, 192, LM5-_key_scan
+	banksel 0
+	return
+Ltmp1:
+Lfunc_end2:
+Lfunc_end3:
+LM6:
+.stabf LM6-_key_scan
+
+	_key2_scan_sec .section rom
+	.global	_key2_scan
+_key2_scan:
+Lfunc_begin4:
+.stabs "key2_scan:f:16", 0x24,0,0,_key2_scan
+.stabn 0xc0, 0, 0, _key2_scan
+.stabn 0xe0, 0, 0, _key2_scan
+LM7:
+.stabn	0x44, 0, 195, LM7-_key2_scan
+Lfunc_begin5:
+LM8:
+.stabn	0x44, 0, 245, LM8-_key2_scan
+	banksel 0
+	return
+Ltmp2:
+Lfunc_end4:
+Lfunc_end5:
+LM9:
+.stabf LM9-_key2_scan
+
+	_key_proc_sec .section rom
+	.global	_key_proc
+_key_proc:
+Lfunc_begin6:
+.stabs "key_proc:f:16", 0x24,0,0,_key_proc
+.stabn 0xc0, 0, 0, _key_proc
+.stabn 0xe0, 0, 0, _key_proc
+LM10:
+.stabn	0x44, 0, 256, LM10-_key_proc
+Lfunc_begin7:
+LM11:
+.stabn	0x44, 0, 545, LM11-_key_proc
+	banksel 0
+	return
+Ltmp3:
+Lfunc_end6:
+Lfunc_end7:
+LM12:
+.stabf LM12-_key_proc
+
+	_key_get_value_sec .section rom
+	.global	_key_get_value
+_key_get_value:
+Lfunc_begin8:
+.stabs "key_get_value:f24=10;;", 0x24,0,0,_key_get_value
+.stabn 0xc0, 0, 0, _key_get_value
+.stabn 0xe0, 0, 0, _key_get_value
+LM13:
+.stabn	0x44, 0, 556, LM13-_key_get_value
+Lfunc_begin9:
+LM14:
+.stabn	0x44, 0, 557, LM14-_key_get_value
+	banksel 0
+	movfwl _key_data+0
+	movwf _key_get_value.frame.+0
+	return
+Ltmp4:
+Lfunc_end8:
+Lfunc_end9:
+LM15:
+.stabf LM15-_key_get_value
+
+
+	_key_data_mod_key.c .section bank4,uninit
+	_key_data .ds 7
+	.ends
+
+	_key2_data_mod_key.c .section bank4,uninit
+	_key2_data .ds 7
+	.ends
+
+	_Vaule1_mod_key.c .section bank4,uninit
+	_Vaule1 .ds 1
+	.ends
+
+	_Set_3S_to_into_IAP_mod_key.c .section bank4,uninit
+	_Set_3S_to_into_IAP .ds 1
+	.ends
+
+	_short_key_to_IAPtime_mod_key.c .section bank4,uninit
+	_short_key_to_IAPtime .ds 1
+	.ends
+
+	_short_key_to_IAP_Cnt_mod_key.c .section bank4,uninit
+	_short_key_to_IAP_Cnt .ds 1
+	.ends
+
+	_F_A1_ON_mod_key.c .section bank4,uninit
+	_F_A1_ON .ds 1
+	.ends
+
+	_F_A1ON_TIME_mod_key.c .section bank4,uninit
+	_F_A1ON_TIME .ds 1
+	.ends
+
+	_key_down_5S_Flage_mod_key.c .section bank4,uninit
+	_key_down_5S_Flage .ds 1
+	.ends
+
+	_key_down_5S_Cnt_mod_key.c .section bank4,uninit
+	_key_down_5S_Cnt .ds 2
+	.ends
+
+	_key_down_10S_Flage_mod_key.c .section bank4,uninit
+	_key_down_10S_Flage .ds 1
+	.ends
+
+	_key_down_10S_Cnt_mod_key.c .section bank4,uninit
+	_key_down_10S_Cnt .ds 2
+	.ends
+
+	.@_key_get_value_sec@_key_get_value.frame. .section bank1,uninit
+	_key_get_value.frame. .ds 1
+	.ends
+
+	.global	_key_data
+	.global	_key2_data
+	.global	_Vaule1
+	.global	_Set_3S_to_into_IAP
+	.global	_short_key_to_IAPtime
+	.global	_short_key_to_IAP_Cnt
+	.global	_F_A1_ON
+	.global	_F_A1ON_TIME
+	.global	_key_down_5S_Flage
+	.global	_key_down_5S_Cnt
+	.global	_key_down_10S_Flage
+	.global	_key_down_10S_Cnt
+

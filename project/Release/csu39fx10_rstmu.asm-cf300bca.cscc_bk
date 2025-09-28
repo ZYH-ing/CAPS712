@@ -1,0 +1,189 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\chip\\fwlib\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\chip\\fwlib\\csu39fx10_rstmu.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_rstmu_lvd_enable_sec .section rom
+	.global	_rstmu_lvd_enable
+_rstmu_lvd_enable:
+Lfunc_begin0:
+.stabs "rstmu_lvd_enable:f:16", 0x24,0,0,_rstmu_lvd_enable
+.stabn 0xc0, 0, 0, _rstmu_lvd_enable
+.stabn 0xe0, 0, 0, _rstmu_lvd_enable
+LM0:
+.stabn	0x44, 0, 30, LM0-_rstmu_lvd_enable
+Lfunc_begin1:
+	banksel 0
+	movfw _rstmu_lvd_enable.args.+0
+LM1:
+.stabn	0x44, 0, 31, LM1-_rstmu_lvd_enable
+Ltmp0:
+	movwf _rstmu_lvd_enable.temp.+0
+	sublw 0
+	beq LBB0_2
+LBB0_1:
+LM2:
+.stabn	0x44, 0, 33, LM2-_rstmu_lvd_enable
+Ltmp1:
+	bcf _LVDCON+0, 4
+	bsf _LVDCON+0, 4
+LM3:
+.stabn	0x44, 0, 34, LM3-_rstmu_lvd_enable
+	goto LBB0_3
+Ltmp2:
+LBB0_2:
+LM4:
+.stabn	0x44, 0, 36, LM4-_rstmu_lvd_enable
+	bcf _LVDCON+0, 4
+	movfw _LVDCON+0
+Ltmp3:
+LBB0_3:
+LM5:
+.stabn	0x44, 0, 38, LM5-_rstmu_lvd_enable
+	return
+Ltmp4:
+Lfunc_end0:
+Lfunc_end1:
+LM6:
+.stabn 0xc0,0,0, LM0-_rstmu_lvd_enable
+.stabs "_enable:10;",0x80,0,0,_rstmu_lvd_enable.args.+0
+.stabn 0xe0,0,0, LM5-_rstmu_lvd_enable
+.stabf LM6-_rstmu_lvd_enable
+
+	_rstmu_get_lvd_sec .section rom
+	.global	_rstmu_get_lvd
+_rstmu_get_lvd:
+Lfunc_begin2:
+.stabs "rstmu_get_lvd:f17=10;;", 0x24,0,0,_rstmu_get_lvd
+.stabn 0xc0, 0, 0, _rstmu_get_lvd
+.stabn 0xe0, 0, 0, _rstmu_get_lvd
+LM7:
+.stabn	0x44, 0, 41, LM7-_rstmu_get_lvd
+Lfunc_begin3:
+LM8:
+.stabn	0x44, 0, 42, LM8-_rstmu_get_lvd
+	banksel 0
+	movfw _LVDCON+0
+	SrlThree
+	andlw 1
+	movwf _rstmu_get_lvd.frame.+0
+	return
+Ltmp5:
+Lfunc_end2:
+Lfunc_end3:
+LM9:
+.stabf LM9-_rstmu_get_lvd
+
+	_rstmu_get_emcreset_sec .section rom
+	.global	_rstmu_get_emcreset
+_rstmu_get_emcreset:
+Lfunc_begin4:
+.stabs "rstmu_get_emcreset:f18=10;;", 0x24,0,0,_rstmu_get_emcreset
+.stabn 0xc0, 0, 0, _rstmu_get_emcreset
+.stabn 0xe0, 0, 0, _rstmu_get_emcreset
+LM10:
+.stabn	0x44, 0, 46, LM10-_rstmu_get_emcreset
+Lfunc_begin5:
+LM11:
+.stabn	0x44, 0, 47, LM11-_rstmu_get_emcreset
+	banksel 0
+	movfw _RSTSR+0
+	SrlTwo
+	andlw 1
+	movwf _rstmu_get_emcreset.frame.+0
+	return
+Ltmp6:
+Lfunc_end4:
+Lfunc_end5:
+LM12:
+.stabf LM12-_rstmu_get_emcreset
+
+	_rstmu_get_ilopreset_sec .section rom
+	.global	_rstmu_get_ilopreset
+_rstmu_get_ilopreset:
+Lfunc_begin6:
+.stabs "rstmu_get_ilopreset:f19=10;;", 0x24,0,0,_rstmu_get_ilopreset
+.stabn 0xc0, 0, 0, _rstmu_get_ilopreset
+.stabn 0xe0, 0, 0, _rstmu_get_ilopreset
+LM13:
+.stabn	0x44, 0, 51, LM13-_rstmu_get_ilopreset
+Lfunc_begin7:
+LM14:
+.stabn	0x44, 0, 52, LM14-_rstmu_get_ilopreset
+	banksel 0
+	movfw _RSTSR+0
+	SrlOne
+	andlw 1
+	movwf _rstmu_get_ilopreset.frame.+0
+	return
+Ltmp7:
+Lfunc_end6:
+Lfunc_end7:
+LM15:
+.stabf LM15-_rstmu_get_ilopreset
+
+	_rstmu_get_wwdtreset_sec .section rom
+	.global	_rstmu_get_wwdtreset
+_rstmu_get_wwdtreset:
+Lfunc_begin8:
+.stabs "rstmu_get_wwdtreset:f20=10;;", 0x24,0,0,_rstmu_get_wwdtreset
+.stabn 0xc0, 0, 0, _rstmu_get_wwdtreset
+.stabn 0xe0, 0, 0, _rstmu_get_wwdtreset
+LM16:
+.stabn	0x44, 0, 56, LM16-_rstmu_get_wwdtreset
+Lfunc_begin9:
+LM17:
+.stabn	0x44, 0, 57, LM17-_rstmu_get_wwdtreset
+	banksel 0
+	movlw 1
+	andwf _RSTSR+0, W
+	movwf _rstmu_get_wwdtreset.frame.+0
+	return
+Ltmp8:
+Lfunc_end8:
+Lfunc_end9:
+LM18:
+.stabf LM18-_rstmu_get_wwdtreset
+
+
+	.@_rstmu_lvd_enable_sec@_rstmu_lvd_enable.args. .section bank1,uninit
+	_rstmu_lvd_enable.args. .ds 1
+	.ends
+
+	.@_rstmu_lvd_enable_sec@_rstmu_lvd_enable.temp. .section bank1,uninit
+	_rstmu_lvd_enable.temp. .ds 1
+	.ends
+
+	.@_rstmu_get_lvd_sec@_rstmu_get_lvd.frame. .section bank1,uninit
+	_rstmu_get_lvd.frame. .ds 1
+	.ends
+
+	.@_rstmu_get_emcreset_sec@_rstmu_get_emcreset.frame. .section bank1,uninit
+	_rstmu_get_emcreset.frame. .ds 1
+	.ends
+
+	.@_rstmu_get_ilopreset_sec@_rstmu_get_ilopreset.frame. .section bank1,uninit
+	_rstmu_get_ilopreset.frame. .ds 1
+	.ends
+
+	.@_rstmu_get_wwdtreset_sec@_rstmu_get_wwdtreset.frame. .section bank1,uninit
+	_rstmu_get_wwdtreset.frame. .ds 1
+	.ends
+
+
+

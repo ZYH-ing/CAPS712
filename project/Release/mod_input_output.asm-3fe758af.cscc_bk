@@ -1,0 +1,1224 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\module\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\module\\mod_input_output.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+.stabs "inoutput_p:G17=*18=10;;",0x20,0,0,_inoutput_p
+
+.stabs "cscc_@anonymity_1:T21=s6b_a1d:22=10;;,0,8;b_b1c:23=10;;,8,16;b_cac:24=10;;,16,24;b_cad:25=10;;,24,32;b_cbc:26=10;;,32,40;b_cbd:27=10;;,40,48;;", 0x80, 0, 0, 0
+.stabs "cscc_@anonymity_0:T20=u6flag:21,0,48;r_plug:28=10;;,0,48;;", 0x80, 0, 0, 0
+.stabs "cscc_@anonymity_2:T31=s6type_a1:32=10;;,0,8;type_b1:33=10;;,8,16;type_ca:34=10;;,16,24;type_cb:35=10;;,24,32;discharge:36=10;;,32,40;pstop:37=10;;,40,48;;", 0x80, 0, 0, 0
+.stabs "vbus_switch_t:T30=s12sw:31,0,48;vbus_type_a1_delay_cnt:38=10;;,48,56;vbus_type_b1_delay_cnt:39=10;;,56,64;vbus_type_ca_delay_cnt:40=10;;,64,72;vbus_type_cb_delay_cnt:41=10;;,72,80;vbus_discharge_delay_cnt:42=10;;,80,88;pstop_delay_cnt:43=10;;,88,96;;", 0x80, 0, 0, 0
+.stabs "inoutput_t:T19=s18plug_status:20,0,48;vbus_switch:29=30;;,48,144;;", 0x80, 0, 0, 0
+.stabs "inoutput_data:G19;",0x20,0,0,_inoutput_data
+.stabs "typeax_t:T46=s10b_level:47=10;;,0,8;b_raising:48=10;;,8,16;b_load_sta:49=10;;,16,24;t_prohbit_check:50=2;;,24,40;t_isexist:51=10;;,40,48;t_isnotexist:52=4;;,48,80;;", 0x80, 0, 0, 0
+.stabs "dcdc_acok_t:T55=s3b_level:56=10;;,0,8;t_isexist:57=10;;,8,16;t_isnotexist:58=10;;,16,24;;", 0x80, 0, 0, 0
+.stabs "misc_interface_t:T44=s23typea1:45=46;;,0,80;typea2:53=46;;,80,160;dcdc_acok:54=55;;,160,184;;", 0x80, 0, 0, 0
+.stabs "misc_interface:G44;",0x20,0,0,_misc_interface
+.stabs "CA_IN_Flage:G10;",0x20,0,0,_CA_IN_Flage
+.stabs "CB_IN_Flage:G10;",0x20,0,0,_CB_IN_Flage
+.stabs "MirB_IN_Flage:G10;",0x20,0,0,_MirB_IN_Flage
+.stabs "TOUCH_OUT_CNT:G1",0x20,0,0,_TOUCH_OUT_CNT
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_mod_inoutput_init_sec .section rom
+	.global	_mod_inoutput_init
+_mod_inoutput_init:
+Lfunc_begin0:
+.stabs "mod_inoutput_init:f:16", 0x24,0,0,_mod_inoutput_init
+.stabn 0xc0, 0, 0, _mod_inoutput_init
+.stabn 0xe0, 0, 0, _mod_inoutput_init
+LM0:
+.stabn	0x44, 0, 89, LM0-_mod_inoutput_init
+Lfunc_begin1:
+LM1:
+.stabn	0x44, 0, 91, LM1-_mod_inoutput_init
+	banksel 0
+	bsf _PT1EN4, _PT1EN4
+	bcf _PT14, _PT14
+Ltmp0:
+LM2:
+.stabn	0x44, 0, 96, LM2-_mod_inoutput_init
+	bcf _PT37, _PT37
+LM3:
+.stabn	0x44, 0, 170, LM3-_mod_inoutput_init
+	bsf BSR,1
+	clrf _inoutput_data+13
+LM4:
+.stabn	0x44, 0, 171, LM4-_mod_inoutput_init
+	clrf _inoutput_data+14
+LM5:
+.stabn	0x44, 0, 173, LM5-_mod_inoutput_init
+	clrf _inoutput_data+16
+LM6:
+.stabn	0x44, 0, 174, LM6-_mod_inoutput_init
+	clrf _inoutput_data+17
+LM7:
+.stabn	0x44, 0, 177, LM7-_mod_inoutput_init
+	bcf BSR,1
+	clrf _Mod_Dis_USBA_EN.args.+0
+	call _Mod_Dis_USBA_EN
+LM8:
+.stabn	0x44, 0, 181, LM8-_mod_inoutput_init
+	bsf BSR,1
+	clrf _inoutput_data+7
+LM9:
+.stabn	0x44, 0, 182, LM9-_mod_inoutput_init
+	clrf _inoutput_data+8
+LM10:
+.stabn	0x44, 0, 184, LM10-_mod_inoutput_init
+	clrf _inoutput_data+10
+LM11:
+.stabn	0x44, 0, 185, LM11-_mod_inoutput_init
+	movlw 1
+	movwf _inoutput_data+11
+LM12:
+.stabn	0x44, 0, 186, LM12-_mod_inoutput_init
+	banksel 0
+	return
+Ltmp1:
+Lfunc_end0:
+Lfunc_end1:
+LM13:
+.stabf LM13-_mod_inoutput_init
+
+	_mod_inoutput_disable_sec .section rom
+	.global	_mod_inoutput_disable
+_mod_inoutput_disable:
+Lfunc_begin2:
+.stabs "mod_inoutput_disable:f:16", 0x24,0,0,_mod_inoutput_disable
+.stabn 0xc0, 0, 0, _mod_inoutput_disable
+.stabn 0xe0, 0, 0, _mod_inoutput_disable
+LM14:
+.stabn	0x44, 0, 190, LM14-_mod_inoutput_disable
+Lfunc_begin3:
+LM15:
+.stabn	0x44, 0, 269, LM15-_mod_inoutput_disable
+	banksel 0
+	return
+Ltmp2:
+Lfunc_end2:
+Lfunc_end3:
+LM16:
+.stabf LM16-_mod_inoutput_disable
+
+	_mod_inoutput_plug_check_proc_sec .section rom
+	.global	_mod_inoutput_plug_check_proc
+_mod_inoutput_plug_check_proc:
+Lfunc_begin4:
+.stabs "mod_inoutput_plug_check_proc:f:16", 0x24,0,0,_mod_inoutput_plug_check_proc
+.stabn 0xc0, 0, 0, _mod_inoutput_plug_check_proc
+.stabn 0xe0, 0, 0, _mod_inoutput_plug_check_proc
+LM17:
+.stabn	0x44, 0, 275, LM17-_mod_inoutput_plug_check_proc
+Lfunc_begin5:
+LM18:
+.stabn	0x44, 0, 289, LM18-_mod_inoutput_plug_check_proc
+	banksel 0
+	movfwl _USBA_sleep_up+0
+Ltmp3:
+	sublw 0
+	beq LBB2_4
+LBB2_1:
+LM19:
+.stabn	0x44, 0, 291, LM19-_mod_inoutput_plug_check_proc
+Ltmp4:
+	bsf BSR,0
+	incf _USBA_sleep_up+0, F
+LM20:
+.stabn	0x44, 0, 292, LM20-_mod_inoutput_plug_check_proc
+Ltmp5:
+	movfw _USBA_sleep_up+0
+Ltmp6:
+	sublw 100
+	bgt LBB2_3
+LBB2_2:
+LM21:
+.stabn	0x44, 0, 294, LM21-_mod_inoutput_plug_check_proc
+Ltmp7:
+	clrf _USBA_sleep_up+0
+LM22:
+.stabn	0x44, 0, 295, LM22-_mod_inoutput_plug_check_proc
+	banksel _misc_interface
+	clrf _misc_interface+0
+Ltmp8:
+LBB2_3:
+LBB2_4:
+LM23:
+.stabn	0x44, 0, 299, LM23-_mod_inoutput_plug_check_proc
+	banksel _mod_inoutput_plug_check_proc.temp.
+	movfw _mod_inoutput_plug_check_proc.temp.+0
+Ltmp9:
+	sublw 0
+	beq LBB2_8
+LBB2_5:
+LM24:
+.stabn	0x44, 0, 302, LM24-_mod_inoutput_plug_check_proc
+Ltmp10:
+	movfwl _misc_interface+0
+Ltmp11:
+	sublw 0
+	bne LBB2_7
+LBB2_6:
+LM25:
+.stabn	0x44, 0, 304, LM25-_mod_inoutput_plug_check_proc
+Ltmp12:
+	movlw 1
+	bsf BSR,1
+	movwf _misc_interface+0
+LM26:
+.stabn	0x44, 0, 305, LM26-_mod_inoutput_plug_check_proc
+	movwf _misc_interface+1
+Ltmp13:
+LBB2_7:
+LM27:
+.stabn	0x44, 0, 307, LM27-_mod_inoutput_plug_check_proc
+	goto LBB2_11
+Ltmp14:
+LBB2_8:
+LM28:
+.stabn	0x44, 0, 310, LM28-_mod_inoutput_plug_check_proc
+	movfwl _misc_interface+0
+Ltmp15:
+	sublw 0
+	beq LBB2_10
+LBB2_9:
+LM29:
+.stabn	0x44, 0, 312, LM29-_mod_inoutput_plug_check_proc
+Ltmp16:
+	bsf BSR,1
+	clrf _misc_interface+0
+Ltmp17:
+LBB2_10:
+LBB2_11:
+LM30:
+.stabn	0x44, 0, 317, LM30-_mod_inoutput_plug_check_proc
+	banksel _misc_interface
+	movfw _misc_interface+3
+Ltmp18:
+	iorwf _misc_interface+4, W
+	sublw 0
+	beq LBB2_13
+LBB2_12:
+LM31:
+.stabn	0x44, 0, 319, LM31-_mod_inoutput_plug_check_proc
+Ltmp19:
+	movlw 0xff
+	addwf _misc_interface+3, F
+	movlw 0xff
+	addwfc _misc_interface+4, W
+	movwf _misc_interface+4
+Ltmp20:
+LBB2_13:
+LM32:
+.stabn	0x44, 0, 322, LM32-_mod_inoutput_plug_check_proc
+	movfw _misc_interface+3
+Ltmp21:
+	iorwf _misc_interface+4, W
+	sublw 0
+	beq LBB2_15
+LBB2_14:
+LM33:
+.stabn	0x44, 0, 324, LM33-_mod_inoutput_plug_check_proc
+Ltmp22:
+	clrf _misc_interface+1
+LM34:
+.stabn	0x44, 0, 325, LM34-_mod_inoutput_plug_check_proc
+	goto LBB2_38
+Ltmp23:
+LBB2_15:
+LM35:
+.stabn	0x44, 0, 327, LM35-_mod_inoutput_plug_check_proc
+	movlw 4
+	andwf _plug_state_context+0, W
+Ltmp24:
+	sublw 0
+	beq LBB2_17
+LBB2_16:
+LM36:
+.stabn	0x44, 0, 329, LM36-_mod_inoutput_plug_check_proc
+Ltmp25:
+	clrf _misc_interface+1
+LM37:
+.stabn	0x44, 0, 330, LM37-_mod_inoutput_plug_check_proc
+	goto LBB2_38
+Ltmp26:
+LBB2_17:
+LM38:
+.stabn	0x44, 0, 332, LM38-_mod_inoutput_plug_check_proc
+	movfwl _Type_cb_charge_in+0
+Ltmp27:
+	sublw 0
+	beq LBB2_19
+LBB2_18:
+LM39:
+.stabn	0x44, 0, 334, LM39-_mod_inoutput_plug_check_proc
+Ltmp28:
+	clrf _misc_interface+1
+LM40:
+.stabn	0x44, 0, 335, LM40-_mod_inoutput_plug_check_proc
+	goto LBB2_38
+Ltmp29:
+LBB2_19:
+LM41:
+.stabn	0x44, 0, 338, LM41-_mod_inoutput_plug_check_proc
+	movfwl _Bat_low_Cnt+0
+Ltmp30:
+	sublw 30
+	bgt LBB2_21
+LBB2_20:
+LM42:
+.stabn	0x44, 0, 340, LM42-_mod_inoutput_plug_check_proc
+Ltmp31:
+	clrf _misc_interface+1
+LM43:
+.stabn	0x44, 0, 341, LM43-_mod_inoutput_plug_check_proc
+	goto LBB2_38
+Ltmp32:
+LBB2_21:
+LM44:
+.stabn	0x44, 0, 344, LM44-_mod_inoutput_plug_check_proc
+	movfwl _Temp+1
+Ltmp33:
+	sublw 0
+	bne LBB2_23
+LBB2_22:
+LM45:
+.stabn	0x44, 0, 346, LM45-_mod_inoutput_plug_check_proc
+Ltmp34:
+	clrf _misc_interface+1
+LM46:
+.stabn	0x44, 0, 347, LM46-_mod_inoutput_plug_check_proc
+	goto LBB2_38
+Ltmp35:
+LBB2_23:
+LM47:
+.stabn	0x44, 0, 351, LM47-_mod_inoutput_plug_check_proc
+	movfw _misc_interface+2
+Ltmp36:
+	sublw 0
+	bne LBB2_29
+LBB2_24:
+LM48:
+.stabn	0x44, 0, 353, LM48-_mod_inoutput_plug_check_proc
+Ltmp37:
+	clrf _misc_interface+6
+	clrf _misc_interface+7
+	clrf _misc_interface+8
+	clrf _misc_interface+9
+LM49:
+.stabn	0x44, 0, 354, LM49-_mod_inoutput_plug_check_proc
+Ltmp38:
+	movfw _misc_interface+5
+	movwfl _mod_inoutput_plug_check_proc.temp.+1
+	addlw 1
+	movwf _misc_interface+5
+Ltmp39:
+	movfwl _mod_inoutput_plug_check_proc.temp.+1
+	sublw 21
+	bgt LBB2_28
+LBB2_25:
+LM50:
+.stabn	0x44, 0, 356, LM50-_mod_inoutput_plug_check_proc
+Ltmp40:
+	clrf _misc_interface+5
+LM51:
+.stabn	0x44, 0, 357, LM51-_mod_inoutput_plug_check_proc
+Ltmp41:
+	movfw _misc_interface+1
+Ltmp42:
+	sublw 0
+	beq LBB2_27
+LBB2_26:
+LM52:
+.stabn	0x44, 0, 360, LM52-_mod_inoutput_plug_check_proc
+Ltmp43:
+	clrf _misc_interface+1
+LM53:
+.stabn	0x44, 0, 361, LM53-_mod_inoutput_plug_check_proc
+	movlw 1
+	movwf _misc_interface+2
+LM54:
+.stabn	0x44, 0, 362, LM54-_mod_inoutput_plug_check_proc
+	clrf _misc_interface+6
+	clrf _misc_interface+7
+	clrf _misc_interface+8
+	clrf _misc_interface+9
+LM55:
+.stabn	0x44, 0, 361, LM55-_mod_inoutput_plug_check_proc
+	movlw 1
+LM56:
+.stabn	0x44, 0, 364, LM56-_mod_inoutput_plug_check_proc
+	movwfl _mod_queue_send.args.+0
+	call _mod_queue_send
+Ltmp44:
+LBB2_27:
+LBB2_28:
+LM57:
+.stabn	0x44, 0, 367, LM57-_mod_inoutput_plug_check_proc
+	goto LBB2_30
+Ltmp45:
+LBB2_29:
+LM58:
+.stabn	0x44, 0, 370, LM58-_mod_inoutput_plug_check_proc
+	clrf _misc_interface+5
+Ltmp46:
+LBB2_30:
+LM59:
+.stabn	0x44, 0, 374, LM59-_mod_inoutput_plug_check_proc
+	banksel _inoutput_data
+	movfw _inoutput_data+10
+Ltmp47:
+	sublw 0
+	bne LBB2_38
+LBB2_31:
+LM60:
+.stabn	0x44, 0, 377, LM60-_mod_inoutput_plug_check_proc
+Ltmp48:
+	movfw _misc_interface+2
+Ltmp49:
+	sublw 0
+	beq LBB2_37
+LBB2_32:
+LM61:
+.stabn	0x44, 0, 380, LM61-_mod_inoutput_plug_check_proc
+Ltmp50:
+	movlw 1
+	movwfl _mod_inoutput_plug_check_proc.temp.+1
+Ltmp51:
+	movfwl _adc_convert+19
+Ltmp52:
+	sublw 5
+	blt LBB2_40
+LBB2_39:
+	movlw 0
+	movwfl _mod_inoutput_plug_check_proc.temp.+1
+LBB2_40:
+	movlw 1
+	movwfl _mod_inoutput_plug_check_proc.temp.+2
+Ltmp53:
+	movfwl _adc_convert+20
+Ltmp54:
+	movwfl _mod_inoutput_plug_check_proc.temp.+3
+	sublw 0
+	bne LBB2_42
+LBB2_41:
+	movlw 0
+	movwfl _mod_inoutput_plug_check_proc.temp.+2
+LBB2_42:
+	bcf BSR,1
+	movfw _mod_inoutput_plug_check_proc.temp.+1
+	movwf _mod_inoutput_plug_check_proc.temp.+1
+	movfw _mod_inoutput_plug_check_proc.temp.+3
+	sublw 0
+	beq LBB2_44
+LBB2_43:
+	movfw _mod_inoutput_plug_check_proc.temp.+2
+	movwf _mod_inoutput_plug_check_proc.temp.+1
+LBB2_44:
+	movfw _mod_inoutput_plug_check_proc.temp.+1
+	andlw 1
+	sublw 0
+	bne LBB2_36
+LBB2_33:
+LM62:
+.stabn	0x44, 0, 382, LM62-_mod_inoutput_plug_check_proc
+Ltmp55:
+	movfwl _misc_interface+6
+	movwf _mod_inoutput_plug_check_proc.temp.+1
+	addlw 1
+	bsf BSR,1
+	movwf _misc_interface+6
+	movfw _misc_interface+7
+	bcf BSR,1
+	movwf _mod_inoutput_plug_check_proc.temp.+2
+	addlwc 0
+	bsf BSR,1
+	movwf _misc_interface+7
+	movfw _misc_interface+8
+	bcf BSR,1
+	movwf _mod_inoutput_plug_check_proc.temp.+3
+	addlwc 0
+	bsf BSR,1
+	movwf _misc_interface+8
+	movfw _misc_interface+9
+	bcf BSR,1
+	movwf _mod_inoutput_plug_check_proc.temp.+4
+	addlwc 0
+	movwfl _misc_interface+9
+Ltmp56:
+	movlw 1
+	movwf _mod_inoutput_plug_check_proc.temp.+5
+	movfw _mod_inoutput_plug_check_proc.temp.+1
+	sublw 0xe9
+	bgt LBB2_46
+LBB2_45:
+	movlw 0
+	movwf _mod_inoutput_plug_check_proc.temp.+5
+LBB2_46:
+	movlw 1
+	movwf _mod_inoutput_plug_check_proc.temp.+1
+	movfw _mod_inoutput_plug_check_proc.temp.+2
+	sublw 3
+	bgt LBB2_48
+LBB2_47:
+	movlw 0
+	movwf _mod_inoutput_plug_check_proc.temp.+1
+LBB2_48:
+	movfw _mod_inoutput_plug_check_proc.temp.+5
+	movwf _mod_inoutput_plug_check_proc.temp.+5
+	movfw _mod_inoutput_plug_check_proc.temp.+2
+	sublw 3
+	beq LBB2_50
+LBB2_49:
+	movfw _mod_inoutput_plug_check_proc.temp.+1
+	movwf _mod_inoutput_plug_check_proc.temp.+5
+LBB2_50:
+	movfw _mod_inoutput_plug_check_proc.temp.+4
+	iorwf _mod_inoutput_plug_check_proc.temp.+3, W
+	sublw 0
+	beq LBB2_52
+LBB2_51:
+	movlw 0
+	movwf _mod_inoutput_plug_check_proc.temp.+5
+LBB2_52:
+	movfw _mod_inoutput_plug_check_proc.temp.+5
+	andlw 1
+	sublw 0
+	bne LBB2_35
+LBB2_34:
+LM63:
+.stabn	0x44, 0, 384, LM63-_mod_inoutput_plug_check_proc
+Ltmp57:
+	bsf BSR,1
+	clrf _misc_interface+2
+LM64:
+.stabn	0x44, 0, 385, LM64-_mod_inoutput_plug_check_proc
+	clrf _misc_interface+6
+	clrf _misc_interface+7
+	clrf _misc_interface+8
+	clrf _misc_interface+9
+LM65:
+.stabn	0x44, 0, 386, LM65-_mod_inoutput_plug_check_proc
+	movlw 0xc8
+	movwf _misc_interface+3
+	clrf _misc_interface+4
+LM66:
+.stabn	0x44, 0, 388, LM66-_mod_inoutput_plug_check_proc
+	movlw 2
+	movwfl _mod_queue_send.args.+0
+	call _mod_queue_send
+LM67:
+.stabn	0x44, 0, 389, LM67-_mod_inoutput_plug_check_proc
+	clrf _USBA_IN_DIS+0
+Ltmp58:
+LBB2_35:
+LBB2_36:
+LBB2_37:
+LBB2_38:
+LM68:
+.stabn	0x44, 0, 401, LM68-_mod_inoutput_plug_check_proc
+	banksel 0
+	return
+Ltmp59:
+Lfunc_end4:
+Lfunc_end5:
+LM69:
+.stabn 0xc0,0,0, LM18-_mod_inoutput_plug_check_proc
+.stabs "USBA_IN:10;",0x80,0,0,_mod_inoutput_plug_check_proc.temp.+0
+.stabn 0xe0,0,0, LM68-_mod_inoutput_plug_check_proc
+.stabf LM69-_mod_inoutput_plug_check_proc
+
+	_mod_inoutput_plug_check_proc_USBA2_sec .section rom
+	.global	_mod_inoutput_plug_check_proc_USBA2
+_mod_inoutput_plug_check_proc_USBA2:
+Lfunc_begin6:
+.stabs "mod_inoutput_plug_check_proc_USBA2:f:16", 0x24,0,0,_mod_inoutput_plug_check_proc_USBA2
+.stabn 0xc0, 0, 0, _mod_inoutput_plug_check_proc_USBA2
+.stabn 0xe0, 0, 0, _mod_inoutput_plug_check_proc_USBA2
+LM70:
+.stabn	0x44, 0, 403, LM70-_mod_inoutput_plug_check_proc_USBA2
+Lfunc_begin7:
+LM71:
+.stabn	0x44, 0, 405, LM71-_mod_inoutput_plug_check_proc_USBA2
+	banksel 0
+	movlw 0 
+	btfsc _PT14, _PT14 
+	movlw 1
+	andlw 1
+Ltmp60:
+	sublw 0
+	beq LBB3_4
+LBB3_1:
+LM72:
+.stabn	0x44, 0, 407, LM72-_mod_inoutput_plug_check_proc_USBA2
+Ltmp61:
+	movlw 1
+	bsf BSR,1
+	addwf _TOUCH_OUT_CNT+0, F
+	movlw 0
+	addwfc _TOUCH_OUT_CNT+1, F
+LM73:
+.stabn	0x44, 0, 408, LM73-_mod_inoutput_plug_check_proc_USBA2
+Ltmp62:
+	banksel 0
+	CSCC_CMP_CONST _TOUCH_OUT_CNT,50,0,0,0,5,1,16,0,4
+Ltmp63:
+	andlw 1
+	sublw 0
+	bne LBB3_3
+LBB3_2:
+LM74:
+.stabn	0x44, 0, 410, LM74-_mod_inoutput_plug_check_proc_USBA2
+Ltmp64:
+	bsf BSR,1
+	clrf _TOUCH_OUT_CNT+0
+	clrf _TOUCH_OUT_CNT+1
+LM75:
+.stabn	0x44, 0, 411, LM75-_mod_inoutput_plug_check_proc_USBA2
+	movlw 1
+	movwfl _mod_inoutput_plug_check_proc_USBA2.temp.+0
+Ltmp65:
+LBB3_3:
+LM76:
+.stabn	0x44, 0, 413, LM76-_mod_inoutput_plug_check_proc_USBA2
+	goto LBB3_5
+Ltmp66:
+LBB3_4:
+LM77:
+.stabn	0x44, 0, 416, LM77-_mod_inoutput_plug_check_proc_USBA2
+	bsf BSR,1
+	clrf _TOUCH_OUT_CNT+0
+	clrf _TOUCH_OUT_CNT+1
+LM78:
+.stabn	0x44, 0, 417, LM78-_mod_inoutput_plug_check_proc_USBA2
+	bcf BSR,1
+	clrf _mod_inoutput_plug_check_proc_USBA2.temp.+0
+Ltmp67:
+LBB3_5:
+LM79:
+.stabn	0x44, 0, 419, LM79-_mod_inoutput_plug_check_proc_USBA2
+	banksel _mod_inoutput_plug_check_proc_USBA2.temp.
+	movfw _mod_inoutput_plug_check_proc_USBA2.temp.+0
+Ltmp68:
+	sublw 0
+	beq LBB3_9
+LBB3_6:
+LM80:
+.stabn	0x44, 0, 421, LM80-_mod_inoutput_plug_check_proc_USBA2
+Ltmp69:
+	movfwl _misc_interface+10
+Ltmp70:
+	sublw 0
+	bne LBB3_8
+LBB3_7:
+LM81:
+.stabn	0x44, 0, 423, LM81-_mod_inoutput_plug_check_proc_USBA2
+Ltmp71:
+	movlw 1
+	bsf BSR,1
+	movwf _misc_interface+10
+LM82:
+.stabn	0x44, 0, 424, LM82-_mod_inoutput_plug_check_proc_USBA2
+	movwf _misc_interface+11
+Ltmp72:
+LBB3_8:
+LM83:
+.stabn	0x44, 0, 426, LM83-_mod_inoutput_plug_check_proc_USBA2
+	goto LBB3_12
+Ltmp73:
+LBB3_9:
+LM84:
+.stabn	0x44, 0, 429, LM84-_mod_inoutput_plug_check_proc_USBA2
+	movfwl _misc_interface+10
+Ltmp74:
+	sublw 0
+	beq LBB3_11
+LBB3_10:
+LM85:
+.stabn	0x44, 0, 431, LM85-_mod_inoutput_plug_check_proc_USBA2
+Ltmp75:
+	bsf BSR,1
+	clrf _misc_interface+10
+Ltmp76:
+LBB3_11:
+LBB3_12:
+LM86:
+.stabn	0x44, 0, 436, LM86-_mod_inoutput_plug_check_proc_USBA2
+	banksel _misc_interface
+	movfw _misc_interface+13
+Ltmp77:
+	iorwf _misc_interface+14, W
+	sublw 0
+	beq LBB3_14
+LBB3_13:
+LM87:
+.stabn	0x44, 0, 438, LM87-_mod_inoutput_plug_check_proc_USBA2
+Ltmp78:
+	movlw 0xff
+	addwf _misc_interface+13, F
+	movlw 0xff
+	addwfc _misc_interface+14, W
+	movwf _misc_interface+14
+Ltmp79:
+LBB3_14:
+LM88:
+.stabn	0x44, 0, 441, LM88-_mod_inoutput_plug_check_proc_USBA2
+	movfw _misc_interface+13
+Ltmp80:
+	iorwf _misc_interface+14, W
+	sublw 0
+	beq LBB3_16
+LBB3_15:
+LM89:
+.stabn	0x44, 0, 443, LM89-_mod_inoutput_plug_check_proc_USBA2
+Ltmp81:
+	clrf _misc_interface+11
+LM90:
+.stabn	0x44, 0, 444, LM90-_mod_inoutput_plug_check_proc_USBA2
+	goto LBB3_29
+Ltmp82:
+LBB3_16:
+LM91:
+.stabn	0x44, 0, 447, LM91-_mod_inoutput_plug_check_proc_USBA2
+	movfwl _Bat_low_Cnt+0
+Ltmp83:
+	sublw 30
+	bgt LBB3_18
+LBB3_17:
+LM92:
+.stabn	0x44, 0, 449, LM92-_mod_inoutput_plug_check_proc_USBA2
+Ltmp84:
+	clrf _misc_interface+11
+LM93:
+.stabn	0x44, 0, 450, LM93-_mod_inoutput_plug_check_proc_USBA2
+	goto LBB3_29
+Ltmp85:
+LBB3_18:
+LM94:
+.stabn	0x44, 0, 453, LM94-_mod_inoutput_plug_check_proc_USBA2
+	movfwl _Temp+1
+Ltmp86:
+	sublw 0
+	bne LBB3_20
+LBB3_19:
+LM95:
+.stabn	0x44, 0, 455, LM95-_mod_inoutput_plug_check_proc_USBA2
+Ltmp87:
+	clrf _misc_interface+11
+LM96:
+.stabn	0x44, 0, 456, LM96-_mod_inoutput_plug_check_proc_USBA2
+	goto LBB3_29
+Ltmp88:
+LBB3_20:
+LM97:
+.stabn	0x44, 0, 460, LM97-_mod_inoutput_plug_check_proc_USBA2
+	movfw _misc_interface+12
+Ltmp89:
+	sublw 0
+	bne LBB3_26
+LBB3_21:
+LM98:
+.stabn	0x44, 0, 462, LM98-_mod_inoutput_plug_check_proc_USBA2
+Ltmp90:
+	clrf _misc_interface+16
+	clrf _misc_interface+17
+	clrf _misc_interface+18
+	clrf _misc_interface+19
+LM99:
+.stabn	0x44, 0, 463, LM99-_mod_inoutput_plug_check_proc_USBA2
+Ltmp91:
+	movfw _misc_interface+15
+	movwfl _mod_inoutput_plug_check_proc_USBA2.temp.+1
+	addlw 1
+	movwf _misc_interface+15
+Ltmp92:
+	movfwl _mod_inoutput_plug_check_proc_USBA2.temp.+1
+	sublw 21
+	bgt LBB3_25
+LBB3_22:
+LM100:
+.stabn	0x44, 0, 465, LM100-_mod_inoutput_plug_check_proc_USBA2
+Ltmp93:
+	clrf _misc_interface+15
+LM101:
+.stabn	0x44, 0, 466, LM101-_mod_inoutput_plug_check_proc_USBA2
+Ltmp94:
+	movfw _misc_interface+11
+Ltmp95:
+	sublw 0
+	beq LBB3_24
+LBB3_23:
+LM102:
+.stabn	0x44, 0, 469, LM102-_mod_inoutput_plug_check_proc_USBA2
+Ltmp96:
+	clrf _misc_interface+11
+LM103:
+.stabn	0x44, 0, 470, LM103-_mod_inoutput_plug_check_proc_USBA2
+	movlw 1
+	movwf _misc_interface+12
+LM104:
+.stabn	0x44, 0, 471, LM104-_mod_inoutput_plug_check_proc_USBA2
+	clrf _misc_interface+16
+	clrf _misc_interface+17
+	clrf _misc_interface+18
+	clrf _misc_interface+19
+LM105:
+.stabn	0x44, 0, 474, LM105-_mod_inoutput_plug_check_proc_USBA2
+	movlw 9
+	movwfl _mod_queue_send.args.+0
+	call _mod_queue_send
+Ltmp97:
+LBB3_24:
+LBB3_25:
+LM106:
+.stabn	0x44, 0, 477, LM106-_mod_inoutput_plug_check_proc_USBA2
+	goto LBB3_27
+Ltmp98:
+LBB3_26:
+LM107:
+.stabn	0x44, 0, 480, LM107-_mod_inoutput_plug_check_proc_USBA2
+	clrf _misc_interface+15
+Ltmp99:
+LBB3_27:
+LM108:
+.stabn	0x44, 0, 490, LM108-_mod_inoutput_plug_check_proc_USBA2
+	banksel _misc_interface
+	movfw _misc_interface+12
+Ltmp100:
+	sublw 0
+LBB3_28:
+LBB3_29:
+LM109:
+.stabn	0x44, 0, 520, LM109-_mod_inoutput_plug_check_proc_USBA2
+	banksel 0
+	return
+Ltmp101:
+Lfunc_end6:
+Lfunc_end7:
+LM110:
+.stabn 0xc0,0,0, LM71-_mod_inoutput_plug_check_proc_USBA2
+.stabs "USBA2_IN:10;",0x80,0,0,_mod_inoutput_plug_check_proc_USBA2.temp.+0
+.stabn 0xe0,0,0, LM109-_mod_inoutput_plug_check_proc_USBA2
+.stabf LM110-_mod_inoutput_plug_check_proc_USBA2
+
+	_mod_io_vbus_switch_sec .section rom
+	.global	_mod_io_vbus_switch
+_mod_io_vbus_switch:
+Lfunc_begin8:
+.stabs "mod_io_vbus_switch:f:16", 0x24,0,0,_mod_io_vbus_switch
+.stabn 0xc0, 0, 0, _mod_io_vbus_switch
+.stabn 0xe0, 0, 0, _mod_io_vbus_switch
+LM111:
+.stabn	0x44, 0, 523, LM111-_mod_io_vbus_switch
+Lfunc_begin9:
+LM112:
+.stabn	0x44, 0, 549, LM112-_mod_io_vbus_switch
+	banksel 0
+	movfwl _inoutput_data+8
+	sublw 0
+	beq LBB4_3
+LBB4_1:
+LM113:
+.stabn	0x44, 0, 550, LM113-_mod_io_vbus_switch
+	movfwl _inoutput_data+14
+Ltmp102:
+LM114:
+.stabn	0x44, 0, 549, LM114-_mod_io_vbus_switch
+	sublw 0
+	bne LBB4_3
+LBB4_2:
+LM115:
+.stabn	0x44, 0, 554, LM115-_mod_io_vbus_switch
+Ltmp103:
+	bsf _PT1EN4, _PT1EN4
+	bsf _PT14, _PT14
+Ltmp104:
+LM116:
+.stabn	0x44, 0, 555, LM116-_mod_io_vbus_switch
+	bsf BSR,2
+	bsf _multi_protocol+86, 0
+LM117:
+.stabn	0x44, 0, 556, LM117-_mod_io_vbus_switch
+	goto LBB4_4
+Ltmp105:
+LBB4_3:
+LM118:
+.stabn	0x44, 0, 561, LM118-_mod_io_vbus_switch
+	bsf _PT1EN4, _PT1EN4
+	bcf _PT14, _PT14
+Ltmp106:
+LM119:
+.stabn	0x44, 0, 562, LM119-_mod_io_vbus_switch
+	bsf BSR,2
+	bcf _multi_protocol+86, 0
+Ltmp107:
+LBB4_4:
+LM120:
+.stabn	0x44, 0, 592, LM120-_mod_io_vbus_switch
+	movfwl _inoutput_data+10
+	sublw 0
+	beq LBB4_9
+LBB4_5:
+LM121:
+.stabn	0x44, 0, 593, LM121-_mod_io_vbus_switch
+	movfwl _inoutput_data+16
+Ltmp108:
+LM122:
+.stabn	0x44, 0, 592, LM122-_mod_io_vbus_switch
+	sublw 0
+	beq LBB4_9
+LBB4_6:
+LM123:
+.stabn	0x44, 0, 597, LM123-_mod_io_vbus_switch
+Ltmp109:
+	movfwl _mod_io_vbus_switch.port_reuse_vbus_disc+0
+Ltmp110:
+	sublw 0
+	bne LBB4_8
+LBB4_7:
+LM124:
+.stabn	0x44, 0, 599, LM124-_mod_io_vbus_switch
+Ltmp111:
+	movlw 1
+	bcf BSR,2
+	movwf _mod_io_vbus_switch.port_reuse_vbus_disc+0
+LM125:
+.stabn	0x44, 0, 601, LM125-_mod_io_vbus_switch
+	movwf _SW7203VbusDischarge.args.+0
+	call _SW7203VbusDischarge
+Ltmp112:
+LBB4_8:
+LM126:
+.stabn	0x44, 0, 610, LM126-_mod_io_vbus_switch
+	goto LBB4_12
+Ltmp113:
+LBB4_9:
+LM127:
+.stabn	0x44, 0, 615, LM127-_mod_io_vbus_switch
+	movfwl _mod_io_vbus_switch.port_reuse_vbus_disc+0
+Ltmp114:
+	sublw 0
+	beq LBB4_11
+LBB4_10:
+LM128:
+.stabn	0x44, 0, 617, LM128-_mod_io_vbus_switch
+Ltmp115:
+	bcf BSR,2
+	clrf _mod_io_vbus_switch.port_reuse_vbus_disc+0
+LM129:
+.stabn	0x44, 0, 618, LM129-_mod_io_vbus_switch
+	bsf BSR,1
+	clrf _inoutput_data+10
+LM130:
+.stabn	0x44, 0, 620, LM130-_mod_io_vbus_switch
+	bcf BSR,1
+	clrf _SW7203VbusDischarge.args.+0
+	call _SW7203VbusDischarge
+Ltmp116:
+LBB4_11:
+LBB4_12:
+LM131:
+.stabn	0x44, 0, 652, LM131-_mod_io_vbus_switch
+	banksel 0
+	return
+Ltmp117:
+Lfunc_end8:
+Lfunc_end9:
+.stabn 0xc0,0,0, LM112-_mod_io_vbus_switch
+.stabs "port_reuse_vbus_disc:10;",0x80,0,0,_mod_io_vbus_switch.port_reuse_vbus_disc
+.stabn 0xe0,0,0, LM131-_mod_io_vbus_switch
+LM132:
+.stabf LM132-_mod_io_vbus_switch
+
+	_mod_io_vbus_switch_timer_sec .section rom
+	.global	_mod_io_vbus_switch_timer
+_mod_io_vbus_switch_timer:
+Lfunc_begin10:
+.stabs "mod_io_vbus_switch_timer:f:16", 0x24,0,0,_mod_io_vbus_switch_timer
+.stabn 0xc0, 0, 0, _mod_io_vbus_switch_timer
+.stabn 0xe0, 0, 0, _mod_io_vbus_switch_timer
+LM133:
+.stabn	0x44, 0, 657, LM133-_mod_io_vbus_switch_timer
+Lfunc_begin11:
+LM134:
+.stabn	0x44, 0, 658, LM134-_mod_io_vbus_switch_timer
+	banksel 0
+	movlw LOW(_inoutput_data+0)
+	addlw 12
+	movwf _inoutput_p+0
+	movlw HIGH8(_inoutput_data+0)
+	addlwc 0
+	movwf _inoutput_p+1
+LM135:
+.stabn	0x44, 0, 659, LM135-_mod_io_vbus_switch_timer
+Ltmp118:
+	clrf _mod_io_vbus_switch_timer.temp.+0
+LBB5_1:
+Ltmp119:
+	movfw _mod_io_vbus_switch_timer.temp.+0
+Ltmp120:
+	sublw 5
+	blt LBB5_6
+LBB5_2:
+LM136:
+.stabn	0x44, 0, 661, LM136-_mod_io_vbus_switch_timer
+Ltmp121:
+	movfw _inoutput_p+0
+	movwf FSR0
+	movfw _inoutput_p+1
+	movwf FSR0H
+	moviw 0
+Ltmp122:
+	sublw 0
+	beq LBB5_4
+LBB5_3:
+Ltmp123:
+	movfw _inoutput_p+0
+	movwf FSR0
+	movfw _inoutput_p+1
+	movwf FSR0H
+	moviw 0
+	addlw 0xff
+	movwf _mod_io_vbus_switch_timer.temp.+1
+	movfw _inoutput_p+0
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _inoutput_p+1
+	movwf FSR0H
+	movfw _mod_io_vbus_switch_timer.temp.+1
+	movwf IND0
+Ltmp124:
+LBB5_4:
+LM137:
+.stabn	0x44, 0, 662, LM137-_mod_io_vbus_switch_timer
+	movlw 1
+	addwf _inoutput_p+0, F
+	movlw 0
+	addwfc _inoutput_p+1, W
+	movwf _inoutput_p+1
+Ltmp125:
+LM138:
+.stabn	0x44, 0, 659, LM138-_mod_io_vbus_switch_timer
+	incf _mod_io_vbus_switch_timer.temp.+0, F
+	goto LBB5_1
+Ltmp126:
+LBB5_6:
+LM139:
+.stabn	0x44, 0, 664, LM139-_mod_io_vbus_switch_timer
+	clrf _inoutput_p+0
+	clrf _inoutput_p+1
+LM140:
+.stabn	0x44, 0, 671, LM140-_mod_io_vbus_switch_timer
+	return
+Ltmp127:
+Lfunc_end10:
+Lfunc_end11:
+LM141:
+.stabn 0xc0,0,0, LM135-_mod_io_vbus_switch_timer
+.stabs "i:10;",0x80,0,0,_mod_io_vbus_switch_timer.temp.+0
+.stabn 0xe0,0,0, LM135-_mod_io_vbus_switch_timer
+.stabf LM141-_mod_io_vbus_switch_timer
+
+	_mod_io_typeca_acin_sec .section rom
+	.global	_mod_io_typeca_acin
+_mod_io_typeca_acin:
+Lfunc_begin12:
+.stabs "mod_io_typeca_acin:f59=10;;", 0x24,0,0,_mod_io_typeca_acin
+.stabn 0xc0, 0, 0, _mod_io_typeca_acin
+.stabn 0xe0, 0, 0, _mod_io_typeca_acin
+LM142:
+.stabn	0x44, 0, 676, LM142-_mod_io_typeca_acin
+Lfunc_begin13:
+LM143:
+.stabn	0x44, 0, 688, LM143-_mod_io_typeca_acin
+	banksel 0
+	movfwl _CA_IN_Flage+0
+	movwf _mod_io_typeca_acin.frame.+0
+	return
+Ltmp128:
+Lfunc_end12:
+Lfunc_end13:
+LM144:
+.stabf LM144-_mod_io_typeca_acin
+
+	_mod_io_typecb_acin_sec .section rom
+	.global	_mod_io_typecb_acin
+_mod_io_typecb_acin:
+Lfunc_begin14:
+.stabs "mod_io_typecb_acin:f60=10;;", 0x24,0,0,_mod_io_typecb_acin
+.stabn 0xc0, 0, 0, _mod_io_typecb_acin
+.stabn 0xe0, 0, 0, _mod_io_typecb_acin
+LM145:
+.stabn	0x44, 0, 694, LM145-_mod_io_typecb_acin
+Lfunc_begin15:
+LM146:
+.stabn	0x44, 0, 696, LM146-_mod_io_typecb_acin
+	banksel 0
+	movfwl _CB_IN_Flage+0
+	movwf _mod_io_typecb_acin.frame.+0
+	return
+Ltmp129:
+Lfunc_end14:
+Lfunc_end15:
+LM147:
+.stabf LM147-_mod_io_typecb_acin
+
+	_adc_irq_sec .section rom
+	.global	_adc_irq
+_adc_irq:
+Lfunc_begin16:
+.stabs "adc_irq:f:16", 0x24,0,0,_adc_irq
+.stabn 0xc0, 0, 0, _adc_irq
+.stabn 0xe0, 0, 0, _adc_irq
+LM148:
+.stabn	0x44, 0, 719, LM148-_adc_irq
+Lfunc_begin17:
+LM149:
+.stabn	0x44, 0, 720, LM149-_adc_irq
+	banksel 0
+	movlw 4
+	andwf _SRADCON0+0, W
+Ltmp130:
+	sublw 0
+	beq LBB8_2
+LBB8_1:
+LM150:
+.stabn	0x44, 0, 722, LM150-_adc_irq
+Ltmp131:
+	movlw 1
+	movwfl _adc_convert+0
+LM151:
+.stabn	0x44, 0, 723, LM151-_adc_irq
+	call _adc_get_srad
+	movfw _adc_get_srad.frame.+0
+	movwfl _adc_convert+1
+	movfw _adc_get_srad.frame.+1
+	movwfl _adc_convert+2
+Ltmp132:
+LBB8_2:
+LM152:
+.stabn	0x44, 0, 727, LM152-_adc_irq
+	return
+Ltmp133:
+Lfunc_end16:
+Lfunc_end17:
+LM153:
+.stabf LM153-_adc_irq
+
+	_mod_io_a1d_out_sec .section rom
+	.global	_mod_io_a1d_out
+_mod_io_a1d_out:
+Lfunc_begin18:
+.stabs "mod_io_a1d_out:f:16", 0x24,0,0,_mod_io_a1d_out
+.stabn 0xc0, 0, 0, _mod_io_a1d_out
+.stabn 0xe0, 0, 0, _mod_io_a1d_out
+LM154:
+.stabn	0x44, 0, 740, LM154-_mod_io_a1d_out
+Lfunc_begin19:
+LM155:
+.stabn	0x44, 0, 741, LM155-_mod_io_a1d_out
+	banksel 0
+	bsf BSR,1
+	clrf _misc_interface+2
+LM156:
+.stabn	0x44, 0, 742, LM156-_mod_io_a1d_out
+	clrf _misc_interface+6
+	clrf _misc_interface+7
+	clrf _misc_interface+8
+	clrf _misc_interface+9
+LM157:
+.stabn	0x44, 0, 743, LM157-_mod_io_a1d_out
+	movlw 0xc8
+	movwf _misc_interface+3
+	clrf _misc_interface+4
+LM158:
+.stabn	0x44, 0, 744, LM158-_mod_io_a1d_out
+	movlw 2
+	movwfl _mod_queue_send.args.+0
+	call _mod_queue_send
+LM159:
+.stabn	0x44, 0, 745, LM159-_mod_io_a1d_out
+	return
+Ltmp134:
+Lfunc_end18:
+Lfunc_end19:
+LM160:
+.stabf LM160-_mod_io_a1d_out
+
+
+	_inoutput_p_mod_input_output.c .section bank0,uninit
+	_inoutput_p .ds 2
+	.ends
+
+	_inoutput_data_mod_input_output.c .section bank4,uninit
+	_inoutput_data .ds 18
+	.ends
+
+	_misc_interface_mod_input_output.c .section bank4,uninit
+	_misc_interface .ds 23
+	.ends
+
+	_TOUCH_OUT_CNT_mod_input_output.c .section bank4,uninit
+	_TOUCH_OUT_CNT .ds 2
+	.ends
+
+	_mod_io_vbus_switch.port_reuse_vbus_disc_mod_input_output.c .section bank0,uninit
+	_mod_io_vbus_switch.port_reuse_vbus_disc .ds 1
+	.ends
+
+	_CA_IN_Flage_mod_input_output.c .section bank4,uninit
+	_CA_IN_Flage .ds 1
+	.ends
+
+	_CB_IN_Flage_mod_input_output.c .section bank4,uninit
+	_CB_IN_Flage .ds 1
+	.ends
+
+	_MirB_IN_Flage_mod_input_output.c .section bank4,uninit
+	_MirB_IN_Flage .ds 1
+	.ends
+
+	.@_mod_inoutput_plug_check_proc_sec@_mod_inoutput_plug_check_proc.temp. .section bank1,uninit
+	_mod_inoutput_plug_check_proc.temp. .ds 6
+	.ends
+
+	.@_mod_inoutput_plug_check_proc_USBA2_sec@_mod_inoutput_plug_check_proc_USBA2.temp. .section bank1,uninit
+	_mod_inoutput_plug_check_proc_USBA2.temp. .ds 2
+	.ends
+
+	.@_mod_io_vbus_switch_timer_sec@_mod_io_vbus_switch_timer.temp. .section bank1,uninit
+	_mod_io_vbus_switch_timer.temp. .ds 2
+	.ends
+
+	.@_mod_io_typeca_acin_sec@_mod_io_typeca_acin.frame. .section bank1,uninit
+	_mod_io_typeca_acin.frame. .ds 1
+	.ends
+
+	.@_mod_io_typecb_acin_sec@_mod_io_typecb_acin.frame. .section bank1,uninit
+	_mod_io_typecb_acin.frame. .ds 1
+	.ends
+
+
+
+	.global	_inoutput_p
+	.global	_inoutput_data
+	.global	_misc_interface
+	.global	_TOUCH_OUT_CNT
+	.global	_CA_IN_Flage
+	.global	_CB_IN_Flage
+	.global	_MirB_IN_Flage
+

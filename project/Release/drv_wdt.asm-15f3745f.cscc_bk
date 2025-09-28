@@ -1,0 +1,218 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\chip\\driver\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\chip\\driver\\drv_wdt.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_wdt_init_sec .section rom
+	.global	_wdt_init
+_wdt_init:
+Lfunc_begin0:
+.stabs "wdt_init:f:16", 0x24,0,0,_wdt_init
+.stabn 0xc0, 0, 0, _wdt_init
+.stabn 0xe0, 0, 0, _wdt_init
+LM0:
+.stabn	0x44, 0, 24, LM0-_wdt_init
+Lfunc_begin1:
+LM1:
+.stabn	0x44, 0, 25, LM1-_wdt_init
+	banksel 0
+	movlw 0x80
+	movwf _WDTCON+0
+LM2:
+.stabn	0x44, 0, 26, LM2-_wdt_init
+	movlw 38
+	movwf _WDTIN+0
+LM3:
+.stabn	0x44, 0, 27, LM3-_wdt_init
+	return
+Ltmp0:
+Lfunc_end0:
+Lfunc_end1:
+LM4:
+.stabf LM4-_wdt_init
+
+	_wdt_disable_sec .section rom
+	.global	_wdt_disable
+_wdt_disable:
+Lfunc_begin2:
+.stabs "wdt_disable:f:16", 0x24,0,0,_wdt_disable
+.stabn 0xc0, 0, 0, _wdt_disable
+.stabn 0xe0, 0, 0, _wdt_disable
+LM5:
+.stabn	0x44, 0, 31, LM5-_wdt_disable
+Lfunc_begin3:
+LM6:
+.stabn	0x44, 0, 32, LM6-_wdt_disable
+	banksel 0
+	bcf _WDTCON+0, 7
+	movfw _WDTCON+0
+LM7:
+.stabn	0x44, 0, 33, LM7-_wdt_disable
+	return
+Ltmp1:
+Lfunc_end2:
+Lfunc_end3:
+LM8:
+.stabf LM8-_wdt_disable
+
+	_wdt_feeddog_sec .section rom
+	.global	_wdt_feeddog
+_wdt_feeddog:
+Lfunc_begin4:
+.stabs "wdt_feeddog:f:16", 0x24,0,0,_wdt_feeddog
+.stabn 0xc0, 0, 0, _wdt_feeddog
+.stabn 0xe0, 0, 0, _wdt_feeddog
+LM9:
+.stabn	0x44, 0, 45, LM9-_wdt_feeddog
+Lfunc_begin5:
+LM10:
+.stabn	0x44, 0, 46, LM10-_wdt_feeddog
+	banksel 0
+	;APP
+	CLRWDT
+	;NO_APP
+LM11:
+.stabn	0x44, 0, 47, LM11-_wdt_feeddog
+	;APP
+	nop
+	;NO_APP
+LM12:
+.stabn	0x44, 0, 48, LM12-_wdt_feeddog
+	return
+Ltmp2:
+Lfunc_end4:
+Lfunc_end5:
+LM13:
+.stabf LM13-_wdt_feeddog
+
+	_wwdt_init_sec .section rom
+	.global	_wwdt_init
+_wwdt_init:
+Lfunc_begin6:
+.stabs "wwdt_init:f:16", 0x24,0,0,_wwdt_init
+.stabn 0xc0, 0, 0, _wwdt_init
+.stabn 0xe0, 0, 0, _wwdt_init
+LM14:
+.stabn	0x44, 0, 62, LM14-_wwdt_init
+Lfunc_begin7:
+LM15:
+.stabn	0x44, 0, 63, LM15-_wwdt_init
+	banksel 0
+	movlw 114
+	movwf _WWDTWR+0
+LM16:
+.stabn	0x44, 0, 64, LM16-_wwdt_init
+	movlw 127
+	movwf _WWDTCR+0
+LM17:
+.stabn	0x44, 0, 65, LM17-_wwdt_init
+	return
+Ltmp3:
+Lfunc_end6:
+Lfunc_end7:
+LM18:
+.stabf LM18-_wwdt_init
+
+	_wwdt_disable_sec .section rom
+	.global	_wwdt_disable
+_wwdt_disable:
+Lfunc_begin8:
+.stabs "wwdt_disable:f:16", 0x24,0,0,_wwdt_disable
+.stabn 0xc0, 0, 0, _wwdt_disable
+.stabn 0xe0, 0, 0, _wwdt_disable
+LM19:
+.stabn	0x44, 0, 69, LM19-_wwdt_disable
+Lfunc_begin9:
+LM20:
+.stabn	0x44, 0, 70, LM20-_wwdt_disable
+	banksel 0
+	bcf _WWDTCR+0, 7
+	movfw _WWDTCR+0
+LM21:
+.stabn	0x44, 0, 71, LM21-_wwdt_disable
+	return
+Ltmp4:
+Lfunc_end8:
+Lfunc_end9:
+LM22:
+.stabf LM22-_wwdt_disable
+
+	_wwdt_feeddog_sec .section rom
+	.global	_wwdt_feeddog
+_wwdt_feeddog:
+Lfunc_begin10:
+.stabs "wwdt_feeddog:f:16", 0x24,0,0,_wwdt_feeddog
+.stabn 0xc0, 0, 0, _wwdt_feeddog
+.stabn 0xe0, 0, 0, _wwdt_feeddog
+LM23:
+.stabn	0x44, 0, 83, LM23-_wwdt_feeddog
+Lfunc_begin11:
+LM24:
+.stabn	0x44, 0, 85, LM24-_wwdt_feeddog
+	banksel 0
+	movlw 127
+	andwf _WWDTCR+0, W
+	movwf _wwdt_feeddog.temp.+1
+LM25:
+.stabn	0x44, 0, 86, LM25-_wwdt_feeddog
+	movlw 114
+	movwf _wwdt_feeddog.temp.+0
+LM26:
+.stabn	0x44, 0, 85, LM26-_wwdt_feeddog
+	movlw 127
+LM27:
+.stabn	0x44, 0, 88, LM27-_wwdt_feeddog
+Ltmp5:
+	andwf _WWDTCR+0, W
+Ltmp6:
+	sublw 113
+	blt LBB5_2
+LBB5_1:
+LM28:
+.stabn	0x44, 0, 91, LM28-_wwdt_feeddog
+Ltmp7:
+	movlw 127
+	movwf _WWDTCR+0
+LM29:
+.stabn	0x44, 0, 92, LM29-_wwdt_feeddog
+	movlw 114
+	movwf _WWDTWR+0
+Ltmp8:
+LBB5_2:
+LM30:
+.stabn	0x44, 0, 94, LM30-_wwdt_feeddog
+	return
+Ltmp9:
+Lfunc_end10:
+Lfunc_end11:
+LM31:
+.stabn 0xc0,0,0, LM24-_wwdt_feeddog
+.stabs "a:10;",0x80,0,0,_wwdt_feeddog.temp.+1
+.stabn 0xe0,0,0, LM30-_wwdt_feeddog
+.stabn 0xc0,0,0, LM24-_wwdt_feeddog
+.stabs "b:10;",0x80,0,0,_wwdt_feeddog.temp.+0
+.stabn 0xe0,0,0, LM30-_wwdt_feeddog
+.stabf LM31-_wwdt_feeddog
+
+
+	.@_wwdt_feeddog_sec@_wwdt_feeddog.temp. .section bank1,uninit
+	_wwdt_feeddog.temp. .ds 2
+	.ends
+
+
+

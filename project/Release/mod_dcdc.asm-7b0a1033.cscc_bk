@@ -1,0 +1,2661 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\module\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\module\\mod_dcdc.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+.stabs "cs8812a_p:G17=*18=10;;",0x20,0,0,_cs8812a_p
+.stabs "dcdc_frame_buffer:G19=ar20;0;27;21=22=23=10;;;",0x20,0,0,_dcdc_frame_buffer
+.stabs "sc8812a_reg_t:T26=s28vbat_set:27=10;;,0,8;vbusref_i_set:28=10;;,8,16;vbusref_i_set2:29=10;;,16,24;vbusref_e_set:30=10;;,24,32;vbusref_e_set2:31=10;;,32,40;ibus_lim_set:32=10;;,40,48;ibat_lim_set:33=10;;,48,56;vinreg_set:34=10;;,56,64;ratio:35=10;;,64,72;ctrl0_set:36=10;;,72,80;ctrl1_set:37=10;;,80,88;ctrl2_set:38=10;;,88,96;ctrl3_set:39=10;;,96,104;vbus_fb_value:40=10;;,104,112;vbus_fb_value2:41=10;;,112,120;vbat_fb_value:42=10;;,120,128;vbat_fb_value2:43=10;;,128,136;ibus_value:44=10;;,136,144;ibus_value2:45=10;;,144,152;ibat_value:46=10;;,152,160;ibat_value2:47=10;;,160,168;adin_value:48=10;;,168,176;adin_value2:49=10;;,176,184;status:50=10;;,184,192;reg18:51=10;;,192,200;mask:52=10;;,200,208;dpdm_ctrl:53=10;;,208,216;dpdm_read:54=10;;,216,224;;", 0x80, 0, 0, 0
+.stabs "sc8812a_value_t:T56=s10vbus_fb:57=2;;,0,16;vbat_fb:58=2;;,16,32;ibus_fb:59=2;;,32,48;ibat_fb:60=2;;,48,64;vbus_ref:61=2;;,64,80;;", 0x80, 0, 0, 0
+.stabs "sc8812a_data_t:T24=s38reg:25=26;;,0,224;telemetry:55=56;;,224,304;;", 0x80, 0, 0, 0
+.stabs "dcdc_data:G24;",0x20,0,0,_dcdc_data
+.stabs "volt_flag:G10;",0x20,0,0,_volt_flag
+.stabs "temp_ibus_lim_bk:G10;",0x20,0,0,_temp_ibus_lim_bk
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_mod_dcdc_init_sec .section rom
+	.global	_mod_dcdc_init
+_mod_dcdc_init:
+Lfunc_begin0:
+.stabs "mod_dcdc_init:f62=10;;", 0x24,0,0,_mod_dcdc_init
+.stabn 0xc0, 0, 0, _mod_dcdc_init
+.stabn 0xe0, 0, 0, _mod_dcdc_init
+LM0:
+.stabn	0x44, 0, 67, LM0-_mod_dcdc_init
+Lfunc_begin1:
+	banksel 0
+	movlw 1
+LM1:
+.stabn	0x44, 0, 71, LM1-_mod_dcdc_init
+Ltmp0:
+	movwf _mod_dcdc_init.temp.+1
+LM2:
+.stabn	0x44, 0, 74, LM2-_mod_dcdc_init
+	call _iic_init
+LM3:
+.stabn	0x44, 0, 80, LM3-_mod_dcdc_init
+	movlw LOW(_dcdc_data+0)
+	movwf _cs8812a_p+0
+	movlw HIGH8(_dcdc_data+0)
+	movwf _cs8812a_p+1
+LM4:
+.stabn	0x44, 0, 81, LM4-_mod_dcdc_init
+Ltmp1:
+	clrf _mod_dcdc_init.temp.+0
+LBB0_1:
+Ltmp2:
+	movfw _mod_dcdc_init.temp.+0
+Ltmp3:
+	sublw 27
+	blt LBB0_4
+LBB0_2:
+LM5:
+.stabn	0x44, 0, 83, LM5-_mod_dcdc_init
+Ltmp4:
+	movfw _mod_dcdc_init.temp.+0
+	movwf _mod_dcdc_init.temp.+2
+	movlw LOW(_dcdc_frame_buffer+0)
+	addwf _mod_dcdc_init.temp.+2, W
+	movfw _mod_dcdc_init.temp.+2
+	movcaw2 _dcdc_frame_buffer, 0
+	movwf _mod_dcdc_init.temp.+2
+	movfw _cs8812a_p+0
+	movwf _mod_dcdc_init.temp.+3
+	addlw 1
+	movwf _cs8812a_p+0
+	movfw _cs8812a_p+1
+	movwf _mod_dcdc_init.temp.+4
+	addlwc 0
+	movwf _cs8812a_p+1
+	movfw _mod_dcdc_init.temp.+3
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _mod_dcdc_init.temp.+4
+	movwf FSR0H
+	movfw _mod_dcdc_init.temp.+2
+	movwf IND0
+Ltmp5:
+LM6:
+.stabn	0x44, 0, 81, LM6-_mod_dcdc_init
+	incf _mod_dcdc_init.temp.+0, F
+	goto LBB0_1
+Ltmp6:
+LBB0_4:
+LM7:
+.stabn	0x44, 0, 87, LM7-_mod_dcdc_init
+	movlw LOW(_dcdc_data+0)
+LM8:
+.stabn	0x44, 0, 88, LM8-_mod_dcdc_init
+	addlw 25
+	movwf _mod_dcdc_init.temp.+2
+	movlw HIGH8(_dcdc_data+0)
+	addlwc 0
+LM9:
+.stabn	0x44, 0, 87, LM9-_mod_dcdc_init
+	clrf _iic_transmit_bytes.args.+0
+	movwf _mod_dcdc_init.temp.+3
+	movlw LOW(_dcdc_data+0)
+	movwf _iic_transmit_bytes.args.+1
+LM10:
+.stabn	0x44, 0, 88, LM10-_mod_dcdc_init
+	movlw HIGH8(_dcdc_data+0)
+LM11:
+.stabn	0x44, 0, 87, LM11-_mod_dcdc_init
+	movwf _iic_transmit_bytes.args.+2
+	movlw 13
+	movwf _iic_transmit_bytes.args.+3
+	call _iic_transmit_bytes
+LM12:
+.stabn	0x44, 0, 88, LM12-_mod_dcdc_init
+	movlw 25
+	movwf _iic_transmit_bytes.args.+0
+	movfw _mod_dcdc_init.temp.+2
+	movwf _iic_transmit_bytes.args.+1
+	movfw _mod_dcdc_init.temp.+3
+	movwf _iic_transmit_bytes.args.+2
+	movlw 3
+	movwf _iic_transmit_bytes.args.+3
+	call _iic_transmit_bytes
+LM13:
+.stabn	0x44, 0, 90, LM13-_mod_dcdc_init
+	call _mod_dcdc_telemetry_reg_partition0
+LM14:
+.stabn	0x44, 0, 91, LM14-_mod_dcdc_init
+	call _mod_dcdc_telemetry_reg_partition1
+LM15:
+.stabn	0x44, 0, 87, LM15-_mod_dcdc_init
+	movlw LOW(_dcdc_data+0)
+LM16:
+.stabn	0x44, 0, 99, LM16-_mod_dcdc_init
+	movwf _cs8812a_p+0
+LM17:
+.stabn	0x44, 0, 88, LM17-_mod_dcdc_init
+	movlw HIGH8(_dcdc_data+0)
+LM18:
+.stabn	0x44, 0, 99, LM18-_mod_dcdc_init
+	movwf _cs8812a_p+1
+LM19:
+.stabn	0x44, 0, 100, LM19-_mod_dcdc_init
+Ltmp7:
+	clrf _mod_dcdc_init.temp.+0
+LBB0_5:
+Ltmp8:
+	movfw _mod_dcdc_init.temp.+0
+Ltmp9:
+	sublw 11
+	blt LBB0_10
+LBB0_6:
+LM20:
+.stabn	0x44, 0, 102, LM20-_mod_dcdc_init
+Ltmp10:
+	movfw _cs8812a_p+0
+	movwf _mod_dcdc_init.temp.+2
+	addlw 1
+	movwf _cs8812a_p+0
+	movfw _cs8812a_p+1
+	movwf _mod_dcdc_init.temp.+3
+	addlwc 0
+	movwf _cs8812a_p+1
+	movfw _mod_dcdc_init.temp.+0
+	movwf _mod_dcdc_init.temp.+4
+	movlw LOW(_dcdc_frame_buffer+0)
+	addwf _mod_dcdc_init.temp.+4, W
+	movfw _mod_dcdc_init.temp.+2
+	movwf FSR0
+	movfw _mod_dcdc_init.temp.+3
+	movwf FSR0H
+	moviw 0
+	movwf _mod_dcdc_init.temp.+2
+	movfw _mod_dcdc_init.temp.+4
+	movcaw2 _dcdc_frame_buffer, 0
+Ltmp11:
+	xorwf _mod_dcdc_init.temp.+2, W
+	sublw 0
+	beq LBB0_8
+LBB0_7:
+LM21:
+.stabn	0x44, 0, 104, LM21-_mod_dcdc_init
+Ltmp12:
+	clrf _mod_dcdc_init.temp.+1
+Ltmp13:
+LBB0_8:
+LM22:
+.stabn	0x44, 0, 100, LM22-_mod_dcdc_init
+	incf _mod_dcdc_init.temp.+0, F
+	goto LBB0_5
+Ltmp14:
+LBB0_10:
+LM23:
+.stabn	0x44, 0, 107, LM23-_mod_dcdc_init
+	clrf _cs8812a_p+0
+	clrf _cs8812a_p+1
+LM24:
+.stabn	0x44, 0, 109, LM24-_mod_dcdc_init
+	movfw _mod_dcdc_init.temp.+1
+	movwf _mod_dcdc_init.frame.+0
+	return
+Ltmp15:
+Lfunc_end0:
+Lfunc_end1:
+LM25:
+.stabn 0xc0,0,0, LM1-_mod_dcdc_init
+.stabs "temp:10;",0x80,0,0,_mod_dcdc_init.temp.+0
+.stabn 0xe0,0,0, LM24-_mod_dcdc_init
+.stabn 0xc0,0,0, LM1-_mod_dcdc_init
+.stabs "i:10;",0x80,0,0,_mod_dcdc_init.temp.+0
+.stabn 0xe0,0,0, LM24-_mod_dcdc_init
+.stabn 0xc0,0,0, LM1-_mod_dcdc_init
+.stabs "dead_batt:10;",0x80,0,0,_mod_dcdc_init.temp.+1
+.stabn 0xe0,0,0, LM24-_mod_dcdc_init
+.stabf LM25-_mod_dcdc_init
+
+	_mod_dcdc_telemetry_reg_partition0_sec .section rom
+	.global	_mod_dcdc_telemetry_reg_partition0
+_mod_dcdc_telemetry_reg_partition0:
+Lfunc_begin2:
+.stabs "mod_dcdc_telemetry_reg_partition0:f:16", 0x24,0,0,_mod_dcdc_telemetry_reg_partition0
+.stabn 0xc0, 0, 0, _mod_dcdc_telemetry_reg_partition0
+.stabn 0xe0, 0, 0, _mod_dcdc_telemetry_reg_partition0
+LM26:
+.stabn	0x44, 0, 123, LM26-_mod_dcdc_telemetry_reg_partition0
+Lfunc_begin3:
+LM27:
+.stabn	0x44, 0, 125, LM27-_mod_dcdc_telemetry_reg_partition0
+	banksel 0
+	clrf _iic_receive_bytes.args.+0
+	movlw LOW(_dcdc_data+0)
+	movwf _iic_receive_bytes.args.+1
+	movlw HIGH8(_dcdc_data+0)
+	movwf _iic_receive_bytes.args.+2
+	movlw 13
+	movwf _iic_receive_bytes.args.+3
+	call _iic_receive_bytes
+LM28:
+.stabn	0x44, 0, 126, LM28-_mod_dcdc_telemetry_reg_partition0
+	return
+Ltmp16:
+Lfunc_end2:
+Lfunc_end3:
+LM29:
+.stabf LM29-_mod_dcdc_telemetry_reg_partition0
+
+	_mod_dcdc_telemetry_reg_partition1_sec .section rom
+	.global	_mod_dcdc_telemetry_reg_partition1
+_mod_dcdc_telemetry_reg_partition1:
+Lfunc_begin4:
+.stabs "mod_dcdc_telemetry_reg_partition1:f:16", 0x24,0,0,_mod_dcdc_telemetry_reg_partition1
+.stabn 0xc0, 0, 0, _mod_dcdc_telemetry_reg_partition1
+.stabn 0xe0, 0, 0, _mod_dcdc_telemetry_reg_partition1
+LM30:
+.stabn	0x44, 0, 129, LM30-_mod_dcdc_telemetry_reg_partition1
+Lfunc_begin5:
+LM31:
+.stabn	0x44, 0, 131, LM31-_mod_dcdc_telemetry_reg_partition1
+	banksel 0
+	movlw LOW(_dcdc_data+0)
+LM32:
+.stabn	0x44, 0, 132, LM32-_mod_dcdc_telemetry_reg_partition1
+	addlw 13
+	movwf _mod_dcdc_telemetry_reg_partition1.temp.+0
+	movlw HIGH8(_dcdc_data+0)
+	addlwc 0
+LM33:
+.stabn	0x44, 0, 131, LM33-_mod_dcdc_telemetry_reg_partition1
+	movwf _mod_dcdc_telemetry_reg_partition1.temp.+1
+	movlw LOW(_dcdc_data+0)
+	movwf _cs8812a_p+0
+LM34:
+.stabn	0x44, 0, 132, LM34-_mod_dcdc_telemetry_reg_partition1
+	movlw HIGH8(_dcdc_data+0)
+LM35:
+.stabn	0x44, 0, 131, LM35-_mod_dcdc_telemetry_reg_partition1
+	movwf _cs8812a_p+1
+LM36:
+.stabn	0x44, 0, 132, LM36-_mod_dcdc_telemetry_reg_partition1
+	movfw _mod_dcdc_telemetry_reg_partition1.temp.+0
+	movwf _cs8812a_p+0
+	movfw _mod_dcdc_telemetry_reg_partition1.temp.+1
+	movwf _cs8812a_p+1
+LM37:
+.stabn	0x44, 0, 133, LM37-_mod_dcdc_telemetry_reg_partition1
+	movlw 13
+	movwf _iic_receive_bytes.args.+0
+	movfw _mod_dcdc_telemetry_reg_partition1.temp.+0
+	movwf _iic_receive_bytes.args.+1
+	movfw _mod_dcdc_telemetry_reg_partition1.temp.+1
+	movwf _iic_receive_bytes.args.+2
+	movlw 15
+	movwf _iic_receive_bytes.args.+3
+	call _iic_receive_bytes
+LM38:
+.stabn	0x44, 0, 134, LM38-_mod_dcdc_telemetry_reg_partition1
+	clrf _cs8812a_p+0
+	clrf _cs8812a_p+1
+LM39:
+.stabn	0x44, 0, 135, LM39-_mod_dcdc_telemetry_reg_partition1
+	return
+Ltmp17:
+Lfunc_end4:
+Lfunc_end5:
+LM40:
+.stabf LM40-_mod_dcdc_telemetry_reg_partition1
+
+	_mod_dcdc_telemetry_calculate_sec .section rom
+	.global	_mod_dcdc_telemetry_calculate
+_mod_dcdc_telemetry_calculate:
+Lfunc_begin6:
+.stabs "mod_dcdc_telemetry_calculate:f:16", 0x24,0,0,_mod_dcdc_telemetry_calculate
+.stabn 0xc0, 0, 0, _mod_dcdc_telemetry_calculate
+.stabn 0xe0, 0, 0, _mod_dcdc_telemetry_calculate
+LM41:
+.stabn	0x44, 0, 114, LM41-_mod_dcdc_telemetry_calculate
+Lfunc_begin7:
+LM42:
+.stabn	0x44, 0, 115, LM42-_mod_dcdc_telemetry_calculate
+	banksel 0
+	call _mod_dcdc_telemetry_vbus
+	movfw _mod_dcdc_telemetry_vbus.frame.+0
+	movwfl _dcdc_data+28
+	movfw _mod_dcdc_telemetry_vbus.frame.+1
+	movwfl _dcdc_data+29
+LM43:
+.stabn	0x44, 0, 116, LM43-_mod_dcdc_telemetry_calculate
+	call _mod_dcdc_telemetry_vbat
+	movfw _mod_dcdc_telemetry_vbat.frame.+0
+	movwfl _dcdc_data+30
+	movfw _mod_dcdc_telemetry_vbat.frame.+1
+	movwfl _dcdc_data+31
+LM44:
+.stabn	0x44, 0, 117, LM44-_mod_dcdc_telemetry_calculate
+	call _mod_dcdc_telemetry_ibus
+	movfw _mod_dcdc_telemetry_ibus.frame.+0
+	movwfl _dcdc_data+32
+	movfw _mod_dcdc_telemetry_ibus.frame.+1
+	movwfl _dcdc_data+33
+LM45:
+.stabn	0x44, 0, 118, LM45-_mod_dcdc_telemetry_calculate
+	call _mod_dcdc_telemetry_ibat
+	movfw _mod_dcdc_telemetry_ibat.frame.+0
+	movwfl _dcdc_data+34
+	movfw _mod_dcdc_telemetry_ibat.frame.+1
+	movwfl _dcdc_data+35
+LM46:
+.stabn	0x44, 0, 119, LM46-_mod_dcdc_telemetry_calculate
+	call _mod_dcdc_telemetry_vbusref
+	movfw _mod_dcdc_telemetry_vbusref.frame.+0
+	movwfl _dcdc_data+36
+	movfw _mod_dcdc_telemetry_vbusref.frame.+1
+	movwfl _dcdc_data+37
+LM47:
+.stabn	0x44, 0, 120, LM47-_mod_dcdc_telemetry_calculate
+	return
+Ltmp18:
+Lfunc_end6:
+Lfunc_end7:
+LM48:
+.stabf LM48-_mod_dcdc_telemetry_calculate
+
+	_mod_dcdc_telemetry_vbus_sec .section rom
+	.global	_mod_dcdc_telemetry_vbus
+_mod_dcdc_telemetry_vbus:
+Lfunc_begin8:
+.stabs "mod_dcdc_telemetry_vbus:f63=2;;", 0x24,0,0,_mod_dcdc_telemetry_vbus
+.stabn 0xc0, 0, 0, _mod_dcdc_telemetry_vbus
+.stabn 0xe0, 0, 0, _mod_dcdc_telemetry_vbus
+LM49:
+.stabn	0x44, 0, 222, LM49-_mod_dcdc_telemetry_vbus
+Lfunc_begin9:
+LM50:
+.stabn	0x44, 0, 223, LM50-_mod_dcdc_telemetry_vbus
+	banksel 0
+	movfwl _dcdc_data+13
+	SrlSix
+	movwf _mod_dcdc_telemetry_vbus.temp.+0
+	movfwl _dcdc_data+13
+	ShlTwo
+	movwf _mod_dcdc_telemetry_vbus.temp.+1
+	movfwl _dcdc_data+14
+	SrlSix
+	iorwf _mod_dcdc_telemetry_vbus.temp.+1, W
+	movwf .args.__swmul_atmp+0
+	movfw _mod_dcdc_telemetry_vbus.temp.+0
+	movwf .args.__swmul_atmp+1
+	movlw 25
+	movwf .args.__swmul_btmp+0
+	clrf .args.__swmul_btmp+1
+	call .lib.__swmul
+	movlw 25
+	addwf .ret.__swmul_ret+0, W
+	movwf _mod_dcdc_telemetry_vbus.frame.+0
+	movlw 0
+	addwfc .ret.__swmul_ret+1, W
+	movwf _mod_dcdc_telemetry_vbus.frame.+1
+	return
+Ltmp19:
+Lfunc_end8:
+Lfunc_end9:
+LM51:
+.stabf LM51-_mod_dcdc_telemetry_vbus
+
+	_mod_dcdc_telemetry_vbat_sec .section rom
+	.global	_mod_dcdc_telemetry_vbat
+_mod_dcdc_telemetry_vbat:
+Lfunc_begin10:
+.stabs "mod_dcdc_telemetry_vbat:f64=2;;", 0x24,0,0,_mod_dcdc_telemetry_vbat
+.stabn 0xc0, 0, 0, _mod_dcdc_telemetry_vbat
+.stabn 0xe0, 0, 0, _mod_dcdc_telemetry_vbat
+LM52:
+.stabn	0x44, 0, 241, LM52-_mod_dcdc_telemetry_vbat
+Lfunc_begin11:
+LM53:
+.stabn	0x44, 0, 242, LM53-_mod_dcdc_telemetry_vbat
+	banksel 0
+	movfwl _dcdc_data+15
+	SrlSix
+	movwf _mod_dcdc_telemetry_vbat.temp.+0
+	movfwl _dcdc_data+15
+	ShlTwo
+	movwf _mod_dcdc_telemetry_vbat.temp.+1
+	movfwl _dcdc_data+16
+	SrlSix
+	iorwf _mod_dcdc_telemetry_vbat.temp.+1, W
+	movwf .args.__swmul_atmp+0
+	movfw _mod_dcdc_telemetry_vbat.temp.+0
+	movwf .args.__swmul_atmp+1
+	movlw 25
+	movwf .args.__swmul_btmp+0
+	clrf .args.__swmul_btmp+1
+	call .lib.__swmul
+	movlw 25
+	addwf .ret.__swmul_ret+0, W
+	movwf _mod_dcdc_telemetry_vbat.frame.+0
+	movlw 0
+	addwfc .ret.__swmul_ret+1, W
+	movwf _mod_dcdc_telemetry_vbat.frame.+1
+	return
+Ltmp20:
+Lfunc_end10:
+Lfunc_end11:
+LM54:
+.stabf LM54-_mod_dcdc_telemetry_vbat
+
+	_mod_dcdc_telemetry_ibus_sec .section rom
+	.global	_mod_dcdc_telemetry_ibus
+_mod_dcdc_telemetry_ibus:
+Lfunc_begin12:
+.stabs "mod_dcdc_telemetry_ibus:f65=2;;", 0x24,0,0,_mod_dcdc_telemetry_ibus
+.stabn 0xc0, 0, 0, _mod_dcdc_telemetry_ibus
+.stabn 0xe0, 0, 0, _mod_dcdc_telemetry_ibus
+LM55:
+.stabn	0x44, 0, 251, LM55-_mod_dcdc_telemetry_ibus
+Lfunc_begin13:
+LM56:
+.stabn	0x44, 0, 252, LM56-_mod_dcdc_telemetry_ibus
+	banksel 0
+	movfwl _dcdc_data+17
+	SrlSix
+	movwf _mod_dcdc_telemetry_ibus.temp.+0
+	movfwl _dcdc_data+17
+	ShlTwo
+	movwf _mod_dcdc_telemetry_ibus.temp.+1
+	movfwl _dcdc_data+18
+	SrlSix
+	iorwf _mod_dcdc_telemetry_ibus.temp.+1, W
+	movwf .args.__swmul_atmp+0
+	movfw _mod_dcdc_telemetry_ibus.temp.+0
+	movwf .args.__swmul_atmp+1
+	movlw 10
+	movwf .args.__swmul_btmp+0
+	clrf .args.__swmul_btmp+1
+	call .lib.__swmul
+	movlw 10
+	addwf .ret.__swmul_ret+0, W
+	movwf _mod_dcdc_telemetry_ibus.frame.+0
+	movlw 0
+	addwfc .ret.__swmul_ret+1, W
+	movwf _mod_dcdc_telemetry_ibus.frame.+1
+	return
+Ltmp21:
+Lfunc_end12:
+Lfunc_end13:
+LM57:
+.stabf LM57-_mod_dcdc_telemetry_ibus
+
+	_mod_dcdc_telemetry_ibat_sec .section rom
+	.global	_mod_dcdc_telemetry_ibat
+_mod_dcdc_telemetry_ibat:
+Lfunc_begin14:
+.stabs "mod_dcdc_telemetry_ibat:f66=2;;", 0x24,0,0,_mod_dcdc_telemetry_ibat
+.stabn 0xc0, 0, 0, _mod_dcdc_telemetry_ibat
+.stabn 0xe0, 0, 0, _mod_dcdc_telemetry_ibat
+LM58:
+.stabn	0x44, 0, 270, LM58-_mod_dcdc_telemetry_ibat
+Lfunc_begin15:
+LM59:
+.stabn	0x44, 0, 271, LM59-_mod_dcdc_telemetry_ibat
+	banksel 0
+	movfwl _dcdc_data+19
+	SrlSix
+	movwf _mod_dcdc_telemetry_ibat.temp.+0
+	movfwl _dcdc_data+19
+	ShlTwo
+	movwf _mod_dcdc_telemetry_ibat.temp.+1
+	movfwl _dcdc_data+20
+	SrlSix
+	iorwf _mod_dcdc_telemetry_ibat.temp.+1, W
+	movwf .args.__swmul_atmp+0
+	movfw _mod_dcdc_telemetry_ibat.temp.+0
+	movwf .args.__swmul_atmp+1
+	movlw 20
+	movwf .args.__swmul_btmp+0
+	clrf .args.__swmul_btmp+1
+	call .lib.__swmul
+	movlw 20
+	addwf .ret.__swmul_ret+0, W
+	movwf _mod_dcdc_telemetry_ibat.frame.+0
+	movlw 0
+	addwfc .ret.__swmul_ret+1, W
+	movwf _mod_dcdc_telemetry_ibat.frame.+1
+	return
+Ltmp22:
+Lfunc_end14:
+Lfunc_end15:
+LM60:
+.stabf LM60-_mod_dcdc_telemetry_ibat
+
+	_mod_dcdc_telemetry_vbusref_sec .section rom
+	.global	_mod_dcdc_telemetry_vbusref
+_mod_dcdc_telemetry_vbusref:
+Lfunc_begin16:
+.stabs "mod_dcdc_telemetry_vbusref:f67=2;;", 0x24,0,0,_mod_dcdc_telemetry_vbusref
+.stabn 0xc0, 0, 0, _mod_dcdc_telemetry_vbusref
+.stabn 0xe0, 0, 0, _mod_dcdc_telemetry_vbusref
+LM61:
+.stabn	0x44, 0, 280, LM61-_mod_dcdc_telemetry_vbusref
+Lfunc_begin17:
+LM62:
+.stabn	0x44, 0, 281, LM62-_mod_dcdc_telemetry_vbusref
+	banksel 0
+	movfwl _dcdc_data+3
+	SrlSix
+	movwf _mod_dcdc_telemetry_vbusref.temp.+0
+	movfwl _dcdc_data+3
+	ShlTwo
+	movwf _mod_dcdc_telemetry_vbusref.temp.+1
+	movfwl _dcdc_data+4
+	SrlSix
+	iorwf _mod_dcdc_telemetry_vbusref.temp.+1, W
+	movwf .args.__swmul_atmp+0
+	movfw _mod_dcdc_telemetry_vbusref.temp.+0
+	movwf .args.__swmul_atmp+1
+	movlw 20
+	movwf .args.__swmul_btmp+0
+	clrf .args.__swmul_btmp+1
+	call .lib.__swmul
+	movlw 20
+	addwf .ret.__swmul_ret+0, W
+	movwf _mod_dcdc_telemetry_vbusref.frame.+0
+	movlw 0
+	addwfc .ret.__swmul_ret+1, W
+	movwf _mod_dcdc_telemetry_vbusref.frame.+1
+	return
+Ltmp23:
+Lfunc_end16:
+Lfunc_end17:
+LM63:
+.stabf LM63-_mod_dcdc_telemetry_vbusref
+
+	_mod_dcdc_write_otg_ctrl_sec .section rom
+	.global	_mod_dcdc_write_otg_ctrl
+_mod_dcdc_write_otg_ctrl:
+Lfunc_begin18:
+.stabs "mod_dcdc_write_otg_ctrl:f:16", 0x24,0,0,_mod_dcdc_write_otg_ctrl
+.stabn 0xc0, 0, 0, _mod_dcdc_write_otg_ctrl
+.stabn 0xe0, 0, 0, _mod_dcdc_write_otg_ctrl
+LM64:
+.stabn	0x44, 0, 138, LM64-_mod_dcdc_write_otg_ctrl
+Lfunc_begin19:
+	banksel 0
+	movfw _mod_dcdc_write_otg_ctrl.args.+0
+LM65:
+.stabn	0x44, 0, 171, LM65-_mod_dcdc_write_otg_ctrl
+Ltmp24:
+	movwf _mod_dcdc_write_otg_ctrl.temp.+0
+	return
+Ltmp25:
+Lfunc_end18:
+Lfunc_end19:
+LM66:
+.stabn 0xc0,0,0, LM64-_mod_dcdc_write_otg_ctrl
+.stabs "status:10;",0x80,0,0,_mod_dcdc_write_otg_ctrl.args.+0
+.stabn 0xe0,0,0, LM65-_mod_dcdc_write_otg_ctrl
+.stabf LM66-_mod_dcdc_write_otg_ctrl
+
+	_mod_dcdc_write_pgate_ctrl_sec .section rom
+	.global	_mod_dcdc_write_pgate_ctrl
+_mod_dcdc_write_pgate_ctrl:
+Lfunc_begin20:
+.stabs "mod_dcdc_write_pgate_ctrl:f:16", 0x24,0,0,_mod_dcdc_write_pgate_ctrl
+.stabn 0xc0, 0, 0, _mod_dcdc_write_pgate_ctrl
+.stabn 0xe0, 0, 0, _mod_dcdc_write_pgate_ctrl
+LM67:
+.stabn	0x44, 0, 174, LM67-_mod_dcdc_write_pgate_ctrl
+Lfunc_begin21:
+	banksel 0
+	movfw _mod_dcdc_write_pgate_ctrl.args.+0
+LM68:
+.stabn	0x44, 0, 175, LM68-_mod_dcdc_write_pgate_ctrl
+Ltmp26:
+	movwf _mod_dcdc_write_pgate_ctrl.temp.+0
+	sublw 0
+	beq LBB10_2
+LBB10_1:
+LM69:
+.stabn	0x44, 0, 177, LM69-_mod_dcdc_write_pgate_ctrl
+Ltmp27:
+	bsf _PT1EN4, _PT1EN4
+	bsf _PT14, _PT14
+Ltmp28:
+LM70:
+.stabn	0x44, 0, 178, LM70-_mod_dcdc_write_pgate_ctrl
+	goto LBB10_3
+Ltmp29:
+LBB10_2:
+LM71:
+.stabn	0x44, 0, 181, LM71-_mod_dcdc_write_pgate_ctrl
+	bsf _PT1EN4, _PT1EN4
+	bcf _PT14, _PT14
+Ltmp30:
+LBB10_3:
+LM72:
+.stabn	0x44, 0, 183, LM72-_mod_dcdc_write_pgate_ctrl
+	return
+Ltmp31:
+Lfunc_end20:
+Lfunc_end21:
+LM73:
+.stabn 0xc0,0,0, LM67-_mod_dcdc_write_pgate_ctrl
+.stabs "status:10;",0x80,0,0,_mod_dcdc_write_pgate_ctrl.args.+0
+.stabn 0xe0,0,0, LM72-_mod_dcdc_write_pgate_ctrl
+.stabf LM73-_mod_dcdc_write_pgate_ctrl
+
+	_mod_dcdc_write_gpo_ctrl_sec .section rom
+	.global	_mod_dcdc_write_gpo_ctrl
+_mod_dcdc_write_gpo_ctrl:
+Lfunc_begin22:
+.stabs "mod_dcdc_write_gpo_ctrl:f:16", 0x24,0,0,_mod_dcdc_write_gpo_ctrl
+.stabn 0xc0, 0, 0, _mod_dcdc_write_gpo_ctrl
+.stabn 0xe0, 0, 0, _mod_dcdc_write_gpo_ctrl
+LM74:
+.stabn	0x44, 0, 186, LM74-_mod_dcdc_write_gpo_ctrl
+Lfunc_begin23:
+	banksel 0
+	movfw _mod_dcdc_write_gpo_ctrl.args.+0
+LM75:
+.stabn	0x44, 0, 187, LM75-_mod_dcdc_write_gpo_ctrl
+Ltmp32:
+	movwf _mod_dcdc_write_gpo_ctrl.temp.+0
+	return
+Ltmp33:
+Lfunc_end22:
+Lfunc_end23:
+LM76:
+.stabn 0xc0,0,0, LM74-_mod_dcdc_write_gpo_ctrl
+.stabs "status:10;",0x80,0,0,_mod_dcdc_write_gpo_ctrl.args.+0
+.stabn 0xe0,0,0, LM75-_mod_dcdc_write_gpo_ctrl
+.stabf LM76-_mod_dcdc_write_gpo_ctrl
+
+	_mod_dcdc_write_vbusref_e_set_sec .section rom
+	.global	_mod_dcdc_write_vbusref_e_set
+_mod_dcdc_write_vbusref_e_set:
+Lfunc_begin24:
+.stabs "mod_dcdc_write_vbusref_e_set:f:16", 0x24,0,0,_mod_dcdc_write_vbusref_e_set
+.stabn 0xc0, 0, 0, _mod_dcdc_write_vbusref_e_set
+.stabn 0xe0, 0, 0, _mod_dcdc_write_vbusref_e_set
+LM77:
+.stabn	0x44, 0, 189, LM77-_mod_dcdc_write_vbusref_e_set
+Lfunc_begin25:
+	banksel 0
+	movfw _mod_dcdc_write_vbusref_e_set.args.+0
+LM78:
+.stabn	0x44, 0, 192, LM78-_mod_dcdc_write_vbusref_e_set
+Ltmp34:
+	SrlThree
+	movwf _mod_dcdc_write_vbusref_e_set.temp.+3
+	movfw _mod_dcdc_write_vbusref_e_set.args.+1
+	ShlFive
+	iorwf _mod_dcdc_write_vbusref_e_set.temp.+3, W
+	movwf _mod_dcdc_write_vbusref_e_set.temp.+0
+	movfw _mod_dcdc_write_vbusref_e_set.args.+0
+	movwf _mod_dcdc_write_vbusref_e_set.temp.+1
+	movfw _mod_dcdc_write_vbusref_e_set.args.+1
+	movwf _mod_dcdc_write_vbusref_e_set.temp.+2
+LM79:
+.stabn	0x44, 0, 193, LM79-_mod_dcdc_write_vbusref_e_set
+	movlw 35
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_dcdc_write_vbusref_e_set.temp.+0
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM80:
+.stabn	0x44, 0, 194, LM80-_mod_dcdc_write_vbusref_e_set
+	movlw 7
+	andwf _mod_dcdc_write_vbusref_e_set.temp.+1, W
+	movwf _mod_dcdc_write_vbusref_e_set.temp.+0
+LM81:
+.stabn	0x44, 0, 195, LM81-_mod_dcdc_write_vbusref_e_set
+	movlw 36
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_dcdc_write_vbusref_e_set.temp.+0
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM82:
+.stabn	0x44, 0, 196, LM82-_mod_dcdc_write_vbusref_e_set
+	return
+Ltmp35:
+Lfunc_end24:
+Lfunc_end25:
+LM83:
+.stabn 0xc0,0,0, LM77-_mod_dcdc_write_vbusref_e_set
+.stabs "_vbusref_e_set:2;",0x80,0,0,_mod_dcdc_write_vbusref_e_set.args.+0
+.stabn 0xe0,0,0, LM82-_mod_dcdc_write_vbusref_e_set
+.stabn 0xc0,0,0, LM78-_mod_dcdc_write_vbusref_e_set
+.stabs "data_temp8:10;",0x80,0,0,_mod_dcdc_write_vbusref_e_set.temp.+0
+.stabn 0xe0,0,0, LM82-_mod_dcdc_write_vbusref_e_set
+.stabn 0xc0,0,0, LM78-_mod_dcdc_write_vbusref_e_set
+.stabs "RE_data_temp8:10;",0x80,0,0,_mod_dcdc_write_vbusref_e_set.temp.+1
+.stabn 0xe0,0,0, LM82-_mod_dcdc_write_vbusref_e_set
+.stabf LM83-_mod_dcdc_write_vbusref_e_set
+
+	_mod_dcdc_write_ibus_lim_set_sec .section rom
+	.global	_mod_dcdc_write_ibus_lim_set
+_mod_dcdc_write_ibus_lim_set:
+Lfunc_begin26:
+.stabs "mod_dcdc_write_ibus_lim_set:f:16", 0x24,0,0,_mod_dcdc_write_ibus_lim_set
+.stabn 0xc0, 0, 0, _mod_dcdc_write_ibus_lim_set
+.stabn 0xe0, 0, 0, _mod_dcdc_write_ibus_lim_set
+LM84:
+.stabn	0x44, 0, 198, LM84-_mod_dcdc_write_ibus_lim_set
+Lfunc_begin27:
+	banksel 0
+	movfw _mod_dcdc_write_ibus_lim_set.args.+0
+LM85:
+.stabn	0x44, 0, 199, LM85-_mod_dcdc_write_ibus_lim_set
+Ltmp36:
+	movwf _mod_dcdc_write_ibus_lim_set.temp.+0
+	movlw 127
+	andwf _mod_dcdc_write_ibus_lim_set.temp.+0, F
+LM86:
+.stabn	0x44, 0, 200, LM86-_mod_dcdc_write_ibus_lim_set
+	movlw 37
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_dcdc_write_ibus_lim_set.temp.+0
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM87:
+.stabn	0x44, 0, 201, LM87-_mod_dcdc_write_ibus_lim_set
+	return
+Ltmp37:
+Lfunc_end26:
+Lfunc_end27:
+LM88:
+.stabn 0xc0,0,0, LM84-_mod_dcdc_write_ibus_lim_set
+.stabs "_ibus_limit_set:10;",0x80,0,0,_mod_dcdc_write_ibus_lim_set.temp.+0
+.stabn 0xe0,0,0, LM87-_mod_dcdc_write_ibus_lim_set
+.stabf LM88-_mod_dcdc_write_ibus_lim_set
+
+	_mod_dcdc_write_ibat_lim_set_sec .section rom
+	.global	_mod_dcdc_write_ibat_lim_set
+_mod_dcdc_write_ibat_lim_set:
+Lfunc_begin28:
+.stabs "mod_dcdc_write_ibat_lim_set:f:16", 0x24,0,0,_mod_dcdc_write_ibat_lim_set
+.stabn 0xc0, 0, 0, _mod_dcdc_write_ibat_lim_set
+.stabn 0xe0, 0, 0, _mod_dcdc_write_ibat_lim_set
+LM89:
+.stabn	0x44, 0, 204, LM89-_mod_dcdc_write_ibat_lim_set
+Lfunc_begin29:
+	banksel 0
+	movfw _mod_dcdc_write_ibat_lim_set.args.+0
+LM90:
+.stabn	0x44, 0, 205, LM90-_mod_dcdc_write_ibat_lim_set
+Ltmp38:
+	movwf _mod_dcdc_write_ibat_lim_set.temp.+0
+	movwfl _dcdc_data+6
+LM91:
+.stabn	0x44, 0, 206, LM91-_mod_dcdc_write_ibat_lim_set
+	movlw 6
+	movwf _iic_transmit_byte.args.+0
+	movfwl _dcdc_data+6
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM92:
+.stabn	0x44, 0, 207, LM92-_mod_dcdc_write_ibat_lim_set
+	return
+Ltmp39:
+Lfunc_end28:
+Lfunc_end29:
+LM93:
+.stabn 0xc0,0,0, LM89-_mod_dcdc_write_ibat_lim_set
+.stabs "_ibat_limit_set:10;",0x80,0,0,_mod_dcdc_write_ibat_lim_set.args.+0
+.stabn 0xe0,0,0, LM92-_mod_dcdc_write_ibat_lim_set
+.stabf LM93-_mod_dcdc_write_ibat_lim_set
+
+	_mod_dcdc_write_vinreg_set_sec .section rom
+	.global	_mod_dcdc_write_vinreg_set
+_mod_dcdc_write_vinreg_set:
+Lfunc_begin30:
+.stabs "mod_dcdc_write_vinreg_set:f:16", 0x24,0,0,_mod_dcdc_write_vinreg_set
+.stabn 0xc0, 0, 0, _mod_dcdc_write_vinreg_set
+.stabn 0xe0, 0, 0, _mod_dcdc_write_vinreg_set
+LM94:
+.stabn	0x44, 0, 210, LM94-_mod_dcdc_write_vinreg_set
+Lfunc_begin31:
+	banksel 0
+	movfw _mod_dcdc_write_vinreg_set.args.+0
+LM95:
+.stabn	0x44, 0, 211, LM95-_mod_dcdc_write_vinreg_set
+Ltmp40:
+	movwf _mod_dcdc_write_vinreg_set.temp.+0
+	movwfl _dcdc_data+7
+LM96:
+.stabn	0x44, 0, 212, LM96-_mod_dcdc_write_vinreg_set
+	movlw 7
+	movwf _iic_transmit_byte.args.+0
+	movfwl _dcdc_data+7
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM97:
+.stabn	0x44, 0, 213, LM97-_mod_dcdc_write_vinreg_set
+	return
+Ltmp41:
+Lfunc_end30:
+Lfunc_end31:
+LM98:
+.stabn 0xc0,0,0, LM94-_mod_dcdc_write_vinreg_set
+.stabs "_vinreg_set:10;",0x80,0,0,_mod_dcdc_write_vinreg_set.args.+0
+.stabn 0xe0,0,0, LM97-_mod_dcdc_write_vinreg_set
+.stabf LM98-_mod_dcdc_write_vinreg_set
+
+	_mod_dcdc_telemetry_status_sec .section rom
+	.global	_mod_dcdc_telemetry_status
+_mod_dcdc_telemetry_status:
+Lfunc_begin32:
+.stabs "mod_dcdc_telemetry_status:f68=10;;", 0x24,0,0,_mod_dcdc_telemetry_status
+.stabn 0xc0, 0, 0, _mod_dcdc_telemetry_status
+.stabn 0xe0, 0, 0, _mod_dcdc_telemetry_status
+LM99:
+.stabn	0x44, 0, 217, LM99-_mod_dcdc_telemetry_status
+Lfunc_begin33:
+LM100:
+.stabn	0x44, 0, 218, LM100-_mod_dcdc_telemetry_status
+	banksel 0
+	movfwl _dcdc_data+23
+	movwf _mod_dcdc_telemetry_status.frame.+0
+	return
+Ltmp42:
+Lfunc_end32:
+Lfunc_end33:
+LM101:
+.stabf LM101-_mod_dcdc_telemetry_status
+
+	_mod_dcdc_telemetry_vbus_reg_sec .section rom
+	.global	_mod_dcdc_telemetry_vbus_reg
+_mod_dcdc_telemetry_vbus_reg:
+Lfunc_begin34:
+.stabs "mod_dcdc_telemetry_vbus_reg:f69=2;;", 0x24,0,0,_mod_dcdc_telemetry_vbus_reg
+.stabn 0xc0, 0, 0, _mod_dcdc_telemetry_vbus_reg
+.stabn 0xe0, 0, 0, _mod_dcdc_telemetry_vbus_reg
+LM102:
+.stabn	0x44, 0, 227, LM102-_mod_dcdc_telemetry_vbus_reg
+Lfunc_begin35:
+LM103:
+.stabn	0x44, 0, 228, LM103-_mod_dcdc_telemetry_vbus_reg
+	banksel 0
+	movfwl _dcdc_data+13
+	SrlSix
+	movwf _mod_dcdc_telemetry_vbus_reg.temp.+0
+	movfwl _dcdc_data+13
+	ShlTwo
+	movwf _mod_dcdc_telemetry_vbus_reg.temp.+1
+	movfwl _dcdc_data+14
+	SrlSix
+	iorwf _mod_dcdc_telemetry_vbus_reg.temp.+1, W
+	addlw 1
+	movwf _mod_dcdc_telemetry_vbus_reg.frame.+0
+	movfw _mod_dcdc_telemetry_vbus_reg.temp.+0
+	addlwc 0
+	movwf _mod_dcdc_telemetry_vbus_reg.frame.+1
+	return
+Ltmp43:
+Lfunc_end34:
+Lfunc_end35:
+LM104:
+.stabf LM104-_mod_dcdc_telemetry_vbus_reg
+
+	_mod_dcdc_rt_telemetry_vbus_reg_sec .section rom
+	.global	_mod_dcdc_rt_telemetry_vbus_reg
+_mod_dcdc_rt_telemetry_vbus_reg:
+Lfunc_begin36:
+.stabs "mod_dcdc_rt_telemetry_vbus_reg:f70=2;;", 0x24,0,0,_mod_dcdc_rt_telemetry_vbus_reg
+.stabn 0xc0, 0, 0, _mod_dcdc_rt_telemetry_vbus_reg
+.stabn 0xe0, 0, 0, _mod_dcdc_rt_telemetry_vbus_reg
+LM105:
+.stabn	0x44, 0, 232, LM105-_mod_dcdc_rt_telemetry_vbus_reg
+Lfunc_begin37:
+LM106:
+.stabn	0x44, 0, 233, LM106-_mod_dcdc_rt_telemetry_vbus_reg
+	banksel 0
+	movlw LOW(_dcdc_data+0)
+LM107:
+.stabn	0x44, 0, 237, LM107-_mod_dcdc_rt_telemetry_vbus_reg
+	addlw 13
+	movwf _mod_dcdc_rt_telemetry_vbus_reg.temp.+0
+	movlw HIGH8(_dcdc_data+0)
+	addlwc 0
+LM108:
+.stabn	0x44, 0, 233, LM108-_mod_dcdc_rt_telemetry_vbus_reg
+	movwf _mod_dcdc_rt_telemetry_vbus_reg.temp.+1
+	movlw LOW(_dcdc_data+0)
+	movwf _cs8812a_p+0
+LM109:
+.stabn	0x44, 0, 237, LM109-_mod_dcdc_rt_telemetry_vbus_reg
+	movlw HIGH8(_dcdc_data+0)
+LM110:
+.stabn	0x44, 0, 233, LM110-_mod_dcdc_rt_telemetry_vbus_reg
+	movwf _cs8812a_p+1
+LM111:
+.stabn	0x44, 0, 234, LM111-_mod_dcdc_rt_telemetry_vbus_reg
+	movfw _mod_dcdc_rt_telemetry_vbus_reg.temp.+0
+	movwf _cs8812a_p+0
+	movfw _mod_dcdc_rt_telemetry_vbus_reg.temp.+1
+	movwf _cs8812a_p+1
+LM112:
+.stabn	0x44, 0, 235, LM112-_mod_dcdc_rt_telemetry_vbus_reg
+	movlw 13
+	movwf _iic_receive_bytes.args.+0
+	movfw _mod_dcdc_rt_telemetry_vbus_reg.temp.+0
+	movwf _iic_receive_bytes.args.+1
+	movfw _mod_dcdc_rt_telemetry_vbus_reg.temp.+1
+	movwf _iic_receive_bytes.args.+2
+	movlw 2
+	movwf _iic_receive_bytes.args.+3
+	call _iic_receive_bytes
+LM113:
+.stabn	0x44, 0, 236, LM113-_mod_dcdc_rt_telemetry_vbus_reg
+	clrf _cs8812a_p+0
+	clrf _cs8812a_p+1
+LM114:
+.stabn	0x44, 0, 237, LM114-_mod_dcdc_rt_telemetry_vbus_reg
+	movfwl _dcdc_data+13
+	SrlSix
+	movwf _mod_dcdc_rt_telemetry_vbus_reg.temp.+0
+	movfwl _dcdc_data+13
+	ShlTwo
+	movwf _mod_dcdc_rt_telemetry_vbus_reg.temp.+1
+	movfwl _dcdc_data+14
+	SrlSix
+	iorwf _mod_dcdc_rt_telemetry_vbus_reg.temp.+1, W
+	addlw 1
+	movwf _mod_dcdc_rt_telemetry_vbus_reg.frame.+0
+	movfw _mod_dcdc_rt_telemetry_vbus_reg.temp.+0
+	addlwc 0
+	movwf _mod_dcdc_rt_telemetry_vbus_reg.frame.+1
+	return
+Ltmp44:
+Lfunc_end36:
+Lfunc_end37:
+LM115:
+.stabf LM115-_mod_dcdc_rt_telemetry_vbus_reg
+
+	_mod_dcdc_telemetry_vbat_reg_sec .section rom
+	.global	_mod_dcdc_telemetry_vbat_reg
+_mod_dcdc_telemetry_vbat_reg:
+Lfunc_begin38:
+.stabs "mod_dcdc_telemetry_vbat_reg:f71=2;;", 0x24,0,0,_mod_dcdc_telemetry_vbat_reg
+.stabn 0xc0, 0, 0, _mod_dcdc_telemetry_vbat_reg
+.stabn 0xe0, 0, 0, _mod_dcdc_telemetry_vbat_reg
+LM116:
+.stabn	0x44, 0, 246, LM116-_mod_dcdc_telemetry_vbat_reg
+Lfunc_begin39:
+LM117:
+.stabn	0x44, 0, 247, LM117-_mod_dcdc_telemetry_vbat_reg
+	banksel 0
+	movfwl _dcdc_data+15
+	SrlSix
+	movwf _mod_dcdc_telemetry_vbat_reg.temp.+0
+	movfwl _dcdc_data+15
+	ShlTwo
+	movwf _mod_dcdc_telemetry_vbat_reg.temp.+1
+	movfwl _dcdc_data+16
+	SrlSix
+	iorwf _mod_dcdc_telemetry_vbat_reg.temp.+1, W
+	addlw 1
+	movwf _mod_dcdc_telemetry_vbat_reg.frame.+0
+	movfw _mod_dcdc_telemetry_vbat_reg.temp.+0
+	addlwc 0
+	movwf _mod_dcdc_telemetry_vbat_reg.frame.+1
+	return
+Ltmp45:
+Lfunc_end38:
+Lfunc_end39:
+LM118:
+.stabf LM118-_mod_dcdc_telemetry_vbat_reg
+
+	_mod_dcdc_telemetry_ibus_reg_sec .section rom
+	.global	_mod_dcdc_telemetry_ibus_reg
+_mod_dcdc_telemetry_ibus_reg:
+Lfunc_begin40:
+.stabs "mod_dcdc_telemetry_ibus_reg:f72=2;;", 0x24,0,0,_mod_dcdc_telemetry_ibus_reg
+.stabn 0xc0, 0, 0, _mod_dcdc_telemetry_ibus_reg
+.stabn 0xe0, 0, 0, _mod_dcdc_telemetry_ibus_reg
+LM119:
+.stabn	0x44, 0, 256, LM119-_mod_dcdc_telemetry_ibus_reg
+Lfunc_begin41:
+LM120:
+.stabn	0x44, 0, 257, LM120-_mod_dcdc_telemetry_ibus_reg
+	banksel 0
+	movfwl _dcdc_data+17
+	SrlSix
+	movwf _mod_dcdc_telemetry_ibus_reg.temp.+0
+	movfwl _dcdc_data+17
+	ShlTwo
+	movwf _mod_dcdc_telemetry_ibus_reg.temp.+1
+	movfwl _dcdc_data+18
+	SrlSix
+	iorwf _mod_dcdc_telemetry_ibus_reg.temp.+1, W
+	addlw 1
+	movwf _mod_dcdc_telemetry_ibus_reg.frame.+0
+	movfw _mod_dcdc_telemetry_ibus_reg.temp.+0
+	addlwc 0
+	movwf _mod_dcdc_telemetry_ibus_reg.frame.+1
+	return
+Ltmp46:
+Lfunc_end40:
+Lfunc_end41:
+LM121:
+.stabf LM121-_mod_dcdc_telemetry_ibus_reg
+
+	_mod_dcdc_rt_telemetry_ibus_reg_sec .section rom
+	.global	_mod_dcdc_rt_telemetry_ibus_reg
+_mod_dcdc_rt_telemetry_ibus_reg:
+Lfunc_begin42:
+.stabs "mod_dcdc_rt_telemetry_ibus_reg:f73=2;;", 0x24,0,0,_mod_dcdc_rt_telemetry_ibus_reg
+.stabn 0xc0, 0, 0, _mod_dcdc_rt_telemetry_ibus_reg
+.stabn 0xe0, 0, 0, _mod_dcdc_rt_telemetry_ibus_reg
+LM122:
+.stabn	0x44, 0, 261, LM122-_mod_dcdc_rt_telemetry_ibus_reg
+Lfunc_begin43:
+LM123:
+.stabn	0x44, 0, 262, LM123-_mod_dcdc_rt_telemetry_ibus_reg
+	banksel 0
+	movlw LOW(_dcdc_data+0)
+LM124:
+.stabn	0x44, 0, 266, LM124-_mod_dcdc_rt_telemetry_ibus_reg
+	addlw 17
+	movwf _mod_dcdc_rt_telemetry_ibus_reg.temp.+0
+	movlw HIGH8(_dcdc_data+0)
+	addlwc 0
+LM125:
+.stabn	0x44, 0, 262, LM125-_mod_dcdc_rt_telemetry_ibus_reg
+	movwf _mod_dcdc_rt_telemetry_ibus_reg.temp.+1
+	movlw LOW(_dcdc_data+0)
+	movwf _cs8812a_p+0
+LM126:
+.stabn	0x44, 0, 266, LM126-_mod_dcdc_rt_telemetry_ibus_reg
+	movlw HIGH8(_dcdc_data+0)
+LM127:
+.stabn	0x44, 0, 262, LM127-_mod_dcdc_rt_telemetry_ibus_reg
+	movwf _cs8812a_p+1
+LM128:
+.stabn	0x44, 0, 263, LM128-_mod_dcdc_rt_telemetry_ibus_reg
+	movfw _mod_dcdc_rt_telemetry_ibus_reg.temp.+0
+	movwf _cs8812a_p+0
+	movfw _mod_dcdc_rt_telemetry_ibus_reg.temp.+1
+	movwf _cs8812a_p+1
+LM129:
+.stabn	0x44, 0, 264, LM129-_mod_dcdc_rt_telemetry_ibus_reg
+	movlw 17
+	movwf _iic_receive_bytes.args.+0
+	movfw _mod_dcdc_rt_telemetry_ibus_reg.temp.+0
+	movwf _iic_receive_bytes.args.+1
+	movfw _mod_dcdc_rt_telemetry_ibus_reg.temp.+1
+	movwf _iic_receive_bytes.args.+2
+	movlw 2
+	movwf _iic_receive_bytes.args.+3
+	call _iic_receive_bytes
+LM130:
+.stabn	0x44, 0, 265, LM130-_mod_dcdc_rt_telemetry_ibus_reg
+	clrf _cs8812a_p+0
+	clrf _cs8812a_p+1
+LM131:
+.stabn	0x44, 0, 266, LM131-_mod_dcdc_rt_telemetry_ibus_reg
+	movfwl _dcdc_data+17
+	SrlSix
+	movwf _mod_dcdc_rt_telemetry_ibus_reg.temp.+0
+	movfwl _dcdc_data+17
+	ShlTwo
+	movwf _mod_dcdc_rt_telemetry_ibus_reg.temp.+1
+	movfwl _dcdc_data+18
+	SrlSix
+	iorwf _mod_dcdc_rt_telemetry_ibus_reg.temp.+1, W
+	addlw 1
+	movwf _mod_dcdc_rt_telemetry_ibus_reg.frame.+0
+	movfw _mod_dcdc_rt_telemetry_ibus_reg.temp.+0
+	addlwc 0
+	movwf _mod_dcdc_rt_telemetry_ibus_reg.frame.+1
+	return
+Ltmp47:
+Lfunc_end42:
+Lfunc_end43:
+LM132:
+.stabf LM132-_mod_dcdc_rt_telemetry_ibus_reg
+
+	_mod_dcdc_telemetry_ibat_reg_sec .section rom
+	.global	_mod_dcdc_telemetry_ibat_reg
+_mod_dcdc_telemetry_ibat_reg:
+Lfunc_begin44:
+.stabs "mod_dcdc_telemetry_ibat_reg:f74=2;;", 0x24,0,0,_mod_dcdc_telemetry_ibat_reg
+.stabn 0xc0, 0, 0, _mod_dcdc_telemetry_ibat_reg
+.stabn 0xe0, 0, 0, _mod_dcdc_telemetry_ibat_reg
+LM133:
+.stabn	0x44, 0, 275, LM133-_mod_dcdc_telemetry_ibat_reg
+Lfunc_begin45:
+LM134:
+.stabn	0x44, 0, 276, LM134-_mod_dcdc_telemetry_ibat_reg
+	banksel 0
+	movfwl _dcdc_data+19
+	SrlSix
+	movwf _mod_dcdc_telemetry_ibat_reg.temp.+0
+	movfwl _dcdc_data+19
+	ShlTwo
+	movwf _mod_dcdc_telemetry_ibat_reg.temp.+1
+	movfwl _dcdc_data+20
+	SrlSix
+	iorwf _mod_dcdc_telemetry_ibat_reg.temp.+1, W
+	addlw 1
+	movwf _mod_dcdc_telemetry_ibat_reg.frame.+0
+	movfw _mod_dcdc_telemetry_ibat_reg.temp.+0
+	addlwc 0
+	movwf _mod_dcdc_telemetry_ibat_reg.frame.+1
+	return
+Ltmp48:
+Lfunc_end44:
+Lfunc_end45:
+LM135:
+.stabf LM135-_mod_dcdc_telemetry_ibat_reg
+
+	_mod_dcdc_telemetry_vbusref_reg_sec .section rom
+	.global	_mod_dcdc_telemetry_vbusref_reg
+_mod_dcdc_telemetry_vbusref_reg:
+Lfunc_begin46:
+.stabs "mod_dcdc_telemetry_vbusref_reg:f75=2;;", 0x24,0,0,_mod_dcdc_telemetry_vbusref_reg
+.stabn 0xc0, 0, 0, _mod_dcdc_telemetry_vbusref_reg
+.stabn 0xe0, 0, 0, _mod_dcdc_telemetry_vbusref_reg
+LM136:
+.stabn	0x44, 0, 285, LM136-_mod_dcdc_telemetry_vbusref_reg
+Lfunc_begin47:
+LM137:
+.stabn	0x44, 0, 286, LM137-_mod_dcdc_telemetry_vbusref_reg
+	banksel 0
+	movfwl _dcdc_data+3
+	SrlSix
+	movwf _mod_dcdc_telemetry_vbusref_reg.temp.+0
+	movfwl _dcdc_data+3
+	ShlTwo
+	movwf _mod_dcdc_telemetry_vbusref_reg.temp.+1
+	movfwl _dcdc_data+4
+	SrlSix
+	iorwf _mod_dcdc_telemetry_vbusref_reg.temp.+1, W
+	addlw 1
+	movwf _mod_dcdc_telemetry_vbusref_reg.frame.+0
+	movfw _mod_dcdc_telemetry_vbusref_reg.temp.+0
+	addlwc 0
+	movwf _mod_dcdc_telemetry_vbusref_reg.frame.+1
+	return
+Ltmp49:
+Lfunc_end46:
+Lfunc_end47:
+LM138:
+.stabf LM138-_mod_dcdc_telemetry_vbusref_reg
+
+	_mod_SC8886_init_sec .section rom
+	.global	_mod_SC8886_init
+_mod_SC8886_init:
+Lfunc_begin48:
+.stabs "mod_SC8886_init:f:16", 0x24,0,0,_mod_SC8886_init
+.stabn 0xc0, 0, 0, _mod_SC8886_init
+.stabn 0xe0, 0, 0, _mod_SC8886_init
+LM139:
+.stabn	0x44, 0, 289, LM139-_mod_SC8886_init
+Lfunc_begin49:
+LM140:
+.stabn	0x44, 0, 294, LM140-_mod_SC8886_init
+	banksel 0
+	movlw 12
+	movwf _iic_receive_byte.args.+0
+	call _iic_receive_byte
+	movfw _iic_receive_byte.frame.+0
+	movwf _mod_SC8886_init.temp.+3
+LM141:
+.stabn	0x44, 0, 295, LM141-_mod_SC8886_init
+	movlw 15
+	iorwf _mod_SC8886_init.temp.+3, F
+LM142:
+.stabn	0x44, 0, 294, LM142-_mod_SC8886_init
+	movlw 12
+LM143:
+.stabn	0x44, 0, 296, LM143-_mod_SC8886_init
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_SC8886_init.temp.+3
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM144:
+.stabn	0x44, 0, 297, LM144-_mod_SC8886_init
+	movlw 0xf0
+	andwf _mod_SC8886_init.temp.+3, F
+LM145:
+.stabn	0x44, 0, 294, LM145-_mod_SC8886_init
+	movlw 12
+LM146:
+.stabn	0x44, 0, 298, LM146-_mod_SC8886_init
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_SC8886_init.temp.+3
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM147:
+.stabn	0x44, 0, 301, LM147-_mod_SC8886_init
+	movlw 24
+	movwf _iic_transmit_byte.args.+0
+	movlw 3
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM148:
+.stabn	0x44, 0, 304, LM148-_mod_SC8886_init
+	movlw 48
+	movwf _iic_transmit_byte.args.+0
+LM149:
+.stabn	0x44, 0, 301, LM149-_mod_SC8886_init
+	movlw 3
+LM150:
+.stabn	0x44, 0, 304, LM150-_mod_SC8886_init
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM151:
+.stabn	0x44, 0, 307, LM151-_mod_SC8886_init
+	movlw 52
+	movwf _iic_transmit_byte.args.+0
+	movlw 0xac
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM152:
+.stabn	0x44, 0, 308, LM152-_mod_SC8886_init
+	movlw 53
+	movwf _iic_transmit_byte.args.+0
+	movlw 4
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM153:
+.stabn	0x44, 0, 311, LM153-_mod_SC8886_init
+	movlw 56
+	movwf _iic_transmit_byte.args.+0
+	movlw 5
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM154:
+.stabn	0x44, 0, 312, LM154-_mod_SC8886_init
+	movlw 2
+	movwf _iic_receive_byte.args.+0
+	call _iic_receive_byte
+	movfw _iic_receive_byte.frame.+0
+	movwf _mod_SC8886_init.temp.+2
+LM155:
+.stabn	0x44, 0, 307, LM155-_mod_SC8886_init
+	movlw 52
+LM156:
+.stabn	0x44, 0, 313, LM156-_mod_SC8886_init
+	movwf _iic_receive_byte.args.+0
+	call _iic_receive_byte
+	movfw _iic_receive_byte.frame.+0
+	movwf _mod_SC8886_init.temp.+1
+LM157:
+.stabn	0x44, 0, 316, LM157-_mod_SC8886_init
+	movlw 13
+	movwf _iic_receive_byte.args.+0
+	call _iic_receive_byte
+	movfw _iic_receive_byte.frame.+0
+	movwf _mod_SC8886_init.temp.+0
+LM158:
+.stabn	0x44, 0, 317, LM158-_mod_SC8886_init
+	bcf _mod_SC8886_init.temp.+0, 4
+LM159:
+.stabn	0x44, 0, 318, LM159-_mod_SC8886_init
+	movlw 0xfe
+	andwf _mod_SC8886_init.temp.+0, F
+LM160:
+.stabn	0x44, 0, 316, LM160-_mod_SC8886_init
+	movlw 13
+LM161:
+.stabn	0x44, 0, 319, LM161-_mod_SC8886_init
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_SC8886_init.temp.+0
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM162:
+.stabn	0x44, 0, 322, LM162-_mod_SC8886_init
+	movlw 34
+	movwf _iic_receive_byte.args.+0
+	call _iic_receive_byte
+	movfw _iic_receive_byte.frame.+0
+	movwf _mod_SC8886_init.temp.+0
+LM163:
+.stabn	0x44, 0, 312, LM163-_mod_SC8886_init
+	movlw 2
+LM164:
+.stabn	0x44, 0, 324, LM164-_mod_SC8886_init
+	iorwf _mod_SC8886_init.temp.+0, F
+LM165:
+.stabn	0x44, 0, 322, LM165-_mod_SC8886_init
+	movlw 34
+LM166:
+.stabn	0x44, 0, 325, LM166-_mod_SC8886_init
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_SC8886_init.temp.+0
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM167:
+.stabn	0x44, 0, 330, LM167-_mod_SC8886_init
+Ltmp50:
+	movfw _mod_SC8886_init.temp.+1
+Ltmp51:
+	sublw 0xac
+	beq LBB24_2
+LBB24_1:
+LM168:
+.stabn	0x44, 0, 333, LM168-_mod_SC8886_init
+Ltmp52:
+	movlw 12
+	movwf _iic_receive_byte.args.+0
+	call _iic_receive_byte
+	movfw _iic_receive_byte.frame.+0
+	movwf _mod_SC8886_init.temp.+3
+LM169:
+.stabn	0x44, 0, 334, LM169-_mod_SC8886_init
+	movlw 15
+	iorwf _mod_SC8886_init.temp.+3, F
+LM170:
+.stabn	0x44, 0, 333, LM170-_mod_SC8886_init
+	movlw 12
+LM171:
+.stabn	0x44, 0, 335, LM171-_mod_SC8886_init
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_SC8886_init.temp.+3
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM172:
+.stabn	0x44, 0, 336, LM172-_mod_SC8886_init
+	movlw 0xf0
+	andwf _mod_SC8886_init.temp.+3, F
+LM173:
+.stabn	0x44, 0, 333, LM173-_mod_SC8886_init
+	movlw 12
+LM174:
+.stabn	0x44, 0, 337, LM174-_mod_SC8886_init
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_SC8886_init.temp.+3
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM175:
+.stabn	0x44, 0, 340, LM175-_mod_SC8886_init
+	movlw 24
+	movwf _iic_transmit_byte.args.+0
+	movlw 3
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM176:
+.stabn	0x44, 0, 343, LM176-_mod_SC8886_init
+	movlw 48
+	movwf _iic_transmit_byte.args.+0
+LM177:
+.stabn	0x44, 0, 340, LM177-_mod_SC8886_init
+	movlw 3
+LM178:
+.stabn	0x44, 0, 343, LM178-_mod_SC8886_init
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM179:
+.stabn	0x44, 0, 346, LM179-_mod_SC8886_init
+	movlw 52
+	movwf _iic_transmit_byte.args.+0
+	movlw 0xac
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM180:
+.stabn	0x44, 0, 347, LM180-_mod_SC8886_init
+	movlw 53
+	movwf _iic_transmit_byte.args.+0
+	movlw 4
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM181:
+.stabn	0x44, 0, 350, LM181-_mod_SC8886_init
+	movlw 56
+	movwf _iic_transmit_byte.args.+0
+	movlw 5
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM182:
+.stabn	0x44, 0, 351, LM182-_mod_SC8886_init
+	movlw 2
+	movwf _iic_receive_byte.args.+0
+	call _iic_receive_byte
+	movfw _iic_receive_byte.frame.+0
+	movwf _mod_SC8886_init.temp.+2
+LM183:
+.stabn	0x44, 0, 346, LM183-_mod_SC8886_init
+	movlw 52
+LM184:
+.stabn	0x44, 0, 352, LM184-_mod_SC8886_init
+	movwf _iic_receive_byte.args.+0
+	call _iic_receive_byte
+	movfw _iic_receive_byte.frame.+0
+	movwf _mod_SC8886_init.temp.+1
+Ltmp53:
+LBB24_2:
+LM185:
+.stabn	0x44, 0, 356, LM185-_mod_SC8886_init
+	return
+Ltmp54:
+Lfunc_end48:
+Lfunc_end49:
+LM186:
+.stabn 0xc0,0,0, LM140-_mod_SC8886_init
+.stabs "RE_data_temp8:10;",0x80,0,0,_mod_SC8886_init.temp.+0
+.stabn 0xe0,0,0, LM185-_mod_SC8886_init
+.stabn 0xc0,0,0, LM140-_mod_SC8886_init
+.stabs "TX_BAT:10;",0x80,0,0,_mod_SC8886_init.temp.+2
+.stabn 0xe0,0,0, LM185-_mod_SC8886_init
+.stabn 0xc0,0,0, LM140-_mod_SC8886_init
+.stabs "TX_V:10;",0x80,0,0,_mod_SC8886_init.temp.+1
+.stabn 0xe0,0,0, LM185-_mod_SC8886_init
+.stabn 0xc0,0,0, LM140-_mod_SC8886_init
+.stabs "Readdata:10;",0x80,0,0,_mod_SC8886_init.temp.+3
+.stabn 0xe0,0,0, LM185-_mod_SC8886_init
+.stabf LM186-_mod_SC8886_init
+
+	_mod_dcdc_disable_sec .section rom
+	.global	_mod_dcdc_disable
+_mod_dcdc_disable:
+Lfunc_begin50:
+.stabs "mod_dcdc_disable:f:16", 0x24,0,0,_mod_dcdc_disable
+.stabn 0xc0, 0, 0, _mod_dcdc_disable
+.stabn 0xe0, 0, 0, _mod_dcdc_disable
+LM187:
+.stabn	0x44, 0, 358, LM187-_mod_dcdc_disable
+Lfunc_begin51:
+LM188:
+.stabn	0x44, 0, 363, LM188-_mod_dcdc_disable
+	banksel 0
+	movlw 4
+	movwf _iic_transmit_byte.args.+0
+	setf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM189:
+.stabn	0x44, 0, 366, LM189-_mod_dcdc_disable
+	movlw 5
+	movwf _iic_transmit_byte.args.+0
+	setf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM190:
+.stabn	0x44, 0, 370, LM190-_mod_dcdc_disable
+	movlw 12
+	movwf _iic_receive_byte.args.+0
+	call _iic_receive_byte
+	movfw _iic_receive_byte.frame.+0
+	movwf _mod_dcdc_disable.temp.+1
+LM191:
+.stabn	0x44, 0, 371, LM191-_mod_dcdc_disable
+	movlw 0xf4
+	andwf _mod_dcdc_disable.temp.+1, F
+LM192:
+.stabn	0x44, 0, 370, LM192-_mod_dcdc_disable
+	movlw 12
+LM193:
+.stabn	0x44, 0, 372, LM193-_mod_dcdc_disable
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_dcdc_disable.temp.+1
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM194:
+.stabn	0x44, 0, 373, LM194-_mod_dcdc_disable
+	movlw 11
+	iorwf _mod_dcdc_disable.temp.+1, F
+LM195:
+.stabn	0x44, 0, 370, LM195-_mod_dcdc_disable
+	movlw 12
+LM196:
+.stabn	0x44, 0, 374, LM196-_mod_dcdc_disable
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_dcdc_disable.temp.+1
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM197:
+.stabn	0x44, 0, 371, LM197-_mod_dcdc_disable
+	movlw 0xf4
+LM198:
+.stabn	0x44, 0, 375, LM198-_mod_dcdc_disable
+	andwf _mod_dcdc_disable.temp.+1, F
+LM199:
+.stabn	0x44, 0, 370, LM199-_mod_dcdc_disable
+	movlw 12
+LM200:
+.stabn	0x44, 0, 376, LM200-_mod_dcdc_disable
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_dcdc_disable.temp.+1
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM201:
+.stabn	0x44, 0, 381, LM201-_mod_dcdc_disable
+	movlw 13
+	movwf _iic_receive_byte.args.+0
+	call _iic_receive_byte
+	movfw _iic_receive_byte.frame.+0
+	movwf _mod_dcdc_disable.temp.+0
+LM202:
+.stabn	0x44, 0, 382, LM202-_mod_dcdc_disable
+	movlw 0xee
+	andwf _mod_dcdc_disable.temp.+0, W
+LM203:
+.stabn	0x44, 0, 381, LM203-_mod_dcdc_disable
+	movwf _mod_dcdc_disable.temp.+2
+	movlw 13
+LM204:
+.stabn	0x44, 0, 382, LM204-_mod_dcdc_disable
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_dcdc_disable.temp.+2
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM205:
+.stabn	0x44, 0, 386, LM205-_mod_dcdc_disable
+	movlw 24
+	movwf _iic_transmit_byte.args.+0
+	clrf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM206:
+.stabn	0x44, 0, 389, LM206-_mod_dcdc_disable
+	movlw 25
+	movwf _iic_transmit_byte.args.+0
+	clrf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM207:
+.stabn	0x44, 0, 390, LM207-_mod_dcdc_disable
+	return
+Ltmp55:
+Lfunc_end50:
+Lfunc_end51:
+LM208:
+.stabn 0xc0,0,0, LM188-_mod_dcdc_disable
+.stabs "Readdata:10;",0x80,0,0,_mod_dcdc_disable.temp.+1
+.stabn 0xe0,0,0, LM207-_mod_dcdc_disable
+.stabn 0xc0,0,0, LM188-_mod_dcdc_disable
+.stabs "reg:10;",0x80,0,0,_mod_dcdc_disable.temp.+0
+.stabn 0xe0,0,0, LM207-_mod_dcdc_disable
+.stabf LM208-_mod_dcdc_disable
+
+	_mod_charge_cur_deal_sec .section rom
+	.global	_mod_charge_cur_deal
+_mod_charge_cur_deal:
+Lfunc_begin52:
+.stabs "mod_charge_cur_deal:f:16", 0x24,0,0,_mod_charge_cur_deal
+.stabn 0xc0, 0, 0, _mod_charge_cur_deal
+.stabn 0xe0, 0, 0, _mod_charge_cur_deal
+LM209:
+.stabn	0x44, 0, 392, LM209-_mod_charge_cur_deal
+Lfunc_begin53:
+	banksel 0
+	movfw _mod_charge_cur_deal.args.+0
+LM210:
+.stabn	0x44, 0, 394, LM210-_mod_charge_cur_deal
+Ltmp56:
+	movwf _mod_charge_cur_deal.temp.+0
+	movlw 57
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_charge_cur_deal.temp.+0
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM211:
+.stabn	0x44, 0, 395, LM211-_mod_charge_cur_deal
+	return
+Ltmp57:
+Lfunc_end52:
+Lfunc_end53:
+LM212:
+.stabn 0xc0,0,0, LM209-_mod_charge_cur_deal
+.stabs "charge_ibus_limit:10;",0x80,0,0,_mod_charge_cur_deal.args.+0
+.stabn 0xe0,0,0, LM211-_mod_charge_cur_deal
+.stabf LM212-_mod_charge_cur_deal
+
+	_mod_charge_vol_deal_sec .section rom
+	.global	_mod_charge_vol_deal
+_mod_charge_vol_deal:
+Lfunc_begin54:
+.stabs "mod_charge_vol_deal:f:16", 0x24,0,0,_mod_charge_vol_deal
+.stabn 0xc0, 0, 0, _mod_charge_vol_deal
+.stabn 0xe0, 0, 0, _mod_charge_vol_deal
+LM213:
+.stabn	0x44, 0, 397, LM213-_mod_charge_vol_deal
+Lfunc_begin55:
+	banksel 0
+	movfw _mod_charge_vol_deal.args.+0
+LM214:
+.stabn	0x44, 0, 412, LM214-_mod_charge_vol_deal
+Ltmp58:
+	movwf _mod_charge_vol_deal.temp.+0
+	return
+Ltmp59:
+Lfunc_end54:
+Lfunc_end55:
+LM215:
+.stabn 0xc0,0,0, LM213-_mod_charge_vol_deal
+.stabs "charge_Vbus_limit:10;",0x80,0,0,_mod_charge_vol_deal.args.+0
+.stabn 0xe0,0,0, LM214-_mod_charge_vol_deal
+.stabf LM215-_mod_charge_vol_deal
+
+	_mod_SC8886_Charge_init_sec .section rom
+	.global	_mod_SC8886_Charge_init
+_mod_SC8886_Charge_init:
+Lfunc_begin56:
+.stabs "mod_SC8886_Charge_init:f:16", 0x24,0,0,_mod_SC8886_Charge_init
+.stabn 0xc0, 0, 0, _mod_SC8886_Charge_init
+.stabn 0xe0, 0, 0, _mod_SC8886_Charge_init
+LM216:
+.stabn	0x44, 0, 415, LM216-_mod_SC8886_Charge_init
+Lfunc_begin57:
+LM217:
+.stabn	0x44, 0, 419, LM217-_mod_SC8886_Charge_init
+	banksel 0
+	movlw 34
+	movwf _iic_receive_byte.args.+0
+	call _iic_receive_byte
+	movfw _iic_receive_byte.frame.+0
+	movwf _mod_SC8886_Charge_init.temp.+0
+LM218:
+.stabn	0x44, 0, 421, LM218-_mod_SC8886_Charge_init
+	movlw 2
+	iorwf _mod_SC8886_Charge_init.temp.+0, F
+LM219:
+.stabn	0x44, 0, 419, LM219-_mod_SC8886_Charge_init
+	movlw 34
+LM220:
+.stabn	0x44, 0, 422, LM220-_mod_SC8886_Charge_init
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_SC8886_Charge_init.temp.+0
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM221:
+.stabn	0x44, 0, 425, LM221-_mod_SC8886_Charge_init
+	movlw 52
+	movwf _iic_transmit_byte.args.+0
+	movlw 0xac
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM222:
+.stabn	0x44, 0, 427, LM222-_mod_SC8886_Charge_init
+	movlw 53
+	movwf _iic_transmit_byte.args.+0
+	movlw 4
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+	movlw 4
+LM223:
+.stabn	0x44, 0, 429, LM223-_mod_SC8886_Charge_init
+	movwf _R_ChargeCur_DataBuff+0
+LM224:
+.stabn	0x44, 0, 430, LM224-_mod_SC8886_Charge_init
+	movwf _R_ChargeCur_Data+0
+LM225:
+.stabn	0x44, 0, 432, LM225-_mod_SC8886_Charge_init
+	movlw 57
+	movwf _iic_transmit_byte.args.+0
+LM226:
+.stabn	0x44, 0, 427, LM226-_mod_SC8886_Charge_init
+	movlw 4
+LM227:
+.stabn	0x44, 0, 432, LM227-_mod_SC8886_Charge_init
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM228:
+.stabn	0x44, 0, 434, LM228-_mod_SC8886_Charge_init
+	movlw 58
+	movwf _iic_transmit_byte.args.+0
+	movlw 119
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM229:
+.stabn	0x44, 0, 436, LM229-_mod_SC8886_Charge_init
+	movlw 56
+	movwf _iic_transmit_byte.args.+0
+	movlw 5
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM230:
+.stabn	0x44, 0, 438, LM230-_mod_SC8886_Charge_init
+	movlw 54
+	movwf _iic_transmit_byte.args.+0
+	movlw 101
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM231:
+.stabn	0x44, 0, 441, LM231-_mod_SC8886_Charge_init
+	movlw 55
+	movwf _iic_transmit_byte.args.+0
+LM232:
+.stabn	0x44, 0, 427, LM232-_mod_SC8886_Charge_init
+	movlw 4
+LM233:
+.stabn	0x44, 0, 441, LM233-_mod_SC8886_Charge_init
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM234:
+.stabn	0x44, 0, 443, LM234-_mod_SC8886_Charge_init
+	movlw 48
+	movwf _iic_receive_byte.args.+0
+	call _iic_receive_byte
+	movfw _iic_receive_byte.frame.+0
+	movwf _mod_SC8886_Charge_init.temp.+0
+LM235:
+.stabn	0x44, 0, 444, LM235-_mod_SC8886_Charge_init
+	movlw 0x80
+	iorwf _mod_SC8886_Charge_init.temp.+0, F
+LM236:
+.stabn	0x44, 0, 443, LM236-_mod_SC8886_Charge_init
+	movlw 48
+LM237:
+.stabn	0x44, 0, 445, LM237-_mod_SC8886_Charge_init
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_SC8886_Charge_init.temp.+0
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM238:
+.stabn	0x44, 0, 450, LM238-_mod_SC8886_Charge_init
+	movlw 1
+	movwf _mod_charge_ibat0_limit_deal.args.+0
+	call _mod_charge_ibat0_limit_deal
+LM239:
+.stabn	0x44, 0, 452, LM239-_mod_SC8886_Charge_init
+	bsf BSR,0
+	clrf _Charge_bat_low_power_F+0
+LM240:
+.stabn	0x44, 0, 453, LM240-_mod_SC8886_Charge_init
+	banksel 0
+	return
+Ltmp60:
+Lfunc_end56:
+Lfunc_end57:
+LM241:
+.stabn 0xc0,0,0, LM217-_mod_SC8886_Charge_init
+.stabs "ReadData:10;",0x80,0,0,_mod_SC8886_Charge_init.temp.+0
+.stabn 0xe0,0,0, LM240-_mod_SC8886_Charge_init
+.stabf LM241-_mod_SC8886_Charge_init
+
+	_mod_charge_ibat0_limit_deal_sec .section rom
+	.global	_mod_charge_ibat0_limit_deal
+_mod_charge_ibat0_limit_deal:
+Lfunc_begin58:
+.stabs "mod_charge_ibat0_limit_deal:f:16", 0x24,0,0,_mod_charge_ibat0_limit_deal
+.stabn 0xc0, 0, 0, _mod_charge_ibat0_limit_deal
+.stabn 0xe0, 0, 0, _mod_charge_ibat0_limit_deal
+LM242:
+.stabn	0x44, 0, 481, LM242-_mod_charge_ibat0_limit_deal
+Lfunc_begin59:
+	banksel 0
+	movfw _mod_charge_ibat0_limit_deal.args.+0
+LM243:
+.stabn	0x44, 0, 485, LM243-_mod_charge_ibat0_limit_deal
+Ltmp61:
+	movwf _mod_charge_ibat0_limit_deal.temp.+2
+	movlw 13
+	movwf _iic_receive_byte.args.+0
+	call _iic_receive_byte
+	movfw _iic_receive_byte.frame.+0
+	movwf _mod_charge_ibat0_limit_deal.temp.+1
+LM244:
+.stabn	0x44, 0, 486, LM244-_mod_charge_ibat0_limit_deal
+	movlw 16
+	andwf _mod_charge_ibat0_limit_deal.temp.+1, W
+	movwf _mod_charge_ibat0_limit_deal.temp.+0
+LM245:
+.stabn	0x44, 0, 488, LM245-_mod_charge_ibat0_limit_deal
+Ltmp62:
+	movfw _mod_charge_ibat0_limit_deal.temp.+2
+Ltmp63:
+	sublw 0
+	beq LBB29_4
+LBB29_1:
+LM246:
+.stabn	0x44, 0, 490, LM246-_mod_charge_ibat0_limit_deal
+Ltmp64:
+	movfw _mod_charge_ibat0_limit_deal.temp.+0
+Ltmp65:
+	sublw 0
+	bne LBB29_3
+LBB29_2:
+LM247:
+.stabn	0x44, 0, 493, LM247-_mod_charge_ibat0_limit_deal
+Ltmp66:
+	bsf _mod_charge_ibat0_limit_deal.temp.+1, 4
+LM248:
+.stabn	0x44, 0, 494, LM248-_mod_charge_ibat0_limit_deal
+	movlw 0xfe
+	andwf _mod_charge_ibat0_limit_deal.temp.+1, F
+LM249:
+.stabn	0x44, 0, 495, LM249-_mod_charge_ibat0_limit_deal
+	movlw 13
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_charge_ibat0_limit_deal.temp.+1
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+Ltmp67:
+LBB29_3:
+LM250:
+.stabn	0x44, 0, 498, LM250-_mod_charge_ibat0_limit_deal
+	goto LBB29_7
+Ltmp68:
+LBB29_4:
+LM251:
+.stabn	0x44, 0, 501, LM251-_mod_charge_ibat0_limit_deal
+	movfw _mod_charge_ibat0_limit_deal.temp.+0
+Ltmp69:
+	sublw 0
+	beq LBB29_6
+LBB29_5:
+LM252:
+.stabn	0x44, 0, 504, LM252-_mod_charge_ibat0_limit_deal
+Ltmp70:
+	bcf _mod_charge_ibat0_limit_deal.temp.+1, 4
+LM253:
+.stabn	0x44, 0, 505, LM253-_mod_charge_ibat0_limit_deal
+	movlw 0xfe
+	andwf _mod_charge_ibat0_limit_deal.temp.+1, F
+LM254:
+.stabn	0x44, 0, 506, LM254-_mod_charge_ibat0_limit_deal
+	movlw 13
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_charge_ibat0_limit_deal.temp.+1
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+Ltmp71:
+LBB29_6:
+LBB29_7:
+LM255:
+.stabn	0x44, 0, 509, LM255-_mod_charge_ibat0_limit_deal
+	return
+Ltmp72:
+Lfunc_end58:
+Lfunc_end59:
+LM256:
+.stabn 0xc0,0,0, LM242-_mod_charge_ibat0_limit_deal
+.stabs "enable:10;",0x80,0,0,_mod_charge_ibat0_limit_deal.args.+0
+.stabn 0xe0,0,0, LM255-_mod_charge_ibat0_limit_deal
+.stabn 0xc0,0,0, LM243-_mod_charge_ibat0_limit_deal
+.stabs "data_temp8:10;",0x80,0,0,_mod_charge_ibat0_limit_deal.temp.+0
+.stabn 0xe0,0,0, LM255-_mod_charge_ibat0_limit_deal
+.stabn 0xc0,0,0, LM243-_mod_charge_ibat0_limit_deal
+.stabs "RE_data_temp8:10;",0x80,0,0,_mod_charge_ibat0_limit_deal.temp.+1
+.stabn 0xe0,0,0, LM255-_mod_charge_ibat0_limit_deal
+.stabf LM256-_mod_charge_ibat0_limit_deal
+
+	_mod_SC8886_DisCharge_init_sec .section rom
+	.global	_mod_SC8886_DisCharge_init
+_mod_SC8886_DisCharge_init:
+Lfunc_begin60:
+.stabs "mod_SC8886_DisCharge_init:f:16", 0x24,0,0,_mod_SC8886_DisCharge_init
+.stabn 0xc0, 0, 0, _mod_SC8886_DisCharge_init
+.stabn 0xe0, 0, 0, _mod_SC8886_DisCharge_init
+LM257:
+.stabn	0x44, 0, 456, LM257-_mod_SC8886_DisCharge_init
+Lfunc_begin61:
+LM258:
+.stabn	0x44, 0, 460, LM258-_mod_SC8886_DisCharge_init
+	banksel 0
+	movlw 32
+	movwf _iic_receive_byte.args.+0
+	call _iic_receive_byte
+	movfw _iic_receive_byte.frame.+0
+	movwf _mod_SC8886_DisCharge_init.temp.+0
+LM259:
+.stabn	0x44, 0, 461, LM259-_mod_SC8886_DisCharge_init
+	movlw 0xfe
+	andwf _mod_SC8886_DisCharge_init.temp.+0, F
+LM260:
+.stabn	0x44, 0, 460, LM260-_mod_SC8886_DisCharge_init
+	movlw 32
+LM261:
+.stabn	0x44, 0, 462, LM261-_mod_SC8886_DisCharge_init
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_SC8886_DisCharge_init.temp.+0
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM262:
+.stabn	0x44, 0, 464, LM262-_mod_SC8886_DisCharge_init
+	movlw 90
+	movwf _mod_dcdc_write_ibus_lim_set.args.+0
+	call _mod_dcdc_write_ibus_lim_set
+LM263:
+.stabn	0x44, 0, 465, LM263-_mod_SC8886_DisCharge_init
+	movlw 38
+	movwf _iic_transmit_byte.args.+0
+	setf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM264:
+.stabn	0x44, 0, 466, LM264-_mod_SC8886_DisCharge_init
+	movlw 0xdc
+	movwf _mod_dcdc_write_vbusref_e_set.args.+0
+	clrf _mod_dcdc_write_vbusref_e_set.args.+1
+	call _mod_dcdc_write_vbusref_e_set
+LM265:
+.stabn	0x44, 0, 469, LM265-_mod_SC8886_DisCharge_init
+	movlw 13
+	movwf _iic_receive_byte.args.+0
+	call _iic_receive_byte
+	movfw _iic_receive_byte.frame.+0
+	movwf _mod_SC8886_DisCharge_init.temp.+0
+LM266:
+.stabn	0x44, 0, 470, LM266-_mod_SC8886_DisCharge_init
+	bsf _mod_SC8886_DisCharge_init.temp.+0, 0
+LM267:
+.stabn	0x44, 0, 471, LM267-_mod_SC8886_DisCharge_init
+	movlw 0xef
+	andwf _mod_SC8886_DisCharge_init.temp.+0, F
+LM268:
+.stabn	0x44, 0, 469, LM268-_mod_SC8886_DisCharge_init
+	movlw 13
+LM269:
+.stabn	0x44, 0, 472, LM269-_mod_SC8886_DisCharge_init
+	movwf _iic_transmit_byte.args.+0
+	movfw _mod_SC8886_DisCharge_init.temp.+0
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM270:
+.stabn	0x44, 0, 473, LM270-_mod_SC8886_DisCharge_init
+	return
+Ltmp73:
+Lfunc_end60:
+Lfunc_end61:
+LM271:
+.stabn 0xc0,0,0, LM258-_mod_SC8886_DisCharge_init
+.stabs "ReadData:10;",0x80,0,0,_mod_SC8886_DisCharge_init.temp.+0
+.stabn 0xe0,0,0, LM270-_mod_SC8886_DisCharge_init
+.stabf LM271-_mod_SC8886_DisCharge_init
+
+	_mod_charge_ibat_deal_sec .section rom
+	.global	_mod_charge_ibat_deal
+_mod_charge_ibat_deal:
+Lfunc_begin62:
+.stabs "mod_charge_ibat_deal:f:16", 0x24,0,0,_mod_charge_ibat_deal
+.stabn 0xc0, 0, 0, _mod_charge_ibat_deal
+.stabn 0xe0, 0, 0, _mod_charge_ibat_deal
+LM272:
+.stabn	0x44, 0, 476, LM272-_mod_charge_ibat_deal
+Lfunc_begin63:
+	banksel 0
+	movfw _mod_charge_ibat_deal.args.+0
+LM273:
+.stabn	0x44, 0, 478, LM273-_mod_charge_ibat_deal
+Ltmp74:
+	movwf _mod_charge_ibat_deal.temp.+0
+	return
+Ltmp75:
+Lfunc_end62:
+Lfunc_end63:
+LM274:
+.stabn 0xc0,0,0, LM272-_mod_charge_ibat_deal
+.stabs "charge_Ibat_limit:10;",0x80,0,0,_mod_charge_ibat_deal.args.+0
+.stabn 0xe0,0,0, LM273-_mod_charge_ibat_deal
+.stabf LM274-_mod_charge_ibat_deal
+
+	_Mod_Dis_USBA_EN_sec .section rom
+	.global	_Mod_Dis_USBA_EN
+_Mod_Dis_USBA_EN:
+Lfunc_begin64:
+.stabs "Mod_Dis_USBA_EN:f:16", 0x24,0,0,_Mod_Dis_USBA_EN
+.stabn 0xc0, 0, 0, _Mod_Dis_USBA_EN
+.stabn 0xe0, 0, 0, _Mod_Dis_USBA_EN
+LM275:
+.stabn	0x44, 0, 511, LM275-_Mod_Dis_USBA_EN
+Lfunc_begin65:
+	banksel 0
+	movfw _Mod_Dis_USBA_EN.args.+0
+LM276:
+.stabn	0x44, 0, 520, LM276-_Mod_Dis_USBA_EN
+Ltmp76:
+	movwf _Mod_Dis_USBA_EN.temp.+0
+	sublw 0
+	beq LBB32_2
+LBB32_1:
+LM277:
+.stabn	0x44, 0, 527, LM277-_Mod_Dis_USBA_EN
+Ltmp77:
+	bsf _PT3EN4, _PT3EN4
+	bsf _PT34, _PT34
+Ltmp78:
+LM278:
+.stabn	0x44, 0, 528, LM278-_Mod_Dis_USBA_EN
+	goto LBB32_3
+Ltmp79:
+LBB32_2:
+LM279:
+.stabn	0x44, 0, 536, LM279-_Mod_Dis_USBA_EN
+	bsf _PT3EN4, _PT3EN4
+	bcf _PT34, _PT34
+Ltmp80:
+LBB32_3:
+LM280:
+.stabn	0x44, 0, 539, LM280-_Mod_Dis_USBA_EN
+	return
+Ltmp81:
+Lfunc_end64:
+Lfunc_end65:
+LM281:
+.stabn 0xc0,0,0, LM275-_Mod_Dis_USBA_EN
+.stabs "enable:10;",0x80,0,0,_Mod_Dis_USBA_EN.args.+0
+.stabn 0xe0,0,0, LM280-_Mod_Dis_USBA_EN
+.stabn 0xc0,0,0, LM276-_Mod_Dis_USBA_EN
+.stabs "data_temp8:10;",0x80,0,0,_Mod_Dis_USBA_EN.temp.+0
+.stabn 0xe0,0,0, LM280-_Mod_Dis_USBA_EN
+.stabn 0xc0,0,0, LM276-_Mod_Dis_USBA_EN
+.stabs "RE_data_temp8:10;",0x80,0,0,_Mod_Dis_USBA_EN.temp.+1
+.stabn 0xe0,0,0, LM280-_Mod_Dis_USBA_EN
+.stabf LM281-_Mod_Dis_USBA_EN
+
+	_SW7203VbusDischarge_sec .section rom
+	.global	_SW7203VbusDischarge
+_SW7203VbusDischarge:
+Lfunc_begin66:
+.stabs "SW7203VbusDischarge:f:16", 0x24,0,0,_SW7203VbusDischarge
+.stabn 0xc0, 0, 0, _SW7203VbusDischarge
+.stabn 0xe0, 0, 0, _SW7203VbusDischarge
+LM282:
+.stabn	0x44, 0, 541, LM282-_SW7203VbusDischarge
+Lfunc_begin67:
+	banksel 0
+	movfw _SW7203VbusDischarge.args.+0
+LM283:
+.stabn	0x44, 0, 542, LM283-_SW7203VbusDischarge
+Ltmp82:
+	movwf _SW7203VbusDischarge.temp.+1
+LM284:
+.stabn	0x44, 0, 543, LM284-_SW7203VbusDischarge
+	movlw 12
+	movwf _iic_receive_byte.args.+0
+	call _iic_receive_byte
+	movfw _iic_receive_byte.frame.+0
+	movwf _SW7203VbusDischarge.temp.+0
+LM285:
+.stabn	0x44, 0, 544, LM285-_SW7203VbusDischarge
+Ltmp83:
+	movfw _SW7203VbusDischarge.temp.+1
+Ltmp84:
+	sublw 0
+	beq LBB33_2
+LBB33_1:
+LM286:
+.stabn	0x44, 0, 546, LM286-_SW7203VbusDischarge
+Ltmp85:
+	movlw 8
+	iorwf _SW7203VbusDischarge.temp.+0, F
+LM287:
+.stabn	0x44, 0, 547, LM287-_SW7203VbusDischarge
+	movlw 12
+	movwf _iic_transmit_byte.args.+0
+	movfw _SW7203VbusDischarge.temp.+0
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM288:
+.stabn	0x44, 0, 548, LM288-_SW7203VbusDischarge
+	goto LBB33_3
+Ltmp86:
+LBB33_2:
+LM289:
+.stabn	0x44, 0, 551, LM289-_SW7203VbusDischarge
+	movlw 0xf7
+	andwf _SW7203VbusDischarge.temp.+0, F
+LM290:
+.stabn	0x44, 0, 552, LM290-_SW7203VbusDischarge
+	movlw 12
+	movwf _iic_transmit_byte.args.+0
+	movfw _SW7203VbusDischarge.temp.+0
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+Ltmp87:
+LBB33_3:
+LM291:
+.stabn	0x44, 0, 554, LM291-_SW7203VbusDischarge
+	return
+Ltmp88:
+Lfunc_end66:
+Lfunc_end67:
+LM292:
+.stabn 0xc0,0,0, LM282-_SW7203VbusDischarge
+.stabs "flag:10;",0x80,0,0,_SW7203VbusDischarge.args.+0
+.stabn 0xe0,0,0, LM291-_SW7203VbusDischarge
+.stabn 0xc0,0,0, LM283-_SW7203VbusDischarge
+.stabs "reg:10;",0x80,0,0,_SW7203VbusDischarge.temp.+0
+.stabn 0xe0,0,0, LM291-_SW7203VbusDischarge
+.stabf LM292-_SW7203VbusDischarge
+
+	_vbus_ibus_cheak_sec .section rom
+	.global	_vbus_ibus_cheak
+_vbus_ibus_cheak:
+Lfunc_begin68:
+.stabs "vbus_ibus_cheak:f:16", 0x24,0,0,_vbus_ibus_cheak
+.stabn 0xc0, 0, 0, _vbus_ibus_cheak
+.stabn 0xe0, 0, 0, _vbus_ibus_cheak
+LM293:
+.stabn	0x44, 0, 557, LM293-_vbus_ibus_cheak
+Lfunc_begin69:
+LM294:
+.stabn	0x44, 0, 582, LM294-_vbus_ibus_cheak
+	banksel 0
+	return
+Ltmp89:
+Lfunc_end68:
+Lfunc_end69:
+LM295:
+.stabf LM295-_vbus_ibus_cheak
+
+	_app_power_adjust_sec .section rom
+	.global	_app_power_adjust
+_app_power_adjust:
+Lfunc_begin70:
+.stabs "app_power_adjust:f:16", 0x24,0,0,_app_power_adjust
+.stabn 0xc0, 0, 0, _app_power_adjust
+.stabn 0xe0, 0, 0, _app_power_adjust
+LM296:
+.stabn	0x44, 0, 585, LM296-_app_power_adjust
+Lfunc_begin71:
+	banksel 0
+	movfw _app_power_adjust.args.+0
+LM297:
+.stabn	0x44, 0, 590, LM297-_app_power_adjust
+Ltmp90:
+	movwf _app_power_adjust.temp.+0
+	movfw _volt_flag+0
+	movwf _app_power_adjust.temp.+2
+	sublw 0
+	beq LBB35_1
+LBB35_22:
+	movfw _app_power_adjust.temp.+2
+	xorlw 1
+	sublw 0
+	beq LBB35_2
+LBB35_23:
+	movfw _app_power_adjust.temp.+2
+	xorlw 2
+	sublw 0
+	beq LBB35_6
+LBB35_24:
+	movfw _app_power_adjust.temp.+2
+	xorlw 4
+	sublw 0
+	beq LBB35_11
+	goto LBB35_18
+LBB35_1:
+LM298:
+.stabn	0x44, 0, 593, LM298-_app_power_adjust
+Ltmp91:
+	movlw 50
+	movwf _app_power_adjust.temp.+1
+LM299:
+.stabn	0x44, 0, 594, LM299-_app_power_adjust
+	goto LBB35_19
+LBB35_2:
+LM300:
+.stabn	0x44, 0, 596, LM300-_app_power_adjust
+Ltmp92:
+	movlw 0xf0
+	andwf _app_power_adjust.temp.+0, W
+Ltmp93:
+	xorlw 48
+	sublw 0
+	bne LBB35_4
+LBB35_3:
+LM301:
+.stabn	0x44, 0, 598, LM301-_app_power_adjust
+Ltmp94:
+	movlw 35
+	movwf _app_power_adjust.temp.+1
+LM302:
+.stabn	0x44, 0, 599, LM302-_app_power_adjust
+	goto LBB35_19
+Ltmp95:
+LBB35_4:
+LM303:
+.stabn	0x44, 0, 603, LM303-_app_power_adjust
+	movlw 50
+	movwf _app_power_adjust.temp.+1
+Ltmp96:
+LM304:
+.stabn	0x44, 0, 605, LM304-_app_power_adjust
+	goto LBB35_19
+LBB35_6:
+LM305:
+.stabn	0x44, 0, 608, LM305-_app_power_adjust
+	movlw 0xf0
+	andwf _app_power_adjust.temp.+0, W
+	movwf _app_power_adjust.temp.+2
+	xorlw 32
+	sublw 0
+	beq LBB35_7
+LBB35_28:
+	movfw _app_power_adjust.temp.+2
+	xorlw 48
+	sublw 0
+	beq LBB35_8
+	goto LBB35_9
+LBB35_7:
+LM306:
+.stabn	0x44, 0, 611, LM306-_app_power_adjust
+Ltmp97:
+	movlw 35
+	movwf _app_power_adjust.temp.+1
+LM307:
+.stabn	0x44, 0, 612, LM307-_app_power_adjust
+	goto LBB35_10
+LBB35_8:
+LM308:
+.stabn	0x44, 0, 615, LM308-_app_power_adjust
+	movlw 20
+	movwf _app_power_adjust.temp.+1
+LM309:
+.stabn	0x44, 0, 616, LM309-_app_power_adjust
+	goto LBB35_10
+LBB35_9:
+LM310:
+.stabn	0x44, 0, 619, LM310-_app_power_adjust
+	movlw 50
+	movwf _app_power_adjust.temp.+1
+Ltmp98:
+LBB35_10:
+LM311:
+.stabn	0x44, 0, 622, LM311-_app_power_adjust
+	goto LBB35_19
+LBB35_11:
+LM312:
+.stabn	0x44, 0, 625, LM312-_app_power_adjust
+	movlw 0xf0
+	andwf _app_power_adjust.temp.+0, W
+	movwf _app_power_adjust.temp.+2
+	sublw 0
+	beq LBB35_12
+LBB35_25:
+	movfw _app_power_adjust.temp.+2
+	xorlw 16
+	sublw 0
+	beq LBB35_13
+LBB35_26:
+	movfw _app_power_adjust.temp.+2
+	xorlw 32
+	sublw 0
+	beq LBB35_14
+LBB35_27:
+	movfw _app_power_adjust.temp.+2
+	xorlw 48
+	sublw 0
+	beq LBB35_15
+	goto LBB35_16
+LBB35_12:
+LM313:
+.stabn	0x44, 0, 628, LM313-_app_power_adjust
+Ltmp99:
+	movlw 50
+	movwf _app_power_adjust.temp.+1
+LM314:
+.stabn	0x44, 0, 629, LM314-_app_power_adjust
+	goto LBB35_17
+LBB35_13:
+LM315:
+.stabn	0x44, 0, 632, LM315-_app_power_adjust
+	movlw 35
+	movwf _app_power_adjust.temp.+1
+LM316:
+.stabn	0x44, 0, 633, LM316-_app_power_adjust
+	goto LBB35_17
+LBB35_14:
+LM317:
+.stabn	0x44, 0, 636, LM317-_app_power_adjust
+	movlw 20
+	movwf _app_power_adjust.temp.+1
+LM318:
+.stabn	0x44, 0, 637, LM318-_app_power_adjust
+	goto LBB35_17
+LBB35_15:
+LM319:
+.stabn	0x44, 0, 640, LM319-_app_power_adjust
+	movlw 8
+	movwf _app_power_adjust.temp.+1
+LM320:
+.stabn	0x44, 0, 641, LM320-_app_power_adjust
+	goto LBB35_17
+LBB35_16:
+LM321:
+.stabn	0x44, 0, 644, LM321-_app_power_adjust
+	movlw 50
+	movwf _app_power_adjust.temp.+1
+Ltmp100:
+LBB35_17:
+LBB35_18:
+LBB35_19:
+LM322:
+.stabn	0x44, 0, 658, LM322-_app_power_adjust
+	movlw 127
+	andwf _app_power_adjust.temp.+1, W
+Ltmp101:
+	xorwf _temp_ibus_lim_bk+0, W
+	sublw 0
+	beq LBB35_21
+LBB35_20:
+LM323:
+.stabn	0x44, 0, 660, LM323-_app_power_adjust
+Ltmp102:
+	movlw 127
+	andwf _app_power_adjust.temp.+1, F
+LM324:
+.stabn	0x44, 0, 661, LM324-_app_power_adjust
+	movlw 57
+	movwf _iic_transmit_byte.args.+0
+	movfw _app_power_adjust.temp.+1
+	movwf _iic_transmit_byte.args.+1
+	call _iic_transmit_byte
+LM325:
+.stabn	0x44, 0, 663, LM325-_app_power_adjust
+	movfw _app_power_adjust.temp.+1
+	movwf _temp_ibus_lim_bk+0
+Ltmp103:
+LBB35_21:
+LM326:
+.stabn	0x44, 0, 665, LM326-_app_power_adjust
+	return
+Ltmp104:
+Lfunc_end70:
+Lfunc_end71:
+LM327:
+.stabn 0xc0,0,0, LM296-_app_power_adjust
+.stabs "now_power_number:10;",0x80,0,0,_app_power_adjust.args.+0
+.stabn 0xe0,0,0, LM326-_app_power_adjust
+.stabn 0xc0,0,0, LM297-_app_power_adjust
+.stabs "temp_ibus_lim:10;",0x80,0,0,_app_power_adjust.temp.+1
+.stabn 0xe0,0,0, LM326-_app_power_adjust
+.stabf LM327-_app_power_adjust
+
+
+	_dcdc_frame_buffer_mod_dcdc.c_Init .section rom,flag=1
+	_dcdc_frame_buffer:
+		addpcw
+		retlw 17
+		retlw 51
+		retlw 192
+		retlw 64
+		retlw 64
+		retlw 152
+		retlw 255
+		retlw 46
+		retlw 36
+		retlw 12
+		retlw 145
+		retlw 8
+		retlw 168
+		retlw 0
+		retlw 0
+		retlw 0
+		retlw 0
+		retlw 0
+		retlw 0
+		retlw 0
+		retlw 0
+		retlw 0
+		retlw 0
+		retlw 0
+		retlw 0
+		retlw 255
+		retlw 136
+		retlw 16
+	.ends
+
+
+	_cs8812a_p_mod_dcdc.c .section bank0,uninit
+	_cs8812a_p .ds 2
+	.ends
+
+	_dcdc_data_mod_dcdc.c .section bank4,uninit
+	_dcdc_data .ds 38
+	.ends
+
+	_volt_flag_mod_dcdc.c .section bank0,uninit
+	_volt_flag .ds 1
+	.ends
+
+	_temp_ibus_lim_bk_mod_dcdc.c .section bank0,uninit
+	_temp_ibus_lim_bk .ds 1
+	.ends
+
+	.@_mod_dcdc_init_sec@_mod_dcdc_init.frame. .section bank1,uninit
+	_mod_dcdc_init.frame. .ds 1
+	.ends
+
+	.@_mod_dcdc_init_sec@_mod_dcdc_init.temp. .section bank1,uninit
+	_mod_dcdc_init.temp. .ds 5
+	.ends
+
+	.@_mod_dcdc_telemetry_reg_partition1_sec@_mod_dcdc_telemetry_reg_partition1.temp. .section bank1,uninit
+	_mod_dcdc_telemetry_reg_partition1.temp. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_vbus_sec@_mod_dcdc_telemetry_vbus.frame. .section bank1,uninit
+	_mod_dcdc_telemetry_vbus.frame. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_vbus_sec@_mod_dcdc_telemetry_vbus.temp. .section bank1,uninit
+	_mod_dcdc_telemetry_vbus.temp. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_vbat_sec@_mod_dcdc_telemetry_vbat.frame. .section bank1,uninit
+	_mod_dcdc_telemetry_vbat.frame. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_vbat_sec@_mod_dcdc_telemetry_vbat.temp. .section bank1,uninit
+	_mod_dcdc_telemetry_vbat.temp. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_ibus_sec@_mod_dcdc_telemetry_ibus.frame. .section bank1,uninit
+	_mod_dcdc_telemetry_ibus.frame. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_ibus_sec@_mod_dcdc_telemetry_ibus.temp. .section bank1,uninit
+	_mod_dcdc_telemetry_ibus.temp. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_ibat_sec@_mod_dcdc_telemetry_ibat.frame. .section bank1,uninit
+	_mod_dcdc_telemetry_ibat.frame. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_ibat_sec@_mod_dcdc_telemetry_ibat.temp. .section bank1,uninit
+	_mod_dcdc_telemetry_ibat.temp. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_vbusref_sec@_mod_dcdc_telemetry_vbusref.frame. .section bank1,uninit
+	_mod_dcdc_telemetry_vbusref.frame. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_vbusref_sec@_mod_dcdc_telemetry_vbusref.temp. .section bank1,uninit
+	_mod_dcdc_telemetry_vbusref.temp. .ds 2
+	.ends
+
+	.@_mod_dcdc_write_otg_ctrl_sec@_mod_dcdc_write_otg_ctrl.args. .section bank1,uninit
+	_mod_dcdc_write_otg_ctrl.args. .ds 1
+	.ends
+
+	.@_mod_dcdc_write_otg_ctrl_sec@_mod_dcdc_write_otg_ctrl.temp. .section bank1,uninit
+	_mod_dcdc_write_otg_ctrl.temp. .ds 1
+	.ends
+
+	.@_mod_dcdc_write_pgate_ctrl_sec@_mod_dcdc_write_pgate_ctrl.args. .section bank1,uninit
+	_mod_dcdc_write_pgate_ctrl.args. .ds 1
+	.ends
+
+	.@_mod_dcdc_write_pgate_ctrl_sec@_mod_dcdc_write_pgate_ctrl.temp. .section bank1,uninit
+	_mod_dcdc_write_pgate_ctrl.temp. .ds 1
+	.ends
+
+	.@_mod_dcdc_write_gpo_ctrl_sec@_mod_dcdc_write_gpo_ctrl.args. .section bank1,uninit
+	_mod_dcdc_write_gpo_ctrl.args. .ds 1
+	.ends
+
+	.@_mod_dcdc_write_gpo_ctrl_sec@_mod_dcdc_write_gpo_ctrl.temp. .section bank1,uninit
+	_mod_dcdc_write_gpo_ctrl.temp. .ds 1
+	.ends
+
+	.@_mod_dcdc_write_vbusref_e_set_sec@_mod_dcdc_write_vbusref_e_set.args. .section bank1,uninit
+	_mod_dcdc_write_vbusref_e_set.args. .ds 2
+	.ends
+
+	.@_mod_dcdc_write_vbusref_e_set_sec@_mod_dcdc_write_vbusref_e_set.temp. .section bank1,uninit
+	_mod_dcdc_write_vbusref_e_set.temp. .ds 4
+	.ends
+
+	.@_mod_dcdc_write_ibus_lim_set_sec@_mod_dcdc_write_ibus_lim_set.args. .section bank1,uninit
+	_mod_dcdc_write_ibus_lim_set.args. .ds 1
+	.ends
+
+	.@_mod_dcdc_write_ibus_lim_set_sec@_mod_dcdc_write_ibus_lim_set.temp. .section bank1,uninit
+	_mod_dcdc_write_ibus_lim_set.temp. .ds 1
+	.ends
+
+	.@_mod_dcdc_write_ibat_lim_set_sec@_mod_dcdc_write_ibat_lim_set.args. .section bank1,uninit
+	_mod_dcdc_write_ibat_lim_set.args. .ds 1
+	.ends
+
+	.@_mod_dcdc_write_ibat_lim_set_sec@_mod_dcdc_write_ibat_lim_set.temp. .section bank1,uninit
+	_mod_dcdc_write_ibat_lim_set.temp. .ds 1
+	.ends
+
+	.@_mod_dcdc_write_vinreg_set_sec@_mod_dcdc_write_vinreg_set.args. .section bank1,uninit
+	_mod_dcdc_write_vinreg_set.args. .ds 1
+	.ends
+
+	.@_mod_dcdc_write_vinreg_set_sec@_mod_dcdc_write_vinreg_set.temp. .section bank1,uninit
+	_mod_dcdc_write_vinreg_set.temp. .ds 1
+	.ends
+
+	.@_mod_dcdc_telemetry_status_sec@_mod_dcdc_telemetry_status.frame. .section bank1,uninit
+	_mod_dcdc_telemetry_status.frame. .ds 1
+	.ends
+
+	.@_mod_dcdc_telemetry_vbus_reg_sec@_mod_dcdc_telemetry_vbus_reg.frame. .section bank1,uninit
+	_mod_dcdc_telemetry_vbus_reg.frame. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_vbus_reg_sec@_mod_dcdc_telemetry_vbus_reg.temp. .section bank1,uninit
+	_mod_dcdc_telemetry_vbus_reg.temp. .ds 2
+	.ends
+
+	.@_mod_dcdc_rt_telemetry_vbus_reg_sec@_mod_dcdc_rt_telemetry_vbus_reg.frame. .section bank1,uninit
+	_mod_dcdc_rt_telemetry_vbus_reg.frame. .ds 2
+	.ends
+
+	.@_mod_dcdc_rt_telemetry_vbus_reg_sec@_mod_dcdc_rt_telemetry_vbus_reg.temp. .section bank1,uninit
+	_mod_dcdc_rt_telemetry_vbus_reg.temp. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_vbat_reg_sec@_mod_dcdc_telemetry_vbat_reg.frame. .section bank1,uninit
+	_mod_dcdc_telemetry_vbat_reg.frame. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_vbat_reg_sec@_mod_dcdc_telemetry_vbat_reg.temp. .section bank1,uninit
+	_mod_dcdc_telemetry_vbat_reg.temp. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_ibus_reg_sec@_mod_dcdc_telemetry_ibus_reg.frame. .section bank1,uninit
+	_mod_dcdc_telemetry_ibus_reg.frame. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_ibus_reg_sec@_mod_dcdc_telemetry_ibus_reg.temp. .section bank1,uninit
+	_mod_dcdc_telemetry_ibus_reg.temp. .ds 2
+	.ends
+
+	.@_mod_dcdc_rt_telemetry_ibus_reg_sec@_mod_dcdc_rt_telemetry_ibus_reg.frame. .section bank1,uninit
+	_mod_dcdc_rt_telemetry_ibus_reg.frame. .ds 2
+	.ends
+
+	.@_mod_dcdc_rt_telemetry_ibus_reg_sec@_mod_dcdc_rt_telemetry_ibus_reg.temp. .section bank1,uninit
+	_mod_dcdc_rt_telemetry_ibus_reg.temp. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_ibat_reg_sec@_mod_dcdc_telemetry_ibat_reg.frame. .section bank1,uninit
+	_mod_dcdc_telemetry_ibat_reg.frame. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_ibat_reg_sec@_mod_dcdc_telemetry_ibat_reg.temp. .section bank1,uninit
+	_mod_dcdc_telemetry_ibat_reg.temp. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_vbusref_reg_sec@_mod_dcdc_telemetry_vbusref_reg.frame. .section bank1,uninit
+	_mod_dcdc_telemetry_vbusref_reg.frame. .ds 2
+	.ends
+
+	.@_mod_dcdc_telemetry_vbusref_reg_sec@_mod_dcdc_telemetry_vbusref_reg.temp. .section bank1,uninit
+	_mod_dcdc_telemetry_vbusref_reg.temp. .ds 2
+	.ends
+
+	.@_mod_SC8886_init_sec@_mod_SC8886_init.temp. .section bank1,uninit
+	_mod_SC8886_init.temp. .ds 4
+	.ends
+
+	.@_mod_dcdc_disable_sec@_mod_dcdc_disable.temp. .section bank1,uninit
+	_mod_dcdc_disable.temp. .ds 3
+	.ends
+
+	.@_mod_charge_cur_deal_sec@_mod_charge_cur_deal.args. .section bank1,uninit
+	_mod_charge_cur_deal.args. .ds 1
+	.ends
+
+	.@_mod_charge_cur_deal_sec@_mod_charge_cur_deal.temp. .section bank1,uninit
+	_mod_charge_cur_deal.temp. .ds 1
+	.ends
+
+	.@_mod_charge_vol_deal_sec@_mod_charge_vol_deal.args. .section bank1,uninit
+	_mod_charge_vol_deal.args. .ds 1
+	.ends
+
+	.@_mod_charge_vol_deal_sec@_mod_charge_vol_deal.temp. .section bank1,uninit
+	_mod_charge_vol_deal.temp. .ds 1
+	.ends
+
+	.@_mod_SC8886_Charge_init_sec@_mod_SC8886_Charge_init.temp. .section bank1,uninit
+	_mod_SC8886_Charge_init.temp. .ds 1
+	.ends
+
+	.@_mod_charge_ibat0_limit_deal_sec@_mod_charge_ibat0_limit_deal.args. .section bank1,uninit
+	_mod_charge_ibat0_limit_deal.args. .ds 1
+	.ends
+
+	.@_mod_charge_ibat0_limit_deal_sec@_mod_charge_ibat0_limit_deal.temp. .section bank1,uninit
+	_mod_charge_ibat0_limit_deal.temp. .ds 3
+	.ends
+
+	.@_mod_SC8886_DisCharge_init_sec@_mod_SC8886_DisCharge_init.temp. .section bank1,uninit
+	_mod_SC8886_DisCharge_init.temp. .ds 1
+	.ends
+
+	.@_mod_charge_ibat_deal_sec@_mod_charge_ibat_deal.args. .section bank1,uninit
+	_mod_charge_ibat_deal.args. .ds 1
+	.ends
+
+	.@_mod_charge_ibat_deal_sec@_mod_charge_ibat_deal.temp. .section bank1,uninit
+	_mod_charge_ibat_deal.temp. .ds 1
+	.ends
+
+	.@_Mod_Dis_USBA_EN_sec@_Mod_Dis_USBA_EN.args. .section bank1,uninit
+	_Mod_Dis_USBA_EN.args. .ds 1
+	.ends
+
+	.@_Mod_Dis_USBA_EN_sec@_Mod_Dis_USBA_EN.temp. .section bank1,uninit
+	_Mod_Dis_USBA_EN.temp. .ds 1
+	.ends
+
+	.@_SW7203VbusDischarge_sec@_SW7203VbusDischarge.args. .section bank1,uninit
+	_SW7203VbusDischarge.args. .ds 1
+	.ends
+
+	.@_SW7203VbusDischarge_sec@_SW7203VbusDischarge.temp. .section bank1,uninit
+	_SW7203VbusDischarge.temp. .ds 2
+	.ends
+
+	.@_app_power_adjust_sec@_app_power_adjust.args. .section bank1,uninit
+	_app_power_adjust.args. .ds 1
+	.ends
+
+	.@_app_power_adjust_sec@_app_power_adjust.temp. .section bank1,uninit
+	_app_power_adjust.temp. .ds 3
+	.ends
+
+
+
+	.global	_cs8812a_p
+	.global	_dcdc_frame_buffer
+	.global	_dcdc_data
+	.global	_volt_flag
+	.global	_temp_ibus_lim_bk
+

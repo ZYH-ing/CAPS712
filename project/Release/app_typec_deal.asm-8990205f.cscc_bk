@@ -1,0 +1,690 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\app\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\app\\app_typec_deal.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+.stabs "typeca_ufp:G10;",0x20,0,0,_typeca_ufp
+.stabs "Type_ca_charge_in:G10;",0x20,0,0,_Type_ca_charge_in
+.stabs "Type_cb_charge_in:G10;",0x20,0,0,_Type_cb_charge_in
+.stabs "MiroB_charge_in:G10;",0x20,0,0,_MiroB_charge_in
+
+
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_typecx_hard_reset_cb_sec .section rom
+	.global	_typecx_hard_reset_cb
+_typecx_hard_reset_cb:
+Lfunc_begin0:
+.stabs "typecx_hard_reset_cb:f:16", 0x24,0,0,_typecx_hard_reset_cb
+.stabn 0xc0, 0, 0, _typecx_hard_reset_cb
+.stabn 0xe0, 0, 0, _typecx_hard_reset_cb
+LM0:
+.stabn	0x44, 0, 42, LM0-_typecx_hard_reset_cb
+Lfunc_begin1:
+	banksel 0
+	movfw _typecx_hard_reset_cb.args.+0
+	movwf _typecx_hard_reset_cb.temp.+0
+	movfw _typecx_hard_reset_cb.args.+1
+	movwf _typecx_hard_reset_cb.temp.+1
+LM1:
+.stabn	0x44, 0, 43, LM1-_typecx_hard_reset_cb
+Ltmp0:
+	movfwl _h_pd+0xa4
+	sublw 0
+	bne LBB0_11
+LBB0_1:
+	movfw _typecx_hard_reset_cb.temp.+0
+	movwf FSR0
+	movfw _typecx_hard_reset_cb.temp.+1
+	movwf FSR0H
+	moviw 0
+Ltmp1:
+	sublw 0
+	bne LBB0_11
+LBB0_2:
+LM2:
+.stabn	0x44, 0, 45, LM2-_typecx_hard_reset_cb
+Ltmp2:
+	movfwl _h_pd+116
+	sublw 0
+	bne LBB0_4
+LBB0_3:
+LM3:
+.stabn	0x44, 0, 46, LM3-_typecx_hard_reset_cb
+	movfwl _h_pd+115
+Ltmp3:
+LM4:
+.stabn	0x44, 0, 45, LM4-_typecx_hard_reset_cb
+	sublw 0
+	beq LBB0_7
+LBB0_4:
+LM5:
+.stabn	0x44, 0, 48, LM5-_typecx_hard_reset_cb
+Ltmp4:
+	movfw _typecx_hard_reset_cb.temp.+0
+	movwf FSR0
+	movfw _typecx_hard_reset_cb.temp.+1
+	movwf FSR0H
+	addlfsr 0, 34
+	moviw 0
+Ltmp5:
+	sublw 0
+	bne LBB0_6
+LBB0_5:
+LM6:
+.stabn	0x44, 0, 50, LM6-_typecx_hard_reset_cb
+Ltmp6:
+	movlw 34
+	addwf _typecx_hard_reset_cb.temp.+0, W
+	movwf _typecx_hard_reset_cb.temp.+2
+	movlw 0
+	addwfc _typecx_hard_reset_cb.temp.+1, W
+	movwf _typecx_hard_reset_cb.temp.+3
+	movfw _typecx_hard_reset_cb.temp.+2
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _typecx_hard_reset_cb.temp.+3
+	movwf FSR0H
+	movlw 1
+	movwf IND0
+LM7:
+.stabn	0x44, 0, 51, LM7-_typecx_hard_reset_cb
+	movlw 11
+	movwf _mod_queue_send.args.+0
+	call _mod_queue_send
+Ltmp7:
+LBB0_6:
+LM8:
+.stabn	0x44, 0, 53, LM8-_typecx_hard_reset_cb
+	goto LBB0_10
+Ltmp8:
+LBB0_7:
+LM9:
+.stabn	0x44, 0, 55, LM9-_typecx_hard_reset_cb
+	movfw _typecx_hard_reset_cb.temp.+0
+	movwf FSR0
+	movfw _typecx_hard_reset_cb.temp.+1
+	movwf FSR0H
+	addlfsr 0, 34
+	moviw 0
+Ltmp9:
+	sublw 0
+	beq LBB0_9
+LBB0_8:
+LM10:
+.stabn	0x44, 0, 57, LM10-_typecx_hard_reset_cb
+Ltmp10:
+	movlw 34
+	addwf _typecx_hard_reset_cb.temp.+0, W
+	movwf _typecx_hard_reset_cb.temp.+2
+	movlw 0
+	addwfc _typecx_hard_reset_cb.temp.+1, W
+	movwf _typecx_hard_reset_cb.temp.+3
+	movfw _typecx_hard_reset_cb.temp.+2
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _typecx_hard_reset_cb.temp.+3
+	movwf FSR0H
+	movlw 0
+	movwf IND0
+LM11:
+.stabn	0x44, 0, 58, LM11-_typecx_hard_reset_cb
+	movlw 12
+	movwf _mod_queue_send.args.+0
+	call _mod_queue_send
+Ltmp11:
+LBB0_9:
+LBB0_10:
+LM12:
+.stabn	0x44, 0, 61, LM12-_typecx_hard_reset_cb
+	goto LBB0_23
+Ltmp12:
+LBB0_11:
+LM13:
+.stabn	0x44, 0, 62, LM13-_typecx_hard_reset_cb
+	movfwl _h_pd+0xa4
+	sublw 1
+	bne LBB0_22
+LBB0_12:
+	movfw _typecx_hard_reset_cb.temp.+0
+	movwf FSR0
+	movfw _typecx_hard_reset_cb.temp.+1
+	movwf FSR0H
+	moviw 0
+Ltmp13:
+	sublw 1
+	bne LBB0_22
+LBB0_13:
+LM14:
+.stabn	0x44, 0, 64, LM14-_typecx_hard_reset_cb
+Ltmp14:
+	movfwl _h_pd+116
+	sublw 0
+	bne LBB0_15
+LBB0_14:
+LM15:
+.stabn	0x44, 0, 65, LM15-_typecx_hard_reset_cb
+	movfwl _h_pd+115
+Ltmp15:
+LM16:
+.stabn	0x44, 0, 64, LM16-_typecx_hard_reset_cb
+	sublw 0
+	beq LBB0_18
+LBB0_15:
+LM17:
+.stabn	0x44, 0, 67, LM17-_typecx_hard_reset_cb
+Ltmp16:
+	movfw _typecx_hard_reset_cb.temp.+0
+	movwf FSR0
+	movfw _typecx_hard_reset_cb.temp.+1
+	movwf FSR0H
+	addlfsr 0, 34
+	moviw 0
+Ltmp17:
+	sublw 0
+	bne LBB0_17
+LBB0_16:
+LM18:
+.stabn	0x44, 0, 69, LM18-_typecx_hard_reset_cb
+Ltmp18:
+	movlw 34
+	addwf _typecx_hard_reset_cb.temp.+0, W
+	movwf _typecx_hard_reset_cb.temp.+2
+	movlw 0
+	addwfc _typecx_hard_reset_cb.temp.+1, W
+	movwf _typecx_hard_reset_cb.temp.+3
+	movfw _typecx_hard_reset_cb.temp.+2
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _typecx_hard_reset_cb.temp.+3
+	movwf FSR0H
+	movlw 1
+	movwf IND0
+LM19:
+.stabn	0x44, 0, 70, LM19-_typecx_hard_reset_cb
+	movlw 13
+	movwf _mod_queue_send.args.+0
+	call _mod_queue_send
+Ltmp19:
+LBB0_17:
+LM20:
+.stabn	0x44, 0, 72, LM20-_typecx_hard_reset_cb
+	goto LBB0_21
+Ltmp20:
+LBB0_18:
+LM21:
+.stabn	0x44, 0, 74, LM21-_typecx_hard_reset_cb
+	movfw _typecx_hard_reset_cb.temp.+0
+	movwf FSR0
+	movfw _typecx_hard_reset_cb.temp.+1
+	movwf FSR0H
+	addlfsr 0, 34
+	moviw 0
+Ltmp21:
+	sublw 0
+	beq LBB0_20
+LBB0_19:
+LM22:
+.stabn	0x44, 0, 76, LM22-_typecx_hard_reset_cb
+Ltmp22:
+	movlw 34
+	addwf _typecx_hard_reset_cb.temp.+0, W
+	movwf _typecx_hard_reset_cb.temp.+2
+	movlw 0
+	addwfc _typecx_hard_reset_cb.temp.+1, W
+	movwf _typecx_hard_reset_cb.temp.+3
+	movfw _typecx_hard_reset_cb.temp.+2
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _typecx_hard_reset_cb.temp.+3
+	movwf FSR0H
+	movlw 0
+	movwf IND0
+LM23:
+.stabn	0x44, 0, 77, LM23-_typecx_hard_reset_cb
+	movlw 14
+	movwf _mod_queue_send.args.+0
+	call _mod_queue_send
+Ltmp23:
+LBB0_20:
+LBB0_21:
+LBB0_22:
+LBB0_23:
+LM24:
+.stabn	0x44, 0, 82, LM24-_typecx_hard_reset_cb
+	return
+Ltmp24:
+Lfunc_end0:
+Lfunc_end1:
+.stabs "typec_param_input_t:T21=s12instance:22=23=10;;;,0,8;b_huawei_support:24=25=10;;;,8,16;b_vbus_isexist:26=27=10;;;,16,24;b_power_on:28=29=10;;;,24,32;b_low_battery:30=31=10;;;,32,40;current_source:32=33=10;;;,40,48;port_type:34=35=10;;;,48,56;b_tim_attachwaitsnk_en:36=37=10;;;,56,64;tim_attachwaitsnk_x1ms:38=39=2;;;,64,80;tim_drp_try:40=41=2;;;,80,96;;", 0x80, 0, 0, 0
+.stabs "typec_param_output_t:T43=s5b_emarker_isexist:44=45=10;;;,0,8;state:46=47=10;;;,8,16;current_capacity:48=49=2;;;,16,32;cc_pin_sel:50=51=10;;;,32,40;;", 0x80, 0, 0, 0
+.stabs "typec_param_private_t:T53=s18t_breaker:54=55=2;;;,0,16;auto_status:56=57=10;;;,16,24;auto_status_copy:58=59=10;;;,24,32;t_isexist:60=61=2;;;,32,48;t_isnotexist:62=63=2;;;,48,64;t_cc_magic:64=65=2;;;,64,80;state_copy:66=67=10;;;,80,88;t_try_src_times:68=69=10;;;,88,96;t_typec_halted:70=71=2;;;,96,112;cnt_typec_halted:72=73=10;;;,112,120;callback_switch_branch:74=75=10;;;,120,128;b_trysrc_insurance_n:76=77=10;;;,128,136;b_typec_hard_reset_lock:78=79=10;;;,136,144;;", 0x80, 0, 0, 0
+.stabs "typec_handle_t:T19=s35input:20=21;;,0,96;output:42=43;;,96,136;private:52=53;;,136,280;;", 0x80, 0, 0, 0
+LM25:
+.stabn 0xc0,0,0, LM0-_typecx_hard_reset_cb
+.stabs "p_h_typec:17=*18=19;;",0x80,0,0,_typecx_hard_reset_cb.args.+0
+.stabn 0xe0,0,0, LM24-_typecx_hard_reset_cb
+.stabf LM25-_typecx_hard_reset_cb
+
+	_typecb_hard_reset_cb_sec .section rom
+	.global	_typecb_hard_reset_cb
+_typecb_hard_reset_cb:
+Lfunc_begin2:
+.stabs "typecb_hard_reset_cb:f:16", 0x24,0,0,_typecb_hard_reset_cb
+.stabn 0xc0, 0, 0, _typecb_hard_reset_cb
+.stabn 0xe0, 0, 0, _typecb_hard_reset_cb
+LM26:
+.stabn	0x44, 0, 88, LM26-_typecb_hard_reset_cb
+Lfunc_begin3:
+LM27:
+.stabn	0x44, 0, 109, LM27-_typecb_hard_reset_cb
+	banksel 0
+	return
+Ltmp25:
+Lfunc_end2:
+Lfunc_end3:
+LM28:
+.stabf LM28-_typecb_hard_reset_cb
+
+	_typeca_pr_swap_cb_sec .section rom
+	.global	_typeca_pr_swap_cb
+_typeca_pr_swap_cb:
+Lfunc_begin4:
+.stabs "typeca_pr_swap_cb:f:16", 0x24,0,0,_typeca_pr_swap_cb
+.stabn 0xc0, 0, 0, _typeca_pr_swap_cb
+.stabn 0xe0, 0, 0, _typeca_pr_swap_cb
+LM29:
+.stabn	0x44, 0, 112, LM29-_typeca_pr_swap_cb
+Lfunc_begin5:
+LM30:
+.stabn	0x44, 0, 115, LM30-_typeca_pr_swap_cb
+	banksel 0
+	movfwl _h_pd+117
+Ltmp26:
+	sublw 0
+	beq LBB2_7
+LBB2_1:
+LM31:
+.stabn	0x44, 0, 117, LM31-_typeca_pr_swap_cb
+Ltmp27:
+	movfwl _h_pd+118
+Ltmp28:
+	sublw 0
+	beq LBB2_3
+LBB2_2:
+LM32:
+.stabn	0x44, 0, 119, LM32-_typeca_pr_swap_cb
+Ltmp29:
+	movlw 1
+	movwf _typeca_pr_swap_cb.b_pd_power_role_swap_lock+0
+LM33:
+.stabn	0x44, 0, 122, LM33-_typeca_pr_swap_cb
+	goto LBB2_6
+Ltmp30:
+LBB2_3:
+LM34:
+.stabn	0x44, 0, 123, LM34-_typeca_pr_swap_cb
+	movfwl _h_pd+119
+Ltmp31:
+	sublw 0
+	beq LBB2_5
+Ltmp32:
+LBB2_4:
+LBB2_5:
+LBB2_6:
+LM35:
+.stabn	0x44, 0, 128, LM35-_typeca_pr_swap_cb
+	goto LBB2_8
+Ltmp33:
+LBB2_7:
+LM36:
+.stabn	0x44, 0, 130, LM36-_typeca_pr_swap_cb
+	clrf _typeca_pr_swap_cb.b_pd_power_role_swap_lock+0
+Ltmp34:
+LBB2_8:
+LM37:
+.stabn	0x44, 0, 132, LM37-_typeca_pr_swap_cb
+	return
+Ltmp35:
+Lfunc_end4:
+Lfunc_end5:
+.stabn 0xc0,0,0, LM30-_typeca_pr_swap_cb
+.stabs "b_pd_power_role_swap_lock:10;",0x80,0,0,_typeca_pr_swap_cb.b_pd_power_role_swap_lock
+.stabn 0xe0,0,0, LM37-_typeca_pr_swap_cb
+LM38:
+.stabf LM38-_typeca_pr_swap_cb
+
+	_typecb_pr_swap_cb_sec .section rom
+	.global	_typecb_pr_swap_cb
+_typecb_pr_swap_cb:
+Lfunc_begin6:
+.stabs "typecb_pr_swap_cb:f:16", 0x24,0,0,_typecb_pr_swap_cb
+.stabn 0xc0, 0, 0, _typecb_pr_swap_cb
+.stabn 0xe0, 0, 0, _typecb_pr_swap_cb
+LM39:
+.stabn	0x44, 0, 136, LM39-_typecb_pr_swap_cb
+Lfunc_begin7:
+LM40:
+.stabn	0x44, 0, 139, LM40-_typecb_pr_swap_cb
+	banksel 0
+	movfwl _h_pd+117
+Ltmp36:
+	sublw 0
+	beq LBB3_7
+LBB3_1:
+LM41:
+.stabn	0x44, 0, 141, LM41-_typecb_pr_swap_cb
+Ltmp37:
+	movfwl _h_pd+118
+Ltmp38:
+	sublw 0
+	beq LBB3_3
+LBB3_2:
+LM42:
+.stabn	0x44, 0, 143, LM42-_typecb_pr_swap_cb
+Ltmp39:
+	movlw 1
+	movwf _typecb_pr_swap_cb.b_pd_power_role_swap_lock+0
+LM43:
+.stabn	0x44, 0, 146, LM43-_typecb_pr_swap_cb
+	goto LBB3_6
+Ltmp40:
+LBB3_3:
+	movfwl _h_pd+119
+Ltmp41:
+	sublw 0
+	beq LBB3_5
+Ltmp42:
+LBB3_4:
+LBB3_5:
+LBB3_6:
+LM44:
+.stabn	0x44, 0, 151, LM44-_typecb_pr_swap_cb
+	goto LBB3_8
+Ltmp43:
+LBB3_7:
+LM45:
+.stabn	0x44, 0, 153, LM45-_typecb_pr_swap_cb
+	clrf _typecb_pr_swap_cb.b_pd_power_role_swap_lock+0
+Ltmp44:
+LBB3_8:
+LM46:
+.stabn	0x44, 0, 155, LM46-_typecb_pr_swap_cb
+	return
+Ltmp45:
+Lfunc_end6:
+Lfunc_end7:
+.stabn 0xc0,0,0, LM40-_typecb_pr_swap_cb
+.stabs "b_pd_power_role_swap_lock:10;",0x80,0,0,_typecb_pr_swap_cb.b_pd_power_role_swap_lock
+.stabn 0xe0,0,0, LM46-_typecb_pr_swap_cb
+LM47:
+.stabf LM47-_typecb_pr_swap_cb
+
+	_typeca_vbus_exist_cb_sec .section rom
+	.global	_typeca_vbus_exist_cb
+_typeca_vbus_exist_cb:
+Lfunc_begin8:
+.stabs "typeca_vbus_exist_cb:f80=10;;", 0x24,0,0,_typeca_vbus_exist_cb
+.stabn 0xc0, 0, 0, _typeca_vbus_exist_cb
+.stabn 0xe0, 0, 0, _typeca_vbus_exist_cb
+LM48:
+.stabn	0x44, 0, 158, LM48-_typeca_vbus_exist_cb
+Lfunc_begin9:
+LM49:
+.stabn	0x44, 0, 160, LM49-_typeca_vbus_exist_cb
+	banksel 0
+	call _mod_io_typeca_acin
+	movfw _mod_io_typeca_acin.frame.+0
+	movwf _typeca_vbus_exist_cb.frame.+0
+	return
+Ltmp46:
+Lfunc_end8:
+Lfunc_end9:
+LM50:
+.stabf LM50-_typeca_vbus_exist_cb
+
+	_typecb_vbus_exist_cb_sec .section rom
+	.global	_typecb_vbus_exist_cb
+_typecb_vbus_exist_cb:
+Lfunc_begin10:
+.stabs "typecb_vbus_exist_cb:f81=10;;", 0x24,0,0,_typecb_vbus_exist_cb
+.stabn 0xc0, 0, 0, _typecb_vbus_exist_cb
+.stabn 0xe0, 0, 0, _typecb_vbus_exist_cb
+LM51:
+.stabn	0x44, 0, 164, LM51-_typecb_vbus_exist_cb
+Lfunc_begin11:
+LM52:
+.stabn	0x44, 0, 166, LM52-_typecb_vbus_exist_cb
+	banksel 0
+	call _mod_io_typecb_acin
+	movfw _mod_io_typecb_acin.frame.+0
+	movwf _typecb_vbus_exist_cb.frame.+0
+	return
+Ltmp47:
+Lfunc_end10:
+Lfunc_end11:
+LM53:
+.stabf LM53-_typecb_vbus_exist_cb
+
+	_typeca_attached_src_cb_sec .section rom
+	.global	_typeca_attached_src_cb
+_typeca_attached_src_cb:
+Lfunc_begin12:
+.stabs "typeca_attached_src_cb:f:16", 0x24,0,0,_typeca_attached_src_cb
+.stabn 0xc0, 0, 0, _typeca_attached_src_cb
+.stabn 0xe0, 0, 0, _typeca_attached_src_cb
+LM54:
+.stabn	0x44, 0, 170, LM54-_typeca_attached_src_cb
+Lfunc_begin13:
+LM55:
+.stabn	0x44, 0, 191, LM55-_typeca_attached_src_cb
+	banksel 0
+	movfw _MiroB_charge_in+0
+	sublw 0
+	bne LBB6_3
+LBB6_1:
+	movfwl _f_car_jump+0
+Ltmp48:
+	sublw 0
+	bne LBB6_3
+LBB6_2:
+LM56:
+.stabn	0x44, 0, 199, LM56-_typeca_attached_src_cb
+Ltmp49:
+	movlw 6
+	movwf _mod_queue_send.args.+0
+	call _mod_queue_send
+Ltmp50:
+LBB6_3:
+LM57:
+.stabn	0x44, 0, 202, LM57-_typeca_attached_src_cb
+	return
+Ltmp51:
+Lfunc_end12:
+Lfunc_end13:
+LM58:
+.stabf LM58-_typeca_attached_src_cb
+
+	_typecb_attached_src_cb_sec .section rom
+	.global	_typecb_attached_src_cb
+_typecb_attached_src_cb:
+Lfunc_begin14:
+.stabs "typecb_attached_src_cb:f:16", 0x24,0,0,_typecb_attached_src_cb
+.stabn 0xc0, 0, 0, _typecb_attached_src_cb
+.stabn 0xe0, 0, 0, _typecb_attached_src_cb
+LM59:
+.stabn	0x44, 0, 205, LM59-_typecb_attached_src_cb
+Lfunc_begin15:
+LM60:
+.stabn	0x44, 0, 208, LM60-_typecb_attached_src_cb
+	banksel 0
+	return
+Ltmp52:
+Lfunc_end14:
+Lfunc_end15:
+LM61:
+.stabf LM61-_typecb_attached_src_cb
+
+	_typeca_attached_snk_cb_sec .section rom
+	.global	_typeca_attached_snk_cb
+_typeca_attached_snk_cb:
+Lfunc_begin16:
+.stabs "typeca_attached_snk_cb:f:16", 0x24,0,0,_typeca_attached_snk_cb
+.stabn 0xc0, 0, 0, _typeca_attached_snk_cb
+.stabn 0xe0, 0, 0, _typeca_attached_snk_cb
+LM62:
+.stabn	0x44, 0, 211, LM62-_typeca_attached_snk_cb
+Lfunc_begin17:
+LM63:
+.stabn	0x44, 0, 216, LM63-_typeca_attached_snk_cb
+	banksel 0
+	movlw 5
+	movwf _mod_queue_send.args.+0
+	call _mod_queue_send
+LM64:
+.stabn	0x44, 0, 218, LM64-_typeca_attached_snk_cb
+	movlw 1
+LM65:
+.stabn	0x44, 0, 217, LM65-_typeca_attached_snk_cb
+	movwf _typeca_ufp+0
+LM66:
+.stabn	0x44, 0, 218, LM66-_typeca_attached_snk_cb
+	movwf _Type_ca_charge_in+0
+LM67:
+.stabn	0x44, 0, 219, LM67-_typeca_attached_snk_cb
+	return
+Ltmp53:
+Lfunc_end16:
+Lfunc_end17:
+LM68:
+.stabf LM68-_typeca_attached_snk_cb
+
+	_typecb_attached_snk_cb_sec .section rom
+	.global	_typecb_attached_snk_cb
+_typecb_attached_snk_cb:
+Lfunc_begin18:
+.stabs "typecb_attached_snk_cb:f:16", 0x24,0,0,_typecb_attached_snk_cb
+.stabn 0xc0, 0, 0, _typecb_attached_snk_cb
+.stabn 0xe0, 0, 0, _typecb_attached_snk_cb
+LM69:
+.stabn	0x44, 0, 222, LM69-_typecb_attached_snk_cb
+Lfunc_begin19:
+LM70:
+.stabn	0x44, 0, 226, LM70-_typecb_attached_snk_cb
+	banksel 0
+	return
+Ltmp54:
+Lfunc_end18:
+Lfunc_end19:
+LM71:
+.stabf LM71-_typecb_attached_snk_cb
+
+	_typeca_unattached_cb_sec .section rom
+	.global	_typeca_unattached_cb
+_typeca_unattached_cb:
+Lfunc_begin20:
+.stabs "typeca_unattached_cb:f:16", 0x24,0,0,_typeca_unattached_cb
+.stabn 0xc0, 0, 0, _typeca_unattached_cb
+.stabn 0xe0, 0, 0, _typeca_unattached_cb
+LM72:
+.stabn	0x44, 0, 229, LM72-_typeca_unattached_cb
+Lfunc_begin21:
+LM73:
+.stabn	0x44, 0, 230, LM73-_typeca_unattached_cb
+	banksel 0
+	movlw 7
+	movwf _mod_queue_send.args.+0
+	call _mod_queue_send
+LM74:
+.stabn	0x44, 0, 231, LM74-_typeca_unattached_cb
+	clrf _typeca_ufp+0
+LM75:
+.stabn	0x44, 0, 241, LM75-_typeca_unattached_cb
+	return
+Ltmp55:
+Lfunc_end20:
+Lfunc_end21:
+LM76:
+.stabf LM76-_typeca_unattached_cb
+
+	_typecb_unattached_cb_sec .section rom
+	.global	_typecb_unattached_cb
+_typecb_unattached_cb:
+Lfunc_begin22:
+.stabs "typecb_unattached_cb:f:16", 0x24,0,0,_typecb_unattached_cb
+.stabn 0xc0, 0, 0, _typecb_unattached_cb
+.stabn 0xe0, 0, 0, _typecb_unattached_cb
+LM77:
+.stabn	0x44, 0, 244, LM77-_typecb_unattached_cb
+Lfunc_begin23:
+LM78:
+.stabn	0x44, 0, 248, LM78-_typecb_unattached_cb
+	banksel 0
+	return
+Ltmp56:
+Lfunc_end22:
+Lfunc_end23:
+LM79:
+.stabf LM79-_typecb_unattached_cb
+
+
+	_typeca_ufp_app_typec_deal.c .section bank0,uninit
+	_typeca_ufp .ds 1
+	.ends
+
+	_Type_ca_charge_in_app_typec_deal.c .section bank0,uninit
+	_Type_ca_charge_in .ds 1
+	.ends
+
+	_Type_cb_charge_in_app_typec_deal.c .section bank0,uninit
+	_Type_cb_charge_in .ds 1
+	.ends
+
+	_MiroB_charge_in_app_typec_deal.c .section bank0,uninit
+	_MiroB_charge_in .ds 1
+	.ends
+
+	_typeca_pr_swap_cb.b_pd_power_role_swap_lock_app_typec_deal.c .section bank0,uninit
+	_typeca_pr_swap_cb.b_pd_power_role_swap_lock .ds 1
+	.ends
+
+	_typecb_pr_swap_cb.b_pd_power_role_swap_lock_app_typec_deal.c .section bank0,uninit
+	_typecb_pr_swap_cb.b_pd_power_role_swap_lock .ds 1
+	.ends
+
+	.@_typecx_hard_reset_cb_sec@_typecx_hard_reset_cb.args. .section bank1,uninit
+	_typecx_hard_reset_cb.args. .ds 2
+	.ends
+
+	.@_typecx_hard_reset_cb_sec@_typecx_hard_reset_cb.temp. .section bank1,uninit
+	_typecx_hard_reset_cb.temp. .ds 4
+	.ends
+
+	.@_typeca_vbus_exist_cb_sec@_typeca_vbus_exist_cb.frame. .section bank1,uninit
+	_typeca_vbus_exist_cb.frame. .ds 1
+	.ends
+
+	.@_typecb_vbus_exist_cb_sec@_typecb_vbus_exist_cb.frame. .section bank1,uninit
+	_typecb_vbus_exist_cb.frame. .ds 1
+	.ends
+
+
+
+	.global	_typeca_ufp
+	.global	_Type_ca_charge_in
+	.global	_Type_cb_charge_in
+	.global	_MiroB_charge_in
+

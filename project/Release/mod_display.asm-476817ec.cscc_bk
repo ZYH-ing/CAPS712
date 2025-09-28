@@ -1,0 +1,528 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\module\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\module\\mod_display.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+
+
+.stabs "cscc_@anonymity_0:T20=s1led_0:21=10;;,0,1;led_1:22=10;;,1,2;led_2:23=10;;,2,3;led_3:24=10;;,3,4;led_4:25=10;;,4,5;led_5:26=10;;,5,6;led_6:27=10;;,6,7;;", 0x80, 0, 0, 0
+.stabs "disp_data_t:T19=u1bit:20,0,8;byte:28=10;;,0,8;;", 0x80, 0, 0, 0
+.stabs "cscc_@anonymity_1:T29=s1key_0:30=10;;,0,8;;", 0x80, 0, 0, 0
+.stabs "display_t:T17=s3disp_data:18=19;;,0,8;key_data:29,8,16;disp_refresh_status:31=10;;,16,24;;", 0x80, 0, 0, 0
+.stabs "display_data:G17;",0x20,0,0,_display_data
+.stabs "Err_diply:G10;",0x20,0,0,_Err_diply
+.stabs "Err_diply_check_time_cnt:G10;",0x20,0,0,_Err_diply_check_time_cnt
+.stabs "Car_lighting_bright:G10;",0x20,0,0,_Car_lighting_bright
+.stabs "Key_up_flage:G10;",0x20,0,0,_Key_up_flage
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_mod_display_init_sec .section rom
+	.global	_mod_display_init
+_mod_display_init:
+Lfunc_begin0:
+.stabs "mod_display_init:f:16", 0x24,0,0,_mod_display_init
+.stabn 0xc0, 0, 0, _mod_display_init
+.stabn 0xe0, 0, 0, _mod_display_init
+LM0:
+.stabn	0x44, 0, 37, LM0-_mod_display_init
+Lfunc_begin1:
+LM1:
+.stabn	0x44, 0, 38, LM1-_mod_display_init
+	banksel 0
+	movfwl _display_data+0
+LM2:
+.stabn	0x44, 0, 46, LM2-_mod_display_init
+	movwf _mod_display_init.temp.+0
+	andlw 0x80
+LM3:
+.stabn	0x44, 0, 45, LM3-_mod_display_init
+	movwf _mod_display_init.temp.+1
+	movfw _mod_display_init.temp.+0
+	andlw 0xa0
+LM4:
+.stabn	0x44, 0, 43, LM4-_mod_display_init
+	movwf _mod_display_init.temp.+2
+	movfw _mod_display_init.temp.+0
+	andlw 0xb0
+LM5:
+.stabn	0x44, 0, 42, LM5-_mod_display_init
+	movwf _mod_display_init.temp.+3
+	movfw _mod_display_init.temp.+0
+	andlw 0xf0
+LM6:
+.stabn	0x44, 0, 40, LM6-_mod_display_init
+	movwf _mod_display_init.temp.+4
+	movfw _mod_display_init.temp.+0
+	andlw 0xf4
+LM7:
+.stabn	0x44, 0, 39, LM7-_mod_display_init
+	movwf _mod_display_init.temp.+5
+	movfw _mod_display_init.temp.+0
+	andlw 0xfc
+LM8:
+.stabn	0x44, 0, 38, LM8-_mod_display_init
+	movwf _mod_display_init.temp.+6
+	movfw _mod_display_init.temp.+0
+	andlw 0xfe
+	movwfl _display_data+0
+LM9:
+.stabn	0x44, 0, 39, LM9-_mod_display_init
+	movfw _mod_display_init.temp.+6
+	movwfl _display_data+0
+LM10:
+.stabn	0x44, 0, 40, LM10-_mod_display_init
+	movfw _mod_display_init.temp.+5
+	movwfl _display_data+0
+LM11:
+.stabn	0x44, 0, 42, LM11-_mod_display_init
+	movfw _mod_display_init.temp.+4
+	movwfl _display_data+0
+LM12:
+.stabn	0x44, 0, 43, LM12-_mod_display_init
+	movfw _mod_display_init.temp.+3
+	movwfl _display_data+0
+LM13:
+.stabn	0x44, 0, 45, LM13-_mod_display_init
+	movfw _mod_display_init.temp.+2
+	movwfl _display_data+0
+LM14:
+.stabn	0x44, 0, 46, LM14-_mod_display_init
+	movfw _mod_display_init.temp.+1
+	bsf BSR,1
+	movwf _display_data+0
+LM15:
+.stabn	0x44, 0, 47, LM15-_mod_display_init
+	clrf _display_data+1
+LM16:
+.stabn	0x44, 0, 48, LM16-_mod_display_init
+	clrf _display_data+2
+LM17:
+.stabn	0x44, 0, 49, LM17-_mod_display_init
+	banksel 0
+	return
+Ltmp0:
+Lfunc_end0:
+Lfunc_end1:
+LM18:
+.stabf LM18-_mod_display_init
+
+	_mod_display_disable_sec .section rom
+	.global	_mod_display_disable
+_mod_display_disable:
+Lfunc_begin2:
+.stabs "mod_display_disable:f:16", 0x24,0,0,_mod_display_disable
+.stabn 0xc0, 0, 0, _mod_display_disable
+.stabn 0xe0, 0, 0, _mod_display_disable
+LM19:
+.stabn	0x44, 0, 53, LM19-_mod_display_disable
+Lfunc_begin3:
+LM20:
+.stabn	0x44, 0, 55, LM20-_mod_display_disable
+	banksel 0
+	bcf _PT1EN4, _PT1EN4
+LM21:
+.stabn	0x44, 0, 56, LM21-_mod_display_disable
+	bsf _PT1PU4, _PT1PU4
+LM22:
+.stabn	0x44, 0, 57, LM22-_mod_display_disable
+	bcf _PT14, _PT14
+LM23:
+.stabn	0x44, 0, 59, LM23-_mod_display_disable
+	bsf _PT1EN5, _PT1EN5
+LM24:
+.stabn	0x44, 0, 60, LM24-_mod_display_disable
+	bcf _PT1PU5, _PT1PU5
+LM25:
+.stabn	0x44, 0, 61, LM25-_mod_display_disable
+	bcf _PT15, _PT15
+LM26:
+.stabn	0x44, 0, 63, LM26-_mod_display_disable
+	bcf _PT2EN6, _PT2EN6
+LM27:
+.stabn	0x44, 0, 64, LM27-_mod_display_disable
+	bsf _PT2PU6, _PT2PU6
+LM28:
+.stabn	0x44, 0, 65, LM28-_mod_display_disable
+	bcf _PT26, _PT26
+LM29:
+.stabn	0x44, 0, 66, LM29-_mod_display_disable
+	return
+Ltmp1:
+Lfunc_end2:
+Lfunc_end3:
+LM30:
+.stabf LM30-_mod_display_disable
+
+	_mod_display_led_sec .section rom
+	.global	_mod_display_led
+_mod_display_led:
+Lfunc_begin4:
+.stabs "mod_display_led:f:16", 0x24,0,0,_mod_display_led
+.stabn 0xc0, 0, 0, _mod_display_led
+.stabn 0xe0, 0, 0, _mod_display_led
+LM31:
+.stabn	0x44, 0, 78, LM31-_mod_display_led
+Lfunc_begin5:
+	banksel 0
+	movfw _mod_display_led.args.+0
+	movwf _mod_display_led.temp.+1
+	movfw _mod_display_led.args.+1
+LM32:
+.stabn	0x44, 0, 79, LM32-_mod_display_led
+Ltmp2:
+	movwf _mod_display_led.temp.+0
+	sublw 0
+	beq LBB2_2
+LBB2_1:
+	movlw 1
+	movwf .args.__shl16_atmp+0
+	clrf .args.__shl16_atmp+1
+	movfw _mod_display_led.temp.+1
+	movwf .args.__shl16_btmp+0
+	call .lib.__shl16
+	movfw .ret.__shl16_ret+0
+	bsf BSR,1
+	iorwf _display_data+0, F
+	movlw 0
+	goto LBB2_3
+LBB2_2:
+	movlw 1
+	movwf .args.__shl16_atmp+0
+	clrf .args.__shl16_atmp+1
+	movfw _mod_display_led.temp.+1
+	movwf .args.__shl16_btmp+0
+	call .lib.__shl16
+	movlw 0xff
+	xorwf .ret.__shl16_ret+0, W
+	bsf BSR,1
+	andwf _display_data+0, F
+	movlw 0
+LBB2_3:
+LM33:
+.stabn	0x44, 0, 80, LM33-_mod_display_led
+	banksel 0
+	return
+Ltmp3:
+Lfunc_end4:
+Lfunc_end5:
+LM34:
+.stabn 0xc0,0,0, LM31-_mod_display_led
+.stabs "_led:10;",0x80,0,0,_mod_display_led.args.+0
+.stabn 0xe0,0,0, LM33-_mod_display_led
+.stabn 0xc0,0,0, LM31-_mod_display_led
+.stabs "_on:10;",0x80,0,0,_mod_display_led.args.+1
+.stabn 0xe0,0,0, LM33-_mod_display_led
+.stabf LM34-_mod_display_led
+
+	_mod_display_led_toggle_sec .section rom
+	.global	_mod_display_led_toggle
+_mod_display_led_toggle:
+Lfunc_begin6:
+.stabs "mod_display_led_toggle:f:16", 0x24,0,0,_mod_display_led_toggle
+.stabn 0xc0, 0, 0, _mod_display_led_toggle
+.stabn 0xe0, 0, 0, _mod_display_led_toggle
+LM35:
+.stabn	0x44, 0, 91, LM35-_mod_display_led_toggle
+Lfunc_begin7:
+	banksel 0
+	movfw _mod_display_led_toggle.args.+0
+	movwf _mod_display_led_toggle.temp.+1
+LM36:
+.stabn	0x44, 0, 92, LM36-_mod_display_led_toggle
+Ltmp4:
+	movlw 1
+	movwf .args.__shl16_atmp+0
+	clrf .args.__shl16_atmp+1
+	movfw _mod_display_led_toggle.temp.+1
+	movwf .args.__shl16_btmp+0
+	call .lib.__shl16
+	movfw _mod_display_led_toggle.temp.+1
+	movwf _mod_display_led_toggle.temp.+0
+	movfw .ret.__shl16_ret+0
+	bsf BSR,1
+	xorwf _display_data+0, F
+LM37:
+.stabn	0x44, 0, 93, LM37-_mod_display_led_toggle
+	banksel 0
+	return
+Ltmp5:
+Lfunc_end6:
+Lfunc_end7:
+LM38:
+.stabn 0xc0,0,0, LM35-_mod_display_led_toggle
+.stabs "_led:10;",0x80,0,0,_mod_display_led_toggle.args.+0
+.stabn 0xe0,0,0, LM37-_mod_display_led_toggle
+.stabf LM38-_mod_display_led_toggle
+
+	___mod_display_led_key_refresh_sec .section rom
+	.global	___mod_display_led_key_refresh
+___mod_display_led_key_refresh:
+Lfunc_begin8:
+.stabs "__mod_display_led_key_refresh:f:16", 0x24,0,0,___mod_display_led_key_refresh
+.stabn 0xc0, 0, 0, ___mod_display_led_key_refresh
+.stabn 0xe0, 0, 0, ___mod_display_led_key_refresh
+LM39:
+.stabn	0x44, 0, 103, LM39-___mod_display_led_key_refresh
+Lfunc_begin9:
+LM40:
+.stabn	0x44, 0, 192, LM40-___mod_display_led_key_refresh
+	banksel 0
+	return
+Ltmp6:
+Lfunc_end8:
+Lfunc_end9:
+LM41:
+.stabf LM41-___mod_display_led_key_refresh
+
+	_mod_display_led_key_refresh_sec .section rom
+	.global	_mod_display_led_key_refresh
+_mod_display_led_key_refresh:
+Lfunc_begin10:
+.stabs "mod_display_led_key_refresh:f:16", 0x24,0,0,_mod_display_led_key_refresh
+.stabn 0xc0, 0, 0, _mod_display_led_key_refresh
+.stabn 0xe0, 0, 0, _mod_display_led_key_refresh
+LM42:
+.stabn	0x44, 0, 195, LM42-_mod_display_led_key_refresh
+Lfunc_begin11:
+LM43:
+.stabn	0x44, 0, 300, LM43-_mod_display_led_key_refresh
+	banksel 0
+	return
+Ltmp7:
+Lfunc_end10:
+Lfunc_end11:
+LM44:
+.stabf LM44-_mod_display_led_key_refresh
+
+	_mod_display_batt_level_sec .section rom
+	.global	_mod_display_batt_level
+_mod_display_batt_level:
+Lfunc_begin12:
+.stabs "mod_display_batt_level:f:16", 0x24,0,0,_mod_display_batt_level
+.stabn 0xc0, 0, 0, _mod_display_batt_level
+.stabn 0xe0, 0, 0, _mod_display_batt_level
+LM45:
+.stabn	0x44, 0, 303, LM45-_mod_display_batt_level
+Lfunc_begin13:
+	banksel 0
+	movfw _mod_display_batt_level.args.+0
+LM46:
+.stabn	0x44, 0, 306, LM46-_mod_display_batt_level
+Ltmp8:
+	movwf _mod_display_batt_level.temp.+0
+	movfw _mod_display_batt_level.disp_cnt+0
+	movwf _mod_display_batt_level.temp.+1
+	addlw 1
+	movwf _mod_display_batt_level.disp_cnt+0
+Ltmp9:
+	movfw _mod_display_batt_level.temp.+1
+	sublw 5
+	bgt LBB6_11
+LBB6_1:
+LM47:
+.stabn	0x44, 0, 308, LM47-_mod_display_batt_level
+Ltmp10:
+	clrf _mod_display_batt_level.disp_cnt+0
+LM48:
+.stabn	0x44, 0, 311, LM48-_mod_display_batt_level
+Ltmp11:
+	movlw 1
+	movwf _mod_display_batt_level.temp.+1
+	movfwl _coulomb_data+13
+	sublw 0
+	beq LBB6_13
+LBB6_12:
+	movlw 0
+	movwf _mod_display_batt_level.temp.+1
+LBB6_13:
+LM49:
+.stabn	0x44, 0, 309, LM49-_mod_display_batt_level
+	movfwl _plug_state_context+0
+	SrlSix
+	andwf _mod_display_batt_level.temp.+1, W
+	andlw 1
+LM50:
+.stabn	0x44, 0, 311, LM50-_mod_display_batt_level
+	sublw 0
+	bne LBB6_3
+LBB6_2:
+	movfw _mod_display_batt_level.temp.+0
+Ltmp12:
+LM51:
+.stabn	0x44, 0, 309, LM51-_mod_display_batt_level
+	sublw 4
+	blt LBB6_9
+LBB6_3:
+LM52:
+.stabn	0x44, 0, 315, LM52-_mod_display_batt_level
+Ltmp13:
+	movfw _Temp+4
+	sublw 0
+	beq LBB6_7
+LBB6_4:
+	movfwl _V_NO_Cha_flage+0
+	sublw 0
+	bne LBB6_7
+LBB6_5:
+	movfwl _Charge_OCP_Flage+0
+Ltmp14:
+	sublw 0
+	bne LBB6_7
+LBB6_6:
+LM53:
+.stabn	0x44, 0, 316, LM53-_mod_display_batt_level
+Ltmp15:
+	movlw 1
+	xorwf _mod_display_batt_level.disp_batt_flash+0, F
+	goto LBB6_8
+LBB6_7:
+LM54:
+.stabn	0x44, 0, 318, LM54-_mod_display_batt_level
+	movlw 1
+	movwf _mod_display_batt_level.disp_batt_flash+0
+Ltmp16:
+LBB6_8:
+LM55:
+.stabn	0x44, 0, 319, LM55-_mod_display_batt_level
+	goto LBB6_10
+Ltmp17:
+LBB6_9:
+LM56:
+.stabn	0x44, 0, 322, LM56-_mod_display_batt_level
+	movlw 1
+	movwf _mod_display_batt_level.disp_batt_flash+0
+Ltmp18:
+LBB6_10:
+LBB6_11:
+LM57:
+.stabn	0x44, 0, 401, LM57-_mod_display_batt_level
+	return
+Ltmp19:
+Lfunc_end12:
+Lfunc_end13:
+.stabn 0xc0,0,0, LM46-_mod_display_batt_level
+.stabs "disp_cnt:10;",0x80,0,0,_mod_display_batt_level.disp_cnt
+.stabn 0xe0,0,0, LM57-_mod_display_batt_level
+.stabn 0xc0,0,0, LM46-_mod_display_batt_level
+.stabs "disp_batt_flash:10;",0x80,0,0,_mod_display_batt_level.disp_batt_flash
+.stabn 0xe0,0,0, LM57-_mod_display_batt_level
+LM58:
+.stabn 0xc0,0,0, LM45-_mod_display_batt_level
+.stabs "_batt_energy:10;",0x80,0,0,_mod_display_batt_level.args.+0
+.stabn 0xe0,0,0, LM57-_mod_display_batt_level
+.stabf LM58-_mod_display_batt_level
+
+	_mod_key_get_data_sec .section rom
+	.global	_mod_key_get_data
+_mod_key_get_data:
+Lfunc_begin14:
+.stabs "mod_key_get_data:f32=10;;", 0x24,0,0,_mod_key_get_data
+.stabn 0xc0, 0, 0, _mod_key_get_data
+.stabn 0xe0, 0, 0, _mod_key_get_data
+LM59:
+.stabn	0x44, 0, 411, LM59-_mod_key_get_data
+Lfunc_begin15:
+LM60:
+.stabn	0x44, 0, 418, LM60-_mod_key_get_data
+	banksel 0
+	bsf BSR,1
+	movfw _display_data+1
+	movwf _Key_up_flage+0
+LM61:
+.stabn	0x44, 0, 420, LM61-_mod_key_get_data
+	movwfl _mod_key_get_data.frame.+0
+	banksel 0
+	return
+Ltmp20:
+Lfunc_end14:
+Lfunc_end15:
+LM62:
+.stabf LM62-_mod_key_get_data
+
+
+	_mod_display_batt_level.disp_batt_flash_mod_display.c_Init .section rom,init
+	.db _mod_display_batt_level.disp_batt_flash+0,1
+	.ends
+
+
+	_display_data_mod_display.c .section bank4,uninit
+	_display_data .ds 3
+	.ends
+
+	_mod_display_batt_level.disp_cnt_mod_display.c .section bank0,uninit
+	_mod_display_batt_level.disp_cnt .ds 1
+	.ends
+
+	_mod_display_batt_level.disp_batt_flash_mod_display.c .section bank0,uninit
+	_mod_display_batt_level.disp_batt_flash .ds 1
+	.ends
+
+	_Key_up_flage_mod_display.c .section bank4,uninit
+	_Key_up_flage .ds 1
+	.ends
+
+	_Err_diply_mod_display.c .section bank0,uninit
+	_Err_diply .ds 1
+	.ends
+
+	_Err_diply_check_time_cnt_mod_display.c .section bank0,uninit
+	_Err_diply_check_time_cnt .ds 1
+	.ends
+
+	_Car_lighting_bright_mod_display.c .section bank4,uninit
+	_Car_lighting_bright .ds 1
+	.ends
+
+	.@_mod_display_init_sec@_mod_display_init.temp. .section bank1,uninit
+	_mod_display_init.temp. .ds 7
+	.ends
+
+	.@_mod_display_led_sec@_mod_display_led.args. .section bank1,uninit
+	_mod_display_led.args. .ds 2
+	.ends
+
+	.@_mod_display_led_sec@_mod_display_led.temp. .section bank1,uninit
+	_mod_display_led.temp. .ds 2
+	.ends
+
+	.@_mod_display_led_toggle_sec@_mod_display_led_toggle.args. .section bank1,uninit
+	_mod_display_led_toggle.args. .ds 1
+	.ends
+
+	.@_mod_display_led_toggle_sec@_mod_display_led_toggle.temp. .section bank1,uninit
+	_mod_display_led_toggle.temp. .ds 2
+	.ends
+
+	.@_mod_display_batt_level_sec@_mod_display_batt_level.args. .section bank1,uninit
+	_mod_display_batt_level.args. .ds 1
+	.ends
+
+	.@_mod_display_batt_level_sec@_mod_display_batt_level.temp. .section bank1,uninit
+	_mod_display_batt_level.temp. .ds 2
+	.ends
+
+	.@_mod_key_get_data_sec@_mod_key_get_data.frame. .section bank1,uninit
+	_mod_key_get_data.frame. .ds 1
+	.ends
+
+
+
+	.global	_display_data
+	.global	_Key_up_flage
+	.global	_Err_diply
+	.global	_Err_diply_check_time_cnt
+	.global	_Car_lighting_bright
+

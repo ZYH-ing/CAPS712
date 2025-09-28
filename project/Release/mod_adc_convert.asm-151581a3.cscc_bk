@@ -1,0 +1,1998 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\module\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\module\\mod_adc_convert.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+.stabs "cscc_@anonymity_1:T31=s2result_refresh:32=10;;,0,8;calcu_ready:33=10;;,8,16;;", 0x80, 0, 0, 0
+.stabs "adc_calculate_t:T25=s13adc_code_rt:26=2;;,0,16;adc_code_sl:27=2;;,16,32;result_offset:28=2;;,32,48;slide_cnt:29=10;;,48,56;slide_sum:30=4;;,56,88;flag:31,88,104;;", 0x80, 0, 0, 0
+.stabs "cscc_@anonymity_0:T20=s1convert_refresh:21=10;;,0,8;;", 0x80, 0, 0, 0
+.stabs "adc_convert_t:T19=s108flag:20,0,8;code_rt:22=2;;,8,24;adc_curr_chl:23=10;;,24,32;typec_a:24=25;;,32,136;typea_1:34=25;;,136,240;type_ntc:35=25;;,240,344;type_ntc2:36=25;;,344,448;type_vbus:37=25;;,448,552;type_vbat:38=25;;,552,656;type_usba_vbus:39=25;;,656,760;type_loadin:40=25;;,760,864;;", 0x80, 0, 0, 0
+.stabs "p_convert:G17=*18=19;;",0x20,0,0,_p_convert
+.stabs "p_result:G41=*42=25;;",0x20,0,0,_p_result
+.stabs "p:G43=*44=2;;",0x20,0,0,_p
+.stabs "adc_convert:G19;",0x20,0,0,_adc_convert
+.stabs "adc_branch:G10;",0x20,0,0,_adc_branch
+.stabs "adc_branch_cnt:G10;",0x20,0,0,_adc_branch_cnt
+.stabs "NTC_slide_cnt:G10;",0x20,0,0,_NTC_slide_cnt
+.stabs "NTC_slide_date:G2;",0x20,0,0,_NTC_slide_date
+.stabs "NTC_slide_sum:G4;",0x20,0,0,_NTC_slide_sum
+.stabs "Mode_charge_adc:G10;",0x20,0,0,_Mode_charge_adc
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_mod_adc_convert_init_sec .section rom
+	.global	_mod_adc_convert_init
+_mod_adc_convert_init:
+Lfunc_begin0:
+.stabs "mod_adc_convert_init:f:16", 0x24,0,0,_mod_adc_convert_init
+.stabn 0xc0, 0, 0, _mod_adc_convert_init
+.stabn 0xe0, 0, 0, _mod_adc_convert_init
+LM0:
+.stabn	0x44, 0, 54, LM0-_mod_adc_convert_init
+Lfunc_begin1:
+LM1:
+.stabn	0x44, 0, 58, LM1-_mod_adc_convert_init
+	banksel 0
+	call _adc_init
+LM2:
+.stabn	0x44, 0, 59, LM2-_mod_adc_convert_init
+	call _adc_enable
+LM3:
+.stabn	0x44, 0, 60, LM3-_mod_adc_convert_init
+	movlw 5
+	movwf _delay_ms.args.+0
+	clrf _delay_ms.args.+1
+	clrf _delay_ms.args.+2
+	clrf _delay_ms.args.+3
+	call _delay_ms
+LM4:
+.stabn	0x44, 0, 66, LM4-_mod_adc_convert_init
+	bsf BSR,0
+	clrf _adc_convert+8
+	clrf _adc_convert+9
+LM5:
+.stabn	0x44, 0, 67, LM5-_mod_adc_convert_init
+	clrf _adc_convert+21
+	clrf _adc_convert+22
+LM6:
+.stabn	0x44, 0, 69, LM6-_mod_adc_convert_init
+	clrf _adc_convert+15
+LM7:
+.stabn	0x44, 0, 70, LM7-_mod_adc_convert_init
+	clrf _adc_convert+28
+LM8:
+.stabn	0x44, 0, 71, LM8-_mod_adc_convert_init
+	clrf _adc_convert+41
+LM9:
+.stabn	0x44, 0, 73, LM9-_mod_adc_convert_init
+	clrf _adc_convert+10
+LM10:
+.stabn	0x44, 0, 74, LM10-_mod_adc_convert_init
+	clrf _adc_convert+23
+LM11:
+.stabn	0x44, 0, 75, LM11-_mod_adc_convert_init
+	clrf _adc_convert+36
+LBB0_1:
+LM12:
+.stabn	0x44, 0, 79, LM12-_mod_adc_convert_init
+Ltmp0:
+	call _mod_adc_convert
+Ltmp1:
+LM13:
+.stabn	0x44, 0, 83, LM13-_mod_adc_convert_init
+	movlw 1
+	movwf _mod_adc_convert_init.temp.+0
+	movfwl _adc_convert+15
+	sublw 0
+	beq LBB0_5
+LBB0_3:
+LM14:
+.stabn	0x44, 0, 84, LM14-_mod_adc_convert_init
+	movlw 1
+	movwf _mod_adc_convert_init.temp.+0
+	movfwl _adc_convert+28
+	sublw 0
+	beq LBB0_5
+LBB0_4:
+	movlw 1
+	movwf _mod_adc_convert_init.temp.+1
+	movfwl _adc_convert+41
+	sublw 0
+	beq LBB0_8
+LBB0_7:
+	movlw 0
+	movwf _mod_adc_convert_init.temp.+1
+LBB0_8:
+	movfw _mod_adc_convert_init.temp.+1
+	movwf _mod_adc_convert_init.temp.+0
+LBB0_5:
+LM15:
+.stabn	0x44, 0, 80, LM15-_mod_adc_convert_init
+Ltmp2:
+	movfw _mod_adc_convert_init.temp.+0
+	andlw 1
+	sublw 0
+	bne LBB0_1
+Ltmp3:
+LBB0_6:
+LM16:
+.stabn	0x44, 0, 89, LM16-_mod_adc_convert_init
+	bsf BSR,0
+	movfw _adc_convert+6
+	movwf _adc_convert+8
+	movfw _adc_convert+7
+	movwf _adc_convert+9
+LM17:
+.stabn	0x44, 0, 90, LM17-_mod_adc_convert_init
+	movfw _adc_convert+19
+	movwf _adc_convert+21
+	movfw _adc_convert+20
+	movwf _adc_convert+22
+LM18:
+.stabn	0x44, 0, 91, LM18-_mod_adc_convert_init
+	clrf _adc_convert+34
+	clrf _adc_convert+35
+LM19:
+.stabn	0x44, 0, 93, LM19-_mod_adc_convert_init
+	banksel 0
+	return
+Ltmp4:
+Lfunc_end0:
+Lfunc_end1:
+LM20:
+.stabf LM20-_mod_adc_convert_init
+
+	_mod_adc_convert_sec .section rom
+	.global	_mod_adc_convert
+_mod_adc_convert:
+Lfunc_begin2:
+.stabs "mod_adc_convert:f:16", 0x24,0,0,_mod_adc_convert
+.stabn 0xc0, 0, 0, _mod_adc_convert
+.stabn 0xe0, 0, 0, _mod_adc_convert
+LM21:
+.stabn	0x44, 0, 112, LM21-_mod_adc_convert
+Lfunc_begin3:
+LM22:
+.stabn	0x44, 0, 113, LM22-_mod_adc_convert
+	banksel 0
+	movfwl _adc_branch+0
+	movwf _mod_adc_convert.temp.+0
+	addlw 1
+	movwfl _adc_branch+0
+	movfw _mod_adc_convert.temp.+0
+	sublw 0
+	beq LBB1_1
+LBB1_36:
+	movfw _mod_adc_convert.temp.+0
+	xorlw 1
+	sublw 0
+	beq LBB1_2
+LBB1_37:
+	movfw _mod_adc_convert.temp.+0
+	xorlw 2
+	sublw 0
+	beq LBB1_9
+LBB1_38:
+	movfw _mod_adc_convert.temp.+0
+	xorlw 3
+	sublw 0
+	beq LBB1_16
+LBB1_39:
+	movfw _mod_adc_convert.temp.+0
+	xorlw 4
+	sublw 0
+	beq LBB1_20
+LBB1_40:
+	movfw _mod_adc_convert.temp.+0
+	xorlw 5
+	sublw 0
+	beq LBB1_24
+LBB1_41:
+	movfw _mod_adc_convert.temp.+0
+	xorlw 6
+	sublw 0
+	beq LBB1_28
+	goto LBB1_34
+LBB1_1:
+LM23:
+.stabn	0x44, 0, 116, LM23-_mod_adc_convert
+Ltmp5:
+	clrf _adc_convert_channel_switch.args.+0
+	call _adc_convert_channel_switch
+LM24:
+.stabn	0x44, 0, 117, LM24-_mod_adc_convert
+	goto LBB1_35
+LBB1_2:
+LM25:
+.stabn	0x44, 0, 120, LM25-_mod_adc_convert
+Ltmp6:
+	movfwl _adc_convert+0
+Ltmp7:
+	sublw 0
+	beq LBB1_7
+LBB1_3:
+LM26:
+.stabn	0x44, 0, 122, LM26-_mod_adc_convert
+Ltmp8:
+	bsf BSR,0
+	clrf _adc_convert+0
+LM27:
+.stabn	0x44, 0, 123, LM27-_mod_adc_convert
+	call _adc_conver_result_refresh
+LM28:
+.stabn	0x44, 0, 127, LM28-_mod_adc_convert
+Ltmp9:
+	movfwl _inoutput_data+10
+Ltmp10:
+	sublw 0
+	bne LBB1_5
+LBB1_4:
+LM29:
+.stabn	0x44, 0, 129, LM29-_mod_adc_convert
+Ltmp11:
+	movlw 1
+	movwf _adc_convert_channel_switch.args.+0
+	call _adc_convert_channel_switch
+LM30:
+.stabn	0x44, 0, 130, LM30-_mod_adc_convert
+	goto LBB1_6
+Ltmp12:
+LBB1_5:
+LM31:
+.stabn	0x44, 0, 133, LM31-_mod_adc_convert
+	movlw 3
+	movwfl _adc_branch+0
+LM32:
+.stabn	0x44, 0, 134, LM32-_mod_adc_convert
+	movlw 2
+	movwf _adc_convert_channel_switch.args.+0
+	call _adc_convert_channel_switch
+Ltmp13:
+LBB1_6:
+LM33:
+.stabn	0x44, 0, 136, LM33-_mod_adc_convert
+	goto LBB1_8
+Ltmp14:
+LBB1_7:
+LM34:
+.stabn	0x44, 0, 139, LM34-_mod_adc_convert
+	bsf BSR,0
+	decf _adc_branch+0, F
+Ltmp15:
+LBB1_8:
+LM35:
+.stabn	0x44, 0, 142, LM35-_mod_adc_convert
+	goto LBB1_35
+LBB1_9:
+LM36:
+.stabn	0x44, 0, 146, LM36-_mod_adc_convert
+Ltmp16:
+	movfwl _inoutput_data+10
+Ltmp17:
+	sublw 0
+	bne LBB1_14
+LBB1_10:
+LM37:
+.stabn	0x44, 0, 148, LM37-_mod_adc_convert
+Ltmp18:
+	movfwl _adc_convert+0
+Ltmp19:
+	sublw 0
+	beq LBB1_12
+LBB1_11:
+LM38:
+.stabn	0x44, 0, 150, LM38-_mod_adc_convert
+Ltmp20:
+	bsf BSR,0
+	clrf _adc_convert+0
+LM39:
+.stabn	0x44, 0, 151, LM39-_mod_adc_convert
+	call _adc_conver_result_refresh
+LM40:
+.stabn	0x44, 0, 152, LM40-_mod_adc_convert
+	movlw 2
+	movwf _adc_convert_channel_switch.args.+0
+	call _adc_convert_channel_switch
+LM41:
+.stabn	0x44, 0, 153, LM41-_mod_adc_convert
+	goto LBB1_13
+Ltmp21:
+LBB1_12:
+LM42:
+.stabn	0x44, 0, 156, LM42-_mod_adc_convert
+	bsf BSR,0
+	decf _adc_branch+0, F
+Ltmp22:
+LBB1_13:
+LM43:
+.stabn	0x44, 0, 158, LM43-_mod_adc_convert
+	goto LBB1_15
+Ltmp23:
+LBB1_14:
+LM44:
+.stabn	0x44, 0, 161, LM44-_mod_adc_convert
+	movlw 2
+	movwf _adc_convert_channel_switch.args.+0
+	call _adc_convert_channel_switch
+Ltmp24:
+LBB1_15:
+LM45:
+.stabn	0x44, 0, 163, LM45-_mod_adc_convert
+	goto LBB1_35
+LBB1_16:
+LM46:
+.stabn	0x44, 0, 165, LM46-_mod_adc_convert
+Ltmp25:
+	movfwl _adc_convert+0
+Ltmp26:
+	sublw 0
+	beq LBB1_18
+LBB1_17:
+LM47:
+.stabn	0x44, 0, 167, LM47-_mod_adc_convert
+Ltmp27:
+	bsf BSR,0
+	clrf _adc_convert+0
+LM48:
+.stabn	0x44, 0, 168, LM48-_mod_adc_convert
+	call _adc_conver_result_refresh
+LM49:
+.stabn	0x44, 0, 169, LM49-_mod_adc_convert
+	movlw 5
+	movwf _adc_convert_channel_switch.args.+0
+	call _adc_convert_channel_switch
+LM50:
+.stabn	0x44, 0, 170, LM50-_mod_adc_convert
+	goto LBB1_19
+Ltmp28:
+LBB1_18:
+LM51:
+.stabn	0x44, 0, 173, LM51-_mod_adc_convert
+	bsf BSR,0
+	decf _adc_branch+0, F
+Ltmp29:
+LBB1_19:
+LM52:
+.stabn	0x44, 0, 175, LM52-_mod_adc_convert
+	goto LBB1_35
+LBB1_20:
+LM53:
+.stabn	0x44, 0, 177, LM53-_mod_adc_convert
+Ltmp30:
+	movfwl _adc_convert+0
+Ltmp31:
+	sublw 0
+	beq LBB1_22
+LBB1_21:
+LM54:
+.stabn	0x44, 0, 179, LM54-_mod_adc_convert
+Ltmp32:
+	bsf BSR,0
+	clrf _adc_convert+0
+LM55:
+.stabn	0x44, 0, 180, LM55-_mod_adc_convert
+	call _adc_conver_result_refresh
+LM56:
+.stabn	0x44, 0, 181, LM56-_mod_adc_convert
+	movlw 4
+	movwf _adc_convert_channel_switch.args.+0
+	call _adc_convert_channel_switch
+LM57:
+.stabn	0x44, 0, 182, LM57-_mod_adc_convert
+	goto LBB1_23
+Ltmp33:
+LBB1_22:
+LM58:
+.stabn	0x44, 0, 185, LM58-_mod_adc_convert
+	bsf BSR,0
+	decf _adc_branch+0, F
+Ltmp34:
+LBB1_23:
+LM59:
+.stabn	0x44, 0, 187, LM59-_mod_adc_convert
+	goto LBB1_35
+LBB1_24:
+LM60:
+.stabn	0x44, 0, 189, LM60-_mod_adc_convert
+Ltmp35:
+	movfwl _adc_convert+0
+Ltmp36:
+	sublw 0
+	beq LBB1_26
+LBB1_25:
+LM61:
+.stabn	0x44, 0, 191, LM61-_mod_adc_convert
+Ltmp37:
+	bsf BSR,0
+	clrf _adc_convert+0
+LM62:
+.stabn	0x44, 0, 192, LM62-_mod_adc_convert
+	call _adc_conver_result_refresh
+LM63:
+.stabn	0x44, 0, 193, LM63-_mod_adc_convert
+	movlw 6
+	movwf _adc_convert_channel_switch.args.+0
+	call _adc_convert_channel_switch
+LM64:
+.stabn	0x44, 0, 194, LM64-_mod_adc_convert
+	goto LBB1_27
+Ltmp38:
+LBB1_26:
+LM65:
+.stabn	0x44, 0, 197, LM65-_mod_adc_convert
+	bsf BSR,0
+	decf _adc_branch+0, F
+Ltmp39:
+LBB1_27:
+LM66:
+.stabn	0x44, 0, 199, LM66-_mod_adc_convert
+	goto LBB1_35
+LBB1_28:
+LM67:
+.stabn	0x44, 0, 201, LM67-_mod_adc_convert
+Ltmp40:
+	movfwl _adc_convert+0
+Ltmp41:
+	sublw 0
+	beq LBB1_30
+LBB1_29:
+LM68:
+.stabn	0x44, 0, 203, LM68-_mod_adc_convert
+Ltmp42:
+	bsf BSR,0
+	clrf _adc_convert+0
+LM69:
+.stabn	0x44, 0, 204, LM69-_mod_adc_convert
+	call _adc_conver_result_refresh
+LM70:
+.stabn	0x44, 0, 205, LM70-_mod_adc_convert
+	bsf BSR,0
+	clrf _adc_branch+0
+LM71:
+.stabn	0x44, 0, 206, LM71-_mod_adc_convert
+	goto LBB1_31
+Ltmp43:
+LBB1_30:
+LM72:
+.stabn	0x44, 0, 209, LM72-_mod_adc_convert
+	bsf BSR,0
+	decf _adc_branch+0, F
+Ltmp44:
+LBB1_31:
+LM73:
+.stabn	0x44, 0, 211, LM73-_mod_adc_convert
+	movfw _adc_branch+0
+Ltmp45:
+	sublw 7
+	bgt LBB1_33
+LBB1_32:
+LM74:
+.stabn	0x44, 0, 213, LM74-_mod_adc_convert
+Ltmp46:
+	clrf _adc_branch+0
+Ltmp47:
+LBB1_33:
+LM75:
+.stabn	0x44, 0, 215, LM75-_mod_adc_convert
+	goto LBB1_35
+LBB1_34:
+LM76:
+.stabn	0x44, 0, 234, LM76-_mod_adc_convert
+	bsf BSR,0
+	clrf _adc_branch+0
+Ltmp48:
+LBB1_35:
+LM77:
+.stabn	0x44, 0, 237, LM77-_mod_adc_convert
+	banksel 0
+	return
+Ltmp49:
+Lfunc_end2:
+Lfunc_end3:
+LM78:
+.stabf LM78-_mod_adc_convert
+
+	_mod_adc_convert_disable_sec .section rom
+	.global	_mod_adc_convert_disable
+_mod_adc_convert_disable:
+Lfunc_begin4:
+.stabs "mod_adc_convert_disable:f:16", 0x24,0,0,_mod_adc_convert_disable
+.stabn 0xc0, 0, 0, _mod_adc_convert_disable
+.stabn 0xe0, 0, 0, _mod_adc_convert_disable
+LM79:
+.stabn	0x44, 0, 97, LM79-_mod_adc_convert_disable
+Lfunc_begin5:
+LM80:
+.stabn	0x44, 0, 99, LM80-_mod_adc_convert_disable
+	banksel 0
+	call _adc_disable
+LM81:
+.stabn	0x44, 0, 100, LM81-_mod_adc_convert_disable
+	return
+Ltmp50:
+Lfunc_end4:
+Lfunc_end5:
+LM82:
+.stabf LM82-_mod_adc_convert_disable
+
+	_adc_convert_channel_switch_sec .section rom
+_adc_convert_channel_switch:
+Lfunc_begin6:
+.stabs "adc_convert_channel_switch:f:16", 0x24,0,0,_adc_convert_channel_switch
+.stabn 0xc0, 0, 0, _adc_convert_channel_switch
+.stabn 0xe0, 0, 0, _adc_convert_channel_switch
+LM83:
+.stabn	0x44, 0, 241, LM83-_adc_convert_channel_switch
+Lfunc_begin7:
+	banksel 0
+	movfw _adc_convert_channel_switch.args.+0
+LM84:
+.stabn	0x44, 0, 242, LM84-_adc_convert_channel_switch
+Ltmp51:
+	movwf _adc_convert_channel_switch.temp.+0
+	movwfl _adc_convert+3
+LM85:
+.stabn	0x44, 0, 245, LM85-_adc_convert_channel_switch
+	movfw _adc_convert_channel_switch.temp.+0
+	movwf _adc_convert_channel_switch.temp.+3
+	sublw 0
+	beq LBB3_1
+LBB3_26:
+	movfw _adc_convert_channel_switch.temp.+3
+	xorlw 1
+	sublw 0
+	beq LBB3_7
+LBB3_27:
+	movfw _adc_convert_channel_switch.temp.+3
+	xorlw 2
+	sublw 0
+	beq LBB3_8
+LBB3_28:
+	movfw _adc_convert_channel_switch.temp.+3
+	xorlw 4
+	sublw 0
+	beq LBB3_18
+LBB3_29:
+	movfw _adc_convert_channel_switch.temp.+3
+	xorlw 5
+	sublw 0
+	beq LBB3_19
+LBB3_30:
+	movfw _adc_convert_channel_switch.temp.+3
+	xorlw 6
+	sublw 0
+	beq LBB3_13
+	goto LBB3_24
+LBB3_1:
+LM86:
+.stabn	0x44, 0, 249, LM86-_adc_convert_channel_switch
+Ltmp52:
+	movfw _R_SysMode_OK+0
+Ltmp53:
+	sublw 1
+	bne LBB3_3
+LBB3_2:
+LM87:
+.stabn	0x44, 0, 251, LM87-_adc_convert_channel_switch
+Ltmp54:
+	clrf _adc_convert_channel_switch.temp.+2
+LM88:
+.stabn	0x44, 0, 252, LM88-_adc_convert_channel_switch
+	goto LBB3_4
+Ltmp55:
+LBB3_3:
+LM89:
+.stabn	0x44, 0, 255, LM89-_adc_convert_channel_switch
+	movlw 1
+	movwf _adc_convert_channel_switch.temp.+2
+Ltmp56:
+LBB3_4:
+LM90:
+.stabn	0x44, 0, 257, LM90-_adc_convert_channel_switch
+	movfwl _Mode_charge_adc+0
+Ltmp57:
+	xorwf _adc_convert_channel_switch.temp.+2, W
+	sublw 0
+	beq LBB3_6
+LBB3_5:
+LM91:
+.stabn	0x44, 0, 259, LM91-_adc_convert_channel_switch
+Ltmp58:
+	bsf BSR,0
+	clrf _adc_convert+10
+LM92:
+.stabn	0x44, 0, 260, LM92-_adc_convert_channel_switch
+	clrf _adc_convert+11
+	clrf _adc_convert+12
+	clrf _adc_convert+13
+	clrf _adc_convert+14
+LM93:
+.stabn	0x44, 0, 261, LM93-_adc_convert_channel_switch
+	movfwl _adc_convert_channel_switch.temp.+2
+	movwf _Mode_charge_adc+0
+Ltmp59:
+LBB3_6:
+LM94:
+.stabn	0x44, 0, 264, LM94-_adc_convert_channel_switch
+	movlw 4
+	banksel _adc_set_vref.args.
+	movwf _adc_set_vref.args.+0
+	call _adc_set_vref
+LM95:
+.stabn	0x44, 0, 265, LM95-_adc_convert_channel_switch
+	bsf _SRADCON0+0, 0
+LM96:
+.stabn	0x44, 0, 266, LM96-_adc_convert_channel_switch
+	movlw 9
+	movwf _adc_set_sing_channel.args.+0
+	call _adc_set_sing_channel
+LM97:
+.stabn	0x44, 0, 267, LM97-_adc_convert_channel_switch
+	goto LBB3_25
+LBB3_7:
+LM98:
+.stabn	0x44, 0, 269, LM98-_adc_convert_channel_switch
+	bcf _SRADCON0+0, 0
+LM99:
+.stabn	0x44, 0, 270, LM99-_adc_convert_channel_switch
+	movlw 4
+	movwf _adc_set_vref.args.+0
+	call _adc_set_vref
+LM100:
+.stabn	0x44, 0, 271, LM100-_adc_convert_channel_switch
+	movlw 7
+	movwf _adc_set_sing_channel.args.+0
+	call _adc_set_sing_channel
+LM101:
+.stabn	0x44, 0, 272, LM101-_adc_convert_channel_switch
+	goto LBB3_25
+LBB3_8:
+LM102:
+.stabn	0x44, 0, 274, LM102-_adc_convert_channel_switch
+	bcf _SRADCON0+0, 0
+LM103:
+.stabn	0x44, 0, 275, LM103-_adc_convert_channel_switch
+	clrf _adc_set_vref.args.+0
+	call _adc_set_vref
+LM104:
+.stabn	0x44, 0, 276, LM104-_adc_convert_channel_switch
+	clrf _adc_set_sing_channel.args.+0
+	call _adc_set_sing_channel
+LM105:
+.stabn	0x44, 0, 281, LM105-_adc_convert_channel_switch
+Ltmp60:
+	clrf _adc_convert_channel_switch.temp.+1
+LBB3_9:
+Ltmp61:
+	movfw _adc_convert_channel_switch.temp.+1
+Ltmp62:
+	sublw 5
+	blt LBB3_12
+LBB3_10:
+LM106:
+.stabn	0x44, 0, 283, LM106-_adc_convert_channel_switch
+Ltmp63:
+	;APP
+	nop
+	;NO_APP
+Ltmp64:
+LM107:
+.stabn	0x44, 0, 281, LM107-_adc_convert_channel_switch
+	incf _adc_convert_channel_switch.temp.+1, F
+	goto LBB3_9
+Ltmp65:
+LBB3_12:
+LM108:
+.stabn	0x44, 0, 285, LM108-_adc_convert_channel_switch
+	goto LBB3_25
+LBB3_13:
+LM109:
+.stabn	0x44, 0, 287, LM109-_adc_convert_channel_switch
+	bcf _SRADCON0+0, 0
+LM110:
+.stabn	0x44, 0, 288, LM110-_adc_convert_channel_switch
+	clrf _adc_set_vref.args.+0
+	call _adc_set_vref
+LM111:
+.stabn	0x44, 0, 289, LM111-_adc_convert_channel_switch
+	movlw 8
+	movwf _adc_set_sing_channel.args.+0
+	call _adc_set_sing_channel
+LM112:
+.stabn	0x44, 0, 294, LM112-_adc_convert_channel_switch
+Ltmp66:
+	clrf _adc_convert_channel_switch.temp.+1
+LBB3_14:
+Ltmp67:
+	movfw _adc_convert_channel_switch.temp.+1
+Ltmp68:
+	sublw 5
+	blt LBB3_17
+LBB3_15:
+LM113:
+.stabn	0x44, 0, 296, LM113-_adc_convert_channel_switch
+Ltmp69:
+	;APP
+	nop
+	;NO_APP
+Ltmp70:
+LM114:
+.stabn	0x44, 0, 294, LM114-_adc_convert_channel_switch
+	incf _adc_convert_channel_switch.temp.+1, F
+	goto LBB3_14
+Ltmp71:
+LBB3_17:
+LM115:
+.stabn	0x44, 0, 298, LM115-_adc_convert_channel_switch
+	goto LBB3_25
+LBB3_18:
+LM116:
+.stabn	0x44, 0, 300, LM116-_adc_convert_channel_switch
+	clrf _adc_set_vref.args.+0
+	call _adc_set_vref
+LM117:
+.stabn	0x44, 0, 301, LM117-_adc_convert_channel_switch
+	movlw 12
+	movwf _adc_set_sing_channel.args.+0
+	call _adc_set_sing_channel
+LM118:
+.stabn	0x44, 0, 302, LM118-_adc_convert_channel_switch
+	goto LBB3_25
+LBB3_19:
+LM119:
+.stabn	0x44, 0, 304, LM119-_adc_convert_channel_switch
+	clrf _adc_set_vref.args.+0
+	call _adc_set_vref
+LM120:
+.stabn	0x44, 0, 305, LM120-_adc_convert_channel_switch
+	movlw 11
+	movwf _adc_set_sing_channel.args.+0
+	call _adc_set_sing_channel
+LM121:
+.stabn	0x44, 0, 306, LM121-_adc_convert_channel_switch
+Ltmp72:
+	clrf _adc_convert_channel_switch.temp.+1
+LBB3_20:
+Ltmp73:
+	movfw _adc_convert_channel_switch.temp.+1
+Ltmp74:
+	sublw 20
+	blt LBB3_23
+LBB3_21:
+LM122:
+.stabn	0x44, 0, 308, LM122-_adc_convert_channel_switch
+Ltmp75:
+	;APP
+	nop
+	;NO_APP
+Ltmp76:
+LM123:
+.stabn	0x44, 0, 306, LM123-_adc_convert_channel_switch
+	incf _adc_convert_channel_switch.temp.+1, F
+	goto LBB3_20
+Ltmp77:
+LBB3_23:
+LBB3_24:
+LBB3_25:
+LM124:
+.stabn	0x44, 0, 315, LM124-_adc_convert_channel_switch
+	call _adc_start
+LM125:
+.stabn	0x44, 0, 316, LM125-_adc_convert_channel_switch
+	return
+Ltmp78:
+Lfunc_end6:
+Lfunc_end7:
+LM126:
+.stabn 0xc0,0,0, LM83-_adc_convert_channel_switch
+.stabs "channel:10;",0x80,0,0,_adc_convert_channel_switch.args.+0
+.stabn 0xe0,0,0, LM125-_adc_convert_channel_switch
+.stabn 0xc0,0,0, LM85-_adc_convert_channel_switch
+.stabs "i:10;",0x80,0,0,_adc_convert_channel_switch.temp.+1
+.stabn 0xe0,0,0, LM125-_adc_convert_channel_switch
+.stabn 0xc0,0,0, LM85-_adc_convert_channel_switch
+.stabs "SysMode:10;",0x80,0,0,_adc_convert_channel_switch.temp.+2
+.stabn 0xe0,0,0, LM125-_adc_convert_channel_switch
+.stabf LM126-_adc_convert_channel_switch
+
+	_adc_conver_result_refresh_sec .section rom
+_adc_conver_result_refresh:
+Lfunc_begin8:
+.stabs "adc_conver_result_refresh:f:16", 0x24,0,0,_adc_conver_result_refresh
+.stabn 0xc0, 0, 0, _adc_conver_result_refresh
+.stabn 0xe0, 0, 0, _adc_conver_result_refresh
+LM127:
+.stabn	0x44, 0, 321, LM127-_adc_conver_result_refresh
+Lfunc_begin9:
+LM128:
+.stabn	0x44, 0, 323, LM128-_adc_conver_result_refresh
+	banksel 0
+	movfwl _adc_convert+3
+	movwf _adc_conver_result_refresh.temp.+0
+	sublw 0
+	beq LBB4_1
+LBB4_29:
+	movfw _adc_conver_result_refresh.temp.+0
+	xorlw 1
+	sublw 0
+	beq LBB4_17
+LBB4_30:
+	movfw _adc_conver_result_refresh.temp.+0
+	xorlw 2
+	sublw 0
+	beq LBB4_21
+LBB4_31:
+	movfw _adc_conver_result_refresh.temp.+0
+	xorlw 4
+	sublw 0
+	beq LBB4_23
+LBB4_32:
+	movfw _adc_conver_result_refresh.temp.+0
+	xorlw 5
+	sublw 0
+	beq LBB4_24
+LBB4_33:
+	movfw _adc_conver_result_refresh.temp.+0
+	xorlw 6
+	sublw 0
+	beq LBB4_22
+	goto LBB4_25
+LBB4_1:
+LM129:
+.stabn	0x44, 0, 327, LM129-_adc_conver_result_refresh
+Ltmp79:
+	movfw _R_SysMode_OK+0
+Ltmp80:
+	sublw 1
+	bne LBB4_3
+LBB4_2:
+LM130:
+.stabn	0x44, 0, 329, LM130-_adc_conver_result_refresh
+Ltmp81:
+	clrf _adc_conver_result_refresh.temp.+3
+LM131:
+.stabn	0x44, 0, 330, LM131-_adc_conver_result_refresh
+	goto LBB4_4
+Ltmp82:
+LBB4_3:
+LM132:
+.stabn	0x44, 0, 333, LM132-_adc_conver_result_refresh
+	movlw 1
+	movwf _adc_conver_result_refresh.temp.+3
+Ltmp83:
+LBB4_4:
+LM133:
+.stabn	0x44, 0, 336, LM133-_adc_conver_result_refresh
+	movlw LOW(_adc_convert+0)
+	addlw 4
+	movwf _p_result+0
+	movlw HIGH8(_adc_convert+0)
+	addlwc 0
+	movwf _p_result+1
+LM134:
+.stabn	0x44, 0, 338, LM134-_adc_conver_result_refresh
+Ltmp84:
+	movfw _adc_conver_result_refresh.temp.+3
+Ltmp85:
+	sublw 0
+	beq LBB4_9
+LBB4_5:
+LM135:
+.stabn	0x44, 0, 341, LM135-_adc_conver_result_refresh
+Ltmp86:
+	movlw 1
+	movwf _adc_conver_result_refresh.temp.+0
+Ltmp87:
+	movfwl _adc_convert+1
+Ltmp88:
+	sublw 0
+	bne LBB4_35
+LBB4_34:
+	movlw 0
+	movwf _adc_conver_result_refresh.temp.+0
+LBB4_35:
+	movlw 1
+	movwf _adc_conver_result_refresh.temp.+1
+Ltmp89:
+	movfwl _adc_convert+2
+Ltmp90:
+	movwf _adc_conver_result_refresh.temp.+2
+	sublw 8
+	blt LBB4_37
+LBB4_36:
+	movlw 0
+	movwf _adc_conver_result_refresh.temp.+1
+LBB4_37:
+	movfw _adc_conver_result_refresh.temp.+0
+	movwf _adc_conver_result_refresh.temp.+0
+	movfw _adc_conver_result_refresh.temp.+2
+	sublw 8
+	beq LBB4_39
+LBB4_38:
+	movfw _adc_conver_result_refresh.temp.+1
+	movwf _adc_conver_result_refresh.temp.+0
+LBB4_39:
+	movfw _adc_conver_result_refresh.temp.+0
+	andlw 1
+	sublw 0
+	bne LBB4_7
+LBB4_6:
+LM136:
+.stabn	0x44, 0, 342, LM136-_adc_conver_result_refresh
+Ltmp91:
+	bsf BSR,0
+	clrf _adc_convert+1
+	clrf _adc_convert+2
+	goto LBB4_8
+LBB4_7:
+LM137:
+.stabn	0x44, 0, 344, LM137-_adc_conver_result_refresh
+	movlw 0xf8
+	bsf BSR,0
+	addwf _adc_convert+2, W
+	movwf _adc_convert+2
+Ltmp92:
+LBB4_8:
+LM138:
+.stabn	0x44, 0, 345, LM138-_adc_conver_result_refresh
+	goto LBB4_13
+Ltmp93:
+LBB4_9:
+LM139:
+.stabn	0x44, 0, 348, LM139-_adc_conver_result_refresh
+	movfwl _adc_convert+2
+Ltmp94:
+	sublw 8
+	bgt LBB4_11
+LBB4_10:
+LM140:
+.stabn	0x44, 0, 349, LM140-_adc_conver_result_refresh
+Ltmp95:
+	bsf BSR,0
+	clrf _adc_convert+1
+	clrf _adc_convert+2
+	goto LBB4_12
+LBB4_11:
+LM141:
+.stabn	0x44, 0, 351, LM141-_adc_conver_result_refresh
+	bsf BSR,0
+	movfw _adc_convert+1
+	sublw 0
+	movwf _adc_convert+1
+	movfw _adc_convert+2
+	banksel 0
+	sublwc 8
+	movwfl _adc_convert+2
+Ltmp96:
+LBB4_12:
+LBB4_13:
+LM142:
+.stabn	0x44, 0, 354, LM142-_adc_conver_result_refresh
+	banksel _p_result
+	movfw _p_result+0
+	movwf FSR0
+Ltmp97:
+	movlw 1
+	movwf _adc_conver_result_refresh.temp.+0
+Ltmp98:
+	movfw _p_result+1
+	movwf FSR0H
+	addlfsr 0, 4
+	moviw 1
+	movwf _adc_conver_result_refresh.temp.+1
+	moviw 0
+Ltmp99:
+	bsf BSR,0
+	subwf _adc_convert+1, W
+	blt LBB4_41
+LBB4_40:
+	movlw 0
+	movwfl _adc_conver_result_refresh.temp.+0
+LBB4_41:
+Ltmp100:
+	movfw _adc_convert+2
+Ltmp101:
+	bcf BSR,0
+	movwf _adc_conver_result_refresh.temp.+2
+	movlw 1
+	movwf _adc_conver_result_refresh.temp.+4
+	movfw _adc_conver_result_refresh.temp.+1
+	subwf _adc_conver_result_refresh.temp.+2, W
+	blt LBB4_43
+LBB4_42:
+	movlw 0
+	movwf _adc_conver_result_refresh.temp.+4
+LBB4_43:
+	movfw _adc_conver_result_refresh.temp.+0
+	movwf _adc_conver_result_refresh.temp.+0
+	movfw _adc_conver_result_refresh.temp.+1
+	subwf _adc_conver_result_refresh.temp.+2, W
+	beq LBB4_45
+LBB4_44:
+	movfw _adc_conver_result_refresh.temp.+4
+	movwf _adc_conver_result_refresh.temp.+0
+LBB4_45:
+	movfw _adc_conver_result_refresh.temp.+0
+	andlw 1
+	sublw 0
+	bne LBB4_15
+LBB4_14:
+LM143:
+.stabn	0x44, 0, 355, LM143-_adc_conver_result_refresh
+Ltmp102:
+	movfw _p_result+0
+	movwf FSR0
+	movfw _p_result+1
+	movwf FSR0H
+	addlfsr 0, 4
+	moviw 0
+	movwf _adc_conver_result_refresh.temp.+0
+	moviw 1
+	movwf _adc_conver_result_refresh.temp.+1
+	movfw _adc_conver_result_refresh.temp.+0
+	bsf BSR,0
+	subwf _adc_convert+1, F
+	movfwl _adc_conver_result_refresh.temp.+1
+	subwfc _adc_convert+2, W
+	movwf _adc_convert+2
+	goto LBB4_16
+LBB4_15:
+LM144:
+.stabn	0x44, 0, 357, LM144-_adc_conver_result_refresh
+	bsf BSR,0
+	clrf _adc_convert+1
+	clrf _adc_convert+2
+Ltmp103:
+LBB4_16:
+LM145:
+.stabn	0x44, 0, 359, LM145-_adc_conver_result_refresh
+	goto LBB4_26
+LBB4_17:
+LM146:
+.stabn	0x44, 0, 361, LM146-_adc_conver_result_refresh
+	movlw LOW(_adc_convert+0)
+	addlw 17
+	movwf _p_result+0
+	movlw HIGH8(_adc_convert+0)
+	addlwc 0
+	movwf _p_result+1
+LM147:
+.stabn	0x44, 0, 362, LM147-_adc_conver_result_refresh
+	movlw 1
+	movwf _adc_conver_result_refresh.temp.+0
+	bsf BSR,0
+	movfw _adc_convert+21
+	subwf _adc_convert+1, W
+	blt LBB4_47
+LBB4_46:
+	movlw 0
+	movwfl _adc_conver_result_refresh.temp.+0
+LBB4_47:
+Ltmp104:
+	movfw _adc_convert+2
+Ltmp105:
+	bcf BSR,0
+	movwf _adc_conver_result_refresh.temp.+1
+	movlw 1
+	movwf _adc_conver_result_refresh.temp.+2
+	movfwl _adc_convert+22
+	movwf _adc_conver_result_refresh.temp.+4
+	subwf _adc_conver_result_refresh.temp.+1, W
+	blt LBB4_49
+LBB4_48:
+	movlw 0
+	movwf _adc_conver_result_refresh.temp.+2
+LBB4_49:
+	movfw _adc_conver_result_refresh.temp.+0
+	movwf _adc_conver_result_refresh.temp.+0
+	movfw _adc_conver_result_refresh.temp.+4
+	subwf _adc_conver_result_refresh.temp.+1, W
+	beq LBB4_51
+LBB4_50:
+	movfw _adc_conver_result_refresh.temp.+2
+	movwf _adc_conver_result_refresh.temp.+0
+LBB4_51:
+	movfw _adc_conver_result_refresh.temp.+0
+	andlw 1
+	sublw 0
+	bne LBB4_19
+LBB4_18:
+LM148:
+.stabn	0x44, 0, 363, LM148-_adc_conver_result_refresh
+Ltmp106:
+	movfw _p_result+0
+	movwf FSR0
+	movfw _p_result+1
+	movwf FSR0H
+	addlfsr 0, 4
+	moviw 0
+	movwf _adc_conver_result_refresh.temp.+0
+	moviw 1
+	movwf _adc_conver_result_refresh.temp.+1
+	movfw _adc_conver_result_refresh.temp.+0
+	bsf BSR,0
+	subwf _adc_convert+1, F
+	movfwl _adc_conver_result_refresh.temp.+1
+	subwfc _adc_convert+2, W
+	movwf _adc_convert+2
+	goto LBB4_20
+LBB4_19:
+LM149:
+.stabn	0x44, 0, 365, LM149-_adc_conver_result_refresh
+	bsf BSR,0
+	clrf _adc_convert+1
+	clrf _adc_convert+2
+Ltmp107:
+LBB4_20:
+LM150:
+.stabn	0x44, 0, 366, LM150-_adc_conver_result_refresh
+	goto LBB4_26
+LBB4_21:
+LM151:
+.stabn	0x44, 0, 368, LM151-_adc_conver_result_refresh
+	movlw LOW(_adc_convert+0)
+	addlw 30
+	movwf _p_result+0
+	movlw HIGH8(_adc_convert+0)
+	addlwc 0
+	movwf _p_result+1
+LM152:
+.stabn	0x44, 0, 369, LM152-_adc_conver_result_refresh
+	goto LBB4_26
+LBB4_22:
+LM153:
+.stabn	0x44, 0, 371, LM153-_adc_conver_result_refresh
+	movlw LOW(_adc_convert+0)
+	addlw 43
+	movwf _p_result+0
+	movlw HIGH8(_adc_convert+0)
+	addlwc 0
+	movwf _p_result+1
+LM154:
+.stabn	0x44, 0, 372, LM154-_adc_conver_result_refresh
+	goto LBB4_26
+LBB4_23:
+LM155:
+.stabn	0x44, 0, 376, LM155-_adc_conver_result_refresh
+	movlw LOW(_adc_convert+0)
+	addlw 82
+	movwf _p_result+0
+	movlw HIGH8(_adc_convert+0)
+	addlwc 0
+	movwf _p_result+1
+LM156:
+.stabn	0x44, 0, 377, LM156-_adc_conver_result_refresh
+	goto LBB4_26
+LBB4_24:
+LM157:
+.stabn	0x44, 0, 379, LM157-_adc_conver_result_refresh
+	movlw LOW(_adc_convert+0)
+	addlw 95
+	movwf _p_result+0
+	movlw HIGH8(_adc_convert+0)
+	addlwc 0
+	movwf _p_result+1
+Ltmp108:
+LBB4_25:
+LBB4_26:
+LM158:
+.stabn	0x44, 0, 391, LM158-_adc_conver_result_refresh
+	banksel _p_result
+	movfw _p_result+0
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _p_result+1
+	movwf FSR0H
+	movfwl _adc_convert+1
+	movwf IND0
+	fsr0_add FSR0, 1
+	movfwl _adc_convert+2
+	movwf IND0
+LM159:
+.stabn	0x44, 0, 392, LM159-_adc_conver_result_refresh
+	movlw 6
+	addwf _p_result+0, W
+	movwf _adc_conver_result_refresh.temp.+0
+	movlw 0
+	addwfc _p_result+1, W
+	movwf _adc_conver_result_refresh.temp.+1
+	movfw _adc_conver_result_refresh.temp.+0
+	movwf FSR0
+	movfw _adc_conver_result_refresh.temp.+1
+	movwf FSR0H
+	moviw 0
+	addlw 1
+	movwf _adc_conver_result_refresh.temp.+2
+	movfw _adc_conver_result_refresh.temp.+0
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _adc_conver_result_refresh.temp.+1
+	movwf FSR0H
+	movfw _adc_conver_result_refresh.temp.+2
+	movwf IND0
+LM160:
+.stabn	0x44, 0, 393, LM160-_adc_conver_result_refresh
+	movfw _p_result+0
+	addlw 7
+	movwf _adc_conver_result_refresh.temp.+0
+	movfw _p_result+1
+	addlwc 0
+	movwf _adc_conver_result_refresh.temp.+1
+	movfw _adc_conver_result_refresh.temp.+0
+	movwf FSR0
+	movfw _adc_conver_result_refresh.temp.+1
+	movwf FSR0H
+	moviw 0
+	movwf _adc_conver_result_refresh.temp.+2
+	moviw 1
+	movwf _adc_conver_result_refresh.temp.+4
+	moviw 2
+	movwf _adc_conver_result_refresh.temp.+5
+	moviw 3
+	movwf _adc_conver_result_refresh.temp.+6
+	movfw _p_result+0
+	movwf FSR0
+	movfw _p_result+1
+	movwf FSR0H
+	moviw 0
+	movwf _adc_conver_result_refresh.temp.+7
+	moviw 1
+	movwf _adc_conver_result_refresh.temp.+8
+	movfw _adc_conver_result_refresh.temp.+2
+	addwf _adc_conver_result_refresh.temp.+7, W
+	movwf _adc_conver_result_refresh.temp.+2
+	movfw _adc_conver_result_refresh.temp.+4
+	addwfc _adc_conver_result_refresh.temp.+8, W
+	movwf _adc_conver_result_refresh.temp.+4
+	movfw _adc_conver_result_refresh.temp.+5
+	addlwc 0
+	movwf _adc_conver_result_refresh.temp.+5
+	movfw _adc_conver_result_refresh.temp.+6
+	addlwc 0
+	movwf _adc_conver_result_refresh.temp.+6
+	movfw _adc_conver_result_refresh.temp.+0
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _adc_conver_result_refresh.temp.+1
+	movwf FSR0H
+	movfw _adc_conver_result_refresh.temp.+2
+	movwf IND0
+	fsr0_add FSR0, 1
+	movfw _adc_conver_result_refresh.temp.+4
+	movwf IND0
+	fsr0_add FSR0, 1
+	movfw _adc_conver_result_refresh.temp.+5
+	movwf IND0
+	fsr0_add FSR0, 1
+	movfw _adc_conver_result_refresh.temp.+6
+	movwf IND0
+LM161:
+.stabn	0x44, 0, 395, LM161-_adc_conver_result_refresh
+Ltmp109:
+	movfw _p_result+0
+	movwf FSR0
+	movfw _p_result+1
+	movwf FSR0H
+	addlfsr 0, 6
+	moviw 0
+Ltmp110:
+	sublw 2
+	bgt LBB4_28
+LBB4_27:
+LM162:
+.stabn	0x44, 0, 397, LM162-_adc_conver_result_refresh
+Ltmp111:
+	movlw 6
+	addwf _p_result+0, W
+	movwf _adc_conver_result_refresh.temp.+0
+	movlw 0
+	addwfc _p_result+1, W
+	movwf _adc_conver_result_refresh.temp.+1
+	movfw _adc_conver_result_refresh.temp.+0
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _adc_conver_result_refresh.temp.+1
+	movwf FSR0H
+	movlw 0
+	movwf IND0
+LM163:
+.stabn	0x44, 0, 399, LM163-_adc_conver_result_refresh
+	movfw _p_result+0
+	movwf FSR0
+	movfw _p_result+1
+	movwf FSR0H
+	addlfsr 0, 7
+	moviw 2
+	movwf _adc_conver_result_refresh.temp.+0
+	moviw 0
+	movwf _adc_conver_result_refresh.temp.+1
+	moviw 1
+	movwf _adc_conver_result_refresh.temp.+2
+	SrlOne
+	movwf _adc_conver_result_refresh.temp.+4
+	movfw _adc_conver_result_refresh.temp.+0
+	ShlSeven
+	iorwf _adc_conver_result_refresh.temp.+4, W
+	movwf _adc_conver_result_refresh.temp.+0
+	movfw _p_result+0
+	addlw 2
+	movwf _adc_conver_result_refresh.temp.+4
+	movfw _p_result+1
+	addlwc 0
+	movwf _adc_conver_result_refresh.temp.+5
+	movfw _adc_conver_result_refresh.temp.+1
+	SrlOne
+	movwf _adc_conver_result_refresh.temp.+1
+	movfw _adc_conver_result_refresh.temp.+2
+	ShlSeven
+	iorwf _adc_conver_result_refresh.temp.+1, W
+	movwf _adc_conver_result_refresh.temp.+1
+	movfw _adc_conver_result_refresh.temp.+4
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _adc_conver_result_refresh.temp.+5
+	movwf FSR0H
+	movfw _adc_conver_result_refresh.temp.+1
+	movwf IND0
+	fsr0_add FSR0, 1
+	movfw _adc_conver_result_refresh.temp.+0
+	movwf IND0
+LM164:
+.stabn	0x44, 0, 400, LM164-_adc_conver_result_refresh
+	movlw 7
+	addwf _p_result+0, W
+LM165:
+.stabn	0x44, 0, 397, LM165-_adc_conver_result_refresh
+	movwf _adc_conver_result_refresh.temp.+0
+	movlw 0
+LM166:
+.stabn	0x44, 0, 400, LM166-_adc_conver_result_refresh
+	addwfc _p_result+1, W
+	movwf _adc_conver_result_refresh.temp.+1
+	movfw _adc_conver_result_refresh.temp.+0
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _adc_conver_result_refresh.temp.+1
+	movwf FSR0H
+	movlw 0
+	movwf IND0
+	fsr0_add FSR0, 1
+	movlw 0
+	movwf IND0
+	fsr0_add FSR0, 1
+	movlw 0
+	movwf IND0
+	fsr0_add FSR0, 1
+	movlw 0
+	movwf IND0
+LM167:
+.stabn	0x44, 0, 401, LM167-_adc_conver_result_refresh
+	movlw 11
+	addwf _p_result+0, W
+LM168:
+.stabn	0x44, 0, 397, LM168-_adc_conver_result_refresh
+	movwf _adc_conver_result_refresh.temp.+0
+	movlw 0
+LM169:
+.stabn	0x44, 0, 401, LM169-_adc_conver_result_refresh
+	addwfc _p_result+1, W
+	movwf _adc_conver_result_refresh.temp.+1
+	movfw _adc_conver_result_refresh.temp.+0
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _adc_conver_result_refresh.temp.+1
+	movwf FSR0H
+	movlw 1
+	movwf IND0
+Ltmp112:
+LBB4_28:
+LM170:
+.stabn	0x44, 0, 403, LM170-_adc_conver_result_refresh
+	return
+Ltmp113:
+Lfunc_end8:
+Lfunc_end9:
+LM171:
+.stabn 0xc0,0,0, LM128-_adc_conver_result_refresh
+.stabs "SysMode:10;",0x80,0,0,_adc_conver_result_refresh.temp.+3
+.stabn 0xe0,0,0, LM170-_adc_conver_result_refresh
+.stabf LM171-_adc_conver_result_refresh
+
+	_mod_adc_convert_result_calculation_sec .section rom
+	.global	_mod_adc_convert_result_calculation
+_mod_adc_convert_result_calculation:
+Lfunc_begin10:
+.stabs "mod_adc_convert_result_calculation:f:16", 0x24,0,0,_mod_adc_convert_result_calculation
+.stabn 0xc0, 0, 0, _mod_adc_convert_result_calculation
+.stabn 0xe0, 0, 0, _mod_adc_convert_result_calculation
+LM172:
+.stabn	0x44, 0, 407, LM172-_mod_adc_convert_result_calculation
+Lfunc_begin11:
+	banksel 0
+	movfw _mod_adc_convert_result_calculation.args.+0
+LM173:
+.stabn	0x44, 0, 409, LM173-_mod_adc_convert_result_calculation
+Ltmp114:
+	movwf _mod_adc_convert_result_calculation.temp.+0
+	return
+Ltmp115:
+Lfunc_end10:
+Lfunc_end11:
+LM174:
+.stabn 0xc0,0,0, LM172-_mod_adc_convert_result_calculation
+.stabs "channel:10;",0x80,0,0,_mod_adc_convert_result_calculation.args.+0
+.stabn 0xe0,0,0, LM173-_mod_adc_convert_result_calculation
+.stabf LM174-_mod_adc_convert_result_calculation
+
+	_Sub_adc_enhanced_sec .section rom
+	.global	_Sub_adc_enhanced
+_Sub_adc_enhanced:
+Lfunc_begin12:
+.stabs "Sub_adc_enhanced:f2;", 0x24,0,0,_Sub_adc_enhanced
+.stabn 0xc0, 0, 0, _Sub_adc_enhanced
+.stabn 0xe0, 0, 0, _Sub_adc_enhanced
+LM175:
+.stabn	0x44, 0, 416, LM175-_Sub_adc_enhanced
+Lfunc_begin13:
+	banksel 0
+	movfw _Sub_adc_enhanced.args.+0
+LM176:
+.stabn	0x44, 0, 418, LM176-_Sub_adc_enhanced
+Ltmp116:
+	movwf _Sub_adc_enhanced.temp.+8
+	clrf _Sub_adc_enhanced.temp.+6
+	clrf _Sub_adc_enhanced.temp.+7
+LM177:
+.stabn	0x44, 0, 419, LM177-_Sub_adc_enhanced
+	clrf _Sub_adc_enhanced.temp.+4
+	clrf _Sub_adc_enhanced.temp.+5
+LM178:
+.stabn	0x44, 0, 420, LM178-_Sub_adc_enhanced
+	clrf _Sub_adc_enhanced.temp.+2
+	clrf _Sub_adc_enhanced.temp.+3
+LM179:
+.stabn	0x44, 0, 421, LM179-_Sub_adc_enhanced
+	clrf _Sub_adc_enhanced.temp.+0
+	clrf _Sub_adc_enhanced.temp.+1
+LM180:
+.stabn	0x44, 0, 425, LM180-_Sub_adc_enhanced
+	movfw _Sub_adc_enhanced.temp.+8
+	movwf _Sub_adc_enhanced.temp.+10
+	xorlw 11
+	sublw 0
+	beq LBB6_3
+LBB6_31:
+	movfw _Sub_adc_enhanced.temp.+10
+	xorlw 15
+	sublw 0
+	beq LBB6_1
+LBB6_32:
+	movfw _Sub_adc_enhanced.temp.+10
+	xorlw 16
+	sublw 0
+	beq LBB6_2
+	goto LBB6_4
+LBB6_1:
+LM181:
+.stabn	0x44, 0, 429, LM181-_Sub_adc_enhanced
+Ltmp117:
+	movlw 16
+	movwf _SRADCON0+0
+LM182:
+.stabn	0x44, 0, 430, LM182-_Sub_adc_enhanced
+	movlw 0x80
+	movwf _SRADCON1+0
+LM183:
+.stabn	0x44, 0, 431, LM183-_Sub_adc_enhanced
+	clrf _adc_set_vref.args.+0
+	call _adc_set_vref
+LM184:
+.stabn	0x44, 0, 432, LM184-_Sub_adc_enhanced
+	movlw 15
+	movwf _adc_set_sing_channel.args.+0
+	call _adc_set_sing_channel
+Ltmp118:
+LM185:
+.stabn	0x44, 0, 434, LM185-_Sub_adc_enhanced
+	goto LBB6_5
+LBB6_2:
+LM186:
+.stabn	0x44, 0, 438, LM186-_Sub_adc_enhanced
+Ltmp119:
+	movlw 16
+	movwf _SRADCON0+0
+LM187:
+.stabn	0x44, 0, 439, LM187-_Sub_adc_enhanced
+	movlw 0x80
+	movwf _SRADCON1+0
+LM188:
+.stabn	0x44, 0, 440, LM188-_Sub_adc_enhanced
+	clrf _adc_set_vref.args.+0
+	call _adc_set_vref
+LM189:
+.stabn	0x44, 0, 438, LM189-_Sub_adc_enhanced
+	movlw 16
+LM190:
+.stabn	0x44, 0, 441, LM190-_Sub_adc_enhanced
+	movwf _adc_set_sing_channel.args.+0
+	call _adc_set_sing_channel
+Ltmp120:
+LM191:
+.stabn	0x44, 0, 443, LM191-_Sub_adc_enhanced
+	goto LBB6_5
+LBB6_3:
+LM192:
+.stabn	0x44, 0, 447, LM192-_Sub_adc_enhanced
+Ltmp121:
+	movlw 16
+	movwf _SRADCON0+0
+LM193:
+.stabn	0x44, 0, 448, LM193-_Sub_adc_enhanced
+	movlw 0x80
+	movwf _SRADCON1+0
+LM194:
+.stabn	0x44, 0, 449, LM194-_Sub_adc_enhanced
+	clrf _adc_set_vref.args.+0
+	call _adc_set_vref
+LM195:
+.stabn	0x44, 0, 450, LM195-_Sub_adc_enhanced
+	movlw 14
+	movwf _adc_set_sing_channel.args.+0
+	call _adc_set_sing_channel
+Ltmp122:
+LBB6_4:
+LBB6_5:
+LM196:
+.stabn	0x44, 0, 463, LM196-_Sub_adc_enhanced
+	bsf _SRADS, _SRADS
+LM197:
+.stabn	0x44, 0, 464, LM197-_Sub_adc_enhanced
+	;APP
+	nop
+	;NO_APP
+LBB6_6:
+LM198:
+.stabn	0x44, 0, 465, LM198-_Sub_adc_enhanced
+	movlw 0 
+	btfsc _SRADS, _SRADS 
+	movlw 1
+	andlw 1
+	sublw 0
+	beq LBB6_8
+LBB6_7:
+	goto LBB6_6
+LBB6_8:
+LM199:
+.stabn	0x44, 0, 466, LM199-_Sub_adc_enhanced
+	;APP
+	nop
+	;NO_APP
+LM200:
+.stabn	0x44, 0, 467, LM200-_Sub_adc_enhanced
+	bsf _SRADS, _SRADS
+LM201:
+.stabn	0x44, 0, 468, LM201-_Sub_adc_enhanced
+	;APP
+	nop
+	;NO_APP
+LBB6_9:
+LM202:
+.stabn	0x44, 0, 469, LM202-_Sub_adc_enhanced
+	movlw 0 
+	btfsc _SRADS, _SRADS 
+	movlw 1
+	andlw 1
+	sublw 0
+	beq LBB6_11
+LBB6_10:
+	goto LBB6_9
+LBB6_11:
+LM203:
+.stabn	0x44, 0, 470, LM203-_Sub_adc_enhanced
+	;APP
+	nop
+	;NO_APP
+LM204:
+.stabn	0x44, 0, 471, LM204-_Sub_adc_enhanced
+Ltmp123:
+	clrf _Sub_adc_enhanced.temp.+9
+LBB6_12:
+Ltmp124:
+	movfw _Sub_adc_enhanced.temp.+9
+Ltmp125:
+	sublw 5
+	blt LBB6_30
+LBB6_13:
+LM205:
+.stabn	0x44, 0, 473, LM205-_Sub_adc_enhanced
+Ltmp126:
+	bsf _SRADS, _SRADS
+LM206:
+.stabn	0x44, 0, 474, LM206-_Sub_adc_enhanced
+	;APP
+	nop
+	;NO_APP
+LBB6_14:
+LM207:
+.stabn	0x44, 0, 475, LM207-_Sub_adc_enhanced
+	movlw 0 
+	btfsc _SRADS, _SRADS 
+	movlw 1
+	andlw 1
+	sublw 0
+	beq LBB6_16
+LBB6_15:
+	goto LBB6_14
+LBB6_16:
+LM208:
+.stabn	0x44, 0, 477, LM208-_Sub_adc_enhanced
+	movfw _SRADH+0
+	movwf _Sub_adc_enhanced.temp.+2
+LM209:
+.stabn	0x44, 0, 478, LM209-_Sub_adc_enhanced
+	clrf _Sub_adc_enhanced.temp.+2
+	movwf _Sub_adc_enhanced.temp.+3
+LM210:
+.stabn	0x44, 0, 479, LM210-_Sub_adc_enhanced
+	movfw _SRADL+0
+	addwf _Sub_adc_enhanced.temp.+2, F
+	movlw 0
+	addwfc _Sub_adc_enhanced.temp.+3, F
+LM211:
+.stabn	0x44, 0, 480, LM211-_Sub_adc_enhanced
+Ltmp127:
+	movfw _Sub_adc_enhanced.temp.+9
+Ltmp128:
+	sublw 1
+	blt LBB6_21
+LBB6_17:
+LM212:
+.stabn	0x44, 0, 482, LM212-_Sub_adc_enhanced
+Ltmp129:
+	movlw 1
+	movwf _Sub_adc_enhanced.temp.+10
+	movfw _Sub_adc_enhanced.temp.+6
+	subwf _Sub_adc_enhanced.temp.+2, W
+	ble LBB6_34
+LBB6_33:
+	movlw 0
+	movwf _Sub_adc_enhanced.temp.+10
+LBB6_34:
+Ltmp130:
+	movfw _Sub_adc_enhanced.temp.+3
+Ltmp131:
+	movwf _Sub_adc_enhanced.temp.+11
+	movlw 1
+	movwf _Sub_adc_enhanced.temp.+12
+	movfw _Sub_adc_enhanced.temp.+7
+	movwf _Sub_adc_enhanced.temp.+13
+	subwf _Sub_adc_enhanced.temp.+11, W
+	ble LBB6_36
+LBB6_35:
+	movlw 0
+	movwf _Sub_adc_enhanced.temp.+12
+LBB6_36:
+	movfw _Sub_adc_enhanced.temp.+10
+	movwf _Sub_adc_enhanced.temp.+10
+	movfw _Sub_adc_enhanced.temp.+13
+	subwf _Sub_adc_enhanced.temp.+11, W
+	beq LBB6_38
+LBB6_37:
+	movfw _Sub_adc_enhanced.temp.+12
+	movwf _Sub_adc_enhanced.temp.+10
+LBB6_38:
+	movfw _Sub_adc_enhanced.temp.+10
+	andlw 1
+	sublw 0
+	bne LBB6_19
+LBB6_18:
+LM213:
+.stabn	0x44, 0, 484, LM213-_Sub_adc_enhanced
+Ltmp132:
+	movfw _Sub_adc_enhanced.temp.+6
+	movwf _Sub_adc_enhanced.temp.+4
+	movfw _Sub_adc_enhanced.temp.+7
+	movwf _Sub_adc_enhanced.temp.+5
+LM214:
+.stabn	0x44, 0, 485, LM214-_Sub_adc_enhanced
+	movfw _Sub_adc_enhanced.temp.+2
+	movwf _Sub_adc_enhanced.temp.+6
+	movfw _Sub_adc_enhanced.temp.+3
+	movwf _Sub_adc_enhanced.temp.+7
+LM215:
+.stabn	0x44, 0, 486, LM215-_Sub_adc_enhanced
+	goto LBB6_20
+Ltmp133:
+LBB6_19:
+LM216:
+.stabn	0x44, 0, 488, LM216-_Sub_adc_enhanced
+	movfw _Sub_adc_enhanced.temp.+2
+	movwf _Sub_adc_enhanced.temp.+4
+	movfw _Sub_adc_enhanced.temp.+3
+	movwf _Sub_adc_enhanced.temp.+5
+Ltmp134:
+LBB6_20:
+LM217:
+.stabn	0x44, 0, 489, LM217-_Sub_adc_enhanced
+	goto LBB6_28
+Ltmp135:
+LBB6_21:
+LM218:
+.stabn	0x44, 0, 492, LM218-_Sub_adc_enhanced
+	movlw 1
+	movwf _Sub_adc_enhanced.temp.+10
+	movfw _Sub_adc_enhanced.temp.+6
+	subwf _Sub_adc_enhanced.temp.+2, W
+	ble LBB6_40
+LBB6_39:
+	movlw 0
+	movwf _Sub_adc_enhanced.temp.+10
+LBB6_40:
+Ltmp136:
+	movfw _Sub_adc_enhanced.temp.+3
+Ltmp137:
+	movwf _Sub_adc_enhanced.temp.+11
+	movlw 1
+	movwf _Sub_adc_enhanced.temp.+12
+	movfw _Sub_adc_enhanced.temp.+7
+	movwf _Sub_adc_enhanced.temp.+13
+	subwf _Sub_adc_enhanced.temp.+11, W
+	ble LBB6_42
+LBB6_41:
+	movlw 0
+	movwf _Sub_adc_enhanced.temp.+12
+LBB6_42:
+	movfw _Sub_adc_enhanced.temp.+10
+	movwf _Sub_adc_enhanced.temp.+10
+	movfw _Sub_adc_enhanced.temp.+13
+	subwf _Sub_adc_enhanced.temp.+11, W
+	beq LBB6_44
+LBB6_43:
+	movfw _Sub_adc_enhanced.temp.+12
+	movwf _Sub_adc_enhanced.temp.+10
+LBB6_44:
+	movfw _Sub_adc_enhanced.temp.+10
+	andlw 1
+	sublw 0
+	bne LBB6_23
+LBB6_22:
+LM219:
+.stabn	0x44, 0, 494, LM219-_Sub_adc_enhanced
+Ltmp138:
+	movfw _Sub_adc_enhanced.temp.+0
+	addwf _Sub_adc_enhanced.temp.+6, W
+	movwf _Sub_adc_enhanced.temp.+0
+	movfw _Sub_adc_enhanced.temp.+1
+	addwfc _Sub_adc_enhanced.temp.+7, W
+	movwf _Sub_adc_enhanced.temp.+1
+LM220:
+.stabn	0x44, 0, 495, LM220-_Sub_adc_enhanced
+	movfw _Sub_adc_enhanced.temp.+2
+	movwf _Sub_adc_enhanced.temp.+6
+	movfw _Sub_adc_enhanced.temp.+3
+	movwf _Sub_adc_enhanced.temp.+7
+LM221:
+.stabn	0x44, 0, 496, LM221-_Sub_adc_enhanced
+	goto LBB6_27
+Ltmp139:
+LBB6_23:
+LM222:
+.stabn	0x44, 0, 499, LM222-_Sub_adc_enhanced
+	movlw 1
+	movwf _Sub_adc_enhanced.temp.+10
+	movfw _Sub_adc_enhanced.temp.+4
+	subwf _Sub_adc_enhanced.temp.+2, W
+	blt LBB6_46
+LBB6_45:
+	movlw 0
+	movwf _Sub_adc_enhanced.temp.+10
+LBB6_46:
+Ltmp140:
+	movfw _Sub_adc_enhanced.temp.+3
+Ltmp141:
+	movwf _Sub_adc_enhanced.temp.+11
+	movlw 1
+	movwf _Sub_adc_enhanced.temp.+12
+	movfw _Sub_adc_enhanced.temp.+5
+	movwf _Sub_adc_enhanced.temp.+13
+	subwf _Sub_adc_enhanced.temp.+11, W
+	blt LBB6_48
+LBB6_47:
+	movlw 0
+	movwf _Sub_adc_enhanced.temp.+12
+LBB6_48:
+	movfw _Sub_adc_enhanced.temp.+10
+	movwf _Sub_adc_enhanced.temp.+10
+	movfw _Sub_adc_enhanced.temp.+13
+	subwf _Sub_adc_enhanced.temp.+11, W
+	beq LBB6_50
+LBB6_49:
+	movfw _Sub_adc_enhanced.temp.+12
+	movwf _Sub_adc_enhanced.temp.+10
+LBB6_50:
+	movfw _Sub_adc_enhanced.temp.+10
+	andlw 1
+	sublw 0
+	bne LBB6_25
+LBB6_24:
+LM223:
+.stabn	0x44, 0, 501, LM223-_Sub_adc_enhanced
+Ltmp142:
+	movfw _Sub_adc_enhanced.temp.+0
+	addwf _Sub_adc_enhanced.temp.+2, W
+	movwf _Sub_adc_enhanced.temp.+0
+	movfw _Sub_adc_enhanced.temp.+1
+	addwfc _Sub_adc_enhanced.temp.+3, W
+	movwf _Sub_adc_enhanced.temp.+1
+LM224:
+.stabn	0x44, 0, 502, LM224-_Sub_adc_enhanced
+	goto LBB6_26
+Ltmp143:
+LBB6_25:
+LM225:
+.stabn	0x44, 0, 505, LM225-_Sub_adc_enhanced
+	movfw _Sub_adc_enhanced.temp.+0
+	addwf _Sub_adc_enhanced.temp.+4, W
+	movwf _Sub_adc_enhanced.temp.+0
+	movfw _Sub_adc_enhanced.temp.+1
+	addwfc _Sub_adc_enhanced.temp.+5, W
+	movwf _Sub_adc_enhanced.temp.+1
+LM226:
+.stabn	0x44, 0, 506, LM226-_Sub_adc_enhanced
+	movfw _Sub_adc_enhanced.temp.+2
+	movwf _Sub_adc_enhanced.temp.+4
+	movfw _Sub_adc_enhanced.temp.+3
+	movwf _Sub_adc_enhanced.temp.+5
+Ltmp144:
+LBB6_26:
+LBB6_27:
+LBB6_28:
+LM227:
+.stabn	0x44, 0, 471, LM227-_Sub_adc_enhanced
+	incf _Sub_adc_enhanced.temp.+9, F
+	goto LBB6_12
+Ltmp145:
+LBB6_30:
+LM228:
+.stabn	0x44, 0, 511, LM228-_Sub_adc_enhanced
+	movfw _Sub_adc_enhanced.temp.+0
+	SrlTwo
+	movwf _Sub_adc_enhanced.temp.+10
+	movfw _Sub_adc_enhanced.temp.+1
+	ShlSix
+	iorwf _Sub_adc_enhanced.temp.+10, W
+	movwf _Sub_adc_enhanced.frame.+0
+	movfw _Sub_adc_enhanced.temp.+1
+	SrlTwo
+	movwf _Sub_adc_enhanced.frame.+1
+	return
+Ltmp146:
+Lfunc_end12:
+Lfunc_end13:
+LM229:
+.stabn 0xc0,0,0, LM175-_Sub_adc_enhanced
+.stabs "AN_CH:10",0x80,0,0,_Sub_adc_enhanced.args.+0
+.stabn 0xe0,0,0, LM228-_Sub_adc_enhanced
+.stabn 0xc0,0,0, LM176-_Sub_adc_enhanced
+.stabs "i:10",0x80,0,0,_Sub_adc_enhanced.temp.+9
+.stabn 0xe0,0,0, LM228-_Sub_adc_enhanced
+.stabn 0xc0,0,0, LM176-_Sub_adc_enhanced
+.stabs "ad_max:2",0x80,0,0,_Sub_adc_enhanced.temp.+6
+.stabn 0xe0,0,0, LM228-_Sub_adc_enhanced
+.stabn 0xc0,0,0, LM177-_Sub_adc_enhanced
+.stabs "ad_min:2",0x80,0,0,_Sub_adc_enhanced.temp.+4
+.stabn 0xe0,0,0, LM228-_Sub_adc_enhanced
+.stabn 0xc0,0,0, LM178-_Sub_adc_enhanced
+.stabs "ad_buf:2",0x80,0,0,_Sub_adc_enhanced.temp.+2
+.stabn 0xe0,0,0, LM228-_Sub_adc_enhanced
+.stabn 0xc0,0,0, LM179-_Sub_adc_enhanced
+.stabs "ad_res:2",0x80,0,0,_Sub_adc_enhanced.temp.+0
+.stabn 0xe0,0,0, LM228-_Sub_adc_enhanced
+.stabf LM229-_Sub_adc_enhanced
+
+
+	_p_convert_mod_adc_convert.c .section bank0,uninit
+	_p_convert .ds 2
+	.ends
+
+	_p_result_mod_adc_convert.c .section bank0,uninit
+	_p_result .ds 2
+	.ends
+
+	_p_mod_adc_convert.c .section bank0,uninit
+	_p .ds 2
+	.ends
+
+	_adc_convert_mod_adc_convert.c .section bank3,uninit
+	_adc_convert .ds 108
+	.ends
+
+	_adc_branch_mod_adc_convert.c .section bank3,uninit
+	_adc_branch .ds 1
+	.ends
+
+	_adc_branch_cnt_mod_adc_convert.c .section bank3,uninit
+	_adc_branch_cnt .ds 1
+	.ends
+
+	_NTC_slide_cnt_mod_adc_convert.c .section bank3,uninit
+	_NTC_slide_cnt .ds 1
+	.ends
+
+	_NTC_slide_date_mod_adc_convert.c .section bank3,uninit
+	_NTC_slide_date .ds 2
+	.ends
+
+	_NTC_slide_sum_mod_adc_convert.c .section bank3,uninit
+	_NTC_slide_sum .ds 4
+	.ends
+
+	_Mode_charge_adc_mod_adc_convert.c .section bank3,uninit
+	_Mode_charge_adc .ds 1
+	.ends
+
+	.@_mod_adc_convert_init_sec@_mod_adc_convert_init.temp. .section bank1,uninit
+	_mod_adc_convert_init.temp. .ds 2
+	.ends
+
+	.@_mod_adc_convert_sec@_mod_adc_convert.temp. .section bank1,uninit
+	_mod_adc_convert.temp. .ds 1
+	.ends
+
+	.@_adc_convert_channel_switch_sec@_adc_convert_channel_switch.args. .section bank1,uninit
+	_adc_convert_channel_switch.args. .ds 1
+	.ends
+
+	.@_adc_convert_channel_switch_sec@_adc_convert_channel_switch.temp. .section bank1,uninit
+	_adc_convert_channel_switch.temp. .ds 4
+	.ends
+
+	.@_adc_conver_result_refresh_sec@_adc_conver_result_refresh.temp. .section bank1,uninit
+	_adc_conver_result_refresh.temp. .ds 9
+	.ends
+
+	.@_mod_adc_convert_result_calculation_sec@_mod_adc_convert_result_calculation.args. .section bank1,uninit
+	_mod_adc_convert_result_calculation.args. .ds 1
+	.ends
+
+	.@_mod_adc_convert_result_calculation_sec@_mod_adc_convert_result_calculation.temp. .section bank1,uninit
+	_mod_adc_convert_result_calculation.temp. .ds 1
+	.ends
+
+	.@_Sub_adc_enhanced_sec@_Sub_adc_enhanced.args. .section bank1,uninit
+	_Sub_adc_enhanced.args. .ds 1
+	.ends
+
+	.@_Sub_adc_enhanced_sec@_Sub_adc_enhanced.frame. .section bank1,uninit
+	_Sub_adc_enhanced.frame. .ds 2
+	.ends
+
+	.@_Sub_adc_enhanced_sec@_Sub_adc_enhanced.temp. .section bank1,uninit
+	_Sub_adc_enhanced.temp. .ds 14
+	.ends
+
+
+
+	.global	_p_convert
+	.global	_p_result
+	.global	_p
+	.global	_adc_convert
+	.global	_adc_branch
+	.global	_adc_branch_cnt
+	.global	_NTC_slide_cnt
+	.global	_NTC_slide_date
+	.global	_NTC_slide_sum
+	.global	_Mode_charge_adc
+

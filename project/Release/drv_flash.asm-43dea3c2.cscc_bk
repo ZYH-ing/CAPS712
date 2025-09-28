@@ -1,0 +1,947 @@
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\chip\\driver\\",0x64,0,0,0
+.stabs "D:\\ZXV\\负责项目\\CAPS712\\CAPS712_20250626_V2\\source\\chip\\driver\\drv_flash.c",0x64,0,0,0
+.stabs "int:t1=r1;-32768;32767;",0x80,0,0,0
+.stabs "unsigned int:t2=r2;0;65535;",0x80,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",0x80,0,0,0
+.stabs "unsigned long int:t4=r4;0;4294967295;",0x80,0,0,0
+.stabs "long long unsigned int:t6=r6;0;4294967295;",0x80,0,0,0
+.stabs "short int:t7=r7;-32768;32767;",0x80,0,0,0
+.stabs "short unsigned int:t8=r8;0;65535;",0x80,0,0,0
+.stabs "char:t9=r9;-128;127;",0x80,0,0,0
+.stabs "unsigned char:t10=r10;0;255;",0x80,0,0,0
+.stabs "_Bool:t11=r11;0;1;",0x80,0,0,0
+.stabs "sbit:t12=r12;0;1;",0x80,0,0,0
+.stabs "float:t13=r13;4;0;",0x80,0,0,0
+.stabs "double:t14=r14;4;0;",0x80,0,0,0
+.stabs "long double:t15=r15;4;0;",0x80,0,0,0
+.stabs "void:t16=r10;0;255;",0x80,0,0,0
+.include "instV2/csccCond.inc"
+.include "instV2/csccCmp.inc"
+.include "instV2/csccShift.inc"
+	_flash_erase_sec .section rom
+	.global	_flash_erase
+_flash_erase:
+Lfunc_begin0:
+.stabs "flash_erase:f17=10;;", 0x24,0,0,_flash_erase
+.stabn 0xc0, 0, 0, _flash_erase
+.stabn 0xe0, 0, 0, _flash_erase
+LM0:
+.stabn	0x44, 0, 24, LM0-_flash_erase
+Lfunc_begin1:
+	banksel 0
+	movfw _flash_erase.args.+0
+	movwf _flash_erase.temp.+4
+	movfw _flash_erase.args.+1
+LM1:
+.stabn	0x44, 0, 25, LM1-_flash_erase
+Ltmp0:
+	movwf _flash_erase.temp.+5
+	movlw 1
+	movwf _flash_erase.temp.+3
+LM2:
+.stabn	0x44, 0, 27, LM2-_flash_erase
+	movfw _flash_erase.temp.+4
+	SrlSix
+	movwf _flash_erase.temp.+6
+	movfw _flash_erase.temp.+5
+	ShlTwo
+	iorwf _flash_erase.temp.+6, W
+LM3:
+.stabn	0x44, 0, 28, LM3-_flash_erase
+	movwf _flash_erase.temp.+6
+	ShlSix
+	movwf _flash_erase.temp.+1
+LM4:
+.stabn	0x44, 0, 27, LM4-_flash_erase
+	movfw _flash_erase.temp.+5
+	SrlSix
+LM5:
+.stabn	0x44, 0, 28, LM5-_flash_erase
+	ShlSix
+	movwf _flash_erase.temp.+7
+	movfw _flash_erase.temp.+6
+	SrlTwo
+	iorwf _flash_erase.temp.+7, W
+	movwf _flash_erase.temp.+2
+LM6:
+.stabn	0x44, 0, 32, LM6-_flash_erase
+	movlw 0 
+	btfsc _GIE, _GIE 
+	movlw 1
+	movwf _flash_erase.temp.+0
+LM7:
+.stabn	0x44, 0, 33, LM7-_flash_erase
+	bcf _GIE, _GIE
+LM8:
+.stabn	0x44, 0, 37, LM8-_flash_erase
+	movfw _flash_erase.temp.+5
+LBB0_1:
+LM9:
+.stabn	0x44, 0, 40, LM9-_flash_erase
+	movlw 1
+	andwf _ISPSR+0, W
+Ltmp1:
+	sublw 0
+	bne LBB0_1
+Ltmp2:
+LBB0_3:
+LM10:
+.stabn	0x44, 0, 44, LM10-_flash_erase
+	bcf _ISPCR+0, 5
+	bsf _ISPCR+0, 5
+LM11:
+.stabn	0x44, 0, 45, LM11-_flash_erase
+	movlw 10
+	movwf _CMD+0
+LM12:
+.stabn	0x44, 0, 49, LM12-_flash_erase
+	movfw _flash_erase.temp.+2
+	movwf _EADRH+0
+LM13:
+.stabn	0x44, 0, 50, LM13-_flash_erase
+	movfw _flash_erase.temp.+1
+	movwf _EADRL+0
+LM14:
+.stabn	0x44, 0, 54, LM14-_flash_erase
+	movlw 0x96
+	movwf _WRPRT+0
+LM15:
+.stabn	0x44, 0, 55, LM15-_flash_erase
+	movlw 105
+	movwf _WRPRT+0
+LM16:
+.stabn	0x44, 0, 56, LM16-_flash_erase
+	movlw 90
+	movwf _WRPRT+0
+LM17:
+.stabn	0x44, 0, 58, LM17-_flash_erase
+Ltmp3:
+	movlw 8
+	andwf _ISPSR+0, W
+Ltmp4:
+	sublw 0
+	beq LBB0_8
+LBB0_4:
+LM18:
+.stabn	0x44, 0, 60, LM18-_flash_erase
+Ltmp5:
+	bcf _ISPCR+0, 0
+	bsf _ISPCR+0, 0
+LBB0_5:
+LM19:
+.stabn	0x44, 0, 64, LM19-_flash_erase
+	movlw 1
+	andwf _ISPSR+0, W
+Ltmp6:
+	sublw 0
+	bne LBB0_5
+Ltmp7:
+LBB0_7:
+LBB0_8:
+LBB0_9:
+LM20:
+.stabn	0x44, 0, 71, LM20-_flash_erase
+	movfw _flash_erase.temp.+0
+Ltmp8:
+	sublw 0
+	beq LBB0_11
+LBB0_10:
+LM21:
+.stabn	0x44, 0, 73, LM21-_flash_erase
+Ltmp9:
+	bsf _GIE, _GIE
+LM22:
+.stabn	0x44, 0, 74, LM22-_flash_erase
+	goto LBB0_12
+Ltmp10:
+LBB0_11:
+LM23:
+.stabn	0x44, 0, 76, LM23-_flash_erase
+	bcf _GIE, _GIE
+Ltmp11:
+LBB0_12:
+LM24:
+.stabn	0x44, 0, 79, LM24-_flash_erase
+	movfw _flash_erase.temp.+3
+	movwf _flash_erase.frame.+0
+	return
+Ltmp12:
+Lfunc_end0:
+Lfunc_end1:
+LM25:
+.stabn 0xc0,0,0, LM0-_flash_erase
+.stabs "_address:2;",0x80,0,0,_flash_erase.args.+0
+.stabn 0xe0,0,0, LM24-_flash_erase
+.stabn 0xc0,0,0, LM1-_flash_erase
+.stabs "error:10;",0x80,0,0,_flash_erase.temp.+3
+.stabn 0xe0,0,0, LM24-_flash_erase
+.stabn 0xc0,0,0, LM2-_flash_erase
+.stabs "sector_addr:2;",0x80,0,0,_flash_erase.temp.+1
+.stabn 0xe0,0,0, LM24-_flash_erase
+.stabn 0xc0,0,0, LM6-_flash_erase
+.stabs "backup_gie:10;",0x80,0,0,_flash_erase.temp.+0
+.stabn 0xe0,0,0, LM24-_flash_erase
+.stabf LM25-_flash_erase
+
+	_flash_read_sec .section rom
+	.global	_flash_read
+_flash_read:
+Lfunc_begin2:
+.stabs "flash_read:f18=10;;", 0x24,0,0,_flash_read
+.stabn 0xc0, 0, 0, _flash_read
+.stabn 0xe0, 0, 0, _flash_read
+LM26:
+.stabn	0x44, 0, 93, LM26-_flash_read
+Lfunc_begin3:
+	banksel 0
+	movfw _flash_read.args.+0
+	movwf _flash_read.temp.+8
+	movfw _flash_read.args.+1
+	movwf _flash_read.temp.+9
+	movfw _flash_read.args.+2
+	movwf _flash_read.temp.+6
+	movfw _flash_read.args.+3
+	movwf _flash_read.temp.+7
+	movfw _flash_read.args.+4
+LM27:
+.stabn	0x44, 0, 94, LM27-_flash_read
+Ltmp13:
+	movwf _flash_read.temp.+5
+	movlw 1
+	movwf _flash_read.temp.+4
+LM28:
+.stabn	0x44, 0, 97, LM28-_flash_read
+	movfw _flash_read.temp.+6
+	movwf _flash_read.temp.+2
+	movfw _flash_read.temp.+7
+	movwf _flash_read.temp.+3
+LM29:
+.stabn	0x44, 0, 98, LM29-_flash_read
+	clrf _flash_read.temp.+0
+	clrf _flash_read.temp.+1
+LBB1_1:
+LM30:
+.stabn	0x44, 0, 105, LM30-_flash_read
+	movlw 1
+	andwf _ISPSR+0, W
+Ltmp14:
+	sublw 0
+	bne LBB1_1
+Ltmp15:
+LBB1_3:
+LM31:
+.stabn	0x44, 0, 108, LM31-_flash_read
+	clrf _CMD+0
+LM32:
+.stabn	0x44, 0, 112, LM32-_flash_read
+Ltmp16:
+	clrf _flash_read.temp.+10
+LBB1_4:
+	movfw _flash_read.temp.+5
+	subwf _flash_read.temp.+10, W
+	bge LBB1_14
+LBB1_5:
+LM33:
+.stabn	0x44, 0, 114, LM33-_flash_read
+Ltmp17:
+	movfw _flash_read.temp.+8
+	addwf _flash_read.temp.+10, W
+	movwf _flash_read.temp.+12
+	movlw 0
+	addwfc _flash_read.temp.+9, W
+	movwf _flash_read.temp.+13
+LM34:
+.stabn	0x44, 0, 115, LM34-_flash_read
+	movwf _EADRH+0
+LM35:
+.stabn	0x44, 0, 116, LM35-_flash_read
+	movfw _flash_read.temp.+12
+	movwf _EADRL+0
+LM36:
+.stabn	0x44, 0, 117, LM36-_flash_read
+	bcf _ISPCR+0, 0
+	bsf _ISPCR+0, 0
+LBB1_6:
+LM37:
+.stabn	0x44, 0, 120, LM37-_flash_read
+Ltmp18:
+	movlw 1
+	addwf _flash_read.temp.+0, F
+	movlw 0
+	addwfc _flash_read.temp.+1, W
+	movwf _flash_read.temp.+1
+Ltmp19:
+LM38:
+.stabn	0x44, 0, 121, LM38-_flash_read
+	movlw 0
+	movwf _flash_read.temp.+11
+	movlw 1
+	andwf _ISPSR+0, W
+	sublw 0
+	beq LBB1_9
+LBB1_8:
+	movlw 1
+	movwf _flash_read.temp.+14
+	movfw _flash_read.temp.+0
+	sublw 0xe8
+	bgt LBB1_16
+LBB1_15:
+	movlw 0
+	movwf _flash_read.temp.+14
+LBB1_16:
+	movlw 1
+	movwf _flash_read.temp.+15
+	movfw _flash_read.temp.+1
+	movwf _flash_read.temp.+16
+	sublw 0xfd
+	bgt LBB1_18
+LBB1_17:
+	movlw 0
+	movwf _flash_read.temp.+15
+LBB1_18:
+	movfw _flash_read.temp.+14
+	movwf _flash_read.temp.+14
+	movfw _flash_read.temp.+16
+	sublw 0xfd
+	beq LBB1_20
+LBB1_19:
+	movfw _flash_read.temp.+15
+	movwf _flash_read.temp.+14
+LBB1_20:
+	movfw _flash_read.temp.+14
+	movwf _flash_read.temp.+11
+LBB1_9:
+Ltmp20:
+	movfw _flash_read.temp.+11
+	andlw 1
+	sublw 0
+	bne LBB1_6
+Ltmp21:
+LBB1_10:
+LM39:
+.stabn	0x44, 0, 122, LM39-_flash_read
+	movlw 1
+	movwf _flash_read.temp.+11
+Ltmp22:
+	movfw _flash_read.temp.+0
+Ltmp23:
+	sublw 0xe8
+	bgt LBB1_22
+LBB1_21:
+	movlw 0
+	movwf _flash_read.temp.+11
+LBB1_22:
+	movlw 1
+	movwf _flash_read.temp.+14
+Ltmp24:
+	movfw _flash_read.temp.+1
+Ltmp25:
+	movwf _flash_read.temp.+15
+	sublw 0xfd
+	bgt LBB1_24
+LBB1_23:
+	movlw 0
+	movwf _flash_read.temp.+14
+LBB1_24:
+	movfw _flash_read.temp.+11
+	movwf _flash_read.temp.+11
+	movfw _flash_read.temp.+15
+	sublw 0xfd
+	beq LBB1_26
+LBB1_25:
+	movfw _flash_read.temp.+14
+	movwf _flash_read.temp.+11
+LBB1_26:
+	movfw _flash_read.temp.+11
+	andlw 1
+	sublw 0
+	bne LBB1_12
+LBB1_11:
+LM40:
+.stabn	0x44, 0, 125, LM40-_flash_read
+Ltmp26:
+	goto LBB1_14
+Ltmp27:
+LBB1_12:
+LM41:
+.stabn	0x44, 0, 127, LM41-_flash_read
+	movfw _flash_read.temp.+2
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _flash_read.temp.+3
+	movwf FSR0H
+	movfw _EDATL+0
+	movwf IND0
+	fsr0_add FSR0, 1
+	movlw 0
+	movwf IND0
+LM42:
+.stabn	0x44, 0, 128, LM42-_flash_read
+	movfw _flash_read.temp.+2
+	movwf FSR0
+	movfw _flash_read.temp.+3
+	movwf FSR0H
+	moviw 0
+	movwf _flash_read.temp.+11
+	moviw 1
+	movwf _flash_read.temp.+14
+	iorwf _EDATH+0, W
+	movwf _flash_read.temp.+14
+	movfw _flash_read.temp.+2
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movfw _flash_read.temp.+3
+	movwf FSR0H
+	movfw _flash_read.temp.+11
+	movwf IND0
+	fsr0_add FSR0, 1
+	movfw _flash_read.temp.+14
+	movwf IND0
+LM43:
+.stabn	0x44, 0, 129, LM43-_flash_read
+	movlw 2
+	addwf _flash_read.temp.+2, F
+LM44:
+.stabn	0x44, 0, 127, LM44-_flash_read
+	movlw 0
+LM45:
+.stabn	0x44, 0, 129, LM45-_flash_read
+	addwfc _flash_read.temp.+3, W
+	movwf _flash_read.temp.+3
+Ltmp28:
+LM46:
+.stabn	0x44, 0, 112, LM46-_flash_read
+	incf _flash_read.temp.+10, F
+	goto LBB1_4
+Ltmp29:
+LBB1_14:
+LM47:
+.stabn	0x44, 0, 132, LM47-_flash_read
+	movfw _flash_read.temp.+4
+	movwf _flash_read.frame.+0
+	return
+Ltmp30:
+Lfunc_end2:
+Lfunc_end3:
+LM48:
+.stabn 0xc0,0,0, LM26-_flash_read
+.stabs "_address:2;",0x80,0,0,_flash_read.args.+0
+.stabn 0xe0,0,0, LM47-_flash_read
+.stabn 0xc0,0,0, LM26-_flash_read
+.stabs "_data:19=*20=2;;",0x80,0,0,_flash_read.args.+2
+.stabn 0xe0,0,0, LM47-_flash_read
+.stabn 0xc0,0,0, LM26-_flash_read
+.stabs "_length:10;",0x80,0,0,_flash_read.args.+4
+.stabn 0xe0,0,0, LM47-_flash_read
+.stabn 0xc0,0,0, LM27-_flash_read
+.stabs "error:10;",0x80,0,0,_flash_read.temp.+4
+.stabn 0xe0,0,0, LM47-_flash_read
+.stabn 0xc0,0,0, LM28-_flash_read
+.stabs "i:10;",0x80,0,0,_flash_read.temp.+10
+.stabn 0xe0,0,0, LM47-_flash_read
+.stabn 0xc0,0,0, LM28-_flash_read
+.stabs "flash_addr:2;",0x80,0,0,_flash_read.temp.+12
+.stabn 0xe0,0,0, LM47-_flash_read
+.stabn 0xc0,0,0, LM28-_flash_read
+.stabs "p_data:21=*22=2;;",0x80,0,0,_flash_read.temp.+2
+.stabn 0xe0,0,0, LM47-_flash_read
+.stabn 0xc0,0,0, LM29-_flash_read
+.stabs "timeout_cnt:2;",0x80,0,0,_flash_read.temp.+0
+.stabn 0xe0,0,0, LM47-_flash_read
+.stabf LM48-_flash_read
+
+	_flash_write_sec .section rom
+	.global	_flash_write
+_flash_write:
+Lfunc_begin4:
+.stabs "flash_write:f23=10;;", 0x24,0,0,_flash_write
+.stabn 0xc0, 0, 0, _flash_write
+.stabn 0xe0, 0, 0, _flash_write
+LM49:
+.stabn	0x44, 0, 146, LM49-_flash_write
+Lfunc_begin5:
+	banksel 0
+	movfw _flash_write.args.+0
+	movwf _flash_write.temp.+141
+	movfw _flash_write.args.+1
+	movwf _flash_write.temp.+142
+	movfw _flash_write.args.+2
+	movwf _flash_write.temp.+139
+	movfw _flash_write.args.+3
+	movwf _flash_write.temp.+140
+	movfw _flash_write.args.+4
+LM50:
+.stabn	0x44, 0, 147, LM50-_flash_write
+Ltmp31:
+	movwf _flash_write.temp.+138
+	movlw 1
+	movwf _flash_write.temp.+137
+LM51:
+.stabn	0x44, 0, 151, LM51-_flash_write
+	movfw _flash_write.temp.+139
+	movwf _flash_write.temp.+135
+	movfw _flash_write.temp.+140
+	movwf _flash_write.temp.+136
+LM52:
+.stabn	0x44, 0, 152, LM52-_flash_write
+	clrf _flash_write.temp.+133
+	clrf _flash_write.temp.+134
+LM53:
+.stabn	0x44, 0, 155, LM53-_flash_write
+	movfw _flash_write.temp.+141
+	SrlSix
+	movwf _flash_write.temp.+143
+	movfw _flash_write.temp.+142
+	ShlTwo
+	iorwf _flash_write.temp.+143, W
+LM54:
+.stabn	0x44, 0, 156, LM54-_flash_write
+	movwf _flash_write.temp.+143
+	ShlSix
+	movwf _flash_write.temp.+131
+LM55:
+.stabn	0x44, 0, 155, LM55-_flash_write
+	movfw _flash_write.temp.+142
+	SrlSix
+LM56:
+.stabn	0x44, 0, 156, LM56-_flash_write
+	ShlSix
+	movwf _flash_write.temp.+144
+	movfw _flash_write.temp.+143
+	SrlTwo
+	iorwf _flash_write.temp.+144, W
+	movwf _flash_write.temp.+132
+LM57:
+.stabn	0x44, 0, 157, LM57-_flash_write
+	movlw 64
+	andwf _flash_write.temp.+141, W
+	movwf _flash_write.temp.+130
+LM58:
+.stabn	0x44, 0, 161, LM58-_flash_write
+	movlw 0 
+	btfsc _GIE, _GIE 
+	movlw 1
+	movwf _flash_write.temp.+129
+LM59:
+.stabn	0x44, 0, 162, LM59-_flash_write
+	bcf _GIE, _GIE
+LM60:
+.stabn	0x44, 0, 165, LM60-_flash_write
+	movfw _flash_write.temp.+131
+	movwf _flash_read.args.+0
+	movfw _flash_write.temp.+132
+	movwf _flash_read.args.+1
+	movlw LOW(_flash_write.temp.+1)
+	movwf _flash_read.args.+2
+	movlw HIGH8(_flash_write.temp.+1)
+	movwf _flash_read.args.+3
+LM61:
+.stabn	0x44, 0, 157, LM61-_flash_write
+	movlw 64
+LM62:
+.stabn	0x44, 0, 165, LM62-_flash_write
+	movwf _flash_read.args.+4
+	call _flash_read
+	movfw _flash_read.frame.+0
+	iorwf _flash_write.temp.+137, F
+LM63:
+.stabn	0x44, 0, 168, LM63-_flash_write
+Ltmp32:
+	clrf _flash_write.temp.+0
+LBB2_1:
+	movfw _flash_write.temp.+138
+	subwf _flash_write.temp.+0, W
+	bge LBB2_4
+LBB2_2:
+LM64:
+.stabn	0x44, 0, 170, LM64-_flash_write
+Ltmp33:
+	movfw _flash_write.temp.+135
+	movwf FSR0
+	movfw _flash_write.temp.+136
+	movwf FSR0H
+	moviw 0
+	movwf _flash_write.temp.+143
+	moviw 1
+	movwf _flash_write.temp.+144
+	movfw _flash_write.temp.+130
+	addwf _flash_write.temp.+0, W
+	movwf _flash_write.temp.+145
+	addwf _flash_write.temp.+145, W
+	movwf _flash_write.temp.+145
+	movlw LOW(_flash_write.temp.+1)
+	addwf _flash_write.temp.+145, W
+	movwf FSR0
+	fsr0_add FSR0, 0
+	movwf _flash_write.temp.+145
+	movlw HIGH8(_flash_write.temp.+1)
+	movwf FSR0H
+	movfw _flash_write.temp.+143
+	movwf IND0
+	movfw _flash_write.temp.+145
+	movwf FSR0
+	fsr0_add FSR0, 1
+	movlw HIGH8(_flash_write.temp.+1)
+	movwf FSR0H
+	movfw _flash_write.temp.+144
+	movwf IND0
+LM65:
+.stabn	0x44, 0, 171, LM65-_flash_write
+	movlw 2
+	addwf _flash_write.temp.+135, F
+	movlw 0
+	addwfc _flash_write.temp.+136, W
+	movwf _flash_write.temp.+136
+Ltmp34:
+LM66:
+.stabn	0x44, 0, 168, LM66-_flash_write
+	incf _flash_write.temp.+0, F
+	goto LBB2_1
+Ltmp35:
+LBB2_4:
+LM67:
+.stabn	0x44, 0, 175, LM67-_flash_write
+	movfw _flash_write.temp.+141
+	movwf _flash_erase.args.+0
+	movfw _flash_write.temp.+142
+	movwf _flash_erase.args.+1
+	call _flash_erase
+	movfw _flash_erase.frame.+0
+	iorwf _flash_write.temp.+137, F
+LBB2_5:
+LM68:
+.stabn	0x44, 0, 183, LM68-_flash_write
+	movlw 1
+	andwf _ISPSR+0, W
+Ltmp36:
+	sublw 0
+	bne LBB2_5
+Ltmp37:
+LBB2_7:
+LM69:
+.stabn	0x44, 0, 186, LM69-_flash_write
+	movlw 5
+	movwf _CMD+0
+LM70:
+.stabn	0x44, 0, 190, LM70-_flash_write
+	movlw LOW(_flash_write.temp.+1)
+	movwf _flash_write.temp.+135
+	movlw HIGH8(_flash_write.temp.+1)
+	movwf _flash_write.temp.+136
+LM71:
+.stabn	0x44, 0, 191, LM71-_flash_write
+Ltmp38:
+	clrf _flash_write.temp.+0
+LBB2_8:
+Ltmp39:
+	movfw _flash_write.temp.+0
+Ltmp40:
+	sublw 63
+	blt LBB2_25
+LBB2_9:
+LM72:
+.stabn	0x44, 0, 193, LM72-_flash_write
+Ltmp41:
+	movfw _flash_write.temp.+131
+	addwf _flash_write.temp.+0, W
+	movwf _flash_write.temp.+146
+	movlw 0
+	addwfc _flash_write.temp.+132, W
+	movwf _flash_write.temp.+147
+LM73:
+.stabn	0x44, 0, 194, LM73-_flash_write
+	movwf _EADRH+0
+LM74:
+.stabn	0x44, 0, 195, LM74-_flash_write
+	movfw _flash_write.temp.+146
+	movwf _EADRL+0
+LM75:
+.stabn	0x44, 0, 196, LM75-_flash_write
+	clrf _flash_write.temp.+133
+	clrf _flash_write.temp.+134
+LBB2_10:
+LM76:
+.stabn	0x44, 0, 199, LM76-_flash_write
+Ltmp42:
+	movlw 1
+	addwf _flash_write.temp.+133, F
+	movlw 0
+	addwfc _flash_write.temp.+134, W
+	movwf _flash_write.temp.+134
+Ltmp43:
+LM77:
+.stabn	0x44, 0, 200, LM77-_flash_write
+	movlw 0
+	movwf _flash_write.temp.+143
+	movlw 1
+	andwf _ISPSR+0, W
+	sublw 0
+	beq LBB2_13
+LBB2_12:
+	movlw 1
+	movwf _flash_write.temp.+144
+	movfw _flash_write.temp.+133
+	sublw 0xe8
+	bgt LBB2_30
+LBB2_29:
+	movlw 0
+	movwf _flash_write.temp.+144
+LBB2_30:
+	movlw 1
+	movwf _flash_write.temp.+145
+	movfw _flash_write.temp.+134
+	movwf _flash_write.temp.+148
+	sublw 0xfd
+	bgt LBB2_32
+LBB2_31:
+	movlw 0
+	movwf _flash_write.temp.+145
+LBB2_32:
+	movfw _flash_write.temp.+144
+	movwf _flash_write.temp.+144
+	movfw _flash_write.temp.+148
+	sublw 0xfd
+	beq LBB2_34
+LBB2_33:
+	movfw _flash_write.temp.+145
+	movwf _flash_write.temp.+144
+LBB2_34:
+	movfw _flash_write.temp.+144
+	movwf _flash_write.temp.+143
+LBB2_13:
+Ltmp44:
+	movfw _flash_write.temp.+143
+	andlw 1
+	sublw 0
+	bne LBB2_10
+Ltmp45:
+LBB2_14:
+LM78:
+.stabn	0x44, 0, 201, LM78-_flash_write
+	movlw 1
+	movwf _flash_write.temp.+143
+Ltmp46:
+	movfw _flash_write.temp.+133
+Ltmp47:
+	sublw 0xe8
+	bgt LBB2_36
+LBB2_35:
+	movlw 0
+	movwf _flash_write.temp.+143
+LBB2_36:
+	movlw 1
+	movwf _flash_write.temp.+144
+Ltmp48:
+	movfw _flash_write.temp.+134
+Ltmp49:
+	movwf _flash_write.temp.+145
+	sublw 0xfd
+	bgt LBB2_38
+LBB2_37:
+	movlw 0
+	movwf _flash_write.temp.+144
+LBB2_38:
+	movfw _flash_write.temp.+143
+	movwf _flash_write.temp.+143
+	movfw _flash_write.temp.+145
+	sublw 0xfd
+	beq LBB2_40
+LBB2_39:
+	movfw _flash_write.temp.+144
+	movwf _flash_write.temp.+143
+LBB2_40:
+	movfw _flash_write.temp.+143
+	andlw 1
+	sublw 0
+	bne LBB2_16
+LBB2_15:
+LM79:
+.stabn	0x44, 0, 204, LM79-_flash_write
+Ltmp50:
+	goto LBB2_23
+Ltmp51:
+LBB2_16:
+LM80:
+.stabn	0x44, 0, 208, LM80-_flash_write
+	movfw _flash_write.temp.+135
+	movwf FSR0
+	movfw _flash_write.temp.+136
+	movwf FSR0H
+	moviw 0
+	movwf _EDATL+0
+LM81:
+.stabn	0x44, 0, 209, LM81-_flash_write
+	movfw _flash_write.temp.+135
+	movwf FSR0
+	movfw _flash_write.temp.+136
+	movwf FSR0H
+	addlfsr 0, 1
+	moviw 0
+	movwf _EDATH+0
+LM82:
+.stabn	0x44, 0, 210, LM82-_flash_write
+	movlw 2
+	addwf _flash_write.temp.+135, F
+	movlw 0
+	addwfc _flash_write.temp.+136, F
+LM83:
+.stabn	0x44, 0, 214, LM83-_flash_write
+	movlw 0x96
+	movwf _WRPRT+0
+LM84:
+.stabn	0x44, 0, 215, LM84-_flash_write
+	movlw 105
+	movwf _WRPRT+0
+LM85:
+.stabn	0x44, 0, 216, LM85-_flash_write
+	movlw 90
+	movwf _WRPRT+0
+LM86:
+.stabn	0x44, 0, 218, LM86-_flash_write
+Ltmp52:
+	movlw 8
+	andwf _ISPSR+0, W
+Ltmp53:
+	sublw 0
+	beq LBB2_21
+LBB2_17:
+LM87:
+.stabn	0x44, 0, 220, LM87-_flash_write
+Ltmp54:
+	bcf _ISPCR+0, 0
+	bsf _ISPCR+0, 0
+LBB2_18:
+LM88:
+.stabn	0x44, 0, 224, LM88-_flash_write
+	movlw 1
+	andwf _ISPSR+0, W
+Ltmp55:
+	sublw 0
+	bne LBB2_18
+Ltmp56:
+LBB2_20:
+LM89:
+.stabn	0x44, 0, 225, LM89-_flash_write
+	goto LBB2_22
+Ltmp57:
+LBB2_21:
+LM90:
+.stabn	0x44, 0, 228, LM90-_flash_write
+	goto LBB2_25
+Ltmp58:
+LBB2_22:
+LBB2_23:
+LM91:
+.stabn	0x44, 0, 191, LM91-_flash_write
+	incf _flash_write.temp.+0, F
+	goto LBB2_8
+Ltmp59:
+LBB2_25:
+LM92:
+.stabn	0x44, 0, 234, LM92-_flash_write
+	movfw _flash_write.temp.+129
+Ltmp60:
+	sublw 0
+	beq LBB2_27
+LBB2_26:
+LM93:
+.stabn	0x44, 0, 236, LM93-_flash_write
+Ltmp61:
+	bsf _GIE, _GIE
+LM94:
+.stabn	0x44, 0, 237, LM94-_flash_write
+	goto LBB2_28
+Ltmp62:
+LBB2_27:
+LM95:
+.stabn	0x44, 0, 239, LM95-_flash_write
+	bcf _GIE, _GIE
+Ltmp63:
+LBB2_28:
+LM96:
+.stabn	0x44, 0, 242, LM96-_flash_write
+	movfw _flash_write.temp.+137
+	movwf _flash_write.frame.+0
+	return
+Ltmp64:
+Lfunc_end4:
+Lfunc_end5:
+.stabs "_flash_t:T26=s128cache:27=ar28;0;63;29=2;;,0,1024;;", 0x80, 0, 0, 0
+LM97:
+.stabn 0xc0,0,0, LM49-_flash_write
+.stabs "_address:2;",0x80,0,0,_flash_write.args.+0
+.stabn 0xe0,0,0, LM96-_flash_write
+.stabn 0xc0,0,0, LM49-_flash_write
+.stabs "_data:24=*25=2;;",0x80,0,0,_flash_write.args.+2
+.stabn 0xe0,0,0, LM96-_flash_write
+.stabn 0xc0,0,0, LM49-_flash_write
+.stabs "_length:10;",0x80,0,0,_flash_write.args.+4
+.stabn 0xe0,0,0, LM96-_flash_write
+.stabn 0xc0,0,0, LM50-_flash_write
+.stabs "error:10;",0x80,0,0,_flash_write.temp.+137
+.stabn 0xe0,0,0, LM96-_flash_write
+.stabn 0xc0,0,0, LM51-_flash_write
+.stabs "i:10;",0x80,0,0,_flash_write.temp.+0
+.stabn 0xe0,0,0, LM96-_flash_write
+.stabn 0xc0,0,0, LM51-_flash_write
+.stabs "flash_t:26;",0x80,0,0,_flash_write.temp.+1
+.stabn 0xe0,0,0, LM96-_flash_write
+.stabn 0xc0,0,0, LM51-_flash_write
+.stabs "flash_addr:2;",0x80,0,0,_flash_write.temp.+146
+.stabn 0xe0,0,0, LM96-_flash_write
+.stabn 0xc0,0,0, LM51-_flash_write
+.stabs "p_data:30=*31=2;;",0x80,0,0,_flash_write.temp.+135
+.stabn 0xe0,0,0, LM96-_flash_write
+.stabn 0xc0,0,0, LM52-_flash_write
+.stabs "timeout_cnt:2;",0x80,0,0,_flash_write.temp.+133
+.stabn 0xe0,0,0, LM96-_flash_write
+.stabn 0xc0,0,0, LM53-_flash_write
+.stabs "sector_addr:2;",0x80,0,0,_flash_write.temp.+131
+.stabn 0xe0,0,0, LM96-_flash_write
+.stabn 0xc0,0,0, LM53-_flash_write
+.stabs "offset_addr:10;",0x80,0,0,_flash_write.temp.+130
+.stabn 0xe0,0,0, LM96-_flash_write
+.stabn 0xc0,0,0, LM58-_flash_write
+.stabs "backup_gie:10;",0x80,0,0,_flash_write.temp.+129
+.stabn 0xe0,0,0, LM96-_flash_write
+.stabf LM97-_flash_write
+
+
+	.@_flash_erase_sec@_flash_erase.args. .section bank1,uninit
+	_flash_erase.args. .ds 2
+	.ends
+
+	.@_flash_erase_sec@_flash_erase.frame. .section bank1,uninit
+	_flash_erase.frame. .ds 1
+	.ends
+
+	.@_flash_erase_sec@_flash_erase.temp. .section bank1,uninit
+	_flash_erase.temp. .ds 8
+	.ends
+
+	.@_flash_read_sec@_flash_read.args. .section bank1,uninit
+	_flash_read.args. .ds 5
+	.ends
+
+	.@_flash_read_sec@_flash_read.frame. .section bank1,uninit
+	_flash_read.frame. .ds 1
+	.ends
+
+	.@_flash_read_sec@_flash_read.temp. .section bank1,uninit
+	_flash_read.temp. .ds 17
+	.ends
+
+	.@_flash_write_sec@_flash_write.args. .section bank1,uninit
+	_flash_write.args. .ds 5
+	.ends
+
+	.@_flash_write_sec@_flash_write.frame. .section bank1,uninit
+	_flash_write.frame. .ds 1
+	.ends
+
+	.@_flash_write_sec@_flash_write.temp. .section bank1,uninit
+	_flash_write.temp. .ds 149
+	.ends
+
+
+
