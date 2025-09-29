@@ -916,39 +916,39 @@ void Charge_bat_Full_check(void)
 	}
 	//////////////////电池高压 大于14.1V 限制充电电流函数 //////
 	Charge_HIG_Vbat_F = 0; ///// 4-9--处理取消这个功能///
-	//		    if(!Charge_HIG_Vbat_F)
-	//		  {
-	//              if(Vbat_8_date>C_CV_HIGH_BAT)
-	//			  {
-	//			    Charge_low_Vbat_CNT++;
-	//			  }
-	//			  else
-	//			  {
-	//			    Charge_low_Vbat_CNT=0;
-	//			  }
-	//		      if(Charge_low_Vbat_CNT>=10)
-	//		      {
-	//		         Charge_low_Vbat_CNT=0;
-	//		         Charge_HIG_Vbat_F=1;
-	//		      }
-	//		  }
-	//		  else
-	//		  {
-	////		      if((NTC_Slide >= C_TempH_Charge_low_power_H_R)&&(NTC_Slide < C_TempH_Charge_low_power_L_R))
-	//               if(Vbat_8_date>C_CV_LOW_BAT_H)
-	//		      {
-	//			  Charge_low_Vbat_CNT++;
-	//			  }
-	//			  else
-	//			  {
-	//			  Charge_low_Vbat_CNT=0;
-	//			  }
-	//		      if(Charge_low_Vbat_CNT>=10)
-	//		      {
-	//		         Charge_low_Vbat_CNT=0;
-	//		         Charge_HIG_Vbat_F=0;
-	//		      }
-	//		  }
+						   //		    if(!Charge_HIG_Vbat_F)
+						   //		  {
+						   //              if(Vbat_8_date>C_CV_HIGH_BAT)
+						   //			  {
+						   //			    Charge_low_Vbat_CNT++;
+						   //			  }
+						   //			  else
+						   //			  {
+						   //			    Charge_low_Vbat_CNT=0;
+						   //			  }
+						   //		      if(Charge_low_Vbat_CNT>=10)
+						   //		      {
+						   //		         Charge_low_Vbat_CNT=0;
+						   //		         Charge_HIG_Vbat_F=1;
+						   //		      }
+						   //		  }
+						   //		  else
+						   //		  {
+						   ////		      if((NTC_Slide >= C_TempH_Charge_low_power_H_R)&&(NTC_Slide < C_TempH_Charge_low_power_L_R))
+						   //               if(Vbat_8_date>C_CV_LOW_BAT_H)
+						   //		      {
+						   //			  Charge_low_Vbat_CNT++;
+						   //			  }
+						   //			  else
+						   //			  {
+						   //			  Charge_low_Vbat_CNT=0;
+						   //			  }
+						   //		      if(Charge_low_Vbat_CNT>=10)
+						   //		      {
+						   //		         Charge_low_Vbat_CNT=0;
+						   //		         Charge_HIG_Vbat_F=0;
+						   //		      }
+						   //		  }
 }
 
 void Bat_Vaule_deal(void)
@@ -1091,8 +1091,9 @@ void Bat_Vaule_deal(void)
 			Bat_low_Cnt = 0;
 	}
 }
+
 void Bat_low_deal(void) ////  100ms 处理以一次////
-{ 
+{
 	uint8_t R_VbatVol_Value;
 	R_VbatVol_Value = Vbat_8_date;
 
@@ -1375,8 +1376,8 @@ void BSP_Discharge_TempNG(void)
 	Discharge_MinCur = 1; ////// 过流置起 小电流休眠标志位////
 	sleepcnt = 2;
 	discharge_displed = displaytime; //// 放电休眠灭灯////
-	//    app_power_PDO_rerest();
-	//    TYPE_C_constraint_sleep();
+									 //    app_power_PDO_rerest();
+									 //    TYPE_C_constraint_sleep();
 }
 
 //===============================================
